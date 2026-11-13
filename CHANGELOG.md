@@ -1,5 +1,11 @@
 # Cambios
 
+## 0.5.4 (14/11/2026)
+
+- **Firmware que falta:** el aviso del diagnóstico dice ahora qué archivo falta, de qué dispositivo es y qué paquete lo trae (en LMDE y Debian, el paquete `firmware-*` que corresponde; en Linux Mint y Ubuntu, `linux-firmware`). En «Actualizaciones de drivers», la tabla de detalles añade el driver, el dispositivo, el paquete y una nota.
+- Ya no se avisa por `iwl-debug-yoyo.bin`: el driver del Wi-Fi Intel lo pide en cada arranque, pero es una configuración de depuración opcional que no viene en ningún paquete. Sigue apareciendo en la tabla de detalles, marcado como opcional.
+- Ese aviso ya no remite al Gestor de controladores, que no existe en LMDE: lleva al Gestor de actualizaciones.
+
 ## 0.5.3 (13/11/2026)
 
 - El menú de Linux Mint mostraba el icono genérico de programa en lugar del de MintMachine. El paquete instala ahora el icono también en mapa de bits (de 16 a 256 píxeles) y en `/usr/share/pixmaps`, y al instalar y al quitar actualiza la caché de iconos y la base de datos de aplicaciones.

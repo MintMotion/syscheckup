@@ -2555,3 +2555,45 @@ msgstr "Code JEDEC {codigo}"
 
 msgid "La placa no lo indica"
 msgstr "Non indiqué par la carte mère"
+
+msgid "Configuración de depuración opcional del Wi-Fi Intel, para los desarrolladores de Intel. No viene en ningún paquete y el Wi-Fi funciona sin ella."
+msgstr "Configuration de débogage facultative du Wi-Fi Intel, destinée aux développeurs d'Intel. Elle n'est fournie dans aucun paquet et le Wi-Fi fonctionne sans elle."
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor de software o con las actualizaciones pendientes, y reinicia."
+msgstr "Si ce périphérique fonctionne bien, il n'y a rien à faire : beaucoup de pilotes essaient plusieurs versions jusqu'à trouver celle qui est installée. S'il ne fonctionne pas, installez le paquet {paquete} avec le Gestionnaire de logiciels ou avec les mises à jour en attente, puis redémarrez."
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "Si ce périphérique fonctionne bien, il n'y a rien à faire : beaucoup de pilotes essaient plusieurs versions jusqu'à trouver celle qui est installée. S'il ne fonctionne pas, installez les mises à jour en attente, redémarrez et, si le problème persiste, demandez de l'aide sur le forum de votre distribution avec le rapport de MintMachine (données personnelles masquées)."
+
+msgid "Falta firmware que pidió un driver: {lista}."
+msgstr "Micrologiciel demandé par un pilote et manquant : {lista}."
+
+msgid "Paquete que lo trae"
+msgstr "Paquet qui le fournit"
+
+msgid "Nota"
+msgstr "Remarque"
+
+msgid "Wi-Fi Intel"
+msgstr "Wi-Fi Intel"
+
+msgid "Gráfica AMD (antigua)"
+msgstr "Carte graphique AMD (ancienne)"
+
+msgid "Gráfica Intel"
+msgstr "Carte graphique Intel"
+
+msgid "Gráfica NVIDIA (driver libre)"
+msgstr "Carte graphique NVIDIA (pilote libre)"
+
+msgid "Red por cable Realtek"
+msgstr "Réseau filaire Realtek"
+
+msgid "Wi-Fi Realtek"
+msgstr "Wi-Fi Realtek"
+
+msgid "Wi-Fi Qualcomm Atheros"
+msgstr "Wi-Fi Qualcomm Atheros"
+
+msgid "Wi-Fi MediaTek"
+msgstr "Wi-Fi MediaTek"

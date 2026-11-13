@@ -48,7 +48,7 @@ APP = "MintMachine"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.5.3"
+VERSION = "0.5.4"
 JSON_SCHEMA = 2
 
 READONLY = "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
@@ -2465,13 +2465,16 @@ def sec_modules(ctx):
 def kernel_log():
     """Busca en los mensajes del kernel de este arranque lo que suele indicar problemas."""
     out = run(["journalctl", "-k", "-b", "-q", "--no-pager", "-o", "cat"], timeout=10) or run(["dmesg"], timeout=5)
-    res = {"ok": bool(out), "fw": [], "oom": [], "io": 0, "mce": 0, "thermal": 0}
+    res = {"ok": bool(out), "fw": [], "fw_driver": {}, "oom": [], "io": 0, "mce": 0, "thermal": 0}
     for line in out.splitlines():
         m = re.search(r"firmware: failed to load (\S+)|Direct firmware load for (\S+) failed", line)
         if m:
             name = m.group(1) or m.group(2)
             if name not in res["fw"]:
                 res["fw"].append(name)
+            d = re.match(r"\s*([^\s:]+):? \S+: ", line[:m.start()] + ": ")    # «iwlwifi 0000:04:00.0: …»
+            if d and name not in res["fw_driver"]:
+                res["fw_driver"][name] = d.group(1)
         m = re.search(r"Out of memory: Killed process \d+ \(([^)]+)\)", line)
         if m:
             res["oom"].append(m.group(1))
@@ -2514,6 +2517,40 @@ DRIVER_RULES = [
 ]
 IMPORTANT_PCI = {"01": "almacenamiento", "02": "red", "03": "gráfica", "04": "sonido o vídeo",
                  "09": "entrada", "0d": "inalámbrico"}
+
+
+# Archivos que un driver pide siempre aunque ninguna distribución los incluya: que falten es lo normal.
+FW_OPTIONAL = {
+    "iwl-debug-yoyo.bin": "Configuración de depuración opcional del Wi-Fi Intel, para los desarrolladores de "
+                          "Intel. No viene en ningún paquete y el Wi-Fi funciona sin ella.",
+}
+# Qué dispositivo hay detrás de cada driver y qué paquete de Debian/LMDE trae su firmware
+# (en Linux Mint y Ubuntu todo viene en linux-firmware).
+FW_DRIVERS = [
+    (r"iwlwifi$", "Wi-Fi Intel"), (r"(btusb|btintel|btrtl|bluetooth|hci\d+)$", "Bluetooth"),
+    (r"amdgpu$", "Gráfica AMD"), (r"radeon$", "Gráfica AMD (antigua)"), (r"i915|xe$", "Gráfica Intel"),
+    (r"nouveau$", "Gráfica NVIDIA (driver libre)"), (r"(r8169|r8152)$", "Red por cable Realtek"),
+    (r"(rtw88|rtw89|rtl8\w+)", "Wi-Fi Realtek"), (r"(ath9k|ath10k|ath11k|ath12k)", "Wi-Fi Qualcomm Atheros"),
+    (r"(mt76|mt79)", "Wi-Fi MediaTek"), (r"(snd_|sof-|sof_)", "Sonido"),
+]
+FW_PACKAGES = [
+    (r"(iwlwifi-|intel/ibt-)", "firmware-iwlwifi"), (r"(amdgpu/|radeon/)", "firmware-amd-graphics"),
+    (r"(rtl_nic/|rtw88/|rtw89/|rtl_bt/|rtlwifi/)", "firmware-realtek"), (r"(ath9k|ath10k/|ath11k/|ath12k/)", "firmware-atheros"),
+    (r"(i915/|xe/|nvidia/|mediatek/)", "firmware-misc-nonfree"),
+]
+
+
+def firmware_rows(log, pk):
+    """Archivos de firmware que faltan: (archivo, driver, dispositivo, paquete, opcional)."""
+    ubuntu = "linux-firmware" in pk
+    rows = []
+    for f in log["fw"]:
+        drv = log.get("fw_driver", {}).get(f, "")
+        dev = next((d for rx, d in FW_DRIVERS if drv and re.match(rx, drv, re.I)), "")
+        pkg = "" if f in FW_OPTIONAL else ("linux-firmware" if ubuntu else
+                                          next((p for rx, p in FW_PACKAGES if re.match(rx, f)), ""))
+        rows.append((f, drv, _(dev) if dev else "", pkg, f in FW_OPTIONAL))
+    return rows
 
 
 def sec_updates(ctx):
@@ -2611,11 +2648,20 @@ def sec_updates(ctx):
                          "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu "
                          "distribución con el informe de MintMachine (con los datos personales ocultos).", "drivers")
     log = kernel_log()
-    if log["fw"]:
-        ctx.flag("info", "Firmware", _("Un driver pidió {n} archivos de firmware que no están instalados.").format(n=len(log['fw'])),
-                 "Si todos tus dispositivos funcionan bien, no hace falta hacer nada: muchos drivers prueban "
-                 "varias versiones hasta dar con la instalada. Si alguno falla, instala las actualizaciones "
-                 "pendientes y revisa el Gestor de controladores.", "drivers")
+    fwrows = firmware_rows(log, pk)
+    faltan = [r for r in fwrows if not r[4]]
+    if faltan:
+        lista = "; ".join(f"{f} ({dev or drv})" if (dev or drv) else f for f, drv, dev, _p, _o in faltan)
+        pkgs = sorted({p for *_r, p, _o in faltan if p})
+        ctx.flag("info", "Firmware", _("Falta firmware que pidió un driver: {lista}.").format(lista=lista),
+                 _("Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias "
+                   "versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor "
+                   "de software o con las actualizaciones pendientes, y reinicia.").format(paquete=", ".join(pkgs))
+                 if pkgs else
+                 "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias "
+                 "versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, "
+                 "reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de "
+                 "MintMachine (con los datos personales ocultos).", "updates")
 
     blocks = [
         resumen,
@@ -2624,12 +2670,13 @@ def sec_updates(ctx):
         table("Firmware de los dispositivos (fwupd)", ["Dispositivo", "Estado", "Versión actual",
                                                        "Versión nueva", "Fabricante"], fw_rows),
         table("Dispositivos sin driver cargado", ["Ranura", "Clase", "Dispositivo", "Módulos candidatos"], nodrv),
-        table("Firmware que el kernel pidió y no encontró", ["Archivo"], [(f,) for f in log["fw"]], adv=True),
+        table("Firmware que el kernel pidió y no encontró", ["Archivo", "Driver", "Dispositivo", "Paquete que lo trae", "Nota"],
+              [(f, drv, dev, p, _(FW_OPTIONAL[f]) if o else "") for f, drv, dev, p, o in fwrows], adv=True),
     ]
     if not have("fwupdmgr"):
         blocks.append(note("Con el paquete fwupd instalado, aquí aparecerían también las actualizaciones "
                            "de BIOS, SSD, docks y periféricos que publica cada fabricante."))
-    if log["fw"]:
+    if faltan:
         blocks.append(note("Que falte un archivo de firmware no siempre es un problema: algunos drivers "
                            "prueban varias versiones hasta dar con la instalada. Si el dispositivo falla, "
                            "el paquete que lo trae suele ser firmware-misc-nonfree, firmware-iwlwifi, "

@@ -2555,3 +2555,45 @@ msgstr "JEDEC 代码 {codigo}"
 
 msgid "La placa no lo indica"
 msgstr "主板未提供此信息"
+
+msgid "Configuración de depuración opcional del Wi-Fi Intel, para los desarrolladores de Intel. No viene en ningún paquete y el Wi-Fi funciona sin ella."
+msgstr "Intel Wi-Fi 的可选调试配置，供 Intel 开发人员使用。任何软件包都不包含它，没有它 Wi-Fi 也能正常工作。"
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor de software o con las actualizaciones pendientes, y reinicia."
+msgstr "如果该设备工作正常，则无需任何操作：许多驱动程序会尝试多个版本，直到找到已安装的版本。如果设备出现故障，请通过软件管理器或待安装的更新安装 {paquete} 软件包，然后重新启动。"
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "如果该设备工作正常，则无需任何操作：许多驱动程序会尝试多个版本，直到找到已安装的版本。如果设备出现故障，请安装待安装的更新并重新启动；如果问题仍然存在，请附上 MintMachine 报告（隐藏个人数据）到您所用发行版的论坛求助。"
+
+msgid "Falta firmware que pidió un driver: {lista}."
+msgstr "缺少驱动程序请求的固件：{lista}。"
+
+msgid "Paquete que lo trae"
+msgstr "提供它的软件包"
+
+msgid "Nota"
+msgstr "备注"
+
+msgid "Wi-Fi Intel"
+msgstr "Intel Wi-Fi"
+
+msgid "Gráfica AMD (antigua)"
+msgstr "AMD 显卡（旧款）"
+
+msgid "Gráfica Intel"
+msgstr "Intel 显卡"
+
+msgid "Gráfica NVIDIA (driver libre)"
+msgstr "NVIDIA 显卡（开源驱动）"
+
+msgid "Red por cable Realtek"
+msgstr "Realtek 有线网络"
+
+msgid "Wi-Fi Realtek"
+msgstr "Realtek Wi-Fi"
+
+msgid "Wi-Fi Qualcomm Atheros"
+msgstr "Qualcomm Atheros Wi-Fi"
+
+msgid "Wi-Fi MediaTek"
+msgstr "MediaTek Wi-Fi"

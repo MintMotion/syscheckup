@@ -2555,3 +2555,45 @@ msgstr "JEDEC コード {codigo}"
 
 msgid "La placa no lo indica"
 msgstr "マザーボードが報告していません"
+
+msgid "Configuración de depuración opcional del Wi-Fi Intel, para los desarrolladores de Intel. No viene en ningún paquete y el Wi-Fi funciona sin ella."
+msgstr "Intel Wi-Fi 用のオプションのデバッグ設定で、Intel の開発者向けです。どのパッケージにも含まれておらず、これがなくても Wi-Fi は動作します。"
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor de software o con las actualizaciones pendientes, y reinicia."
+msgstr "そのデバイスが正常に動作していれば、何もする必要はありません。多くのドライバーは、インストール済みのものが見つかるまで複数のバージョンを試します。動作しない場合は、ソフトウェアマネージャーまたは保留中の更新で {paquete} パッケージをインストールし、再起動してください。"
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "そのデバイスが正常に動作していれば、何もする必要はありません。多くのドライバーは、インストール済みのものが見つかるまで複数のバージョンを試します。動作しない場合は、保留中の更新をインストールして再起動し、それでも直らなければ、MintMachine のレポート（個人データを非表示にしたもの）を添えてディストリビューションのフォーラムで質問してください。"
+
+msgid "Falta firmware que pidió un driver: {lista}."
+msgstr "ドライバーが要求したファームウェアがありません: {lista}。"
+
+msgid "Paquete que lo trae"
+msgstr "提供するパッケージ"
+
+msgid "Nota"
+msgstr "備考"
+
+msgid "Wi-Fi Intel"
+msgstr "Intel Wi-Fi"
+
+msgid "Gráfica AMD (antigua)"
+msgstr "AMD グラフィックス（旧型）"
+
+msgid "Gráfica Intel"
+msgstr "Intel グラフィックス"
+
+msgid "Gráfica NVIDIA (driver libre)"
+msgstr "NVIDIA グラフィックス（オープンソースドライバー）"
+
+msgid "Red por cable Realtek"
+msgstr "Realtek 有線ネットワーク"
+
+msgid "Wi-Fi Realtek"
+msgstr "Realtek Wi-Fi"
+
+msgid "Wi-Fi Qualcomm Atheros"
+msgstr "Qualcomm Atheros Wi-Fi"
+
+msgid "Wi-Fi MediaTek"
+msgstr "MediaTek Wi-Fi"

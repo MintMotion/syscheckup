@@ -2555,3 +2555,45 @@ msgstr "JEDEC code {codigo}"
 
 msgid "La placa no lo indica"
 msgstr "Not reported by the motherboard"
+
+msgid "Configuración de depuración opcional del Wi-Fi Intel, para los desarrolladores de Intel. No viene en ningún paquete y el Wi-Fi funciona sin ella."
+msgstr "Optional debug configuration for Intel Wi-Fi, meant for Intel's developers. It is not shipped in any package and Wi-Fi works without it."
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor de software o con las actualizaciones pendientes, y reinicia."
+msgstr "If that device works fine, there is nothing to do: many drivers try several versions until they find the installed one. If it fails, install the {paquete} package with the Software Manager or with the pending updates, and restart."
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "If that device works fine, there is nothing to do: many drivers try several versions until they find the installed one. If it fails, install the pending updates, restart and, if it still fails, ask in your distribution's forum with the MintMachine report (with personal data hidden)."
+
+msgid "Falta firmware que pidió un driver: {lista}."
+msgstr "Missing firmware requested by a driver: {lista}."
+
+msgid "Paquete que lo trae"
+msgstr "Package that provides it"
+
+msgid "Nota"
+msgstr "Note"
+
+msgid "Wi-Fi Intel"
+msgstr "Intel Wi-Fi"
+
+msgid "Gráfica AMD (antigua)"
+msgstr "AMD graphics (older)"
+
+msgid "Gráfica Intel"
+msgstr "Intel graphics"
+
+msgid "Gráfica NVIDIA (driver libre)"
+msgstr "NVIDIA graphics (open-source driver)"
+
+msgid "Red por cable Realtek"
+msgstr "Realtek wired network"
+
+msgid "Wi-Fi Realtek"
+msgstr "Realtek Wi-Fi"
+
+msgid "Wi-Fi Qualcomm Atheros"
+msgstr "Qualcomm Atheros Wi-Fi"
+
+msgid "Wi-Fi MediaTek"
+msgstr "MediaTek Wi-Fi"

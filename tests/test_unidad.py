@@ -212,6 +212,25 @@ def test_fabricante_de_la_memoria():
     assert mm.ram_vendor("Undefined", "") == "La placa no lo indica"
 
 
+def test_firmware_que_falta():
+    lineas = ["iwlwifi 0000:04:00.0: Direct firmware load for iwl-debug-yoyo.bin failed with error -2",
+              "Bluetooth: hci0: Direct firmware load for intel/ibt-0040-0041.sfi failed with error -2",
+              "amdgpu 0000:0b:00.0: firmware: failed to load amdgpu/green_sardine_ta.bin (-2)"]
+    viejo = mm.run
+    mm.run = lambda *a, **k: "\n".join(lineas)
+    mm.clear_cache()
+    try:
+        log = mm.kernel_log()
+    finally:
+        mm.run = viejo
+        mm.clear_cache()
+    filas = {f: r for f, *r in mm.firmware_rows(log, {})}
+    assert filas["iwl-debug-yoyo.bin"] == ["iwlwifi", "Wi-Fi Intel", "", True]
+    assert filas["intel/ibt-0040-0041.sfi"] == ["Bluetooth", "Bluetooth", "firmware-iwlwifi", False]
+    assert filas["amdgpu/green_sardine_ta.bin"] == ["amdgpu", "Gráfica AMD", "firmware-amd-graphics", False]
+    assert mm.firmware_rows(log, {"linux-firmware": "x"})[2][3] == "linux-firmware"
+
+
 def test_registro_de_secciones_coherente():
     assert set(mm.COLLECTORS) == set(mm.ORDER)
     assert set(mm.COLLECTORS) | {"resumen", "diagnostico"} == set(mm.TITLES)
@@ -248,7 +267,8 @@ def test_textos_nuevos_traducidos():
               "Seguridad del firmware (HSI)", "Pedir ayuda con:", "Problema: {tema}", "Wi-Fi y red",
               "Utilidades opcionales que no están instaladas", "{n} de {m} puntos en orden",
               mm.READONLY, "Frecuencia media", "{marca} (según la referencia)", "Código JEDEC {codigo}",
-              "La placa no lo indica"]
+              "La placa no lo indica", "Falta firmware que pidió un driver: {lista}.", "Paquete que lo trae",
+              "Wi-Fi Intel", "Red por cable Realtek", mm.FW_OPTIONAL["iwl-debug-yoyo.bin"]]
     for lang in mm.LANGS:
         if lang != "es":
             cat = _po(lang)

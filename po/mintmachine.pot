@@ -3602,3 +3602,59 @@ msgstr ""
 #: mintmachine.py
 msgid "La placa no lo indica"
 msgstr ""
+
+#: mintmachine.py
+msgid "Configuración de depuración opcional del Wi-Fi Intel, para los desarrolladores de Intel. No viene en ningún paquete y el Wi-Fi funciona sin ella."
+msgstr ""
+
+#: mintmachine.py
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor de software o con las actualizaciones pendientes, y reinicia."
+msgstr ""
+
+#: mintmachine.py
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr ""
+
+#: mintmachine.py
+msgid "Falta firmware que pidió un driver: {lista}."
+msgstr ""
+
+#: mintmachine.py
+msgid "Paquete que lo trae"
+msgstr ""
+
+#: mintmachine.py
+msgid "Nota"
+msgstr ""
+
+#: mintmachine.py
+msgid "Wi-Fi Intel"
+msgstr ""
+
+#: mintmachine.py
+msgid "Gráfica AMD (antigua)"
+msgstr ""
+
+#: mintmachine.py
+msgid "Gráfica Intel"
+msgstr ""
+
+#: mintmachine.py
+msgid "Gráfica NVIDIA (driver libre)"
+msgstr ""
+
+#: mintmachine.py
+msgid "Red por cable Realtek"
+msgstr ""
+
+#: mintmachine.py
+msgid "Wi-Fi Realtek"
+msgstr ""
+
+#: mintmachine.py
+msgid "Wi-Fi Qualcomm Atheros"
+msgstr ""
+
+#: mintmachine.py
+msgid "Wi-Fi MediaTek"
+msgstr ""

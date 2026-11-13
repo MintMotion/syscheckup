@@ -198,6 +198,7 @@ esac
     cmd("journalctl", """case "$*" in *-k*) cat <<'K'
 iwlwifi 0000:00:14.3: firmware: failed to load iwlwifi-so-a0-gf-a0-89.ucode (-2)
 iwlwifi 0000:00:14.3: Direct firmware load for iwlwifi-so-a0-gf-a0-88.ucode failed with error -2
+iwlwifi 0000:00:14.3: Direct firmware load for iwl-debug-yoyo.bin failed with error -2
 Out of memory: Killed process 4123 (firefox-esr) total-vm:9123456kB, anon-rss:3123456kB
 K
 exit 0;; esac

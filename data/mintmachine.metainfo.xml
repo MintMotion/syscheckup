@@ -37,6 +37,11 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.5.4" date="2026-11-14">
+      <description>
+        <p>El aviso de firmware que falta dice qué archivo es, de qué dispositivo y qué paquete lo trae.</p>
+      </description>
+    </release>
     <release version="0.5.3" date="2026-11-13">
       <description>
         <p>El icono del menú es el mismo que el del programa.</p>
