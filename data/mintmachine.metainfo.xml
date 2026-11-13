@@ -37,6 +37,12 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.5.1" date="2026-11-13">
+      <description>
+        <p>Indicadores en vivo en Procesador, fabricante de la memoria aunque la placa no lo indique,
+        tema claro más suave y barra superior más limpia.</p>
+      </description>
+    </release>
     <release version="0.5.0" date="2026-11-13">
       <description>
         <p>Pantallas en Wayland, uso de la gráfica Intel, aplicaciones que más consumen, sección

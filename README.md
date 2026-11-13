@@ -14,7 +14,7 @@ Las capturas de `docs/` salen del banco de pruebas, que simula un portátil. Los
 
 - **La primera pantalla enseña lo importante:** si el equipo está bien o hay algo que revisar, indicadores de uso en vivo, la ficha del equipo (con placa base y BIOS) y el estado del sistema.
 - **El detalle va en la barra lateral**, agrupado en Hardware y Sistema y software. Lo que solo interesa a expertos está plegado en **Detalles técnicos** dentro de cada sección.
-- **Explicaciones en lenguaje llano** bajo los apartados técnicos y en los campos marcados con una «i»: pulsa sobre ella o pasa el ratón por encima.
+- **Explicaciones en lenguaje llano** bajo los apartados técnicos.
 - **Buscador** (Ctrl+F): escribe «temperatura», «NVIDIA» o «batería» y la lista se queda con las secciones que lo mencionan.
 
 ## Idioma y aspecto
@@ -46,9 +46,9 @@ Veintiuna secciones en la barra lateral:
 | Inicio | Estado general, indicadores en vivo (procesador, memoria, disco, temperatura, batería), lo más importante del diagnóstico, ficha del equipo con placa base y BIOS, y sistema |
 | Diagnóstico | Revisión automática: qué conviene revisar, sugerencias opcionales, qué hacer en cada caso y errores más repetidos del registro del sistema |
 | Monitor en vivo | Gráficas de los últimos dos minutos de procesador, RAM y swap, red, disco, temperatura y gráfica; uso de cada hilo; procesos que más consumen |
-| Procesador | Modelo, familia y stepping, microcódigo, núcleos e hilos, núcleos P y E, cachés, juegos de instrucciones, frecuencia y uso de cada hilo, frenazos por temperatura, vulnerabilidades y mitigaciones |
+| Procesador | Indicadores en vivo de uso total, frecuencia media y temperatura, con una barra por hilo que se actualiza cada segundo; modelo, familia y stepping, microcódigo, núcleos e hilos, núcleos P y E, cachés, juegos de instrucciones, frecuencia y uso de cada hilo, frenazos por temperatura, vulnerabilidades y mitigaciones |
 | Placa base y BIOS | Fabricante y modelo del equipo y de la placa, versión y fecha de la BIOS, UEFI o legacy, Secure Boot, TPM |
-| Memoria | Uso de RAM y swap, módulos instalados ranura a ranura, ranuras libres, máximo que admite la placa, errores de memoria corregidos |
+| Memoria | Uso de RAM y swap, módulos instalados ranura a ranura con su fabricante (si la placa no lo da, se deduce del código JEDEC o de la referencia del módulo), ranuras libres, máximo que admite la placa, errores de memoria corregidos |
 | Gráfica y pantallas | Tarjetas, driver en uso, frecuencia, enlace PCIe, OpenGL y Vulkan, formatos de vídeo que decodifica por hardware, monitores y modo en uso |
 | Almacenamiento | Espacio ocupado; salud SMART, desgaste de los SSD, temperatura y horas de uso; unidades con modelo, tipo, interfaz, enlace PCIe y firmware; particiones y cifrado; TRIM |
 | Red | Interfaces con driver, MAC, IP y velocidad; Wi-Fi con calidad de la señal y banda; puerta de enlace, DNS, Bluetooth |
@@ -177,7 +177,7 @@ Desde la terminal hace lo mismo: `sudo apt purge mintmachine` y después `rm -rf
 Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
 
 ```
-sudo apt install ./mintmachine_0.5.0_all.deb
+sudo apt install ./mintmachine_0.5.1_all.deb
 ```
 
 `apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre MintMachine. Si tenías una versión anterior, este paquete la actualiza; si tenías la primera, que se llamaba Radiografía, la sustituye.
@@ -263,7 +263,7 @@ Si falta alguna utilidad, la sección correspondiente sale más corta y el resto
 
 ## Estado del proyecto
 
-Versión 0.5.0. Conviene saber cómo se ha probado.
+Versión 0.5.1. Conviene saber cómo se ha probado.
 
 El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
 
@@ -322,7 +322,7 @@ packaging/build-deb.sh
 
 El paquete queda en `dist/`. Solo hace falta `dpkg-deb`. La versión se toma de la variable `VERSION` de `mintmachine.py`. El campo «Maintainer» del paquete lleva solo «MintMachine», sin datos personales: dpkg lo exige y, si falta, apt muestra un aviso cada vez que se usa.
 
-En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.5.0`, adjunta el `.deb` a esa versión.
+En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.5.1`, adjunta el `.deb` a esa versión.
 
 ## Pruebas
 
@@ -352,15 +352,15 @@ Para probar un caso nuevo, por ejemplo un ventilador parado o un disco con fallo
 ```
 git init
 git add .
-git commit -m "MintMachine 0.5.0"
+git commit -m "MintMachine 0.5.1"
 git branch -M main
 git remote add origin https://github.com/TU-USUARIO/mintmachine.git
 git push -u origin main
-git tag v0.5.0
-git push origin v0.5.0
+git tag v0.5.1
+git push origin v0.5.1
 ```
 
-3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.5.0`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.5.0` y adjunta `mintmachine_0.5.0_all.deb`.
+3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.5.1`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.5.1` y adjunta `mintmachine_0.5.1_all.deb`.
 4. Cuando tengas la dirección del repositorio, añádela a `data/mintmachine.metainfo.xml` con `<url type="homepage">…</url>`.
 
 Las incidencias usan las plantillas de `.github/ISSUE_TEMPLATE`, que piden el informe para foros con los datos personales ocultos.
