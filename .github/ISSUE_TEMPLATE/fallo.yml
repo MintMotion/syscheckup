@@ -1,0 +1,53 @@
+name: Algo no funciona
+description: El programa se cierra, da un error o una sección sale vacía
+labels: [fallo]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por avisar. Para poder ayudarte necesitamos el informe del equipo **con los datos personales ocultos**.
+        En MintMachine: botón **Exportar** → formato **Para un foro** → deja marcada **Ocultar datos personales** → **Copiar**, y pégalo abajo.
+        Desde la terminal también vale: `mintmachine --foro`
+  - type: textarea
+    id: que
+    attributes:
+      label: Qué ha pasado
+      description: Qué esperabas ver y qué has visto. Si hay un mensaje de error, cópialo.
+    validations:
+      required: true
+  - type: dropdown
+    id: sistema
+    attributes:
+      label: Sistema
+      options:
+        - Linux Mint 22.x
+        - LMDE 7
+        - LMDE 6
+        - Ubuntu
+        - Debian
+        - Otro
+    validations:
+      required: true
+  - type: dropdown
+    id: escritorio
+    attributes:
+      label: Escritorio
+      options:
+        - Cinnamon
+        - MATE
+        - Xfce
+        - Otro
+  - type: textarea
+    id: informe
+    attributes:
+      label: Informe de MintMachine (con los datos personales ocultos)
+      render: text
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacidad
+    attributes:
+      label: Privacidad
+      options:
+        - label: He revisado el informe y no contiene datos personales que no quiera publicar.
+          required: true

@@ -1,0 +1,2542 @@
+# Traducción de MintMachine: 中文（简体）
+# Copyright (c) 2026 José Antonio Ramos Miralles «Sombra»
+# Este archivo se distribuye con la misma licencia que MintMachine (MIT).
+msgid ""
+msgstr ""
+"Project-Id-Version: MintMachine\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "MintMachine solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
+msgstr "MintMachine 只读取信息，不会更改电脑上的任何内容。其建议仅供参考，并且仅限于在系统内可以安全进行的操作。请勿自行打开电脑或拆动内部部件：任何硬件方面的检查（内部清洁、更换硬盘、内存或电池）都应交给维修服务商或制造商处理。进行任何重要更改之前，请先备份您的文件。"
+
+msgid "(oculto)"
+msgstr "（已隐藏）"
+
+msgid "(UUID oculto)"
+msgstr "（UUID 已隐藏）"
+
+msgid "(IPv6 oculta)"
+msgstr "（IPv6 已隐藏）"
+
+msgid "Abrir el Gestor de actualizaciones"
+msgstr "打开更新管理器"
+
+msgid "Abrir el Gestor de controladores"
+msgstr "打开驱动管理器"
+
+msgid "Abrir Discos"
+msgstr "打开磁盘"
+
+msgid "Ver qué ocupa el disco"
+msgstr "查看磁盘空间占用"
+
+msgid "Abrir Copias de seguridad"
+msgstr "打开备份工具"
+
+msgid "Abrir Timeshift"
+msgstr "打开 Timeshift"
+
+msgid "Abrir el Cortafuegos"
+msgstr "打开防火墙"
+
+msgid "Abrir Firmware"
+msgstr "打开固件"
+
+msgid "Abrir el Monitor del sistema"
+msgstr "打开系统监视器"
+
+msgid "Abrir los registros del sistema"
+msgstr "打开系统日志"
+
+msgid "Abrir la configuración de energía"
+msgstr "打开电源设置"
+
+msgid "Memoria"
+msgstr "内存"
+
+msgid "Los programas están esperando por falta de memoria (presión del {n:.0f} %), y eso hace que el equipo vaya lento."
+msgstr "程序正在因内存不足而等待（压力 {n:.0f} %），这会让电脑变慢。"
+
+msgid "Cierra programas o pestañas del navegador que no estés usando. Si te pasa a menudo, un servicio técnico puede decirte si tu equipo admite más memoria."
+msgstr "关闭不用的程序或浏览器标签页。如果经常发生，可以请维修服务商确认您的电脑是否支持加装内存。"
+
+msgid "Procesador"
+msgstr "处理器"
+
+msgid "Uso"
+msgstr "使用率"
+
+msgid "Swap"
+msgstr "交换空间"
+
+msgid "Red"
+msgstr "网络"
+
+msgid "Bajada"
+msgstr "下载"
+
+msgid "Subida"
+msgstr "上传"
+
+msgid "Disco"
+msgstr "磁盘"
+
+msgid "Lectura"
+msgstr "读取"
+
+msgid "Escritura"
+msgstr "写入"
+
+msgid "Temperatura del procesador"
+msgstr "处理器温度"
+
+msgid "Uso de la gráfica"
+msgstr "显卡使用率"
+
+msgid "Uso de cada hilo"
+msgstr "每个线程的使用率"
+
+msgid "Ahora mismo"
+msgstr "当前状态"
+
+msgid "Carga media (1, 5, 15 min)"
+msgstr "平均负载（1、5、15 分钟）"
+
+msgid "Procesos en marcha"
+msgstr "运行中的进程"
+
+msgid "Tiempo perdido esperando recursos (10 s)"
+msgstr "等待资源的时间（10 秒）"
+
+msgid "Procesos que más procesador usan"
+msgstr "占用处理器最多的进程"
+
+msgid "Proceso"
+msgstr "进程"
+
+msgid "Procesos que más memoria ocupan"
+msgstr "占用内存最多的进程"
+
+msgid "Las gráficas empiezan a llenarse a los pocos segundos de abrir el programa."
+msgstr "图表会在程序打开几秒钟后开始显示数据。"
+
+msgid "Monitor en vivo"
+msgstr "实时监视"
+
+msgid " de datos"
+msgstr " 数据"
+
+msgid " de instrucciones"
+msgstr " 指令"
+
+msgid ", {ways} vías"
+msgstr "，{ways} 路"
+
+msgid "Comprueba que las rejillas de ventilación no estén tapadas: no uses el portátil sobre la cama, el sofá o las piernas, y deja espacio libre alrededor del equipo. Cierra los programas que no uses. Si sigue pasando, que un servicio técnico revise la refrigeración: no abras el equipo por tu cuenta."
+msgstr "请确认通风口没有被堵住：不要在床上、沙发上或腿上使用笔记本电脑，并在电脑周围留出空间。关闭不用的程序。如果情况持续，请让维修服务商检查散热系统：不要自行打开电脑。"
+
+msgid "Desconocido"
+msgstr "未知"
+
+msgid "Sí: hilos {pc} en núcleos P, hilos {ec} en núcleos E"
+msgstr "是：P 核上的线程 {pc}，E 核上的线程 {ec}"
+
+msgid "Intel VT-x disponible"
+msgstr "Intel VT-x 可用"
+
+msgid "AMD-V disponible"
+msgstr "AMD-V 可用"
+
+msgid "No detectada (o desactivada en la BIOS)"
+msgstr "未检测到（或已在 BIOS 中禁用）"
+
+msgid "El procesador ha bajado su velocidad por calor {thr} veces desde que encendiste el equipo."
+msgstr "自开机以来，处理器因过热降速了 {thr} 次。"
+
+msgid "Modelo"
+msgstr "型号"
+
+msgid "Fabricante"
+msgstr "制造商"
+
+msgid "Núcleos / hilos"
+msgstr "核心 / 线程"
+
+msgid "Arquitectura híbrida"
+msgstr "混合架构"
+
+msgid "Frecuencia actual (media)"
+msgstr "当前频率（平均）"
+
+msgid "Rango de frecuencias"
+msgstr "频率范围"
+
+msgid "Uso total"
+msgstr "总使用率"
+
+msgid "Frenazos por temperatura desde el arranque"
+msgstr "开机以来的过热降速"
+
+msgid "Virtualización"
+msgstr "虚拟化"
+
+msgid "Entorno"
+msgstr "运行环境"
+
+msgid "Máquina física"
+msgstr "物理机"
+
+msgid "Virtualizado ({virt})"
+msgstr "虚拟化（{virt}）"
+
+msgid "Datos técnicos"
+msgstr "技术数据"
+
+msgid "Arquitectura"
+msgstr "架构"
+
+msgid "Familia / modelo / stepping"
+msgstr "系列 / 型号 / 步进"
+
+msgid "Microcódigo"
+msgstr "微码"
+
+msgid "Zócalos"
+msgstr "插槽"
+
+msgid "Gobernador / driver"
+msgstr "调速器 / 驱动"
+
+msgid "Direccionamiento"
+msgstr "寻址"
+
+msgid "Instrucciones"
+msgstr "指令集"
+
+msgid "CPU {n}"
+msgstr "CPU {n}"
+
+msgid "El kernel indica fallos de seguridad del procesador sin proteger: {lista}."
+msgstr "内核报告处理器存在未防护的安全漏洞：{lista}。"
+
+msgid "Instala las actualizaciones pendientes, incluidas las del kernel, y el microcódigo del procesador que ofrezca el Gestor de controladores. Después, reinicia."
+msgstr "安装待处理的更新（包括内核更新）以及驱动管理器提供的处理器微码，然后重新启动。"
+
+msgid "{n} ({cores} núcleos, {threads} hilos)"
+msgstr "{n}（{cores} 核心，{threads} 线程）"
+
+msgid "Hilos en tiempo real"
+msgstr "实时线程"
+
+msgid "Hilo"
+msgstr "线程"
+
+msgid "Frecuencia"
+msgstr "频率"
+
+msgid "Cachés"
+msgstr "缓存"
+
+msgid "Memoria muy rápida dentro del propio procesador. Más caché suele significar más rendimiento."
+msgstr "处理器内部的高速存储器。缓存越大，性能通常越好。"
+
+msgid "Vulnerabilidades y mitigaciones"
+msgstr "漏洞与缓解措施"
+
+msgid "Vulnerabilidad"
+msgstr "漏洞"
+
+msgid "Estado según el kernel"
+msgstr "内核报告的状态"
+
+msgid "Fallos de seguridad conocidos de los procesadores y cómo los neutraliza el kernel. «Not affected» y «Mitigation» son buenas noticias; «Vulnerable» no."
+msgstr "处理器的已知安全漏洞以及内核的防护方式。“Not affected”和“Mitigation”表示安全；“Vulnerable”则表示存在风险。"
+
+msgid "Sobremesa"
+msgstr "台式机"
+
+msgid "Sobremesa de perfil bajo"
+msgstr "薄型台式机"
+
+msgid "Pizza box"
+msgstr "扁平机箱"
+
+msgid "Minitorre"
+msgstr "迷你塔式机"
+
+msgid "Torre"
+msgstr "塔式机"
+
+msgid "Portátil"
+msgstr "笔记本电脑"
+
+msgid "Dispositivo de mano"
+msgstr "掌上设备"
+
+msgid "Todo en uno"
+msgstr "一体机"
+
+msgid "Subportátil"
+msgstr "超便携笔记本"
+
+msgid "Servidor"
+msgstr "服务器"
+
+msgid "Servidor en rack"
+msgstr "机架式服务器"
+
+msgid "Tableta"
+msgstr "平板电脑"
+
+msgid "Convertible"
+msgstr "二合一变形本"
+
+msgid "Desmontable"
+msgstr "可拆卸二合一"
+
+msgid "Mini PC"
+msgstr "迷你主机"
+
+msgid "Stick PC"
+msgstr "电脑棒"
+
+msgid "Equipo"
+msgstr "电脑"
+
+msgid "Versión"
+msgstr "版本"
+
+msgid "Familia"
+msgstr "系列"
+
+msgid "Formato"
+msgstr "规格"
+
+msgid "Número de serie"
+msgstr "序列号"
+
+msgid "Placa base"
+msgstr "主板"
+
+msgid "Revisión"
+msgstr "修订版"
+
+msgid "BIOS / UEFI"
+msgstr "BIOS / UEFI"
+
+msgid "Fecha"
+msgstr "日期"
+
+msgid "Modo de arranque"
+msgstr "启动模式"
+
+msgid "BIOS clásico (legacy)"
+msgstr "传统 BIOS（Legacy）"
+
+msgid "Secure Boot"
+msgstr "安全启动"
+
+msgid "No aplicable"
+msgstr "不适用"
+
+msgid "Activado"
+msgstr "已启用"
+
+msgid "Desactivado"
+msgstr "已禁用"
+
+msgid "Versión {tpm}.x"
+msgstr "版本 {tpm}.x"
+
+msgid "No detectado"
+msgstr "未检测到"
+
+msgid "Este sistema no expone datos DMI (habitual en máquinas virtuales, contenedores y placas ARM)."
+msgstr "此系统不提供 DMI 数据（在虚拟机、容器和 ARM 主板上很常见）。"
+
+msgid "Placa base y BIOS"
+msgstr "主板与 BIOS"
+
+msgid "{n} de {n2} ({n3:.0f} %)"
+msgstr "{n} / {n2}（{n3:.0f} %）"
+
+msgid "Detalle"
+msgstr "详细信息"
+
+msgid "Total instalada (visible)"
+msgstr "已安装总量（可见）"
+
+msgid "Disponible"
+msgstr "可用"
+
+msgid "Caché y búferes"
+msgstr "缓存和缓冲区"
+
+msgid "Memoria compartida"
+msgstr "共享内存"
+
+msgid "Memoria de intercambio (swap)"
+msgstr "交换空间（swap）"
+
+msgid "No hay"
+msgstr "无"
+
+msgid "Tendencia a usar swap (swappiness)"
+msgstr "交换倾向（swappiness）"
+
+msgid "Vacía"
+msgstr "空"
+
+msgid "Módulos instalados"
+msgstr "已安装的内存条"
+
+msgid "Ranura"
+msgstr "插槽"
+
+msgid "Tamaño"
+msgstr "容量"
+
+msgid "Tipo"
+msgstr "类型"
+
+msgid "Velocidad"
+msgstr "速度"
+
+msgid "Referencia"
+msgstr "部件号"
+
+msgid "Ampliación"
+msgstr "扩展"
+
+msgid "Ranuras ocupadas"
+msgstr "已用插槽"
+
+msgid "{populated} de {n}"
+msgstr "{populated} / {n}"
+
+msgid "Máximo que admite la placa"
+msgstr "主板支持的最大容量"
+
+msgid "Hay un solo módulo de memoria y queda una ranura libre: la memoria trabaja en canal simple."
+msgstr "只安装了一条内存且还有空闲插槽：内存运行在单通道模式。"
+
+msgid "No es un fallo. Si algún día quieres más rendimiento o más memoria, un servicio técnico puede añadir un módulo igual al que tienes."
+msgstr "这不是故障。如果以后想提升性能或增加内存，可以请维修服务商加装一条相同的内存。"
+
+msgid "No se han podido leer los módulos de RAM (ocurre en máquinas virtuales y en algunos equipos con memoria soldada)."
+msgstr "无法读取内存条信息（在虚拟机和部分板载内存的电脑上会出现）。"
+
+msgid "Errores de memoria (EDAC)"
+msgstr "内存错误（EDAC）"
+
+msgid "Corregidos"
+msgstr "已纠正"
+
+msgid "Sin corregir"
+msgstr "未纠正"
+
+msgid "Errores que el controlador de memoria ha detectado. Lo normal es 0."
+msgstr "内存控制器检测到的错误。正常值为 0。"
+
+msgid "El kernel ha registrado {ue} errores de memoria que no ha podido corregir. Es señal de un módulo de memoria defectuoso."
+msgstr "内核记录了 {ue} 个无法纠正的内存错误。这表明有内存条损坏。"
+
+msgid "Haz ya una copia de seguridad de tus archivos y lleva el equipo a un servicio técnico o al fabricante, sobre todo si está en garantía."
+msgstr "请立即备份文件，并将电脑交给维修服务商或制造商，尤其是在保修期内。"
+
+msgid "El kernel ha corregido {ce} errores de memoria."
+msgstr "内核已纠正 {ce} 个内存错误。"
+
+msgid "De momento no se pierde nada, pero puede ser el primer síntoma de un módulo que falla. Haz copias de seguridad con regularidad y coméntaselo a un servicio técnico."
+msgstr "目前没有数据丢失，但这可能是内存条即将故障的早期迹象。请定期备份并咨询维修服务商。"
+
+msgid "Queda poca memoria libre ({n})."
+msgstr "可用内存不多了（{n}）。"
+
+msgid "Cierra programas o pestañas del navegador que no estés usando."
+msgstr "关闭不用的程序或浏览器标签页。"
+
+msgid "No hay memoria de intercambio (swap) y el equipo tiene menos de 8 GiB de RAM."
+msgstr "没有交换空间，且电脑内存不足 8 GiB。"
+
+msgid "Si algún programa se cierra solo por falta de memoria, pide en el foro de tu distribución cómo crear un archivo de intercambio. Si no te pasa, no hace falta hacer nada."
+msgstr "如果有程序因内存不足而自行关闭，请在您所用发行版的论坛上询问如何创建交换文件。如果没有出现这种情况，则无需任何操作。"
+
+msgid "{n} visibles ({n2} × {n3}{n4})"
+msgstr "{n} 可见（{n2} × {n3}{n4}）"
+
+msgid "Clase [{n}]"
+msgstr "类别 [{n}]"
+
+msgid "Fabricante [{n}]"
+msgstr "厂商 [{n}]"
+
+msgid "Dispositivo [{n}]"
+msgstr "设备 [{n}]"
+
+msgid "máxima {mx} MHz"
+msgstr "最高 {mx} MHz"
+
+msgid "Monitor"
+msgstr "显示器"
+
+msgid "Resolución nativa"
+msgstr "原生分辨率"
+
+msgid "Refresco nativo"
+msgstr "原生刷新率"
+
+msgid "Modo en uso"
+msgstr "当前模式"
+
+msgid "Conector"
+msgstr "接口"
+
+msgid "Fabricado en"
+msgstr "生产年份"
+
+msgid "Tarjeta gráfica: {n}"
+msgstr "显卡：{n}"
+
+msgid "Identificador PCI"
+msgstr "PCI 标识"
+
+msgid "Ensamblador"
+msgstr "板卡厂商"
+
+msgid "Driver en uso"
+msgstr "当前驱动"
+
+msgid "Módulos disponibles"
+msgstr "可用模块"
+
+msgid "Memoria de vídeo"
+msgstr "显存"
+
+msgid "Enlace PCIe"
+msgstr "PCIe 链路"
+
+msgid "Gráfica"
+msgstr "显卡"
+
+msgid "La gráfica {dname} no tiene ningún driver cargado."
+msgstr "显卡 {dname} 没有加载任何驱动。"
+
+msgid "Abre el Gestor de controladores: si ofrece un driver recomendado para tu gráfica, instálalo y reinicia. Si no ofrece nada, pregunta en el foro de tu distribución."
+msgstr "打开驱动管理器：如果它为您的显卡提供了推荐驱动，请安装并重启。如果没有提供任何驱动，请在您所用发行版的论坛上咨询。"
+
+msgid "NVIDIA (driver privativo)"
+msgstr "NVIDIA（专有驱动）"
+
+msgid "Versión del driver"
+msgstr "驱动版本"
+
+msgid "Temperatura °C"
+msgstr "温度 °C"
+
+msgid "Aceleración 3D"
+msgstr "3D 加速"
+
+msgid "Renderizador OpenGL"
+msgstr "OpenGL 渲染器"
+
+msgid "Versión de OpenGL"
+msgstr "OpenGL 版本"
+
+msgid "Renderizado directo"
+msgstr "直接渲染"
+
+msgid "Memoria de vídeo dedicada"
+msgstr "专用显存"
+
+msgid "Servidor gráfico"
+msgstr "显示服务器"
+
+msgid "La gráfica no está acelerando el 3D: lo está dibujando el procesador (llvmpipe), así que vídeos, juegos y efectos irán lentos."
+msgstr "显卡没有进行 3D 加速：正在由处理器绘制（llvmpipe），因此视频、游戏和特效都会很慢。"
+
+msgid "Abre el Gestor de controladores e instala el driver recomendado para tu gráfica. Después, reinicia."
+msgstr "打开驱动管理器，安装显卡的推荐驱动，然后重新启动。"
+
+msgid "Vídeo y Vulkan"
+msgstr "视频与 Vulkan"
+
+msgid "Formatos de vídeo que la gráfica reproduce por sí sola, sin cargar al procesador, y versión de Vulkan, que usan los juegos."
+msgstr "显卡可以独立解码、无需占用处理器的视频格式，以及游戏使用的 Vulkan 版本。"
+
+msgid "Decodifica por hardware"
+msgstr "硬件解码"
+
+msgid "Ningún formato"
+msgstr "无支持格式"
+
+msgid "No decodifica por hardware"
+msgstr "不支持硬件解码"
+
+msgid "Dispositivo Vulkan"
+msgstr "Vulkan 设备"
+
+msgid "Versión de Vulkan"
+msgstr "Vulkan 版本"
+
+msgid "Driver Vulkan"
+msgstr "Vulkan 驱动"
+
+msgid "Pantallas conectadas"
+msgstr "已连接的显示器"
+
+msgid "Salida"
+msgstr "输出"
+
+msgid "Resolución"
+msgstr "分辨率"
+
+msgid "Refresco"
+msgstr "刷新率"
+
+msgid "No se ha detectado ninguna tarjeta gráfica por PCI."
+msgstr "未在 PCI 总线上检测到显卡。"
+
+msgid "Gráfica y pantallas"
+msgstr "显卡与显示器"
+
+msgid "Dispositivos PCI y el driver que usa cada uno"
+msgstr "PCI 设备及各自使用的驱动"
+
+msgid "Clase"
+msgstr "类别"
+
+msgid "Dispositivo"
+msgstr "设备"
+
+msgid "Driver"
+msgstr "驱动"
+
+msgid "No hay bus PCI visible en este sistema."
+msgstr "此系统上没有可见的 PCI 总线。"
+
+msgid "Dispositivos PCI"
+msgstr "PCI 设备"
+
+msgid "{n} usados de {n2}; quedan {n3} libres"
+msgstr "已用 {n}，共 {n2}；剩余 {n3}"
+
+msgid "{used} % usada (queda un {n} % estimado)"
+msgstr "已用 {used} %（估计剩余 {n} %）"
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube. Después, consulta con un servicio técnico o con el fabricante (si está en garantía) para sustituir la unidad."
+msgstr "请立即将重要文件备份到其他硬盘或云端。然后联系维修服务商或制造商（如在保修期内）更换该硬盘。"
+
+msgid "FALLO INMINENTE"
+msgstr "即将故障"
+
+msgid "Con sectores dañados"
+msgstr "有坏扇区"
+
+msgid "Correcto"
+msgstr "正常"
+
+msgid "{hours} h ({n} años)"
+msgstr "{hours} 小时（{n} 年）"
+
+msgid "Almacenamiento"
+msgstr "存储"
+
+msgid "El disco {model} avisa de que va a fallar pronto (SMART)."
+msgstr "硬盘 {model} 报告即将发生故障（SMART）。"
+
+msgid "El disco {model} tiene {bad} sectores dañados."
+msgstr "硬盘 {model} 有 {bad} 个坏扇区。"
+
+msgid "Algunos sectores dañados no impiden usar el disco, pero si el número crece, el disco se está deteriorando."
+msgstr "少量坏扇区不影响使用，但如果数量不断增加，说明硬盘正在老化。"
+
+msgid "El SSD {model} ha consumido el {wear} % de su vida útil estimada."
+msgstr "固态硬盘 {model} 已消耗其预计寿命的 {wear} %。"
+
+msgid "Aún puede funcionar bastante tiempo, pero conviene planificar su sustitución."
+msgstr "它还能使用一段时间，但建议提前计划更换。"
+
+msgid "AVISO: {warn}"
+msgstr "警告：{warn}"
+
+msgid "El SSD {model} avisa de un problema de salud ({warn})."
+msgstr "固态硬盘 {model} 报告健康问题（{warn}）。"
+
+msgid "El SSD {model} avisa de un problema de salud (le quedan pocos bloques de reserva)."
+msgstr "固态硬盘 {model} 报告健康问题（备用块所剩无几）。"
+
+msgid "El SSD {model} ha consumido el {used} % de su vida útil estimada."
+msgstr "固态硬盘 {model} 已消耗其预计寿命的 {used} %。"
+
+msgid "Llegar al 100 % no significa que falle ese día: es la estimación del fabricante. Aun así, conviene planificar su sustitución."
+msgstr "达到 100 % 并不意味着当天就会损坏：这只是制造商的估计。但仍建议提前计划更换。"
+
+msgid "El SSD {model} ha registrado {media_errors} errores de datos."
+msgstr "固态硬盘 {model} 记录了 {media_errors} 个数据错误。"
+
+msgid "Sin datos SMART"
+msgstr "无 SMART 数据"
+
+msgid "Disco virtual"
+msgstr "虚拟磁盘"
+
+msgid "SSD NVMe"
+msgstr "NVMe 固态硬盘"
+
+msgid "Disco duro (HDD)"
+msgstr "机械硬盘（HDD）"
+
+msgid "Memoria flash"
+msgstr "闪存"
+
+msgid "extraíble"
+msgstr "可移动"
+
+msgid "Vacía la papelera y borra o mueve a otro disco lo que no necesites (descargas, vídeos, copias antiguas). «Ver qué ocupa el disco» te enseña qué carpetas ocupan más. Si usas Timeshift, revisa cuántas instantáneas guarda."
+msgstr "清空回收站，删除或移走不需要的文件（下载、视频、旧备份）。“查看磁盘空间占用”可以显示哪些文件夹最占空间。如果使用 Timeshift，请检查它保留了多少个快照。"
+
+msgid "«{mnt}» está prácticamente lleno (quedan {n}). Con el disco lleno pueden fallar las actualizaciones y los programas."
+msgstr "“{mnt}”几乎已满（剩余 {n}）。磁盘满了会导致更新和程序出错。"
+
+msgid "«{mnt}» está al {n:.0f} % (quedan {n2})."
+msgstr "“{mnt}”已使用 {n:.0f} %（剩余 {n2}）。"
+
+msgid "El sistema está instalado en un disco duro mecánico, que es mucho más lento que un SSD."
+msgstr "系统安装在机械硬盘上，速度比固态硬盘慢得多。"
+
+msgid "No es un fallo. Si el equipo te parece lento, cambiar el disco por un SSD es la mejora que más se nota; pídeselo a un servicio técnico, que también puede pasar tus datos."
+msgstr "这不是故障。如果觉得电脑慢，把硬盘换成固态硬盘是效果最明显的升级；请交给维修服务商处理，他们也可以帮您迁移数据。"
+
+msgid "Correcta"
+msgstr "正常"
+
+msgid "{n} de {n2} unidades con avisos (mira Almacenamiento)"
+msgstr "{n2} 个硬盘中有 {n} 个存在警告（见“存储”）"
+
+msgid "Espacio ocupado"
+msgstr "已用空间"
+
+msgid "Salud de los discos (SMART)"
+msgstr "硬盘健康状况（SMART）"
+
+msgid "Unidad"
+msgstr "硬盘"
+
+msgid "Estado"
+msgstr "状态"
+
+msgid "Vida útil"
+msgstr "寿命"
+
+msgid "Temperatura"
+msgstr "温度"
+
+msgid "Horas encendido"
+msgstr "通电时间"
+
+msgid "Sectores dañados / errores"
+msgstr "坏扇区 / 错误"
+
+msgid "Última autoprueba"
+msgstr "最近一次自检"
+
+msgid "El propio disco vigila su estado (SMART). «Vida útil» es la estimación de desgaste del fabricante para los SSD."
+msgstr "硬盘会自行监测其状态（SMART）。“寿命”是制造商对固态硬盘磨损程度的估计。"
+
+msgid "Unidades"
+msgstr "硬盘"
+
+msgid "Capacidad"
+msgstr "容量"
+
+msgid "Interfaz"
+msgstr "接口"
+
+msgid "Enlace"
+msgstr "链路"
+
+msgid "Firmware"
+msgstr "固件"
+
+msgid "Planificador E/S"
+msgstr "I/O 调度器"
+
+msgid "Mantenimiento"
+msgstr "维护"
+
+msgid "TRIM periódico de los SSD"
+msgstr "固态硬盘定期 TRIM"
+
+msgid "Activado (fstrim.timer)"
+msgstr "已启用（fstrim.timer）"
+
+msgid "El TRIM ayuda a que los SSD mantengan su velocidad. Linux Mint lo activa por defecto."
+msgstr "TRIM 有助于固态硬盘保持速度。Linux Mint 默认启用。"
+
+msgid "Particiones y volúmenes"
+msgstr "分区与卷"
+
+msgid "Sistema de archivos"
+msgstr "文件系统"
+
+msgid "Montado en"
+msgstr "挂载点"
+
+msgid "No se han detectado unidades físicas (¿falta la utilidad lsblk?)."
+msgstr "未检测到物理硬盘（是否缺少 lsblk 工具？）。"
+
+msgid "No hay datos de salud de los discos: hace falta el servicio UDisks (paquete udisks2; para los NVMe, versión 2.10 o posterior). En máquinas virtuales no hay SMART."
+msgstr "没有硬盘健康数据：需要 UDisks 服务（udisks2 软件包；NVMe 需要 2.10 或更高版本）。虚拟机没有 SMART。"
+
+msgid "Bucle local"
+msgstr "本地回环"
+
+msgid "Ethernet"
+msgstr "以太网"
+
+msgid "Virtual"
+msgstr "虚拟"
+
+msgid "Conectada"
+msgstr "已连接"
+
+msgid "Desconectada"
+msgstr "未连接"
+
+msgid "En espera"
+msgstr "待机"
+
+msgid "2,4 GHz"
+msgstr "2.4 GHz"
+
+msgid "banda de {band}"
+msgstr "{band} 频段"
+
+msgid "{mhz} MHz (banda de {band})"
+msgstr "{mhz} MHz（{band} 频段）"
+
+msgid "débil"
+msgstr "较弱"
+
+msgid "La señal Wi-Fi es débil ({dbm} dBm): la conexión puede ir lenta o cortarse."
+msgstr "Wi-Fi 信号较弱（{dbm} dBm）：连接可能变慢或中断。"
+
+msgid "Acércate al router o quita obstáculos entre ambos. Si tu router tiene dos redes (2,4 y 5 GHz), la de 2,4 GHz llega más lejos."
+msgstr "靠近路由器或移除中间的障碍物。如果路由器有两个网络（2.4 GHz 和 5 GHz），2.4 GHz 的覆盖范围更远。"
+
+msgid "Wi-Fi en {name}"
+msgstr "{name} 上的 Wi-Fi"
+
+msgid "Red (SSID)"
+msgstr "网络（SSID）"
+
+msgid "Señal"
+msgstr "信号"
+
+msgid "Velocidad de bajada"
+msgstr "下载速率"
+
+msgid "Velocidad de subida"
+msgstr "上传速率"
+
+msgid "{n} por {n2}"
+msgstr "{n}（通过 {n2}）"
+
+msgid "General"
+msgstr "常规"
+
+msgid "Nombre del equipo"
+msgstr "计算机名"
+
+msgid "Puerta de enlace"
+msgstr "网关"
+
+msgid "Servidores DNS"
+msgstr "DNS 服务器"
+
+msgid "Bluetooth"
+msgstr "蓝牙"
+
+msgid "Interfaces"
+msgstr "接口"
+
+msgid "Tarjetas de sonido"
+msgstr "声卡"
+
+msgid "Nombre"
+msgstr "名称"
+
+msgid "Servidor de sonido"
+msgstr "音频服务器"
+
+msgid "Salida predeterminada"
+msgstr "默认输出"
+
+msgid "Entrada predeterminada"
+msgstr "默认输入"
+
+msgid "No se ha detectado ninguna tarjeta de sonido."
+msgstr "未检测到声卡。"
+
+msgid "Sonido"
+msgstr "声音"
+
+msgid "Dispositivos USB conectados"
+msgstr "已连接的 USB 设备"
+
+msgid "Puerto"
+msgstr "端口"
+
+msgid "Producto"
+msgstr "产品"
+
+msgid "Consumo máx."
+msgstr "最大功耗"
+
+msgid "No hay dispositivos USB conectados (o el sistema no expone el bus USB)."
+msgstr "没有连接 USB 设备（或系统未提供 USB 总线信息）。"
+
+msgid "Dispositivos USB"
+msgstr "USB 设备"
+
+msgid "Gráfica AMD"
+msgstr "AMD 显卡"
+
+msgid "Gráfica NVIDIA"
+msgstr "NVIDIA 显卡"
+
+msgid "Chipset"
+msgstr "芯片组"
+
+msgid "Sin regulación (al máximo)"
+msgstr "不调速（全速）"
+
+msgid "Curva personalizada"
+msgstr "自定义曲线"
+
+msgid "Manual (lo fija un programa)"
+msgstr "手动（由程序设定）"
+
+msgid "Automático (lo decide el firmware)"
+msgstr "自动（由固件决定）"
+
+msgid "Ventilador {idx}"
+msgstr "风扇 {idx}"
+
+msgid "Sonda de temperatura {idx}"
+msgstr "温度探头 {idx}"
+
+msgid "acelera el ventilador"
+msgstr "提高风扇转速"
+
+msgid "frena el procesador"
+msgstr "降低处理器速度"
+
+msgid "aviso de calor"
+msgstr "高温警告"
+
+msgid "apagado de emergencia"
+msgstr "紧急关机"
+
+msgid "{n:.0f} % de su máximo"
+msgstr "最大值的 {n:.0f} %"
+
+msgid "Parado"
+msgstr "停止"
+
+msgid "Ventilador"
+msgstr "风扇"
+
+msgid "{nice}, sensor {label}: {t:.0f} °C, muy cerca de su límite. Si lo alcanza, el equipo se frenará o se apagará para protegerse."
+msgstr "{nice}，传感器 {label}：{t:.0f} °C，已非常接近上限。一旦达到，电脑会降速或关机以保护自身。"
+
+msgid "{nice}, sensor {label}: {t:.0f} °C, temperatura alta. Puede ser normal mientras el equipo trabaja a fondo (juegos, vídeo, compilar)."
+msgstr "{nice}，传感器 {label}：{t:.0f} °C，温度偏高。电脑满负荷工作时（游戏、视频、编译）这可能是正常的。"
+
+msgid "Zona térmica"
+msgstr "温度区域"
+
+msgid "Ventilador (ACPI)"
+msgstr "风扇（ACPI）"
+
+msgid "Freno del procesador"
+msgstr "处理器降频"
+
+msgid "{act} de {n} actuando"
+msgstr "{n} 个中有 {act} 个在工作"
+
+msgid "En reposo"
+msgstr "空闲"
+
+msgid "Ventilador del ThinkPad"
+msgstr "ThinkPad 风扇"
+
+msgid "Nivel"
+msgstr "级别"
+
+msgid "Al máximo"
+msgstr "全速"
+
+msgid "Sin límite"
+msgstr "不限速"
+
+msgid "Temperaturas"
+msgstr "温度"
+
+msgid "Chip"
+msgstr "芯片"
+
+msgid "Sensor"
+msgstr "传感器"
+
+msgid "Ahora"
+msgstr "当前"
+
+msgid "Máx. / crítica"
+msgstr "最高 / 临界"
+
+msgid "Cada chip informa de su temperatura. La columna de la derecha es el límite que fija el fabricante."
+msgstr "每个芯片都会报告自身温度。右侧一列是制造商设定的上限。"
+
+msgid "Ventiladores"
+msgstr "风扇"
+
+msgid "Potencia"
+msgstr "功率"
+
+msgid "Control"
+msgstr "控制"
+
+msgid "Mínimo"
+msgstr "最低"
+
+msgid "Curvas de ventilador programadas"
+msgstr "已设定的风扇曲线"
+
+msgid "Canal"
+msgstr "通道"
+
+msgid "Temperatura → potencia"
+msgstr "温度 → 功率"
+
+msgid "A qué velocidad gira el ventilador según la temperatura."
+msgstr "风扇转速随温度变化的方式。"
+
+msgid "Umbrales térmicos del firmware (ACPI)"
+msgstr "固件温度阈值（ACPI）"
+
+msgid "Zona"
+msgstr "区域"
+
+msgid "Qué ocurre a cada temperatura"
+msgstr "各温度下的动作"
+
+msgid "Mecanismos de refrigeración del sistema"
+msgstr "系统散热机制"
+
+msgid "Mecanismo"
+msgstr "机制"
+
+msgid "Cantidad"
+msgstr "数量"
+
+msgid "Voltajes"
+msgstr "电压"
+
+msgid "Valor"
+msgstr "数值"
+
+msgid "Potencia y corriente"
+msgstr "功率与电流"
+
+msgid "Este sistema no publica ningún sensor. Es habitual en máquinas virtuales y en algunos equipos cuyo fabricante no ofrece drivers de sensores para Linux."
+msgstr "此系统不提供任何传感器数据。这在虚拟机和一些制造商未提供 Linux 传感器驱动的电脑上很常见。"
+
+msgid "No aparecen ventiladores. Es normal en muchos equipos: el chip que los controla no siempre tiene driver en Linux, y en ese caso la placa los sigue gobernando por su cuenta con normalidad."
+msgstr "没有显示风扇。这在很多电脑上都很正常：控制风扇的芯片不一定有 Linux 驱动，此时主板仍会照常自行控制风扇。"
+
+msgid "La curva que configuras en la BIOS vive en el chip de la placa y casi ningún driver deja leerla. Aparece aquí solo cuando el chip la publica (algunas placas con Nuvoton o ITE, portátiles ASUS ROG, gráficas AMD). Los umbrales ACPI de arriba son lo más parecido que ofrece el resto."
+msgstr "您在 BIOS 中设置的风扇曲线保存在主板芯片里，几乎没有驱动能够读取。只有当芯片公开它时才会显示在这里（部分采用 Nuvoton 或 ITE 芯片的主板、ASUS ROG 笔记本、AMD 显卡）。对其他设备而言，上面的 ACPI 阈值是最接近的信息。"
+
+msgid "Sensores y ventiladores"
+msgstr "传感器与风扇"
+
+msgid "Llena"
+msgstr "满电"
+
+msgid "Alta"
+msgstr "高"
+
+msgid "Normal"
+msgstr "正常"
+
+msgid "Baja"
+msgstr "低"
+
+msgid "Crítica"
+msgstr "严重不足"
+
+msgid "Desconocida"
+msgstr "未知"
+
+msgid "Cargando"
+msgstr "正在充电"
+
+msgid "Descargando"
+msgstr "正在放电"
+
+msgid "Cargada"
+msgstr "已充满"
+
+msgid "Sin cargar (enchufada)"
+msgstr "未充电（已接电源）"
+
+msgid "Potencia total"
+msgstr "总功率"
+
+msgid "Temperatura VRM"
+msgstr "VRM 温度"
+
+msgid "Temperatura interna"
+msgstr "内部温度"
+
+msgid "Potencia +12 V"
+msgstr "+12 V 功率"
+
+msgid "Potencia +5 V"
+msgstr "+5 V 功率"
+
+msgid "Potencia +3,3 V"
+msgstr "+3.3 V 功率"
+
+msgid "Fuente de alimentación"
+msgstr "电源"
+
+msgid "Batería {name}"
+msgstr "电池 {name}"
+
+msgid "Carga"
+msgstr "电量"
+
+msgid "Salud"
+msgstr "健康度"
+
+msgid "{health:.0f} % de la capacidad original"
+msgstr "原始容量的 {health:.0f} %"
+
+msgid "Capacidad actual"
+msgstr "当前容量"
+
+msgid "Capacidad de fábrica"
+msgstr "设计容量"
+
+msgid "Ciclos de carga"
+msgstr "充电循环次数"
+
+msgid "Consumo o carga ahora"
+msgstr "当前功耗或充电功率"
+
+msgid "Voltaje"
+msgstr "电压"
+
+msgid "Tecnología"
+msgstr "技术"
+
+msgid "Fabricante / modelo"
+msgstr "制造商 / 型号"
+
+msgid "{n} % de carga, salud {health:.0f} %"
+msgstr "电量 {n} %，健康度 {health:.0f} %"
+
+msgid "Es desgaste normal con el uso. Si la autonomía ya no te basta, el fabricante o un servicio técnico puede cambiarla por una original. No la desmontes tú: una batería de litio dañada puede incendiarse. Si notas que se hincha o deforma la carcasa, deja de usar el equipo y llévalo a revisar."
+msgstr "这是正常使用造成的损耗。如果续航不够用，可以请制造商或维修服务商更换原装电池。请勿自行拆卸：受损的锂电池可能起火。如果发现电池鼓胀或外壳变形，请停止使用电脑并送修检查。"
+
+msgid "Batería"
+msgstr "电池"
+
+msgid "La batería conserva solo el {health:.0f} % de su capacidad original."
+msgstr "电池仅剩原始容量的 {health:.0f} %。"
+
+msgid "La batería conserva el {health:.0f} % de su capacidad original."
+msgstr "电池保有原始容量的 {health:.0f} %。"
+
+msgid "Batería de {dispositivo}"
+msgstr "{dispositivo} 的电池"
+
+msgid "Alimentación {name}"
+msgstr "电源输入 {name}"
+
+msgid "Corriente"
+msgstr "交流电源"
+
+msgid "Sí"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "empieza al {a} %, para al {b} %"
+msgstr "{a} % 开始，{b} % 停止"
+
+msgid "para al {b} %"
+msgstr "{b} % 停止"
+
+msgid "Ahorro de energía"
+msgstr "节能"
+
+msgid "Perfil de energía activo"
+msgstr "当前电源配置"
+
+msgid "Suspensión"
+msgstr "睡眠"
+
+msgid "Profunda (S3): gasta muy poco"
+msgstr "深度（S3）：耗电极少"
+
+msgid "Ligera (s2idle): gasta algo más"
+msgstr "浅度（s2idle）：耗电稍多"
+
+msgid "Modos de suspensión que admite"
+msgstr "支持的睡眠模式"
+
+msgid "Hibernación"
+msgstr "休眠"
+
+msgid "Disponible en el kernel"
+msgstr "内核支持"
+
+msgid "No disponible"
+msgstr "不可用"
+
+msgid "Límite de carga de la batería"
+msgstr "电池充电上限"
+
+msgid "Este equipo no tiene batería (o el sistema no la expone)."
+msgstr "此电脑没有电池（或系统未提供电池信息）。"
+
+msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y MintMachine los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
+msgstr "电源：台式机电源不会把品牌、型号和功率告诉电脑，因此任何程序都无法读取。只有带内部 USB 线的“智能”电源（例如 Corsair HXi、RMi 和 AXi）会发送数据，MintMachine 检测到时会在这里显示。想了解您的电源，请查看发票或电脑包装盒；不要为了查看标签而打开电脑。"
+
+msgid "Batería y energía"
+msgstr "电池与电源"
+
+msgid "{h} h {n} min"
+msgstr "{h} 小时 {n} 分钟"
+
+msgid "Sistema operativo"
+msgstr "操作系统"
+
+msgid "Distribución"
+msgstr "发行版"
+
+msgid "Sistema"
+msgstr "系统"
+
+msgid "Nombre en clave"
+msgstr "代号"
+
+msgid "Edición"
+msgstr "版本类型"
+
+msgid "Base"
+msgstr "基础"
+
+msgid "Instalado el"
+msgstr "安装日期"
+
+msgid "Núcleo"
+msgstr "内核"
+
+msgid "Kernel"
+msgstr "内核"
+
+msgid "Compilación"
+msgstr "编译信息"
+
+msgid "Parámetros de arranque"
+msgstr "启动参数"
+
+msgid "Sistema de inicio"
+msgstr "初始化系统"
+
+msgid "Sesión"
+msgstr "会话"
+
+msgid "Escritorio"
+msgstr "桌面环境"
+
+msgid "Intérprete de órdenes"
+msgstr "Shell"
+
+msgid "Idioma"
+msgstr "语言"
+
+msgid "Zona horaria"
+msgstr "时区"
+
+msgid "Encendido desde hace"
+msgstr "已开机"
+
+msgid "Duración del último arranque"
+msgstr "上次启动耗时"
+
+msgid "Lo que más tardó en el último arranque"
+msgstr "上次启动中最耗时的项目"
+
+msgid "Tiempo"
+msgstr "耗时"
+
+msgid "Servicios que más tiempo tardaron en arrancar. Varios arrancan a la vez, así que los tiempos no se suman."
+msgstr "启动耗时最长的服务。多个服务同时启动，因此时间不能简单相加。"
+
+msgid "hay módulos privativos cargados"
+msgstr "已加载专有模块"
+
+msgid "se forzó la carga de un módulo"
+msgstr "有模块被强制加载"
+
+msgid "el procesador notificó un error de hardware (machine check)"
+msgstr "处理器报告了硬件错误（machine check）"
+
+msgid "se detectó una página de memoria corrupta"
+msgstr "检测到损坏的内存页"
+
+msgid "el kernel sufrió un fallo grave (oops) en esta sesión"
+msgstr "本次会话中内核发生了严重错误（oops）"
+
+msgid "el kernel emitió una advertencia en esta sesión"
+msgstr "本次会话中内核发出了警告"
+
+msgid "hay drivers experimentales (staging) cargados"
+msgstr "已加载实验性（staging）驱动"
+
+msgid "se aplicó un apaño por un fallo del firmware"
+msgstr "已针对固件缺陷应用了临时修复"
+
+msgid "hay módulos externos al kernel (DKMS o de terceros)"
+msgstr "已加载内核外部模块（DKMS 或第三方）"
+
+msgid "hay módulos sin firmar cargados"
+msgstr "已加载未签名的模块"
+
+msgid "hubo un bloqueo temporal del sistema (soft lockup)"
+msgstr "系统发生过短暂卡死（soft lockup）"
+
+msgid "Suele deberse a calor, a la memoria o a un ajuste de la BIOS fuera de fábrica. Haz una copia de seguridad y, si se repite o el equipo se cuelga, consúltalo con un servicio técnico."
+msgstr "通常是由于过热、内存或 BIOS 设置偏离出厂值造成的。请备份文件；如果反复出现或电脑死机，请咨询维修服务商。"
+
+msgid "Puede ser un fallo de la memoria. Haz una copia de seguridad y consúltalo con un servicio técnico si se repite."
+msgstr "可能是内存故障。请备份文件，如果反复出现请咨询维修服务商。"
+
+msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "请重启电脑。如果再次发生，请在“诊断 → 日志错误”中查找该消息，并附上 MintMachine 报告（隐藏个人信息）到您所用发行版的论坛上咨询。"
+
+msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de MintMachine."
+msgstr "可能只是偶发情况。如果电脑经常卡死，请附上 MintMachine 报告到您所用发行版的论坛上咨询。"
+
+msgid "Alguien forzó la carga de un driver. Si no lo hiciste tú a propósito, pregunta en el foro de tu distribución."
+msgstr "有人强制加载了某个驱动。如果不是您有意为之，请在您所用发行版的论坛上咨询。"
+
+msgid "externo al kernel"
+msgstr "内核外部"
+
+msgid "sin firmar"
+msgstr "未签名"
+
+msgid "El kernel indica que {problema}."
+msgstr "内核报告：{problema}。"
+
+msgid "Estado del kernel"
+msgstr "内核状态"
+
+msgid "Módulos cargados"
+msgstr "已加载模块"
+
+msgid "Kernel «limpio»"
+msgstr "“干净”的内核"
+
+msgid "No (marca {mask})"
+msgstr "否（标记 {mask}）"
+
+msgid "Marca {l}"
+msgstr "标记 {l}"
+
+msgid "Drivers privativos o externos"
+msgstr "专有或外部驱动"
+
+msgid "Módulo"
+msgstr "模块"
+
+msgid "Motivo"
+msgstr "原因"
+
+msgid "Drivers que no vienen dentro del kernel, como el de NVIDIA. Es normal tenerlos."
+msgstr "不随内核提供的驱动，例如 NVIDIA 驱动。有这些驱动是正常的。"
+
+msgid "Módulos DKMS"
+msgstr "DKMS 模块"
+
+msgid "Drivers externos que se recompilan solos cada vez que se instala un kernel nuevo."
+msgstr "每次安装新内核时都会自动重新编译的外部驱动。"
+
+msgid "Todos los módulos cargados"
+msgstr "所有已加载模块"
+
+msgid "En uso"
+msgstr "使用计数"
+
+msgid "Lo usan"
+msgstr "被使用于"
+
+msgid "Notas"
+msgstr "备注"
+
+msgid "No se puede leer la lista de módulos del kernel en este sistema."
+msgstr "无法在此系统上读取内核模块列表。"
+
+msgid "En Linux los drivers son módulos del kernel. Para ver qué driver usa cada dispositivo, mira las secciones «Dispositivos PCI» y «Dispositivos USB»."
+msgstr "在 Linux 中，驱动就是内核模块。要查看每个设备使用的驱动，请查看“PCI 设备”和“USB 设备”部分。"
+
+msgid "Drivers y módulos"
+msgstr "驱动与模块"
+
+msgid "Kernel (trae casi todos los drivers)"
+msgstr "内核（包含几乎所有驱动）"
+
+msgid "Gráfica (drivers libres)"
+msgstr "显卡（开源驱动）"
+
+msgid "Firmware de dispositivos"
+msgstr "设备固件"
+
+msgid "Microcódigo del procesador"
+msgstr "处理器微码"
+
+msgid "Driver externo (DKMS)"
+msgstr "外部驱动（DKMS）"
+
+msgid "Periféricos"
+msgstr "外设"
+
+msgid "gráfica"
+msgstr "显卡"
+
+msgid "sonido o vídeo"
+msgstr "声音或视频"
+
+msgid "inalámbrico"
+msgstr "无线"
+
+msgid "Hay versión nueva"
+msgstr "有新版本"
+
+msgid "Al día"
+msgstr "已是最新"
+
+msgid "Sin datos del repositorio"
+msgstr "无软件源数据"
+
+msgid "Drivers"
+msgstr "驱动"
+
+msgid "Hay versión nueva de: {paquetes}."
+msgstr "以下软件包有新版本：{paquetes}。"
+
+msgid "y otros"
+msgstr "等"
+
+msgid "Instálala con el Gestor de actualizaciones, como el resto de actualizaciones, y reinicia al terminar."
+msgstr "像其他更新一样，用更新管理器安装，完成后重启。"
+
+msgid "Ya está instalado un kernel más nuevo ({newest}), pero sigues usando el anterior."
+msgstr "已安装更新的内核（{newest}），但您仍在使用旧内核。"
+
+msgid "Reinicia el equipo para empezar a usarlo."
+msgstr "重启电脑即可开始使用。"
+
+msgid "El kernel no recibirá versiones nuevas por sí solo (falta el paquete linux-image-amd64 o linux-image-generic)."
+msgstr "内核不会自动获得新版本（缺少 linux-image-amd64 或 linux-image-generic 软件包）。"
+
+msgid "En Linux Mint los kernels se gestionan desde el Gestor de actualizaciones, menú Ver → Kernels. Si no sabes por qué falta, pregunta en el foro antes de tocar nada."
+msgstr "在 Linux Mint 中，内核在更新管理器的“查看 → Linux 内核”中管理。如果不清楚为何缺少，请先到论坛咨询，不要随意改动。"
+
+msgid "La lista de paquetes se actualizó hace {age:.0f} días: puede haber versiones nuevas que aún no se ven."
+msgstr "软件包列表已 {age:.0f} 天未更新：可能有尚未显示的新版本。"
+
+msgid "Abre el Gestor de actualizaciones y pulsa «Actualizar» (el botón de refrescar la lista)."
+msgstr "打开更新管理器并点击“刷新”。"
+
+msgid "En ejecución"
+msgstr "正在运行"
+
+msgid "Más reciente instalado"
+msgstr "已安装的最新版本"
+
+msgid "El mismo que está en ejecución"
+msgstr "与正在运行的相同"
+
+msgid "Se actualiza solo mediante"
+msgstr "通过以下软件包自动更新"
+
+msgid "Nada (falta el metapaquete)"
+msgstr "无（缺少元软件包）"
+
+msgid "Lista de paquetes consultada"
+msgstr "软件包列表"
+
+msgid "Actualizada hace {age:.0f} días"
+msgstr "{age:.0f} 天前更新"
+
+msgid "Actualizada hoy"
+msgstr "今天已更新"
+
+msgid "No se actualiza desde Linux"
+msgstr "无法在 Linux 中更新"
+
+msgid "El fabricante ha publicado firmware nuevo para: {dispositivos}."
+msgstr "制造商已为以下设备发布新固件：{dispositivos}。"
+
+msgid "No es urgente salvo que el fabricante lo indique. Si decides instalarlo: haz antes una copia de seguridad, enchufa el portátil a la corriente y no apagues el equipo mientras se instala, aunque tarde y la pantalla se quede en negro. Si no te sientes seguro, déjalo como está o pide ayuda a un técnico."
+msgstr "除非制造商另有说明，否则无需着急。如果决定安装：请先备份，把笔记本接上电源，安装过程中即使耗时较长或屏幕变黑也不要关机。如果没有把握，请保持现状或向技术人员求助。"
+
+msgid "Ninguno conocido"
+msgstr "无已知驱动"
+
+msgid "El dispositivo de {n} «{dname}» no tiene driver cargado."
+msgstr "{n}设备“{dname}”没有加载驱动。"
+
+msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "打开驱动管理器看看是否提供驱动。如果没有，请附上 MintMachine 报告（隐藏个人信息）到您所用发行版的论坛上咨询。"
+
+msgid "Un driver pidió {n} archivos de firmware que no están instalados."
+msgstr "有驱动请求了 {n} 个未安装的固件文件。"
+
+msgid "Si todos tus dispositivos funcionan bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si alguno falla, instala las actualizaciones pendientes y revisa el Gestor de controladores."
+msgstr "如果所有设备都工作正常，则无需任何操作：很多驱动会依次尝试多个版本，直到找到已安装的那个。如果有设备出问题，请安装待处理的更新并检查驱动管理器。"
+
+msgid "Paquetes de drivers y firmware"
+msgstr "驱动与固件软件包"
+
+msgid "Paquete"
+msgstr "软件包"
+
+msgid "Instalada"
+msgstr "已安装"
+
+msgid "Qué es"
+msgstr "说明"
+
+msgid "Comparación entre lo instalado y lo que ofrecen los repositorios de tu sistema."
+msgstr "已安装版本与系统软件源所提供版本的对比。"
+
+msgid "Firmware de los dispositivos (fwupd)"
+msgstr "设备固件（fwupd）"
+
+msgid "Versión actual"
+msgstr "当前版本"
+
+msgid "Versión nueva"
+msgstr "新版本"
+
+msgid "Dispositivos sin driver cargado"
+msgstr "未加载驱动的设备"
+
+msgid "Módulos candidatos"
+msgstr "候选模块"
+
+msgid "Firmware que el kernel pidió y no encontró"
+msgstr "内核请求但未找到的固件"
+
+msgid "Archivo"
+msgstr "文件"
+
+msgid "Con el paquete fwupd instalado, aquí aparecerían también las actualizaciones de BIOS, SSD, docks y periféricos que publica cada fabricante."
+msgstr "安装 fwupd 软件包后，各制造商发布的 BIOS、固态硬盘、扩展坞和外设更新也会显示在这里。"
+
+msgid "Que falte un archivo de firmware no siempre es un problema: algunos drivers prueban varias versiones hasta dar con la instalada. Si el dispositivo falla, el paquete que lo trae suele ser firmware-misc-nonfree, firmware-iwlwifi, firmware-realtek o linux-firmware."
+msgstr "缺少固件文件并不一定是问题：一些驱动会依次尝试多个版本，直到找到已安装的那个。如果设备无法工作，提供该固件的软件包通常是 firmware-misc-nonfree、firmware-iwlwifi、firmware-realtek 或 linux-firmware。"
+
+msgid "En Linux casi todos los drivers viajan dentro del kernel, así que «tener el último driver» equivale a tener el último kernel que ofrece tu distribución. Aparte van el driver privativo de NVIDIA, los módulos DKMS, el firmware y el microcódigo. La comparación se hace con los repositorios configurados en tu sistema, sin conectar con internet: no dice si el fabricante ha publicado algo más nuevo por su cuenta."
+msgstr "在 Linux 中，几乎所有驱动都包含在内核里，所以“拥有最新驱动”就等于拥有发行版提供的最新内核。NVIDIA 专有驱动、DKMS 模块、固件和微码是单独的。此对比基于您系统中配置的软件源，不连接互联网：无法得知制造商是否自行发布了更新的版本。"
+
+msgid "Actualizaciones de drivers"
+msgstr "驱动更新"
+
+msgid "Mando de juego"
+msgstr "游戏手柄"
+
+msgid "Panel táctil"
+msgstr "触控板"
+
+msgid "Ratón o puntero"
+msgstr "鼠标或指点设备"
+
+msgid "Teclado"
+msgstr "键盘"
+
+msgid "Monitores"
+msgstr "显示器"
+
+msgid "Teclados, ratones y mandos"
+msgstr "键盘、鼠标和手柄"
+
+msgid "Cámaras"
+msgstr "摄像头"
+
+msgid "Cámara"
+msgstr "摄像头"
+
+msgid "Nodo"
+msgstr "节点"
+
+msgid "Impresoras configuradas"
+msgstr "已配置的打印机"
+
+msgid "Impresora"
+msgstr "打印机"
+
+msgid "Dispositivos Bluetooth emparejados"
+msgstr "已配对的蓝牙设备"
+
+msgid "Dirección"
+msgstr "地址"
+
+msgid "No se ha detectado ningún periférico."
+msgstr "未检测到外设。"
+
+msgid "Biblioteca C (glibc)"
+msgstr "C 库（glibc）"
+
+msgid "Servidor Xorg"
+msgstr "Xorg 服务器"
+
+msgid "Mesa (drivers 3D libres)"
+msgstr "Mesa（开源 3D 驱动）"
+
+msgid "Driver NVIDIA"
+msgstr "NVIDIA 驱动"
+
+msgid "Firmware no libre"
+msgstr "非自由固件"
+
+msgid "Microcódigo Intel"
+msgstr "Intel 微码"
+
+msgid "Microcódigo AMD"
+msgstr "AMD 微码"
+
+msgid "Kernel en ejecución"
+msgstr "正在运行的内核"
+
+msgid "Software"
+msgstr "软件"
+
+msgid "Hay {n} paquetes con actualización pendiente."
+msgstr "有 {n} 个软件包待更新。"
+
+msgid "Instálalas desde el Gestor de actualizaciones. Linux Mint recomienda tener antes una instantánea de Timeshift, por si algo no va bien."
+msgstr "请通过更新管理器安装。Linux Mint 建议先创建一个 Timeshift 快照，以防万一。"
+
+msgid "{n} pendientes"
+msgstr "{n} 个待更新"
+
+msgid "Hay actualizaciones instaladas que necesitan reiniciar el equipo para completarse."
+msgstr "已安装的更新需要重启电脑才能完成。"
+
+msgid "Guarda tu trabajo y reinicia cuando puedas."
+msgstr "保存您的工作，方便时重启电脑。"
+
+msgid "Servicios"
+msgstr "服务"
+
+msgid "El servicio del sistema «{u}» no ha arrancado bien."
+msgstr "系统服务“{u}”未能正常启动。"
+
+msgid "Muchas veces es inofensivo (por ejemplo, si necesita internet y no había conexión). Si notas que algo no funciona, pregunta en el foro de tu distribución indicando ese nombre."
+msgstr "这通常无害（例如需要联网但当时没有网络）。如果发现有功能不正常，请在您所用发行版的论坛上咨询，并说明该服务名称。"
+
+msgid "Resumen"
+msgstr "概要"
+
+msgid "Paquetes instalados (.deb)"
+msgstr "已安装软件包（.deb）"
+
+msgid "Aplicaciones Flatpak"
+msgstr "Flatpak 应用"
+
+msgid "Actualizaciones pendientes"
+msgstr "待处理的更新"
+
+msgid "Kernels instalados"
+msgstr "已安装的内核"
+
+msgid "Servicios en ejecución"
+msgstr "运行中的服务"
+
+msgid "Servicios con fallo"
+msgstr "失败的服务"
+
+msgid "Ninguno"
+msgstr "无"
+
+msgid "Versiones de los componentes clave"
+msgstr "关键组件版本"
+
+msgid "Componente"
+msgstr "组件"
+
+msgid "Últimos cambios de paquetes"
+msgstr "最近的软件包变更"
+
+msgid "Acción"
+msgstr "操作"
+
+msgid "Identificador"
+msgstr "标识符"
+
+msgid "Origen"
+msgstr "来源"
+
+msgid "Programas que arrancan con tu sesión"
+msgstr "随会话启动的程序"
+
+msgid "Orden"
+msgstr "命令"
+
+msgid "Repositorios de software"
+msgstr "软件源"
+
+msgid "Rama"
+msgstr "分支"
+
+msgid "Componentes"
+msgstr "组件"
+
+msgid "Definido en"
+msgstr "定义于"
+
+msgid "De dónde descarga tu sistema los programas y actualizaciones."
+msgstr "系统下载程序和更新的来源。"
+
+msgid "Este sistema no usa paquetes .deb, así que el inventario de software es parcial."
+msgstr "此系统不使用 .deb 软件包，因此软件清单不完整。"
+
+msgid "ufw activado"
+msgstr "ufw 已启用"
+
+msgid "ufw instalado pero desactivado"
+msgstr "ufw 已安装但未启用"
+
+msgid "Seguridad"
+msgstr "安全"
+
+msgid "El cortafuegos está desactivado."
+msgstr "防火墙已关闭。"
+
+msgid "En casa, detrás del router, es habitual. Si conectas el equipo a redes públicas (cafeterías, hoteles, estaciones), actívalo: abre el Cortafuegos y pon «Estado» en activado; la configuración de fábrica vale para casi todo el mundo."
+msgstr "在家中使用路由器时，这很常见。如果要连接公共网络（咖啡馆、酒店、车站），请开启防火墙：打开防火墙，把“状态”设为开启；默认设置适合几乎所有人。"
+
+msgid "firewalld activo"
+msgstr "firewalld 已启用"
+
+msgid "No se ha detectado ufw ni firewalld"
+msgstr "未检测到 ufw 或 firewalld"
+
+msgid "Secure Boot activado"
+msgstr "安全启动已启用"
+
+msgid "disco cifrado"
+msgstr "磁盘已加密"
+
+msgid "cortafuegos activo"
+msgstr "防火墙已启用"
+
+msgid "Completa"
+msgstr "完全"
+
+msgid "Parcial"
+msgstr "部分"
+
+msgid "Desactivada"
+msgstr "已禁用"
+
+msgid "Arranque y firmware"
+msgstr "启动与固件"
+
+msgid "Bloqueo del kernel (lockdown)"
+msgstr "内核锁定（lockdown）"
+
+msgid "Cifrado de disco (LUKS)"
+msgstr "磁盘加密（LUKS）"
+
+msgid "Detectado"
+msgstr "已检测到"
+
+msgid "Cortafuegos"
+msgstr "防火墙"
+
+msgid "Módulos de seguridad del kernel"
+msgstr "内核安全模块"
+
+msgid "Aleatorización de memoria (ASLR)"
+msgstr "内存随机化（ASLR）"
+
+msgid "Servidor SSH"
+msgstr "SSH 服务器"
+
+msgid "En marcha"
+msgstr "运行中"
+
+msgid "Parado o no instalado"
+msgstr "已停止或未安装"
+
+msgid "Puertos abiertos a la red"
+msgstr "对网络开放的端口"
+
+msgid "Vulnerabilidades de CPU sin mitigar"
+msgstr "未缓解的 CPU 漏洞"
+
+msgid "Ninguna"
+msgstr "无"
+
+msgid "Problema"
+msgstr "问题"
+
+msgid "Aviso"
+msgstr "警告"
+
+msgid "Sugerencia"
+msgstr "建议"
+
+msgid "Hay algo que necesita tu atención"
+msgstr "有一项需要您注意"
+
+msgid "Hay {nb} cosas que necesitan tu atención"
+msgstr "有 {nb} 项需要您注意"
+
+msgid "Hay un aviso que conviene revisar"
+msgstr "有一条警告值得检查"
+
+msgid "Hay {nw} avisos que conviene revisar"
+msgstr "有 {nw} 条警告值得检查"
+
+msgid "Todo en orden ({ni} sugerencias opcionales)"
+msgstr "一切正常（{ni} 条可选建议）"
+
+msgid "Todo en orden (1 sugerencia opcional)"
+msgstr "一切正常（1 条可选建议）"
+
+msgid "Todo en orden"
+msgstr "一切正常"
+
+msgid "Hardware"
+msgstr "硬件"
+
+msgid "El procesador ha notificado {mce} errores de hardware en este arranque."
+msgstr "本次开机以来，处理器报告了 {mce} 个硬件错误。"
+
+msgid "Pueden deberse a calor, a la memoria o a un ajuste de la BIOS fuera de fábrica. Haz una copia de seguridad y consúltalo con un servicio técnico, sobre todo si el equipo se cuelga o se reinicia solo."
+msgstr "可能是过热、内存或 BIOS 设置偏离出厂值造成的。请备份文件并咨询维修服务商，尤其是在电脑死机或自行重启时。"
+
+msgid "Hay {io} errores de lectura o escritura de disco en el registro del kernel."
+msgstr "内核日志中有 {io} 个磁盘读写错误。"
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes. Mira el estado de los discos en la sección Almacenamiento y, si alguno muestra avisos o los errores se repiten, llévalo a un servicio técnico. Si el error es de un pendrive o disco USB, prueba en otro puerto o expúlsalo siempre antes de desconectarlo."
+msgstr "请立即备份重要文件。在“存储”部分查看硬盘状态；如果有硬盘显示警告或错误反复出现，请送修。如果错误来自 U 盘或 USB 硬盘，请换一个接口试试，并且拔出前务必先弹出。"
+
+msgid "El sistema se quedó sin memoria y tuvo que cerrar a la fuerza: {programas}."
+msgstr "系统内存耗尽，被迫关闭了：{programas}。"
+
+msgid "Cierra los programas y pestañas que no uses. Si te pasa a menudo, un servicio técnico puede decirte si tu equipo admite más memoria."
+msgstr "关闭不用的程序和标签页。如果经常发生，可以请维修服务商确认您的电脑是否支持加装内存。"
+
+msgid "Conviene revisar"
+msgstr "值得检查"
+
+msgid "Sugerencias"
+msgstr "建议"
+
+msgid "No son fallos: son mejoras opcionales o cosas que conviene saber."
+msgstr "这些不是故障：而是可选的改进或值得了解的信息。"
+
+msgid "No se ha encontrado nada que revisar."
+msgstr "没有发现需要检查的项目。"
+
+msgid "Errores más repetidos en el registro del sistema desde el arranque"
+msgstr "开机以来系统日志中最常见的错误"
+
+msgid "Veces"
+msgstr "次数"
+
+msgid "Mensaje"
+msgstr "消息"
+
+msgid "Es normal que haya mensajes de error en cualquier equipo. Solo importan si coinciden con algo que notes que falla."
+msgstr "任何电脑都会有错误消息，这很正常。只有当它们与您发现的故障相符时才需要关注。"
+
+msgid "Qué se revisa: espacio y salud de los discos, temperaturas, batería, memoria, servicios, errores del registro del kernel, protección del procesador, drivers y actualizaciones."
+msgstr "检查内容：磁盘空间与健康状况、温度、电池、内存、服务、内核日志错误、处理器防护、驱动和更新。"
+
+msgid "No se ha podido leer el registro del kernel porque tu usuario no pertenece al grupo «adm»; esos avisos no se incluyen."
+msgstr "由于您的用户不在“adm”组中，无法读取内核日志；相关警告未包含在内。"
+
+msgid "Diagnóstico"
+msgstr "诊断"
+
+msgid "{cpu:.0f} % en uso"
+msgstr "已使用 {cpu:.0f} %"
+
+msgid "{n} de {n2} en uso"
+msgstr "已用 {n}，共 {n2}"
+
+msgid "Disco del sistema"
+msgstr "系统盘"
+
+msgid "{temp:.0f} °C en el procesador"
+msgstr "处理器 {temp:.0f} °C"
+
+msgid "Inicio"
+msgstr "首页"
+
+msgid "Lo más importante"
+msgstr "最重要"
+
+msgid "Pantalla"
+msgstr "显示器"
+
+msgid "Salud de los discos"
+msgstr "硬盘健康状况"
+
+msgid "Actualizaciones"
+msgstr "更新"
+
+msgid "Conexión"
+msgstr "网络连接"
+
+msgid "Protección"
+msgstr "防护"
+
+msgid "MintMachine solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
+msgstr "MintMachine 只读取信息：不会更改电脑上的任何内容，也不会向互联网发送数据。侧边栏中有每个部件的详细信息。"
+
+msgid "Sistema y software"
+msgstr "系统与软件"
+
+msgid "No se ha podido leer esta sección ({__name__}: {e}). Si abres una incidencia, incluye este mensaje."
+msgstr "无法读取此部分（{__name__}: {e}）。如果提交问题报告，请附上此消息。"
+
+msgid "{app} {version}: informe del {fecha}"
+msgstr "{app} {version}：{fecha} 的报告"
+
+msgid "(datos personales ocultos)"
+msgstr "（已隐藏个人信息）"
+
+msgid "Estado general: {estado}"
+msgstr "总体状态：{estado}"
+
+msgid "Qué hacer:"
+msgstr "建议操作："
+
+msgid "Herramienta:"
+msgstr "工具："
+
+msgid "{serie}: ahora {ahora}, media {media}, máximo {maximo} (últimos {n} s)"
+msgstr "{serie}：当前 {ahora}，平均 {media}，最高 {maximo}（最近 {n} 秒）"
+
+msgid "hilo {n}: {uso} %"
+msgstr "线程 {n}：{uso} %"
+
+msgid "Detalles técnicos"
+msgstr "技术细节"
+
+msgid "ahora {ahora}, media {media}, máximo {maximo}"
+msgstr "当前 {ahora}，平均 {media}，最高 {maximo}"
+
+msgid "Hilo {n}"
+msgstr "线程 {n}"
+
+msgid "Informe generado con {app} {version} el {fecha}."
+msgstr "由 {app} {version} 于 {fecha} 生成的报告。"
+
+msgid "Los datos personales se han ocultado."
+msgstr "个人信息已隐藏。"
+
+msgid "{app}: informe del sistema"
+msgstr "{app}：系统报告"
+
+msgid "Texto"
+msgstr "文本"
+
+msgid "Para leerlo o adjuntarlo a un correo"
+msgstr "用于阅读或作为邮件附件"
+
+msgid "Página web"
+msgstr "网页"
+
+msgid "Se abre en el navegador; cómoda para enviar a un técnico"
+msgstr "在浏览器中打开；方便发送给技术人员"
+
+msgid "Para un foro"
+msgstr "用于论坛"
+
+msgid "Resumen listo para pegar en el foro de Linux Mint"
+msgstr "可直接粘贴到 Linux Mint 论坛的摘要"
+
+msgid "Datos estructurados para otros programas"
+msgstr "供其他程序使用的结构化数据"
+
+msgid "Histórico del monitor (CSV)"
+msgstr "监视历史（CSV）"
+
+msgid "Gráficas de los últimos 2 minutos, para una hoja de cálculo"
+msgstr "最近 2 分钟的图表数据，用于电子表格"
+
+msgid "Pequeña actualización interna del procesador que corrige fallos. Llega con las actualizaciones del sistema."
+msgstr "处理器内部用于修复缺陷的小更新，随系统更新一起提供。"
+
+msgid "Cómo decide el sistema la velocidad del procesador en cada momento."
+msgstr "系统随时决定处理器速度的方式。"
+
+msgid "Permite ejecutar máquinas virtuales (VirtualBox, GNOME Boxes...) con buen rendimiento."
+msgstr "可以流畅运行虚拟机（VirtualBox、GNOME Boxes 等）。"
+
+msgid "Veces que el procesador ha bajado su velocidad para no calentarse más."
+msgstr "处理器为避免继续升温而降速的次数。"
+
+msgid "Cuántas tareas esperan turno de media. Si supera el número de hilos, el equipo va justo."
+msgstr "平均等待执行的任务数。如果超过线程数，说明电脑负载很重。"
+
+msgid "Porcentaje de tiempo que los programas han esperado por el procesador, la memoria o el disco. Cuanto más bajo, mejor."
+msgstr "程序等待处理器、内存或磁盘的时间比例。越低越好。"
+
+msgid "Espacio del disco que el sistema usa como memoria de reserva cuando la RAM se llena."
+msgstr "内存满时系统用作备用内存的磁盘空间。"
+
+msgid "Cuánto prefiere el sistema usar la memoria de intercambio. 60 es el valor normal."
+msgstr "系统使用交换空间的倾向。60 是正常值。"
+
+msgid "Comprueba al arrancar que el sistema no ha sido manipulado. Es compatible con Linux Mint."
+msgstr "启动时检查系统是否被篡改。与 Linux Mint 兼容。"
+
+msgid "Chip de seguridad del equipo que guarda claves de forma protegida."
+msgstr "电脑中以受保护方式存储密钥的安全芯片。"
+
+msgid "UEFI es el sistema moderno; BIOS clásico (legacy), el antiguo. Los dos funcionan."
+msgstr "UEFI 是现代方式；传统 BIOS（Legacy）是旧方式。两者都能正常工作。"
+
+msgid "El núcleo del sistema operativo. Incluye casi todos los drivers."
+msgstr "操作系统的核心，包含几乎所有驱动。"
+
+msgid "«No» no significa un problema: aparece, por ejemplo, al usar el driver privativo de NVIDIA."
+msgstr "“否”并不代表有问题：例如使用 NVIDIA 专有驱动时就会出现。"
+
+msgid "Velocidad de la conexión entre el dispositivo y la placa. En reposo baja para ahorrar energía."
+msgstr "设备与主板之间的连接速度。空闲时会降低以节省电量。"
+
+msgid "Impide que se modifique el kernel en marcha. Se activa con Secure Boot."
+msgstr "防止运行中的内核被修改。启用安全启动时会开启。"
+
+msgid "Protección que dificulta los ataques. Debe estar en «Completa»."
+msgstr "增加攻击难度的防护机制。应为“完全”。"
+
+msgid "Protección que limita lo que pueden hacer ciertos programas. Debe estar activado."
+msgstr "限制某些程序行为的防护机制。应保持启用。"
+
+msgid "Sistemas de protección activos en el kernel."
+msgstr "内核中启用的防护系统。"
+
+msgid "«Yes» significa que la gráfica acelera el 3D."
+msgstr "“Yes”表示显卡在进行 3D 加速。"
+
+msgid "Capacidad que conserva la batería frente a cuando era nueva."
+msgstr "电池当前容量与全新时的比例。"
+
+msgid "Número de cargas completas que ha hecho la batería."
+msgstr "电池完成的完整充电次数。"
+
+msgid "La suspensión profunda gasta menos batería con la tapa cerrada."
+msgstr "深度睡眠在合上盖子时更省电。"
+
+msgid "Parar la carga antes del 100 % alarga la vida de la batería."
+msgstr "在 100 % 之前停止充电可以延长电池寿命。"
+
+msgid "Lo que dicen los propios discos sobre su estado (SMART)."
+msgstr "硬盘自身报告的状态（SMART）。"
+
+msgid "Medidas de seguridad activas en el equipo."
+msgstr "电脑上已启用的安全措施。"
+
+msgid "La placa principal del equipo, donde se conectan todos los componentes."
+msgstr "电脑的主电路板，所有部件都连接在上面。"
+
+msgid "El programa de la placa que arranca el equipo. Su versión y fecha ayudan a saber si hay una más nueva."
+msgstr "主板上用于启动电脑的程序。根据其版本和日期可以判断是否有更新版本。"
+
+msgid "Volver a leer todo el equipo (F5)"
+msgstr "重新读取整台电脑（F5）"
+
+msgid "Menú"
+msgstr "菜单"
+
+msgid "Exportar"
+msgstr "导出"
+
+msgid "Guardar o copiar el informe: texto, página web, foro, JSON o CSV (Ctrl+E)"
+msgstr "保存或复制报告：文本、网页、论坛、JSON 或 CSV（Ctrl+E）"
+
+msgid "Buscar en el informe"
+msgstr "搜索报告"
+
+msgid "Escribe, por ejemplo, «temperatura», «NVIDIA» o «batería» (Ctrl+F)"
+msgstr "例如输入“温度”“NVIDIA”或“电池”（Ctrl+F）"
+
+msgid "Sin resultados."
+msgstr "没有结果。"
+
+msgid "Abrir"
+msgstr "打开"
+
+msgid "Oscuro"
+msgstr "深色"
+
+msgid "Claro"
+msgstr "浅色"
+
+msgid "Aspecto"
+msgstr "外观"
+
+msgid "Ocultar datos personales en pantalla"
+msgstr "在屏幕上隐藏个人信息"
+
+msgid "Tapa números de serie, MAC, IP, nombre del equipo, red Wi-Fi y usuario. Útil para hacer capturas de pantalla."
+msgstr "隐藏序列号、MAC、IP、计算机名、Wi-Fi 网络和用户名。适合截图时使用。"
+
+msgid "Atajos de teclado"
+msgstr "键盘快捷键"
+
+msgid "Acerca de MintMachine"
+msgstr "关于 MintMachine"
+
+msgid "Desinstalar MintMachine…"
+msgstr "卸载 MintMachine…"
+
+msgid "Volver a leer el equipo"
+msgstr "重新读取电脑"
+
+msgid "Ir a la sección 1 a 9 de la lista"
+msgstr "跳到列表中的第 1 至 9 个部分"
+
+msgid "Acerca de"
+msgstr "关于"
+
+msgid "Salir"
+msgstr "退出"
+
+msgid "Hardware, drivers y software de tu equipo en una sola ventana."
+msgstr "在一个窗口中查看电脑的硬件、驱动和软件。"
+
+msgid "¿Desinstalar MintMachine?"
+msgstr "卸载 MintMachine？"
+
+msgid "Se quitarán el programa, su icono del menú y su configuración, sin dejar rastro en el equipo. Los informes que hayas guardado son tuyos y no se tocan."
+msgstr "将移除程序、菜单图标及其设置，不在电脑上留下任何痕迹。您保存的报告属于您，不会被删除。"
+
+msgid "El sistema te pedirá tu contraseña para quitar el programa."
+msgstr "系统将要求输入密码以移除程序。"
+
+msgid "Cancelar"
+msgstr "取消"
+
+msgid "Desinstalar"
+msgstr "卸载"
+
+msgid "Configuración borrada"
+msgstr "设置已删除"
+
+msgid "MintMachine no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
+msgstr "MintMachine 不是以软件包方式安装的：您是在其文件夹中运行它。其设置已删除；最后请删除该文件夹。"
+
+msgid "MintMachine se ha desinstalado"
+msgstr "MintMachine 已卸载"
+
+msgid "Gracias por usarlo. La ventana se cerrará ahora."
+msgstr "感谢使用。窗口即将关闭。"
+
+msgid "No se ha desinstalado"
+msgstr "未卸载"
+
+msgid "Se ha cancelado la contraseña. No se ha cambiado nada."
+msgstr "已取消输入密码。未做任何更改。"
+
+msgid "No se ha podido desinstalar"
+msgstr "无法卸载"
+
+msgid "Si el Gestor de actualizaciones u otro instalador está abierto, ciérralo y vuelve a intentarlo."
+msgstr "如果更新管理器或其他安装程序正在运行，请关闭后重试。"
+
+msgid "No se ha podido abrir «{prog}»: {err}"
+msgstr "无法打开“{prog}”：{err}"
+
+msgid "Leyendo el equipo…"
+msgstr "正在读取电脑信息…"
+
+msgid "Tarda unos segundos. MintMachine solo lee: no cambia nada."
+msgstr "需要几秒钟。MintMachine 只读取信息，不做任何更改。"
+
+msgid "Información para usuarios avanzados o para pedir ayuda en un foro"
+msgstr "供高级用户或在论坛求助时使用的信息"
+
+msgid "No se ha detectado ningún problema en la revisión automática."
+msgstr "自动检查未发现任何问题。"
+
+msgid "Abajo tienes qué pasa y qué puedes hacer."
+msgstr "下面列出了具体情况以及您可以采取的措施。"
+
+msgid "Ver diagnóstico completo"
+msgstr "查看完整诊断"
+
+msgid "máx."
+msgstr "最高"
+
+msgid "Últimos 2 minutos, una muestra por segundo"
+msgstr "最近 2 分钟，每秒采样一次"
+
+msgid "Instala python3-gi-cairo para ver la gráfica"
+msgstr "安装 python3-gi-cairo 才能查看图表"
+
+msgid "Exportar informe"
+msgstr "导出报告"
+
+msgid "Qué incluir"
+msgstr "包含内容"
+
+msgid "Todo el informe"
+msgstr "完整报告"
+
+msgid "Solo «{seccion}»"
+msgstr "仅“{seccion}”"
+
+msgid "Ocultar datos personales"
+msgstr "隐藏个人信息"
+
+msgid "Tapa números de serie, MAC, IP, nombre del equipo, red Wi-Fi, usuario y otros datos que te identifican. Recomendado si lo vas a publicar o enviar."
+msgstr "隐藏序列号、MAC、IP、计算机名、Wi-Fi 网络、用户名以及其他可识别您身份的信息。如果要公开或发送报告，建议勾选。"
+
+msgid "Copiar"
+msgstr "复制"
+
+msgid "Copia el informe al portapapeles para pegarlo donde quieras"
+msgstr "将报告复制到剪贴板，可粘贴到任何地方"
+
+msgid "Guardar…"
+msgstr "保存…"
+
+msgid "Copiado al portapapeles en formato «{fmt}»."
+msgstr "已以“{fmt}”格式复制到剪贴板。"
+
+msgid "Los datos personales están ocultos."
+msgstr "个人信息已隐藏。"
+
+msgid "Pégalo con Ctrl+V."
+msgstr "用 Ctrl+V 粘贴。"
+
+msgid "En el foro, pégalo tal cual: ya va entre [code] y [/code]."
+msgstr "在论坛中直接粘贴即可：内容已位于 [code] 和 [/code] 之间。"
+
+msgid "Guardar informe"
+msgstr "保存报告"
+
+msgid "Guardar"
+msgstr "保存"
+
+msgid "Informe guardado en {ruta}"
+msgstr "报告已保存到 {ruta}"
+
+msgid "No se ha podido guardar el informe"
+msgstr "无法保存报告"
+
+msgid "{app}: información de hardware y software del equipo. Solo lee: no cambia nada y no envía datos a internet."
+msgstr "{app}：本机硬件和软件信息。只读取，不做任何更改，也不向互联网发送数据。"
+
+msgid "muestra el informe completo por terminal"
+msgstr "在终端中显示完整报告"
+
+msgid "resumen listo para pegar en un foro (oculta los datos personales)"
+msgstr "可粘贴到论坛的摘要（隐藏个人信息）"
+
+msgid "vuelca el informe en JSON"
+msgstr "以 JSON 格式输出报告"
+
+msgid "ARCHIVO"
+msgstr "文件"
+
+msgid "guarda el informe completo en un archivo de texto"
+msgstr "将完整报告保存为文本文件"
+
+msgid "guarda el informe en un archivo HTML"
+msgstr "将报告保存为 HTML 文件"
+
+msgid "mide durante 2 minutos y guarda el histórico del monitor en CSV"
+msgstr "测量 2 分钟并将监视历史保存为 CSV"
+
+msgid "oculta números de serie, MAC, IP, nombres y usuario"
+msgstr "隐藏序列号、MAC、IP、名称和用户名"
+
+msgid "idioma: es, en, fr, ja, zh"
+msgstr "语言：es, en, fr, ja, zh"
+
+msgid "No se ha podido guardar {ruta}: {error}"
+msgstr "无法保存 {ruta}：{error}"
+
+msgid "Midiendo durante 2 minutos (Ctrl+C para guardar antes)..."
+msgstr "正在测量 2 分钟（按 Ctrl+C 可提前保存）..."
+
+msgid "No se puede abrir la interfaz gráfica ({error}). Falta el paquete python3-gi o gir1.2-gtk-3.0. Se muestra el informe en texto."
+msgstr "无法打开图形界面（{error}）。缺少 python3-gi 或 gir1.2-gtk-3.0 软件包。将以文本形式显示报告。"
+
+msgid "ufw instalado (estado no legible sin root)"
+msgstr "ufw 已安装（无 root 权限无法读取状态）"
+
+msgid "privativo"
+msgstr "专有"
+
+msgid "experimental"
+msgstr "实验性"
+
+msgid "forzado"
+msgstr "强制"
+
+msgid "excelente"
+msgstr "极好"
+
+msgid "buena"
+msgstr "良好"
+
+msgid "justa"
+msgstr "一般"
+
+msgid "midiendo"
+msgstr "测量中"
+
+msgid "(escala {n})"
+msgstr "（缩放 {n}）"
+
+msgid "En Wayland, el modo en uso lo da el escritorio: MintMachine lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
+msgstr "在 Wayland 下，当前显示模式由桌面环境提供：MintMachine 可在 GNOME、Cinnamon 和 KDE Plasma 中读取；在 Sway、Hyprland 等环境中，需要安装 wlr-randr 工具。各显示器本身的数据是完整的。"
+
+msgid "{a} guardados en {b}"
+msgstr "{a} 压缩为 {b}"
+
+msgid "Activada"
+msgstr "已启用"
+
+msgid "Memoria comprimida"
+msgstr "压缩内存"
+
+msgid "Linux puede comprimir en la propia RAM lo que menos se usa, en lugar de llevarlo al disco. Es más rápido que una swap normal y alivia a los equipos con poca memoria."
+msgstr "Linux 可以把最少使用的数据直接在内存中压缩，而不是写入磁盘。这比普通交换空间更快，对内存较小的电脑很有帮助。"
+
+msgid "Energía"
+msgstr "电源"
+
+msgid "El equipo está enchufado, pero tiene activo el perfil de ahorro de energía, que limita el rendimiento."
+msgstr "电脑已接通电源，但当前使用的是省电模式，性能会受到限制。"
+
+msgid "Si lo notas lento, elige el perfil equilibrado o el de rendimiento en la configuración de energía. Si lo prefieres silencioso y fresco, déjalo así."
+msgstr "如果觉得电脑变慢，请在电源设置中选择“平衡”或“性能”模式。如果您更看重安静和低温，保持现状即可。"
+
+msgid "Perfil del fabricante"
+msgstr "厂商性能模式"
+
+msgid "Gobernador del procesador"
+msgstr "处理器调速器"
+
+msgid "Preferencia entre ahorro y rendimiento"
+msgstr "节能与性能偏好"
+
+msgid "Nivel {n} de 4"
+msgstr "{n} 级（最高 4 级）"
+
+msgid " (con avisos)"
+msgstr "（有警告）"
+
+msgid "Seguridad del firmware (HSI)"
+msgstr "固件安全等级 (HSI)"
+
+msgid "Nota que el servicio de firmware (fwupd) pone a las protecciones de la placa, de 0 a 4. Depende casi por completo del fabricante: un nivel bajo no significa que hayas hecho algo mal."
+msgstr "固件服务 (fwupd) 对主板保护措施的评分，范围为 0 到 4。它几乎完全取决于厂商：等级低并不表示您做错了什么。"
+
+msgid "Modo de funcionamiento que ofrece el propio equipo (silencioso, equilibrado, rendimiento)."
+msgstr "电脑自身提供的运行模式（安静、平衡、性能）。"
+
+msgid "Regla con la que el sistema sube y baja la velocidad del procesador."
+msgstr "系统用来升高或降低处理器速度的规则。"
+
+msgid "Indicación que se da al procesador: gastar menos o responder más rápido."
+msgstr "给处理器的提示：更省电，还是响应更快。"
+
+msgid "Puesta a punto"
+msgstr "系统检查清单"
+
+msgid "Lista de comprobación"
+msgstr "检查清单"
+
+msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y MintMachine no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
+msgstr "安装系统后建议完成的事项。这些都不紧急，MintMachine 也不会更改任何内容：每一项都会带您打开相应的系统工具。"
+
+msgid "{n} de {m} puntos en orden"
+msgstr "{m} 项中有 {n} 项已就绪"
+
+msgid "No se ha podido comprobar ningún punto en este sistema."
+msgstr "在此系统上无法检查任何项目。"
+
+msgid "El sistema está al día."
+msgstr "系统已是最新。"
+
+msgid "Hay {n} actualizaciones pendientes."
+msgstr "有 {n} 个待安装的更新。"
+
+msgid "Abre el Gestor de actualizaciones e instálalas: corrigen fallos y problemas de seguridad."
+msgstr "打开更新管理器并安装它们：这些更新会修复故障和安全问题。"
+
+msgid "Drivers y firmware"
+msgstr "驱动与固件"
+
+msgid "No hay versiones nuevas de drivers ni de firmware en tus repositorios."
+msgstr "您的软件源中没有新版本的驱动或固件。"
+
+msgid "Hay {n} drivers o firmware con versión nueva."
+msgstr "有 {n} 个驱动或固件有新版本。"
+
+msgid "Mira la sección «Actualizaciones de drivers» y usa el Gestor de actualizaciones o el de controladores."
+msgstr "请查看“驱动更新”部分，并使用更新管理器或驱动管理器。"
+
+msgid "El cortafuegos está activado."
+msgstr "防火墙已启用。"
+
+msgid "El cortafuegos no está activado."
+msgstr "防火墙未启用。"
+
+msgid "En casa, detrás del router, es habitual. Actívalo si conectas el equipo a redes públicas."
+msgstr "在家中位于路由器之后时，这很常见。如果要连接公共网络，请启用它。"
+
+msgid "Instantáneas del sistema"
+msgstr "系统快照"
+
+msgid "Timeshift tiene instantáneas programadas."
+msgstr "Timeshift 已设置定时快照。"
+
+msgid "Timeshift está instalado, pero no tiene instantáneas programadas."
+msgstr "已安装 Timeshift，但没有设置定时快照。"
+
+msgid "Abre Timeshift y sigue el asistente: una instantánea permite deshacer una actualización que salga mal. No sustituye a la copia de seguridad de tus archivos."
+msgstr "打开 Timeshift 并按向导操作：快照可以撤销出问题的更新。它不能代替对个人文件的备份。"
+
+msgid "Discos SSD"
+msgstr "固态硬盘"
+
+msgid "El mantenimiento periódico de los SSD (TRIM) está activado."
+msgstr "固态硬盘的定期维护 (TRIM) 已启用。"
+
+msgid "El mantenimiento periódico de los SSD (TRIM) no está activado."
+msgstr "固态硬盘的定期维护 (TRIM) 未启用。"
+
+msgid "Linux Mint lo trae activado de fábrica. Pregunta en el foro de tu distribución cómo volver a activarlo."
+msgstr "Linux Mint 默认启用此功能。请在您所用发行版的论坛中询问如何重新启用。"
+
+msgid "Códecs multimedia"
+msgstr "多媒体编解码器"
+
+msgid "Los códecs multimedia están instalados."
+msgstr "多媒体编解码器已安装。"
+
+msgid "No se han encontrado los códecs multimedia."
+msgstr "未找到多媒体编解码器。"
+
+msgid "Sin ellos, algunos vídeos y canciones no se reproducen. En Linux Mint, busca «Instalar códecs multimedia» en el menú."
+msgstr "没有它们，部分视频和音乐无法播放。在 Linux Mint 中，请在菜单里搜索“安装多媒体编解码器”。"
+
+msgid "Utilidades opcionales que no están instaladas"
+msgstr "未安装的可选工具"
+
+msgid "Utilidad"
+msgstr "工具"
+
+msgid "Qué se deja de ver"
+msgstr "缺少后看不到的内容"
+
+msgid "Sin ellas el programa funciona igual, pero algunos apartados salen más cortos. Se instalan desde el Gestor de software, buscando el nombre del paquete."
+msgstr "没有这些工具程序照常运行，但部分栏目内容会减少。可在软件管理器中搜索软件包名称进行安装。"
+
+msgid "Gráfica y dispositivos PCI"
+msgstr "显卡和 PCI 设备"
+
+msgid "Discos y particiones"
+msgstr "磁盘和分区"
+
+msgid "Desgaste de los SSD"
+msgstr "固态硬盘磨损"
+
+msgid "Direcciones de red"
+msgstr "网络地址"
+
+msgid "Señal y banda del Wi-Fi"
+msgstr "Wi-Fi 信号和频段"
+
+msgid "Vídeo por hardware"
+msgstr "硬件视频解码"
+
+msgid "Firmware de los dispositivos"
+msgstr "设备固件"
+
+msgid "Modo de pantalla en X11"
+msgstr "X11 下的显示模式"
+
+msgid "Intel (integrada)"
+msgstr "Intel（集成）"
+
+msgid "Aplicaciones que más consumen"
+msgstr "占用资源最多的应用"
+
+msgid "Aplicación"
+msgstr "应用"
+
+msgid "Procesos"
+msgstr "进程数"
+
+msgid "Suma todos los procesos de cada aplicación; un navegador, por ejemplo, abre muchos. La memoria es aproximada: la parte que comparten se cuenta en cada uno."
+msgstr "汇总每个应用的所有进程；例如浏览器会启动许多进程。内存为近似值：共享部分会在每个进程中重复计算。"
+
+msgid "Resumen general"
+msgstr "总体摘要"
+
+msgid "Wi-Fi y red"
+msgstr "Wi-Fi 和网络"
+
+msgid "Batería, suspensión y temperatura"
+msgstr "电池、休眠和温度"
+
+msgid "Lentitud y arranque"
+msgstr "运行缓慢和启动"
+
+msgid "Problema: {tema}"
+msgstr "问题：{tema}"
+
+msgid "Pedir ayuda con:"
+msgstr "需要帮助的问题："
+
+msgid "Elige el problema y el resumen llevará la ficha del equipo y solo las secciones que hacen falta para ayudarte con él."
+msgstr "选择问题后，摘要将只包含电脑概况以及帮助您解决该问题所需的部分。"
+
+msgid "con --foro: resumen centrado en un problema (red, sonido, grafica, energia, lentitud)"
+msgstr "与 --foro 一起使用：针对某一问题的摘要（red = 网络，sonido = 声音，grafica = 显卡，energia = 电源，lentitud = 运行缓慢）"
+
+msgid "muestra qué utilidades se ejecutan y cuánto tardan (no guarda nada)"
+msgstr "显示运行了哪些工具及其耗时（不保存任何内容）"
+
+msgid "Batería de un periférico Bluetooth"
+msgstr "蓝牙外设电池"

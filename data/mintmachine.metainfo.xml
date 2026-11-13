@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2026 José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es> -->
+<component type="desktop-application">
+  <id>mintmachine</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>MintMachine</name>
+  <summary>Hardware, drivers y software del equipo de un vistazo</summary>
+  <summary xml:lang="en">Hardware, drivers and software of this computer at a glance</summary>
+  <developer id="es.joseantonioramos">
+    <name>José Antonio Ramos Miralles «Sombra»</name>
+  </developer>
+  <description>
+    <p>
+      MintMachine reúne en una sola ventana toda la información de tu equipo:
+      procesador, memoria, gráfica, discos, red, sensores, ventiladores, batería, drivers y software,
+      con gráficas de uso en vivo.
+    </p>
+    <ul>
+      <li>Pantalla de inicio con el estado del equipo y lo más importante</li>
+      <li>Diagnóstico automático con recomendaciones seguras y acceso a las herramientas del sistema</li>
+      <li>Salud y desgaste de discos y SSD sin permisos de administrador</li>
+      <li>Comprobación de versiones nuevas de drivers y firmware</li>
+      <li>Exportación a texto, página web, JSON, CSV o un resumen para foros, con los datos personales ocultos</li>
+    </ul>
+    <p>
+      Solo lee: no cambia nada, no necesita permisos de administrador y no envía datos a internet.
+    </p>
+  </description>
+  <launchable type="desktop-id">mintmachine.desktop</launchable>
+  <provides>
+    <binary>mintmachine</binary>
+  </provides>
+  <categories>
+    <category>System</category>
+    <category>Monitor</category>
+  </categories>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.5.0" date="2026-11-13">
+      <description>
+        <p>Pantallas en Wayland, uso de la gráfica Intel, aplicaciones que más consumen, sección
+        «Puesta a punto», resumen de foro por problema y pruebas unitarias.</p>
+      </description>
+    </release>
+    <release version="0.4.0" date="2026-11-13">
+      <description>
+        <p>Español, inglés, francés, japonés y chino; diseño nuevo con tema oscuro y claro; monitores,
+        fuente de alimentación y opción de desinstalar.</p>
+      </description>
+    </release>
+    <release version="0.3.0" date="2026-11-13">
+      <description>
+        <p>Nueva pantalla de inicio, diagnóstico con recomendaciones seguras, desgaste de SSD,
+        búsqueda, atajos de teclado y botón Exportar con todas las opciones.</p>
+      </description>
+    </release>
+    <release version="0.2.0" date="2026-11-13"/>
+    <release version="0.1.0" date="2026-11-13"/>
+  </releases>
+</component>

@@ -1,0 +1,45 @@
+name: Un dato sale mal o no aparece
+description: Un componente no se detecta o muestra un valor incorrecto
+labels: [hardware]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        MintMachine se ha probado en pocos equipos reales. Cada informe ayuda a que funcione en más hardware.
+  - type: input
+    id: seccion
+    attributes:
+      label: Sección
+      placeholder: "Por ejemplo: Sensores y ventiladores"
+    validations:
+      required: true
+  - type: textarea
+    id: dato
+    attributes:
+      label: Qué sale y qué debería salir
+      description: Si otro programa (inxi, sensors, Discos...) muestra el dato bien, pega lo que muestra.
+    validations:
+      required: true
+  - type: textarea
+    id: informe
+    attributes:
+      label: Informe de MintMachine (con los datos personales ocultos)
+      description: "Exportar → Para un foro → Ocultar datos personales → Copiar. O `mintmachine --foro`."
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Datos en bruto (opcional)
+      description: |
+        Según la sección, ayuda mucho la salida de: `ls /sys/class/hwmon/*/`, `cat /sys/class/hwmon/*/name`,
+        `udisksctl status`, `lspci -nnk` o `lsusb`. Revisa que no incluya datos personales.
+      render: text
+  - type: checkboxes
+    id: privacidad
+    attributes:
+      label: Privacidad
+      options:
+        - label: He revisado lo que pego y no contiene datos personales que no quiera publicar.
+          required: true

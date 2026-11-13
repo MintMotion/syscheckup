@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=MintMachine
+GenericName=Información del sistema
+GenericName[en]=System information
+Comment=Hardware, drivers y software del equipo de un vistazo
+Comment[en]=Hardware, drivers and software of this computer at a glance
+Exec=mintmachine
+Icon=mintmachine
+Terminal=false
+StartupNotify=true
+Categories=System;Monitor;
+Keywords=hardware;cpu;procesador;memoria;ram;disco;ssd;smart;drivers;controladores;sensores;temperatura;ventilador;batería;bios;sistema;diagnóstico;informe;
+Keywords[en]=hardware;cpu;memory;ram;disk;ssd;smart;drivers;sensors;temperature;fan;battery;bios;system;diagnosis;report;

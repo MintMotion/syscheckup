@@ -1,0 +1,2542 @@
+# Traducción de MintMachine: English
+# Copyright (c) 2026 José Antonio Ramos Miralles «Sombra»
+# Este archivo se distribuye con la misma licencia que MintMachine (MIT).
+msgid ""
+msgstr ""
+"Project-Id-Version: MintMachine\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "MintMachine solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
+msgstr "MintMachine only reads information: it never changes anything on your computer. Its recommendations are for guidance only and are limited to safe actions within the system itself. Do not open the computer or handle its components: any physical check (internal cleaning, replacing a disk, memory or battery) must be done by a repair service or the manufacturer. Before any important change, back up your files."
+
+msgid "(oculto)"
+msgstr "(hidden)"
+
+msgid "(UUID oculto)"
+msgstr "(UUID hidden)"
+
+msgid "(IPv6 oculta)"
+msgstr "(IPv6 hidden)"
+
+msgid "Abrir el Gestor de actualizaciones"
+msgstr "Open Update Manager"
+
+msgid "Abrir el Gestor de controladores"
+msgstr "Open Driver Manager"
+
+msgid "Abrir Discos"
+msgstr "Open Disks"
+
+msgid "Ver qué ocupa el disco"
+msgstr "See what is using disk space"
+
+msgid "Abrir Copias de seguridad"
+msgstr "Open Backup Tool"
+
+msgid "Abrir Timeshift"
+msgstr "Open Timeshift"
+
+msgid "Abrir el Cortafuegos"
+msgstr "Open Firewall"
+
+msgid "Abrir Firmware"
+msgstr "Open Firmware"
+
+msgid "Abrir el Monitor del sistema"
+msgstr "Open System Monitor"
+
+msgid "Abrir los registros del sistema"
+msgstr "Open system logs"
+
+msgid "Abrir la configuración de energía"
+msgstr "Open power settings"
+
+msgid "Memoria"
+msgstr "Memory"
+
+msgid "Los programas están esperando por falta de memoria (presión del {n:.0f} %), y eso hace que el equipo vaya lento."
+msgstr "Programs are waiting for memory (pressure at {n:.0f} %), which makes the computer slow."
+
+msgid "Cierra programas o pestañas del navegador que no estés usando. Si te pasa a menudo, un servicio técnico puede decirte si tu equipo admite más memoria."
+msgstr "Close programs or browser tabs you are not using. If it happens often, a repair service can tell you whether your computer accepts more memory."
+
+msgid "Procesador"
+msgstr "Processor"
+
+msgid "Uso"
+msgstr "Usage"
+
+msgid "Swap"
+msgstr "Swap"
+
+msgid "Red"
+msgstr "Network"
+
+msgid "Bajada"
+msgstr "Download"
+
+msgid "Subida"
+msgstr "Upload"
+
+msgid "Disco"
+msgstr "Disk"
+
+msgid "Lectura"
+msgstr "Read"
+
+msgid "Escritura"
+msgstr "Write"
+
+msgid "Temperatura del procesador"
+msgstr "Processor temperature"
+
+msgid "Uso de la gráfica"
+msgstr "Graphics usage"
+
+msgid "Uso de cada hilo"
+msgstr "Usage per thread"
+
+msgid "Ahora mismo"
+msgstr "Right now"
+
+msgid "Carga media (1, 5, 15 min)"
+msgstr "Load average (1, 5, 15 min)"
+
+msgid "Procesos en marcha"
+msgstr "Running processes"
+
+msgid "Tiempo perdido esperando recursos (10 s)"
+msgstr "Time lost waiting for resources (10 s)"
+
+msgid "Procesos que más procesador usan"
+msgstr "Processes using the most CPU"
+
+msgid "Proceso"
+msgstr "Process"
+
+msgid "Procesos que más memoria ocupan"
+msgstr "Processes using the most memory"
+
+msgid "Las gráficas empiezan a llenarse a los pocos segundos de abrir el programa."
+msgstr "The charts start filling a few seconds after the program opens."
+
+msgid "Monitor en vivo"
+msgstr "Live monitor"
+
+msgid " de datos"
+msgstr " data"
+
+msgid " de instrucciones"
+msgstr " instruction"
+
+msgid ", {ways} vías"
+msgstr ", {ways}-way"
+
+msgid "Comprueba que las rejillas de ventilación no estén tapadas: no uses el portátil sobre la cama, el sofá o las piernas, y deja espacio libre alrededor del equipo. Cierra los programas que no uses. Si sigue pasando, que un servicio técnico revise la refrigeración: no abras el equipo por tu cuenta."
+msgstr "Make sure the ventilation grilles are not blocked: do not use the laptop on a bed, sofa or your lap, and leave free space around the computer. Close programs you are not using. If it keeps happening, have a repair service check the cooling: do not open the computer yourself."
+
+msgid "Desconocido"
+msgstr "Unknown"
+
+msgid "Sí: hilos {pc} en núcleos P, hilos {ec} en núcleos E"
+msgstr "Yes: threads {pc} on P-cores, threads {ec} on E-cores"
+
+msgid "Intel VT-x disponible"
+msgstr "Intel VT-x available"
+
+msgid "AMD-V disponible"
+msgstr "AMD-V available"
+
+msgid "No detectada (o desactivada en la BIOS)"
+msgstr "Not detected (or disabled in the BIOS)"
+
+msgid "El procesador ha bajado su velocidad por calor {thr} veces desde que encendiste el equipo."
+msgstr "The processor has slowed down because of heat {thr} times since you turned the computer on."
+
+msgid "Modelo"
+msgstr "Model"
+
+msgid "Fabricante"
+msgstr "Manufacturer"
+
+msgid "Núcleos / hilos"
+msgstr "Cores / threads"
+
+msgid "Arquitectura híbrida"
+msgstr "Hybrid architecture"
+
+msgid "Frecuencia actual (media)"
+msgstr "Current frequency (average)"
+
+msgid "Rango de frecuencias"
+msgstr "Frequency range"
+
+msgid "Uso total"
+msgstr "Total usage"
+
+msgid "Frenazos por temperatura desde el arranque"
+msgstr "Heat slowdowns since boot"
+
+msgid "Virtualización"
+msgstr "Virtualization"
+
+msgid "Entorno"
+msgstr "Environment"
+
+msgid "Máquina física"
+msgstr "Physical machine"
+
+msgid "Virtualizado ({virt})"
+msgstr "Virtualized ({virt})"
+
+msgid "Datos técnicos"
+msgstr "Technical data"
+
+msgid "Arquitectura"
+msgstr "Architecture"
+
+msgid "Familia / modelo / stepping"
+msgstr "Family / model / stepping"
+
+msgid "Microcódigo"
+msgstr "Microcode"
+
+msgid "Zócalos"
+msgstr "Sockets"
+
+msgid "Gobernador / driver"
+msgstr "Governor / driver"
+
+msgid "Direccionamiento"
+msgstr "Address sizes"
+
+msgid "Instrucciones"
+msgstr "Instruction sets"
+
+msgid "CPU {n}"
+msgstr "CPU {n}"
+
+msgid "El kernel indica fallos de seguridad del procesador sin proteger: {lista}."
+msgstr "The kernel reports unprotected processor security flaws: {lista}."
+
+msgid "Instala las actualizaciones pendientes, incluidas las del kernel, y el microcódigo del procesador que ofrezca el Gestor de controladores. Después, reinicia."
+msgstr "Install the pending updates, including kernel updates, and the processor microcode offered by Driver Manager. Then restart."
+
+msgid "{n} ({cores} núcleos, {threads} hilos)"
+msgstr "{n} ({cores} cores, {threads} threads)"
+
+msgid "Hilos en tiempo real"
+msgstr "Threads in real time"
+
+msgid "Hilo"
+msgstr "Thread"
+
+msgid "Frecuencia"
+msgstr "Frequency"
+
+msgid "Cachés"
+msgstr "Caches"
+
+msgid "Memoria muy rápida dentro del propio procesador. Más caché suele significar más rendimiento."
+msgstr "Very fast memory inside the processor itself. More cache usually means more performance."
+
+msgid "Vulnerabilidades y mitigaciones"
+msgstr "Vulnerabilities and mitigations"
+
+msgid "Vulnerabilidad"
+msgstr "Vulnerability"
+
+msgid "Estado según el kernel"
+msgstr "Status according to the kernel"
+
+msgid "Fallos de seguridad conocidos de los procesadores y cómo los neutraliza el kernel. «Not affected» y «Mitigation» son buenas noticias; «Vulnerable» no."
+msgstr "Known security flaws in processors and how the kernel neutralises them. «Not affected» and «Mitigation» are good news; «Vulnerable» is not."
+
+msgid "Sobremesa"
+msgstr "Desktop"
+
+msgid "Sobremesa de perfil bajo"
+msgstr "Low-profile desktop"
+
+msgid "Pizza box"
+msgstr "Pizza box"
+
+msgid "Minitorre"
+msgstr "Mini tower"
+
+msgid "Torre"
+msgstr "Tower"
+
+msgid "Portátil"
+msgstr "Laptop"
+
+msgid "Dispositivo de mano"
+msgstr "Handheld device"
+
+msgid "Todo en uno"
+msgstr "All-in-one"
+
+msgid "Subportátil"
+msgstr "Sub-notebook"
+
+msgid "Servidor"
+msgstr "Server"
+
+msgid "Servidor en rack"
+msgstr "Rack server"
+
+msgid "Tableta"
+msgstr "Tablet"
+
+msgid "Convertible"
+msgstr "Convertible"
+
+msgid "Desmontable"
+msgstr "Detachable"
+
+msgid "Mini PC"
+msgstr "Mini PC"
+
+msgid "Stick PC"
+msgstr "Stick PC"
+
+msgid "Equipo"
+msgstr "Computer"
+
+msgid "Versión"
+msgstr "Version"
+
+msgid "Familia"
+msgstr "Family"
+
+msgid "Formato"
+msgstr "Form factor"
+
+msgid "Número de serie"
+msgstr "Serial number"
+
+msgid "Placa base"
+msgstr "Motherboard"
+
+msgid "Revisión"
+msgstr "Revision"
+
+msgid "BIOS / UEFI"
+msgstr "BIOS / UEFI"
+
+msgid "Fecha"
+msgstr "Date"
+
+msgid "Modo de arranque"
+msgstr "Boot mode"
+
+msgid "BIOS clásico (legacy)"
+msgstr "Classic BIOS (legacy)"
+
+msgid "Secure Boot"
+msgstr "Secure Boot"
+
+msgid "No aplicable"
+msgstr "Not applicable"
+
+msgid "Activado"
+msgstr "Enabled"
+
+msgid "Desactivado"
+msgstr "Disabled"
+
+msgid "Versión {tpm}.x"
+msgstr "Version {tpm}.x"
+
+msgid "No detectado"
+msgstr "Not detected"
+
+msgid "Este sistema no expone datos DMI (habitual en máquinas virtuales, contenedores y placas ARM)."
+msgstr "This system does not expose DMI data (common in virtual machines, containers and ARM boards)."
+
+msgid "Placa base y BIOS"
+msgstr "Motherboard and BIOS"
+
+msgid "{n} de {n2} ({n3:.0f} %)"
+msgstr "{n} of {n2} ({n3:.0f} %)"
+
+msgid "Detalle"
+msgstr "Details"
+
+msgid "Total instalada (visible)"
+msgstr "Total installed (visible)"
+
+msgid "Disponible"
+msgstr "Available"
+
+msgid "Caché y búferes"
+msgstr "Cache and buffers"
+
+msgid "Memoria compartida"
+msgstr "Shared memory"
+
+msgid "Memoria de intercambio (swap)"
+msgstr "Swap space"
+
+msgid "No hay"
+msgstr "None"
+
+msgid "Tendencia a usar swap (swappiness)"
+msgstr "Swap tendency (swappiness)"
+
+msgid "Vacía"
+msgstr "Empty"
+
+msgid "Módulos instalados"
+msgstr "Installed modules"
+
+msgid "Ranura"
+msgstr "Slot"
+
+msgid "Tamaño"
+msgstr "Size"
+
+msgid "Tipo"
+msgstr "Type"
+
+msgid "Velocidad"
+msgstr "Speed"
+
+msgid "Referencia"
+msgstr "Part number"
+
+msgid "Ampliación"
+msgstr "Upgrade"
+
+msgid "Ranuras ocupadas"
+msgstr "Slots in use"
+
+msgid "{populated} de {n}"
+msgstr "{populated} of {n}"
+
+msgid "Máximo que admite la placa"
+msgstr "Maximum supported by the board"
+
+msgid "Hay un solo módulo de memoria y queda una ranura libre: la memoria trabaja en canal simple."
+msgstr "There is a single memory module and one free slot: memory runs in single channel."
+
+msgid "No es un fallo. Si algún día quieres más rendimiento o más memoria, un servicio técnico puede añadir un módulo igual al que tienes."
+msgstr "This is not a fault. If you ever want more performance or more memory, a repair service can add a module identical to yours."
+
+msgid "No se han podido leer los módulos de RAM (ocurre en máquinas virtuales y en algunos equipos con memoria soldada)."
+msgstr "The RAM modules could not be read (this happens in virtual machines and on some computers with soldered memory)."
+
+msgid "Errores de memoria (EDAC)"
+msgstr "Memory errors (EDAC)"
+
+msgid "Corregidos"
+msgstr "Corrected"
+
+msgid "Sin corregir"
+msgstr "Uncorrected"
+
+msgid "Errores que el controlador de memoria ha detectado. Lo normal es 0."
+msgstr "Errors detected by the memory controller. The normal value is 0."
+
+msgid "El kernel ha registrado {ue} errores de memoria que no ha podido corregir. Es señal de un módulo de memoria defectuoso."
+msgstr "The kernel has recorded {ue} memory errors it could not correct. This points to a faulty memory module."
+
+msgid "Haz ya una copia de seguridad de tus archivos y lleva el equipo a un servicio técnico o al fabricante, sobre todo si está en garantía."
+msgstr "Back up your files now and take the computer to a repair service or the manufacturer, especially if it is under warranty."
+
+msgid "El kernel ha corregido {ce} errores de memoria."
+msgstr "The kernel has corrected {ce} memory errors."
+
+msgid "De momento no se pierde nada, pero puede ser el primer síntoma de un módulo que falla. Haz copias de seguridad con regularidad y coméntaselo a un servicio técnico."
+msgstr "Nothing is lost for now, but it may be the first sign of a failing module. Back up regularly and mention it to a repair service."
+
+msgid "Queda poca memoria libre ({n})."
+msgstr "Little free memory left ({n})."
+
+msgid "Cierra programas o pestañas del navegador que no estés usando."
+msgstr "Close programs or browser tabs you are not using."
+
+msgid "No hay memoria de intercambio (swap) y el equipo tiene menos de 8 GiB de RAM."
+msgstr "There is no swap space and the computer has less than 8 GiB of RAM."
+
+msgid "Si algún programa se cierra solo por falta de memoria, pide en el foro de tu distribución cómo crear un archivo de intercambio. Si no te pasa, no hace falta hacer nada."
+msgstr "If a program closes by itself because of low memory, ask on your distribution’s forum how to create a swap file. If it does not happen to you, there is nothing to do."
+
+msgid "{n} visibles ({n2} × {n3}{n4})"
+msgstr "{n} visible ({n2} × {n3}{n4})"
+
+msgid "Clase [{n}]"
+msgstr "Class [{n}]"
+
+msgid "Fabricante [{n}]"
+msgstr "Vendor [{n}]"
+
+msgid "Dispositivo [{n}]"
+msgstr "Device [{n}]"
+
+msgid "máxima {mx} MHz"
+msgstr "max {mx} MHz"
+
+msgid "Monitor"
+msgstr "Monitor"
+
+msgid "Resolución nativa"
+msgstr "Native resolution"
+
+msgid "Refresco nativo"
+msgstr "Native refresh rate"
+
+msgid "Modo en uso"
+msgstr "Current mode"
+
+msgid "Conector"
+msgstr "Connector"
+
+msgid "Fabricado en"
+msgstr "Manufactured in"
+
+msgid "Tarjeta gráfica: {n}"
+msgstr "Graphics card: {n}"
+
+msgid "Identificador PCI"
+msgstr "PCI identifier"
+
+msgid "Ensamblador"
+msgstr "Board maker"
+
+msgid "Driver en uso"
+msgstr "Driver in use"
+
+msgid "Módulos disponibles"
+msgstr "Available modules"
+
+msgid "Memoria de vídeo"
+msgstr "Video memory"
+
+msgid "Enlace PCIe"
+msgstr "PCIe link"
+
+msgid "Gráfica"
+msgstr "Graphics"
+
+msgid "La gráfica {dname} no tiene ningún driver cargado."
+msgstr "The graphics card {dname} has no driver loaded."
+
+msgid "Abre el Gestor de controladores: si ofrece un driver recomendado para tu gráfica, instálalo y reinicia. Si no ofrece nada, pregunta en el foro de tu distribución."
+msgstr "Open Driver Manager: if it offers a recommended driver for your graphics card, install it and restart. If it offers nothing, ask on your distribution’s forum."
+
+msgid "NVIDIA (driver privativo)"
+msgstr "NVIDIA (proprietary driver)"
+
+msgid "Versión del driver"
+msgstr "Driver version"
+
+msgid "Temperatura °C"
+msgstr "Temperature °C"
+
+msgid "Aceleración 3D"
+msgstr "3D acceleration"
+
+msgid "Renderizador OpenGL"
+msgstr "OpenGL renderer"
+
+msgid "Versión de OpenGL"
+msgstr "OpenGL version"
+
+msgid "Renderizado directo"
+msgstr "Direct rendering"
+
+msgid "Memoria de vídeo dedicada"
+msgstr "Dedicated video memory"
+
+msgid "Servidor gráfico"
+msgstr "Display server"
+
+msgid "La gráfica no está acelerando el 3D: lo está dibujando el procesador (llvmpipe), así que vídeos, juegos y efectos irán lentos."
+msgstr "The graphics card is not accelerating 3D: the processor is drawing it (llvmpipe), so videos, games and effects will be slow."
+
+msgid "Abre el Gestor de controladores e instala el driver recomendado para tu gráfica. Después, reinicia."
+msgstr "Open Driver Manager and install the recommended driver for your graphics card. Then restart."
+
+msgid "Vídeo y Vulkan"
+msgstr "Video and Vulkan"
+
+msgid "Formatos de vídeo que la gráfica reproduce por sí sola, sin cargar al procesador, y versión de Vulkan, que usan los juegos."
+msgstr "Video formats the graphics card plays by itself, without loading the processor, and the Vulkan version used by games."
+
+msgid "Decodifica por hardware"
+msgstr "Hardware decoding"
+
+msgid "Ningún formato"
+msgstr "No format"
+
+msgid "No decodifica por hardware"
+msgstr "No hardware decoding"
+
+msgid "Dispositivo Vulkan"
+msgstr "Vulkan device"
+
+msgid "Versión de Vulkan"
+msgstr "Vulkan version"
+
+msgid "Driver Vulkan"
+msgstr "Vulkan driver"
+
+msgid "Pantallas conectadas"
+msgstr "Connected displays"
+
+msgid "Salida"
+msgstr "Output"
+
+msgid "Resolución"
+msgstr "Resolution"
+
+msgid "Refresco"
+msgstr "Refresh rate"
+
+msgid "No se ha detectado ninguna tarjeta gráfica por PCI."
+msgstr "No graphics card was detected on PCI."
+
+msgid "Gráfica y pantallas"
+msgstr "Graphics and displays"
+
+msgid "Dispositivos PCI y el driver que usa cada uno"
+msgstr "PCI devices and the driver each one uses"
+
+msgid "Clase"
+msgstr "Class"
+
+msgid "Dispositivo"
+msgstr "Device"
+
+msgid "Driver"
+msgstr "Driver"
+
+msgid "No hay bus PCI visible en este sistema."
+msgstr "No PCI bus is visible on this system."
+
+msgid "Dispositivos PCI"
+msgstr "PCI devices"
+
+msgid "{n} usados de {n2}; quedan {n3} libres"
+msgstr "{n} used of {n2}; {n3} free"
+
+msgid "{used} % usada (queda un {n} % estimado)"
+msgstr "{used} % used ({n} % estimated left)"
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube. Después, consulta con un servicio técnico o con el fabricante (si está en garantía) para sustituir la unidad."
+msgstr "Back up your important files to another disk or to the cloud now. Then talk to a repair service or the manufacturer (if it is under warranty) about replacing the drive."
+
+msgid "FALLO INMINENTE"
+msgstr "IMMINENT FAILURE"
+
+msgid "Con sectores dañados"
+msgstr "Bad sectors"
+
+msgid "Correcto"
+msgstr "Good"
+
+msgid "{hours} h ({n} años)"
+msgstr "{hours} h ({n} years)"
+
+msgid "Almacenamiento"
+msgstr "Storage"
+
+msgid "El disco {model} avisa de que va a fallar pronto (SMART)."
+msgstr "The disk {model} reports that it will fail soon (SMART)."
+
+msgid "El disco {model} tiene {bad} sectores dañados."
+msgstr "The disk {model} has {bad} bad sectors."
+
+msgid "Algunos sectores dañados no impiden usar el disco, pero si el número crece, el disco se está deteriorando."
+msgstr "A few bad sectors do not stop you using the disk, but if the number grows, the disk is deteriorating."
+
+msgid "El SSD {model} ha consumido el {wear} % de su vida útil estimada."
+msgstr "The SSD {model} has used {wear} % of its estimated lifespan."
+
+msgid "Aún puede funcionar bastante tiempo, pero conviene planificar su sustitución."
+msgstr "It can still work for quite a while, but it is worth planning its replacement."
+
+msgid "AVISO: {warn}"
+msgstr "WARNING: {warn}"
+
+msgid "El SSD {model} avisa de un problema de salud ({warn})."
+msgstr "The SSD {model} reports a health problem ({warn})."
+
+msgid "El SSD {model} avisa de un problema de salud (le quedan pocos bloques de reserva)."
+msgstr "The SSD {model} reports a health problem (few spare blocks left)."
+
+msgid "El SSD {model} ha consumido el {used} % de su vida útil estimada."
+msgstr "The SSD {model} has used {used} % of its estimated lifespan."
+
+msgid "Llegar al 100 % no significa que falle ese día: es la estimación del fabricante. Aun así, conviene planificar su sustitución."
+msgstr "Reaching 100 % does not mean it will fail that day: it is the manufacturer’s estimate. Even so, it is worth planning its replacement."
+
+msgid "El SSD {model} ha registrado {media_errors} errores de datos."
+msgstr "The SSD {model} has recorded {media_errors} data errors."
+
+msgid "Sin datos SMART"
+msgstr "No SMART data"
+
+msgid "Disco virtual"
+msgstr "Virtual disk"
+
+msgid "SSD NVMe"
+msgstr "NVMe SSD"
+
+msgid "Disco duro (HDD)"
+msgstr "Hard disk (HDD)"
+
+msgid "Memoria flash"
+msgstr "Flash memory"
+
+msgid "extraíble"
+msgstr "removable"
+
+msgid "Vacía la papelera y borra o mueve a otro disco lo que no necesites (descargas, vídeos, copias antiguas). «Ver qué ocupa el disco» te enseña qué carpetas ocupan más. Si usas Timeshift, revisa cuántas instantáneas guarda."
+msgstr "Empty the trash and delete or move to another disk what you do not need (downloads, videos, old backups). «See what is using disk space» shows which folders take up the most. If you use Timeshift, check how many snapshots it keeps."
+
+msgid "«{mnt}» está prácticamente lleno (quedan {n}). Con el disco lleno pueden fallar las actualizaciones y los programas."
+msgstr "«{mnt}» is almost full ({n} left). With a full disk, updates and programs can fail."
+
+msgid "«{mnt}» está al {n:.0f} % (quedan {n2})."
+msgstr "«{mnt}» is at {n:.0f} % ({n2} left)."
+
+msgid "El sistema está instalado en un disco duro mecánico, que es mucho más lento que un SSD."
+msgstr "The system is installed on a mechanical hard disk, which is much slower than an SSD."
+
+msgid "No es un fallo. Si el equipo te parece lento, cambiar el disco por un SSD es la mejora que más se nota; pídeselo a un servicio técnico, que también puede pasar tus datos."
+msgstr "This is not a fault. If the computer feels slow, replacing the disk with an SSD is the most noticeable upgrade; ask a repair service, who can also move your data."
+
+msgid "Correcta"
+msgstr "Good"
+
+msgid "{n} de {n2} unidades con avisos (mira Almacenamiento)"
+msgstr "{n} of {n2} drives with warnings (see Storage)"
+
+msgid "Espacio ocupado"
+msgstr "Space used"
+
+msgid "Salud de los discos (SMART)"
+msgstr "Disk health (SMART)"
+
+msgid "Unidad"
+msgstr "Drive"
+
+msgid "Estado"
+msgstr "Status"
+
+msgid "Vida útil"
+msgstr "Lifespan"
+
+msgid "Temperatura"
+msgstr "Temperature"
+
+msgid "Horas encendido"
+msgstr "Power-on hours"
+
+msgid "Sectores dañados / errores"
+msgstr "Bad sectors / errors"
+
+msgid "Última autoprueba"
+msgstr "Last self-test"
+
+msgid "El propio disco vigila su estado (SMART). «Vida útil» es la estimación de desgaste del fabricante para los SSD."
+msgstr "The disk monitors its own condition (SMART). «Lifespan» is the manufacturer’s wear estimate for SSDs."
+
+msgid "Unidades"
+msgstr "Drives"
+
+msgid "Capacidad"
+msgstr "Capacity"
+
+msgid "Interfaz"
+msgstr "Interface"
+
+msgid "Enlace"
+msgstr "Link"
+
+msgid "Firmware"
+msgstr "Firmware"
+
+msgid "Planificador E/S"
+msgstr "I/O scheduler"
+
+msgid "Mantenimiento"
+msgstr "Maintenance"
+
+msgid "TRIM periódico de los SSD"
+msgstr "Periodic SSD TRIM"
+
+msgid "Activado (fstrim.timer)"
+msgstr "Enabled (fstrim.timer)"
+
+msgid "El TRIM ayuda a que los SSD mantengan su velocidad. Linux Mint lo activa por defecto."
+msgstr "TRIM helps SSDs keep their speed. Linux Mint enables it by default."
+
+msgid "Particiones y volúmenes"
+msgstr "Partitions and volumes"
+
+msgid "Sistema de archivos"
+msgstr "File system"
+
+msgid "Montado en"
+msgstr "Mounted on"
+
+msgid "No se han detectado unidades físicas (¿falta la utilidad lsblk?)."
+msgstr "No physical drives were detected (is the lsblk tool missing?)."
+
+msgid "No hay datos de salud de los discos: hace falta el servicio UDisks (paquete udisks2; para los NVMe, versión 2.10 o posterior). En máquinas virtuales no hay SMART."
+msgstr "There is no disk health data: the UDisks service is needed (udisks2 package; for NVMe, version 2.10 or later). Virtual machines have no SMART."
+
+msgid "Bucle local"
+msgstr "Loopback"
+
+msgid "Ethernet"
+msgstr "Ethernet"
+
+msgid "Virtual"
+msgstr "Virtual"
+
+msgid "Conectada"
+msgstr "Connected"
+
+msgid "Desconectada"
+msgstr "Disconnected"
+
+msgid "En espera"
+msgstr "Standby"
+
+msgid "2,4 GHz"
+msgstr "2.4 GHz"
+
+msgid "banda de {band}"
+msgstr "{band} band"
+
+msgid "{mhz} MHz (banda de {band})"
+msgstr "{mhz} MHz ({band} band)"
+
+msgid "débil"
+msgstr "weak"
+
+msgid "La señal Wi-Fi es débil ({dbm} dBm): la conexión puede ir lenta o cortarse."
+msgstr "The Wi-Fi signal is weak ({dbm} dBm): the connection may be slow or drop."
+
+msgid "Acércate al router o quita obstáculos entre ambos. Si tu router tiene dos redes (2,4 y 5 GHz), la de 2,4 GHz llega más lejos."
+msgstr "Move closer to the router or remove obstacles between them. If your router has two networks (2.4 and 5 GHz), the 2.4 GHz one reaches further."
+
+msgid "Wi-Fi en {name}"
+msgstr "Wi-Fi on {name}"
+
+msgid "Red (SSID)"
+msgstr "Network (SSID)"
+
+msgid "Señal"
+msgstr "Signal"
+
+msgid "Velocidad de bajada"
+msgstr "Download speed"
+
+msgid "Velocidad de subida"
+msgstr "Upload speed"
+
+msgid "{n} por {n2}"
+msgstr "{n} via {n2}"
+
+msgid "General"
+msgstr "General"
+
+msgid "Nombre del equipo"
+msgstr "Computer name"
+
+msgid "Puerta de enlace"
+msgstr "Gateway"
+
+msgid "Servidores DNS"
+msgstr "DNS servers"
+
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+msgid "Interfaces"
+msgstr "Interfaces"
+
+msgid "Tarjetas de sonido"
+msgstr "Sound cards"
+
+msgid "Nombre"
+msgstr "Name"
+
+msgid "Servidor de sonido"
+msgstr "Sound server"
+
+msgid "Salida predeterminada"
+msgstr "Default output"
+
+msgid "Entrada predeterminada"
+msgstr "Default input"
+
+msgid "No se ha detectado ninguna tarjeta de sonido."
+msgstr "No sound card was detected."
+
+msgid "Sonido"
+msgstr "Sound"
+
+msgid "Dispositivos USB conectados"
+msgstr "Connected USB devices"
+
+msgid "Puerto"
+msgstr "Port"
+
+msgid "Producto"
+msgstr "Product"
+
+msgid "Consumo máx."
+msgstr "Max. power"
+
+msgid "No hay dispositivos USB conectados (o el sistema no expone el bus USB)."
+msgstr "No USB devices connected (or the system does not expose the USB bus)."
+
+msgid "Dispositivos USB"
+msgstr "USB devices"
+
+msgid "Gráfica AMD"
+msgstr "AMD graphics"
+
+msgid "Gráfica NVIDIA"
+msgstr "NVIDIA graphics"
+
+msgid "Chipset"
+msgstr "Chipset"
+
+msgid "Sin regulación (al máximo)"
+msgstr "Unregulated (full speed)"
+
+msgid "Curva personalizada"
+msgstr "Custom curve"
+
+msgid "Manual (lo fija un programa)"
+msgstr "Manual (set by a program)"
+
+msgid "Automático (lo decide el firmware)"
+msgstr "Automatic (decided by the firmware)"
+
+msgid "Ventilador {idx}"
+msgstr "Fan {idx}"
+
+msgid "Sonda de temperatura {idx}"
+msgstr "Temperature probe {idx}"
+
+msgid "acelera el ventilador"
+msgstr "speeds up the fan"
+
+msgid "frena el procesador"
+msgstr "slows down the processor"
+
+msgid "aviso de calor"
+msgstr "heat warning"
+
+msgid "apagado de emergencia"
+msgstr "emergency shutdown"
+
+msgid "{n:.0f} % de su máximo"
+msgstr "{n:.0f} % of its maximum"
+
+msgid "Parado"
+msgstr "Stopped"
+
+msgid "Ventilador"
+msgstr "Fan"
+
+msgid "{nice}, sensor {label}: {t:.0f} °C, muy cerca de su límite. Si lo alcanza, el equipo se frenará o se apagará para protegerse."
+msgstr "{nice}, sensor {label}: {t:.0f} °C, very close to its limit. If it reaches it, the computer will slow down or shut down to protect itself."
+
+msgid "{nice}, sensor {label}: {t:.0f} °C, temperatura alta. Puede ser normal mientras el equipo trabaja a fondo (juegos, vídeo, compilar)."
+msgstr "{nice}, sensor {label}: {t:.0f} °C, high temperature. It can be normal while the computer is working hard (games, video, compiling)."
+
+msgid "Zona térmica"
+msgstr "Thermal zone"
+
+msgid "Ventilador (ACPI)"
+msgstr "Fan (ACPI)"
+
+msgid "Freno del procesador"
+msgstr "Processor throttling"
+
+msgid "{act} de {n} actuando"
+msgstr "{act} of {n} active"
+
+msgid "En reposo"
+msgstr "Idle"
+
+msgid "Ventilador del ThinkPad"
+msgstr "ThinkPad fan"
+
+msgid "Nivel"
+msgstr "Level"
+
+msgid "Al máximo"
+msgstr "Full speed"
+
+msgid "Sin límite"
+msgstr "No limit"
+
+msgid "Temperaturas"
+msgstr "Temperatures"
+
+msgid "Chip"
+msgstr "Chip"
+
+msgid "Sensor"
+msgstr "Sensor"
+
+msgid "Ahora"
+msgstr "Now"
+
+msgid "Máx. / crítica"
+msgstr "Max. / critical"
+
+msgid "Cada chip informa de su temperatura. La columna de la derecha es el límite que fija el fabricante."
+msgstr "Each chip reports its temperature. The right-hand column is the limit set by the manufacturer."
+
+msgid "Ventiladores"
+msgstr "Fans"
+
+msgid "Potencia"
+msgstr "Power"
+
+msgid "Control"
+msgstr "Control"
+
+msgid "Mínimo"
+msgstr "Minimum"
+
+msgid "Curvas de ventilador programadas"
+msgstr "Programmed fan curves"
+
+msgid "Canal"
+msgstr "Channel"
+
+msgid "Temperatura → potencia"
+msgstr "Temperature → power"
+
+msgid "A qué velocidad gira el ventilador según la temperatura."
+msgstr "How fast the fan spins depending on the temperature."
+
+msgid "Umbrales térmicos del firmware (ACPI)"
+msgstr "Firmware thermal thresholds (ACPI)"
+
+msgid "Zona"
+msgstr "Zone"
+
+msgid "Qué ocurre a cada temperatura"
+msgstr "What happens at each temperature"
+
+msgid "Mecanismos de refrigeración del sistema"
+msgstr "System cooling mechanisms"
+
+msgid "Mecanismo"
+msgstr "Mechanism"
+
+msgid "Cantidad"
+msgstr "Count"
+
+msgid "Voltajes"
+msgstr "Voltages"
+
+msgid "Valor"
+msgstr "Value"
+
+msgid "Potencia y corriente"
+msgstr "Power and current"
+
+msgid "Este sistema no publica ningún sensor. Es habitual en máquinas virtuales y en algunos equipos cuyo fabricante no ofrece drivers de sensores para Linux."
+msgstr "This system does not publish any sensors. This is common in virtual machines and on some computers whose manufacturer provides no sensor drivers for Linux."
+
+msgid "No aparecen ventiladores. Es normal en muchos equipos: el chip que los controla no siempre tiene driver en Linux, y en ese caso la placa los sigue gobernando por su cuenta con normalidad."
+msgstr "No fans appear. This is normal on many computers: the chip that controls them does not always have a Linux driver, and in that case the board keeps controlling them on its own as usual."
+
+msgid "La curva que configuras en la BIOS vive en el chip de la placa y casi ningún driver deja leerla. Aparece aquí solo cuando el chip la publica (algunas placas con Nuvoton o ITE, portátiles ASUS ROG, gráficas AMD). Los umbrales ACPI de arriba son lo más parecido que ofrece el resto."
+msgstr "The curve you set in the BIOS lives in the board’s chip and almost no driver can read it. It only appears here when the chip publishes it (some boards with Nuvoton or ITE chips, ASUS ROG laptops, AMD graphics cards). The ACPI thresholds above are the closest thing the rest offer."
+
+msgid "Sensores y ventiladores"
+msgstr "Sensors and fans"
+
+msgid "Llena"
+msgstr "Full"
+
+msgid "Alta"
+msgstr "High"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Baja"
+msgstr "Low"
+
+msgid "Crítica"
+msgstr "Critical"
+
+msgid "Desconocida"
+msgstr "Unknown"
+
+msgid "Cargando"
+msgstr "Charging"
+
+msgid "Descargando"
+msgstr "Discharging"
+
+msgid "Cargada"
+msgstr "Charged"
+
+msgid "Sin cargar (enchufada)"
+msgstr "Not charging (plugged in)"
+
+msgid "Potencia total"
+msgstr "Total power"
+
+msgid "Temperatura VRM"
+msgstr "VRM temperature"
+
+msgid "Temperatura interna"
+msgstr "Internal temperature"
+
+msgid "Potencia +12 V"
+msgstr "+12 V power"
+
+msgid "Potencia +5 V"
+msgstr "+5 V power"
+
+msgid "Potencia +3,3 V"
+msgstr "+3.3 V power"
+
+msgid "Fuente de alimentación"
+msgstr "Power supply"
+
+msgid "Batería {name}"
+msgstr "Battery {name}"
+
+msgid "Carga"
+msgstr "Charge"
+
+msgid "Salud"
+msgstr "Health"
+
+msgid "{health:.0f} % de la capacidad original"
+msgstr "{health:.0f} % of original capacity"
+
+msgid "Capacidad actual"
+msgstr "Current capacity"
+
+msgid "Capacidad de fábrica"
+msgstr "Design capacity"
+
+msgid "Ciclos de carga"
+msgstr "Charge cycles"
+
+msgid "Consumo o carga ahora"
+msgstr "Power draw or charge now"
+
+msgid "Voltaje"
+msgstr "Voltage"
+
+msgid "Tecnología"
+msgstr "Technology"
+
+msgid "Fabricante / modelo"
+msgstr "Manufacturer / model"
+
+msgid "{n} % de carga, salud {health:.0f} %"
+msgstr "{n} % charged, health {health:.0f} %"
+
+msgid "Es desgaste normal con el uso. Si la autonomía ya no te basta, el fabricante o un servicio técnico puede cambiarla por una original. No la desmontes tú: una batería de litio dañada puede incendiarse. Si notas que se hincha o deforma la carcasa, deja de usar el equipo y llévalo a revisar."
+msgstr "This is normal wear from use. If battery life is no longer enough, the manufacturer or a repair service can replace it with an original one. Do not take it apart yourself: a damaged lithium battery can catch fire. If you notice it swelling or deforming the case, stop using the computer and have it checked."
+
+msgid "Batería"
+msgstr "Battery"
+
+msgid "La batería conserva solo el {health:.0f} % de su capacidad original."
+msgstr "The battery keeps only {health:.0f} % of its original capacity."
+
+msgid "La batería conserva el {health:.0f} % de su capacidad original."
+msgstr "The battery keeps {health:.0f} % of its original capacity."
+
+msgid "Batería de {dispositivo}"
+msgstr "Battery of {dispositivo}"
+
+msgid "Alimentación {name}"
+msgstr "Power input {name}"
+
+msgid "Corriente"
+msgstr "Mains"
+
+msgid "Sí"
+msgstr "Yes"
+
+msgid "No"
+msgstr "No"
+
+msgid "empieza al {a} %, para al {b} %"
+msgstr "starts at {a} %, stops at {b} %"
+
+msgid "para al {b} %"
+msgstr "stops at {b} %"
+
+msgid "Ahorro de energía"
+msgstr "Power saving"
+
+msgid "Perfil de energía activo"
+msgstr "Active power profile"
+
+msgid "Suspensión"
+msgstr "Suspend"
+
+msgid "Profunda (S3): gasta muy poco"
+msgstr "Deep (S3): uses very little power"
+
+msgid "Ligera (s2idle): gasta algo más"
+msgstr "Light (s2idle): uses a bit more power"
+
+msgid "Modos de suspensión que admite"
+msgstr "Supported suspend modes"
+
+msgid "Hibernación"
+msgstr "Hibernation"
+
+msgid "Disponible en el kernel"
+msgstr "Available in the kernel"
+
+msgid "No disponible"
+msgstr "Not available"
+
+msgid "Límite de carga de la batería"
+msgstr "Battery charge limit"
+
+msgid "Este equipo no tiene batería (o el sistema no la expone)."
+msgstr "This computer has no battery (or the system does not expose it)."
+
+msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y MintMachine los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
+msgstr "Power supply: desktop power supplies do not report their brand, model or wattage to the computer, so no program can read them. Only «smart» power supplies with an internal USB cable (for example Corsair HXi, RMi and AXi) send their data, and MintMachine shows it here when it detects one. To find out yours, check the invoice or the computer’s box; do not open the computer to look at the label."
+
+msgid "Batería y energía"
+msgstr "Battery and power"
+
+msgid "{h} h {n} min"
+msgstr "{h} h {n} min"
+
+msgid "Sistema operativo"
+msgstr "Operating system"
+
+msgid "Distribución"
+msgstr "Distribution"
+
+msgid "Sistema"
+msgstr "System"
+
+msgid "Nombre en clave"
+msgstr "Codename"
+
+msgid "Edición"
+msgstr "Edition"
+
+msgid "Base"
+msgstr "Base"
+
+msgid "Instalado el"
+msgstr "Installed on"
+
+msgid "Núcleo"
+msgstr "Kernel"
+
+msgid "Kernel"
+msgstr "Kernel"
+
+msgid "Compilación"
+msgstr "Build"
+
+msgid "Parámetros de arranque"
+msgstr "Boot parameters"
+
+msgid "Sistema de inicio"
+msgstr "Init system"
+
+msgid "Sesión"
+msgstr "Session"
+
+msgid "Escritorio"
+msgstr "Desktop"
+
+msgid "Intérprete de órdenes"
+msgstr "Shell"
+
+msgid "Idioma"
+msgstr "Language"
+
+msgid "Zona horaria"
+msgstr "Time zone"
+
+msgid "Encendido desde hace"
+msgstr "Up for"
+
+msgid "Duración del último arranque"
+msgstr "Last boot time"
+
+msgid "Lo que más tardó en el último arranque"
+msgstr "What took longest at the last boot"
+
+msgid "Tiempo"
+msgstr "Time"
+
+msgid "Servicios que más tiempo tardaron en arrancar. Varios arrancan a la vez, así que los tiempos no se suman."
+msgstr "Services that took longest to start. Several start at the same time, so the times do not add up."
+
+msgid "hay módulos privativos cargados"
+msgstr "proprietary modules are loaded"
+
+msgid "se forzó la carga de un módulo"
+msgstr "a module was force-loaded"
+
+msgid "el procesador notificó un error de hardware (machine check)"
+msgstr "the processor reported a hardware error (machine check)"
+
+msgid "se detectó una página de memoria corrupta"
+msgstr "a corrupt memory page was detected"
+
+msgid "el kernel sufrió un fallo grave (oops) en esta sesión"
+msgstr "the kernel had a serious fault (oops) in this session"
+
+msgid "el kernel emitió una advertencia en esta sesión"
+msgstr "the kernel issued a warning in this session"
+
+msgid "hay drivers experimentales (staging) cargados"
+msgstr "experimental (staging) drivers are loaded"
+
+msgid "se aplicó un apaño por un fallo del firmware"
+msgstr "a workaround for a firmware bug was applied"
+
+msgid "hay módulos externos al kernel (DKMS o de terceros)"
+msgstr "modules from outside the kernel are loaded (DKMS or third-party)"
+
+msgid "hay módulos sin firmar cargados"
+msgstr "unsigned modules are loaded"
+
+msgid "hubo un bloqueo temporal del sistema (soft lockup)"
+msgstr "there was a temporary system freeze (soft lockup)"
+
+msgid "Suele deberse a calor, a la memoria o a un ajuste de la BIOS fuera de fábrica. Haz una copia de seguridad y, si se repite o el equipo se cuelga, consúltalo con un servicio técnico."
+msgstr "It is usually caused by heat, memory or a BIOS setting changed from factory defaults. Back up your files and, if it repeats or the computer freezes, consult a repair service."
+
+msgid "Puede ser un fallo de la memoria. Haz una copia de seguridad y consúltalo con un servicio técnico si se repite."
+msgstr "It may be a memory fault. Back up your files and consult a repair service if it repeats."
+
+msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "Restart the computer. If it happens again, look for the message in «Diagnosis → log errors» and ask on your distribution’s forum with the MintMachine report (with personal data hidden)."
+
+msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de MintMachine."
+msgstr "It may be a one-off. If the computer often freezes, ask on your distribution’s forum and attach the MintMachine report."
+
+msgid "Alguien forzó la carga de un driver. Si no lo hiciste tú a propósito, pregunta en el foro de tu distribución."
+msgstr "Someone forced a driver to load. If you did not do it on purpose, ask on your distribution’s forum."
+
+msgid "externo al kernel"
+msgstr "external to the kernel"
+
+msgid "sin firmar"
+msgstr "unsigned"
+
+msgid "El kernel indica que {problema}."
+msgstr "The kernel reports that {problema}."
+
+msgid "Estado del kernel"
+msgstr "Kernel status"
+
+msgid "Módulos cargados"
+msgstr "Loaded modules"
+
+msgid "Kernel «limpio»"
+msgstr "«Clean» kernel"
+
+msgid "No (marca {mask})"
+msgstr "No (flag {mask})"
+
+msgid "Marca {l}"
+msgstr "Flag {l}"
+
+msgid "Drivers privativos o externos"
+msgstr "Proprietary or external drivers"
+
+msgid "Módulo"
+msgstr "Module"
+
+msgid "Motivo"
+msgstr "Reason"
+
+msgid "Drivers que no vienen dentro del kernel, como el de NVIDIA. Es normal tenerlos."
+msgstr "Drivers that do not come with the kernel, such as NVIDIA’s. It is normal to have them."
+
+msgid "Módulos DKMS"
+msgstr "DKMS modules"
+
+msgid "Drivers externos que se recompilan solos cada vez que se instala un kernel nuevo."
+msgstr "External drivers that are rebuilt automatically each time a new kernel is installed."
+
+msgid "Todos los módulos cargados"
+msgstr "All loaded modules"
+
+msgid "En uso"
+msgstr "Use count"
+
+msgid "Lo usan"
+msgstr "Used by"
+
+msgid "Notas"
+msgstr "Notes"
+
+msgid "No se puede leer la lista de módulos del kernel en este sistema."
+msgstr "The list of kernel modules cannot be read on this system."
+
+msgid "En Linux los drivers son módulos del kernel. Para ver qué driver usa cada dispositivo, mira las secciones «Dispositivos PCI» y «Dispositivos USB»."
+msgstr "On Linux, drivers are kernel modules. To see which driver each device uses, look at the «PCI devices» and «USB devices» sections."
+
+msgid "Drivers y módulos"
+msgstr "Drivers and modules"
+
+msgid "Kernel (trae casi todos los drivers)"
+msgstr "Kernel (includes almost all drivers)"
+
+msgid "Gráfica (drivers libres)"
+msgstr "Graphics (open-source drivers)"
+
+msgid "Firmware de dispositivos"
+msgstr "Device firmware"
+
+msgid "Microcódigo del procesador"
+msgstr "Processor microcode"
+
+msgid "Driver externo (DKMS)"
+msgstr "External driver (DKMS)"
+
+msgid "Periféricos"
+msgstr "Peripherals"
+
+msgid "gráfica"
+msgstr "graphics"
+
+msgid "sonido o vídeo"
+msgstr "sound or video"
+
+msgid "inalámbrico"
+msgstr "wireless"
+
+msgid "Hay versión nueva"
+msgstr "New version available"
+
+msgid "Al día"
+msgstr "Up to date"
+
+msgid "Sin datos del repositorio"
+msgstr "No repository data"
+
+msgid "Drivers"
+msgstr "Drivers"
+
+msgid "Hay versión nueva de: {paquetes}."
+msgstr "A new version is available for: {paquetes}."
+
+msgid "y otros"
+msgstr "and others"
+
+msgid "Instálala con el Gestor de actualizaciones, como el resto de actualizaciones, y reinicia al terminar."
+msgstr "Install it with Update Manager, like the rest of the updates, and restart when it finishes."
+
+msgid "Ya está instalado un kernel más nuevo ({newest}), pero sigues usando el anterior."
+msgstr "A newer kernel ({newest}) is already installed, but you are still using the previous one."
+
+msgid "Reinicia el equipo para empezar a usarlo."
+msgstr "Restart the computer to start using it."
+
+msgid "El kernel no recibirá versiones nuevas por sí solo (falta el paquete linux-image-amd64 o linux-image-generic)."
+msgstr "The kernel will not get new versions on its own (the linux-image-amd64 or linux-image-generic package is missing)."
+
+msgid "En Linux Mint los kernels se gestionan desde el Gestor de actualizaciones, menú Ver → Kernels. Si no sabes por qué falta, pregunta en el foro antes de tocar nada."
+msgstr "In Linux Mint, kernels are managed from Update Manager, menu View → Linux kernels. If you do not know why it is missing, ask on the forum before touching anything."
+
+msgid "La lista de paquetes se actualizó hace {age:.0f} días: puede haber versiones nuevas que aún no se ven."
+msgstr "The package list was updated {age:.0f} days ago: there may be new versions not shown yet."
+
+msgid "Abre el Gestor de actualizaciones y pulsa «Actualizar» (el botón de refrescar la lista)."
+msgstr "Open Update Manager and press «Refresh»."
+
+msgid "En ejecución"
+msgstr "Running"
+
+msgid "Más reciente instalado"
+msgstr "Newest installed"
+
+msgid "El mismo que está en ejecución"
+msgstr "The same one that is running"
+
+msgid "Se actualiza solo mediante"
+msgstr "Updated automatically via"
+
+msgid "Nada (falta el metapaquete)"
+msgstr "Nothing (meta-package missing)"
+
+msgid "Lista de paquetes consultada"
+msgstr "Package list checked"
+
+msgid "Actualizada hace {age:.0f} días"
+msgstr "Updated {age:.0f} days ago"
+
+msgid "Actualizada hoy"
+msgstr "Updated today"
+
+msgid "No se actualiza desde Linux"
+msgstr "Not updated from Linux"
+
+msgid "El fabricante ha publicado firmware nuevo para: {dispositivos}."
+msgstr "The manufacturer has released new firmware for: {dispositivos}."
+
+msgid "No es urgente salvo que el fabricante lo indique. Si decides instalarlo: haz antes una copia de seguridad, enchufa el portátil a la corriente y no apagues el equipo mientras se instala, aunque tarde y la pantalla se quede en negro. Si no te sientes seguro, déjalo como está o pide ayuda a un técnico."
+msgstr "It is not urgent unless the manufacturer says so. If you decide to install it: back up first, plug the laptop into the mains and do not turn the computer off while it installs, even if it takes a while and the screen goes black. If you do not feel confident, leave it as it is or ask a technician for help."
+
+msgid "Ninguno conocido"
+msgstr "None known"
+
+msgid "El dispositivo de {n} «{dname}» no tiene driver cargado."
+msgstr "The {n} device «{dname}» has no driver loaded."
+
+msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "Open Driver Manager in case it offers one. If not, ask on your distribution’s forum with the MintMachine report (with personal data hidden)."
+
+msgid "Un driver pidió {n} archivos de firmware que no están instalados."
+msgstr "A driver requested {n} firmware files that are not installed."
+
+msgid "Si todos tus dispositivos funcionan bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si alguno falla, instala las actualizaciones pendientes y revisa el Gestor de controladores."
+msgstr "If all your devices work fine, there is nothing to do: many drivers try several versions until they find the installed one. If something fails, install the pending updates and check Driver Manager."
+
+msgid "Paquetes de drivers y firmware"
+msgstr "Driver and firmware packages"
+
+msgid "Paquete"
+msgstr "Package"
+
+msgid "Instalada"
+msgstr "Installed"
+
+msgid "Qué es"
+msgstr "What it is"
+
+msgid "Comparación entre lo instalado y lo que ofrecen los repositorios de tu sistema."
+msgstr "Comparison between what is installed and what your system’s repositories offer."
+
+msgid "Firmware de los dispositivos (fwupd)"
+msgstr "Device firmware (fwupd)"
+
+msgid "Versión actual"
+msgstr "Current version"
+
+msgid "Versión nueva"
+msgstr "New version"
+
+msgid "Dispositivos sin driver cargado"
+msgstr "Devices without a loaded driver"
+
+msgid "Módulos candidatos"
+msgstr "Candidate modules"
+
+msgid "Firmware que el kernel pidió y no encontró"
+msgstr "Firmware the kernel requested and did not find"
+
+msgid "Archivo"
+msgstr "File"
+
+msgid "Con el paquete fwupd instalado, aquí aparecerían también las actualizaciones de BIOS, SSD, docks y periféricos que publica cada fabricante."
+msgstr "With the fwupd package installed, the BIOS, SSD, dock and peripheral updates published by each manufacturer would also appear here."
+
+msgid "Que falte un archivo de firmware no siempre es un problema: algunos drivers prueban varias versiones hasta dar con la instalada. Si el dispositivo falla, el paquete que lo trae suele ser firmware-misc-nonfree, firmware-iwlwifi, firmware-realtek o linux-firmware."
+msgstr "A missing firmware file is not always a problem: some drivers try several versions until they find the installed one. If the device fails, the package that provides it is usually firmware-misc-nonfree, firmware-iwlwifi, firmware-realtek or linux-firmware."
+
+msgid "En Linux casi todos los drivers viajan dentro del kernel, así que «tener el último driver» equivale a tener el último kernel que ofrece tu distribución. Aparte van el driver privativo de NVIDIA, los módulos DKMS, el firmware y el microcódigo. La comparación se hace con los repositorios configurados en tu sistema, sin conectar con internet: no dice si el fabricante ha publicado algo más nuevo por su cuenta."
+msgstr "On Linux almost all drivers come inside the kernel, so «having the latest driver» means having the latest kernel your distribution offers. The NVIDIA proprietary driver, DKMS modules, firmware and microcode are separate. The comparison is made with the repositories configured on your system, without connecting to the internet: it does not tell you whether the manufacturer has released something newer on its own."
+
+msgid "Actualizaciones de drivers"
+msgstr "Driver updates"
+
+msgid "Mando de juego"
+msgstr "Game controller"
+
+msgid "Panel táctil"
+msgstr "Touchpad"
+
+msgid "Ratón o puntero"
+msgstr "Mouse or pointer"
+
+msgid "Teclado"
+msgstr "Keyboard"
+
+msgid "Monitores"
+msgstr "Monitors"
+
+msgid "Teclados, ratones y mandos"
+msgstr "Keyboards, mice and controllers"
+
+msgid "Cámaras"
+msgstr "Cameras"
+
+msgid "Cámara"
+msgstr "Camera"
+
+msgid "Nodo"
+msgstr "Node"
+
+msgid "Impresoras configuradas"
+msgstr "Configured printers"
+
+msgid "Impresora"
+msgstr "Printer"
+
+msgid "Dispositivos Bluetooth emparejados"
+msgstr "Paired Bluetooth devices"
+
+msgid "Dirección"
+msgstr "Address"
+
+msgid "No se ha detectado ningún periférico."
+msgstr "No peripherals were detected."
+
+msgid "Biblioteca C (glibc)"
+msgstr "C library (glibc)"
+
+msgid "Servidor Xorg"
+msgstr "Xorg server"
+
+msgid "Mesa (drivers 3D libres)"
+msgstr "Mesa (open-source 3D drivers)"
+
+msgid "Driver NVIDIA"
+msgstr "NVIDIA driver"
+
+msgid "Firmware no libre"
+msgstr "Non-free firmware"
+
+msgid "Microcódigo Intel"
+msgstr "Intel microcode"
+
+msgid "Microcódigo AMD"
+msgstr "AMD microcode"
+
+msgid "Kernel en ejecución"
+msgstr "Running kernel"
+
+msgid "Software"
+msgstr "Software"
+
+msgid "Hay {n} paquetes con actualización pendiente."
+msgstr "There are {n} packages with pending updates."
+
+msgid "Instálalas desde el Gestor de actualizaciones. Linux Mint recomienda tener antes una instantánea de Timeshift, por si algo no va bien."
+msgstr "Install them from Update Manager. Linux Mint recommends having a Timeshift snapshot first, in case something goes wrong."
+
+msgid "{n} pendientes"
+msgstr "{n} pending"
+
+msgid "Hay actualizaciones instaladas que necesitan reiniciar el equipo para completarse."
+msgstr "Installed updates need a restart to finish."
+
+msgid "Guarda tu trabajo y reinicia cuando puedas."
+msgstr "Save your work and restart when you can."
+
+msgid "Servicios"
+msgstr "Services"
+
+msgid "El servicio del sistema «{u}» no ha arrancado bien."
+msgstr "The system service «{u}» did not start properly."
+
+msgid "Muchas veces es inofensivo (por ejemplo, si necesita internet y no había conexión). Si notas que algo no funciona, pregunta en el foro de tu distribución indicando ese nombre."
+msgstr "It is often harmless (for example, if it needs internet and there was no connection). If you notice something not working, ask on your distribution’s forum, giving that name."
+
+msgid "Resumen"
+msgstr "Summary"
+
+msgid "Paquetes instalados (.deb)"
+msgstr "Installed packages (.deb)"
+
+msgid "Aplicaciones Flatpak"
+msgstr "Flatpak applications"
+
+msgid "Actualizaciones pendientes"
+msgstr "Pending updates"
+
+msgid "Kernels instalados"
+msgstr "Installed kernels"
+
+msgid "Servicios en ejecución"
+msgstr "Running services"
+
+msgid "Servicios con fallo"
+msgstr "Failed services"
+
+msgid "Ninguno"
+msgstr "None"
+
+msgid "Versiones de los componentes clave"
+msgstr "Versions of key components"
+
+msgid "Componente"
+msgstr "Component"
+
+msgid "Últimos cambios de paquetes"
+msgstr "Latest package changes"
+
+msgid "Acción"
+msgstr "Action"
+
+msgid "Identificador"
+msgstr "Identifier"
+
+msgid "Origen"
+msgstr "Origin"
+
+msgid "Programas que arrancan con tu sesión"
+msgstr "Programs that start with your session"
+
+msgid "Orden"
+msgstr "Command"
+
+msgid "Repositorios de software"
+msgstr "Software repositories"
+
+msgid "Rama"
+msgstr "Branch"
+
+msgid "Componentes"
+msgstr "Components"
+
+msgid "Definido en"
+msgstr "Defined in"
+
+msgid "De dónde descarga tu sistema los programas y actualizaciones."
+msgstr "Where your system downloads programs and updates from."
+
+msgid "Este sistema no usa paquetes .deb, así que el inventario de software es parcial."
+msgstr "This system does not use .deb packages, so the software inventory is partial."
+
+msgid "ufw activado"
+msgstr "ufw enabled"
+
+msgid "ufw instalado pero desactivado"
+msgstr "ufw installed but disabled"
+
+msgid "Seguridad"
+msgstr "Security"
+
+msgid "El cortafuegos está desactivado."
+msgstr "The firewall is disabled."
+
+msgid "En casa, detrás del router, es habitual. Si conectas el equipo a redes públicas (cafeterías, hoteles, estaciones), actívalo: abre el Cortafuegos y pon «Estado» en activado; la configuración de fábrica vale para casi todo el mundo."
+msgstr "At home, behind the router, this is common. If you connect the computer to public networks (cafés, hotels, stations), turn it on: open Firewall and set «Status» to on; the default settings suit almost everyone."
+
+msgid "firewalld activo"
+msgstr "firewalld active"
+
+msgid "No se ha detectado ufw ni firewalld"
+msgstr "Neither ufw nor firewalld was detected"
+
+msgid "Secure Boot activado"
+msgstr "Secure Boot enabled"
+
+msgid "disco cifrado"
+msgstr "encrypted disk"
+
+msgid "cortafuegos activo"
+msgstr "firewall active"
+
+msgid "Completa"
+msgstr "Full"
+
+msgid "Parcial"
+msgstr "Partial"
+
+msgid "Desactivada"
+msgstr "Disabled"
+
+msgid "Arranque y firmware"
+msgstr "Boot and firmware"
+
+msgid "Bloqueo del kernel (lockdown)"
+msgstr "Kernel lockdown"
+
+msgid "Cifrado de disco (LUKS)"
+msgstr "Disk encryption (LUKS)"
+
+msgid "Detectado"
+msgstr "Detected"
+
+msgid "Cortafuegos"
+msgstr "Firewall"
+
+msgid "Módulos de seguridad del kernel"
+msgstr "Kernel security modules"
+
+msgid "Aleatorización de memoria (ASLR)"
+msgstr "Memory randomisation (ASLR)"
+
+msgid "Servidor SSH"
+msgstr "SSH server"
+
+msgid "En marcha"
+msgstr "Running"
+
+msgid "Parado o no instalado"
+msgstr "Stopped or not installed"
+
+msgid "Puertos abiertos a la red"
+msgstr "Ports open to the network"
+
+msgid "Vulnerabilidades de CPU sin mitigar"
+msgstr "Unmitigated CPU vulnerabilities"
+
+msgid "Ninguna"
+msgstr "None"
+
+msgid "Problema"
+msgstr "Problem"
+
+msgid "Aviso"
+msgstr "Warning"
+
+msgid "Sugerencia"
+msgstr "Suggestion"
+
+msgid "Hay algo que necesita tu atención"
+msgstr "Something needs your attention"
+
+msgid "Hay {nb} cosas que necesitan tu atención"
+msgstr "{nb} things need your attention"
+
+msgid "Hay un aviso que conviene revisar"
+msgstr "There is one warning worth checking"
+
+msgid "Hay {nw} avisos que conviene revisar"
+msgstr "There are {nw} warnings worth checking"
+
+msgid "Todo en orden ({ni} sugerencias opcionales)"
+msgstr "All good ({ni} optional suggestions)"
+
+msgid "Todo en orden (1 sugerencia opcional)"
+msgstr "All good (1 optional suggestion)"
+
+msgid "Todo en orden"
+msgstr "All good"
+
+msgid "Hardware"
+msgstr "Hardware"
+
+msgid "El procesador ha notificado {mce} errores de hardware en este arranque."
+msgstr "The processor has reported {mce} hardware errors since this boot."
+
+msgid "Pueden deberse a calor, a la memoria o a un ajuste de la BIOS fuera de fábrica. Haz una copia de seguridad y consúltalo con un servicio técnico, sobre todo si el equipo se cuelga o se reinicia solo."
+msgstr "They may be caused by heat, memory or a BIOS setting changed from factory defaults. Back up your files and consult a repair service, especially if the computer freezes or restarts by itself."
+
+msgid "Hay {io} errores de lectura o escritura de disco en el registro del kernel."
+msgstr "There are {io} disk read or write errors in the kernel log."
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes. Mira el estado de los discos en la sección Almacenamiento y, si alguno muestra avisos o los errores se repiten, llévalo a un servicio técnico. Si el error es de un pendrive o disco USB, prueba en otro puerto o expúlsalo siempre antes de desconectarlo."
+msgstr "Back up your important files now. Check the disk status in the Storage section and, if any shows warnings or the errors repeat, take it to a repair service. If the error comes from a USB stick or USB disk, try another port and always eject it before unplugging it."
+
+msgid "El sistema se quedó sin memoria y tuvo que cerrar a la fuerza: {programas}."
+msgstr "The system ran out of memory and had to force-close: {programas}."
+
+msgid "Cierra los programas y pestañas que no uses. Si te pasa a menudo, un servicio técnico puede decirte si tu equipo admite más memoria."
+msgstr "Close programs and tabs you are not using. If it happens often, a repair service can tell you whether your computer accepts more memory."
+
+msgid "Conviene revisar"
+msgstr "Worth checking"
+
+msgid "Sugerencias"
+msgstr "Suggestions"
+
+msgid "No son fallos: son mejoras opcionales o cosas que conviene saber."
+msgstr "These are not faults: they are optional improvements or things worth knowing."
+
+msgid "No se ha encontrado nada que revisar."
+msgstr "Nothing was found that needs checking."
+
+msgid "Errores más repetidos en el registro del sistema desde el arranque"
+msgstr "Most repeated errors in the system log since boot"
+
+msgid "Veces"
+msgstr "Times"
+
+msgid "Mensaje"
+msgstr "Message"
+
+msgid "Es normal que haya mensajes de error en cualquier equipo. Solo importan si coinciden con algo que notes que falla."
+msgstr "It is normal for any computer to have error messages. They only matter if they match something you notice failing."
+
+msgid "Qué se revisa: espacio y salud de los discos, temperaturas, batería, memoria, servicios, errores del registro del kernel, protección del procesador, drivers y actualizaciones."
+msgstr "What is checked: disk space and health, temperatures, battery, memory, services, kernel log errors, processor protection, drivers and updates."
+
+msgid "No se ha podido leer el registro del kernel porque tu usuario no pertenece al grupo «adm»; esos avisos no se incluyen."
+msgstr "The kernel log could not be read because your user is not in the «adm» group; those warnings are not included."
+
+msgid "Diagnóstico"
+msgstr "Diagnosis"
+
+msgid "{cpu:.0f} % en uso"
+msgstr "{cpu:.0f} % in use"
+
+msgid "{n} de {n2} en uso"
+msgstr "{n} of {n2} in use"
+
+msgid "Disco del sistema"
+msgstr "System disk"
+
+msgid "{temp:.0f} °C en el procesador"
+msgstr "{temp:.0f} °C in the processor"
+
+msgid "Inicio"
+msgstr "Home"
+
+msgid "Lo más importante"
+msgstr "Most important"
+
+msgid "Pantalla"
+msgstr "Display"
+
+msgid "Salud de los discos"
+msgstr "Disk health"
+
+msgid "Actualizaciones"
+msgstr "Updates"
+
+msgid "Conexión"
+msgstr "Connection"
+
+msgid "Protección"
+msgstr "Protection"
+
+msgid "MintMachine solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
+msgstr "MintMachine only reads information: it does not change anything on your computer and does not send data to the internet. The sidebar has the details of each component."
+
+msgid "Sistema y software"
+msgstr "System and software"
+
+msgid "No se ha podido leer esta sección ({__name__}: {e}). Si abres una incidencia, incluye este mensaje."
+msgstr "This section could not be read ({__name__}: {e}). If you open an issue, include this message."
+
+msgid "{app} {version}: informe del {fecha}"
+msgstr "{app} {version}: report of {fecha}"
+
+msgid "(datos personales ocultos)"
+msgstr "(personal data hidden)"
+
+msgid "Estado general: {estado}"
+msgstr "Overall status: {estado}"
+
+msgid "Qué hacer:"
+msgstr "What to do:"
+
+msgid "Herramienta:"
+msgstr "Tool:"
+
+msgid "{serie}: ahora {ahora}, media {media}, máximo {maximo} (últimos {n} s)"
+msgstr "{serie}: now {ahora}, average {media}, maximum {maximo} (last {n} s)"
+
+msgid "hilo {n}: {uso} %"
+msgstr "thread {n}: {uso} %"
+
+msgid "Detalles técnicos"
+msgstr "Technical details"
+
+msgid "ahora {ahora}, media {media}, máximo {maximo}"
+msgstr "now {ahora}, average {media}, maximum {maximo}"
+
+msgid "Hilo {n}"
+msgstr "Thread {n}"
+
+msgid "Informe generado con {app} {version} el {fecha}."
+msgstr "Report generated with {app} {version} on {fecha}."
+
+msgid "Los datos personales se han ocultado."
+msgstr "Personal data has been hidden."
+
+msgid "{app}: informe del sistema"
+msgstr "{app}: system report"
+
+msgid "Texto"
+msgstr "Text"
+
+msgid "Para leerlo o adjuntarlo a un correo"
+msgstr "To read it or attach it to an email"
+
+msgid "Página web"
+msgstr "Web page"
+
+msgid "Se abre en el navegador; cómoda para enviar a un técnico"
+msgstr "Opens in the browser; handy to send to a technician"
+
+msgid "Para un foro"
+msgstr "For a forum"
+
+msgid "Resumen listo para pegar en el foro de Linux Mint"
+msgstr "Summary ready to paste on the Linux Mint forum"
+
+msgid "Datos estructurados para otros programas"
+msgstr "Structured data for other programs"
+
+msgid "Histórico del monitor (CSV)"
+msgstr "Monitor history (CSV)"
+
+msgid "Gráficas de los últimos 2 minutos, para una hoja de cálculo"
+msgstr "Charts of the last 2 minutes, for a spreadsheet"
+
+msgid "Pequeña actualización interna del procesador que corrige fallos. Llega con las actualizaciones del sistema."
+msgstr "A small internal update for the processor that fixes bugs. It arrives with system updates."
+
+msgid "Cómo decide el sistema la velocidad del procesador en cada momento."
+msgstr "How the system decides the processor speed at each moment."
+
+msgid "Permite ejecutar máquinas virtuales (VirtualBox, GNOME Boxes...) con buen rendimiento."
+msgstr "Lets you run virtual machines (VirtualBox, GNOME Boxes...) with good performance."
+
+msgid "Veces que el procesador ha bajado su velocidad para no calentarse más."
+msgstr "Times the processor has lowered its speed to avoid getting hotter."
+
+msgid "Cuántas tareas esperan turno de media. Si supera el número de hilos, el equipo va justo."
+msgstr "How many tasks are waiting their turn on average. If it exceeds the number of threads, the computer is struggling."
+
+msgid "Porcentaje de tiempo que los programas han esperado por el procesador, la memoria o el disco. Cuanto más bajo, mejor."
+msgstr "Percentage of time programs have waited for the processor, memory or disk. The lower, the better."
+
+msgid "Espacio del disco que el sistema usa como memoria de reserva cuando la RAM se llena."
+msgstr "Disk space the system uses as backup memory when RAM is full."
+
+msgid "Cuánto prefiere el sistema usar la memoria de intercambio. 60 es el valor normal."
+msgstr "How much the system prefers to use swap. 60 is the normal value."
+
+msgid "Comprueba al arrancar que el sistema no ha sido manipulado. Es compatible con Linux Mint."
+msgstr "Checks at boot that the system has not been tampered with. It is compatible with Linux Mint."
+
+msgid "Chip de seguridad del equipo que guarda claves de forma protegida."
+msgstr "A security chip in the computer that stores keys in a protected way."
+
+msgid "UEFI es el sistema moderno; BIOS clásico (legacy), el antiguo. Los dos funcionan."
+msgstr "UEFI is the modern system; classic BIOS (legacy) is the old one. Both work."
+
+msgid "El núcleo del sistema operativo. Incluye casi todos los drivers."
+msgstr "The core of the operating system. It includes almost all drivers."
+
+msgid "«No» no significa un problema: aparece, por ejemplo, al usar el driver privativo de NVIDIA."
+msgstr "«No» does not mean a problem: it appears, for example, when using the NVIDIA proprietary driver."
+
+msgid "Velocidad de la conexión entre el dispositivo y la placa. En reposo baja para ahorrar energía."
+msgstr "Speed of the connection between the device and the board. It drops at idle to save power."
+
+msgid "Impide que se modifique el kernel en marcha. Se activa con Secure Boot."
+msgstr "Prevents the running kernel from being modified. It is enabled with Secure Boot."
+
+msgid "Protección que dificulta los ataques. Debe estar en «Completa»."
+msgstr "Protection that makes attacks harder. It should be «Full»."
+
+msgid "Protección que limita lo que pueden hacer ciertos programas. Debe estar activado."
+msgstr "Protection that limits what certain programs can do. It should be enabled."
+
+msgid "Sistemas de protección activos en el kernel."
+msgstr "Protection systems active in the kernel."
+
+msgid "«Yes» significa que la gráfica acelera el 3D."
+msgstr "«Yes» means the graphics card accelerates 3D."
+
+msgid "Capacidad que conserva la batería frente a cuando era nueva."
+msgstr "Capacity the battery keeps compared with when it was new."
+
+msgid "Número de cargas completas que ha hecho la batería."
+msgstr "Number of full charges the battery has done."
+
+msgid "La suspensión profunda gasta menos batería con la tapa cerrada."
+msgstr "Deep suspend uses less battery with the lid closed."
+
+msgid "Parar la carga antes del 100 % alarga la vida de la batería."
+msgstr "Stopping the charge before 100 % extends battery life."
+
+msgid "Lo que dicen los propios discos sobre su estado (SMART)."
+msgstr "What the disks themselves say about their condition (SMART)."
+
+msgid "Medidas de seguridad activas en el equipo."
+msgstr "Security measures active on the computer."
+
+msgid "La placa principal del equipo, donde se conectan todos los componentes."
+msgstr "The computer’s main board, where all components connect."
+
+msgid "El programa de la placa que arranca el equipo. Su versión y fecha ayudan a saber si hay una más nueva."
+msgstr "The board program that starts the computer. Its version and date help you know whether there is a newer one."
+
+msgid "Volver a leer todo el equipo (F5)"
+msgstr "Read the whole computer again (F5)"
+
+msgid "Menú"
+msgstr "Menu"
+
+msgid "Exportar"
+msgstr "Export"
+
+msgid "Guardar o copiar el informe: texto, página web, foro, JSON o CSV (Ctrl+E)"
+msgstr "Save or copy the report: text, web page, forum, JSON or CSV (Ctrl+E)"
+
+msgid "Buscar en el informe"
+msgstr "Search the report"
+
+msgid "Escribe, por ejemplo, «temperatura», «NVIDIA» o «batería» (Ctrl+F)"
+msgstr "Type, for example, «temperature», «NVIDIA» or «battery» (Ctrl+F)"
+
+msgid "Sin resultados."
+msgstr "No results."
+
+msgid "Abrir"
+msgstr "Open"
+
+msgid "Oscuro"
+msgstr "Dark"
+
+msgid "Claro"
+msgstr "Light"
+
+msgid "Aspecto"
+msgstr "Appearance"
+
+msgid "Ocultar datos personales en pantalla"
+msgstr "Hide personal data on screen"
+
+msgid "Tapa números de serie, MAC, IP, nombre del equipo, red Wi-Fi y usuario. Útil para hacer capturas de pantalla."
+msgstr "Hides serial numbers, MAC, IP, computer name, Wi-Fi network and user. Useful for screenshots."
+
+msgid "Atajos de teclado"
+msgstr "Keyboard shortcuts"
+
+msgid "Acerca de MintMachine"
+msgstr "About MintMachine"
+
+msgid "Desinstalar MintMachine…"
+msgstr "Uninstall MintMachine…"
+
+msgid "Volver a leer el equipo"
+msgstr "Read the computer again"
+
+msgid "Ir a la sección 1 a 9 de la lista"
+msgstr "Go to section 1 to 9 in the list"
+
+msgid "Acerca de"
+msgstr "About"
+
+msgid "Salir"
+msgstr "Quit"
+
+msgid "Hardware, drivers y software de tu equipo en una sola ventana."
+msgstr "Hardware, drivers and software of your computer in a single window."
+
+msgid "¿Desinstalar MintMachine?"
+msgstr "Uninstall MintMachine?"
+
+msgid "Se quitarán el programa, su icono del menú y su configuración, sin dejar rastro en el equipo. Los informes que hayas guardado son tuyos y no se tocan."
+msgstr "The program, its menu icon and its settings will be removed, leaving no trace on the computer. Reports you have saved are yours and will not be touched."
+
+msgid "El sistema te pedirá tu contraseña para quitar el programa."
+msgstr "The system will ask for your password to remove the program."
+
+msgid "Cancelar"
+msgstr "Cancel"
+
+msgid "Desinstalar"
+msgstr "Uninstall"
+
+msgid "Configuración borrada"
+msgstr "Settings deleted"
+
+msgid "MintMachine no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
+msgstr "MintMachine is not installed as a package: you are running it from its folder. Its settings have been deleted; to finish, delete that folder."
+
+msgid "MintMachine se ha desinstalado"
+msgstr "MintMachine has been uninstalled"
+
+msgid "Gracias por usarlo. La ventana se cerrará ahora."
+msgstr "Thank you for using it. The window will close now."
+
+msgid "No se ha desinstalado"
+msgstr "Not uninstalled"
+
+msgid "Se ha cancelado la contraseña. No se ha cambiado nada."
+msgstr "The password was cancelled. Nothing has been changed."
+
+msgid "No se ha podido desinstalar"
+msgstr "Could not uninstall"
+
+msgid "Si el Gestor de actualizaciones u otro instalador está abierto, ciérralo y vuelve a intentarlo."
+msgstr "If Update Manager or another installer is open, close it and try again."
+
+msgid "No se ha podido abrir «{prog}»: {err}"
+msgstr "Could not open «{prog}»: {err}"
+
+msgid "Leyendo el equipo…"
+msgstr "Reading the computer…"
+
+msgid "Tarda unos segundos. MintMachine solo lee: no cambia nada."
+msgstr "It takes a few seconds. MintMachine only reads: it changes nothing."
+
+msgid "Información para usuarios avanzados o para pedir ayuda en un foro"
+msgstr "Information for advanced users or for asking for help on a forum"
+
+msgid "No se ha detectado ningún problema en la revisión automática."
+msgstr "No problems were detected in the automatic check."
+
+msgid "Abajo tienes qué pasa y qué puedes hacer."
+msgstr "Below you will find what is happening and what you can do."
+
+msgid "Ver diagnóstico completo"
+msgstr "See full diagnosis"
+
+msgid "máx."
+msgstr "max."
+
+msgid "Últimos 2 minutos, una muestra por segundo"
+msgstr "Last 2 minutes, one sample per second"
+
+msgid "Instala python3-gi-cairo para ver la gráfica"
+msgstr "Install python3-gi-cairo to see the chart"
+
+msgid "Exportar informe"
+msgstr "Export report"
+
+msgid "Qué incluir"
+msgstr "What to include"
+
+msgid "Todo el informe"
+msgstr "The whole report"
+
+msgid "Solo «{seccion}»"
+msgstr "Only «{seccion}»"
+
+msgid "Ocultar datos personales"
+msgstr "Hide personal data"
+
+msgid "Tapa números de serie, MAC, IP, nombre del equipo, red Wi-Fi, usuario y otros datos que te identifican. Recomendado si lo vas a publicar o enviar."
+msgstr "Hides serial numbers, MAC, IP, computer name, Wi-Fi network, user and other data that identifies you. Recommended if you are going to publish or send it."
+
+msgid "Copiar"
+msgstr "Copy"
+
+msgid "Copia el informe al portapapeles para pegarlo donde quieras"
+msgstr "Copies the report to the clipboard to paste wherever you want"
+
+msgid "Guardar…"
+msgstr "Save…"
+
+msgid "Copiado al portapapeles en formato «{fmt}»."
+msgstr "Copied to the clipboard in «{fmt}» format."
+
+msgid "Los datos personales están ocultos."
+msgstr "Personal data is hidden."
+
+msgid "Pégalo con Ctrl+V."
+msgstr "Paste it with Ctrl+V."
+
+msgid "En el foro, pégalo tal cual: ya va entre [code] y [/code]."
+msgstr "On the forum, paste it as is: it is already between [code] and [/code]."
+
+msgid "Guardar informe"
+msgstr "Save report"
+
+msgid "Guardar"
+msgstr "Save"
+
+msgid "Informe guardado en {ruta}"
+msgstr "Report saved in {ruta}"
+
+msgid "No se ha podido guardar el informe"
+msgstr "Could not save the report"
+
+msgid "{app}: información de hardware y software del equipo. Solo lee: no cambia nada y no envía datos a internet."
+msgstr "{app}: hardware and software information for this computer. It only reads: it changes nothing and sends no data to the internet."
+
+msgid "muestra el informe completo por terminal"
+msgstr "show the full report in the terminal"
+
+msgid "resumen listo para pegar en un foro (oculta los datos personales)"
+msgstr "summary ready to paste on a forum (hides personal data)"
+
+msgid "vuelca el informe en JSON"
+msgstr "dump the report as JSON"
+
+msgid "ARCHIVO"
+msgstr "FILE"
+
+msgid "guarda el informe completo en un archivo de texto"
+msgstr "save the full report to a text file"
+
+msgid "guarda el informe en un archivo HTML"
+msgstr "save the report to an HTML file"
+
+msgid "mide durante 2 minutos y guarda el histórico del monitor en CSV"
+msgstr "measure for 2 minutes and save the monitor history as CSV"
+
+msgid "oculta números de serie, MAC, IP, nombres y usuario"
+msgstr "hide serial numbers, MAC, IP, names and user"
+
+msgid "idioma: es, en, fr, ja, zh"
+msgstr "language: es, en, fr, ja, zh"
+
+msgid "No se ha podido guardar {ruta}: {error}"
+msgstr "Could not save {ruta}: {error}"
+
+msgid "Midiendo durante 2 minutos (Ctrl+C para guardar antes)..."
+msgstr "Measuring for 2 minutes (Ctrl+C to save earlier)..."
+
+msgid "No se puede abrir la interfaz gráfica ({error}). Falta el paquete python3-gi o gir1.2-gtk-3.0. Se muestra el informe en texto."
+msgstr "Cannot open the graphical interface ({error}). The python3-gi or gir1.2-gtk-3.0 package is missing. Showing the report as text."
+
+msgid "ufw instalado (estado no legible sin root)"
+msgstr "ufw installed (status not readable without root)"
+
+msgid "privativo"
+msgstr "proprietary"
+
+msgid "experimental"
+msgstr "experimental"
+
+msgid "forzado"
+msgstr "forced"
+
+msgid "excelente"
+msgstr "excellent"
+
+msgid "buena"
+msgstr "good"
+
+msgid "justa"
+msgstr "fair"
+
+msgid "midiendo"
+msgstr "measuring"
+
+msgid "(escala {n})"
+msgstr "(scale {n})"
+
+msgid "En Wayland, el modo en uso lo da el escritorio: MintMachine lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
+msgstr "On Wayland, the mode in use is reported by the desktop: MintMachine reads it on GNOME, Cinnamon and KDE Plasma, and on Sway, Hyprland and similar if the wlr-randr utility is installed. The details of each monitor are complete."
+
+msgid "{a} guardados en {b}"
+msgstr "{a} stored in {b}"
+
+msgid "Activada"
+msgstr "Enabled"
+
+msgid "Memoria comprimida"
+msgstr "Compressed memory"
+
+msgid "Linux puede comprimir en la propia RAM lo que menos se usa, en lugar de llevarlo al disco. Es más rápido que una swap normal y alivia a los equipos con poca memoria."
+msgstr "Linux can compress the least-used data inside RAM itself instead of moving it to disk. It is faster than a normal swap and helps computers with little memory."
+
+msgid "Energía"
+msgstr "Power"
+
+msgid "El equipo está enchufado, pero tiene activo el perfil de ahorro de energía, que limita el rendimiento."
+msgstr "The computer is plugged in, but the power-saver profile is active, which limits performance."
+
+msgid "Si lo notas lento, elige el perfil equilibrado o el de rendimiento en la configuración de energía. Si lo prefieres silencioso y fresco, déjalo así."
+msgstr "If it feels slow, choose the balanced or performance profile in the power settings. If you prefer it quiet and cool, leave it as it is."
+
+msgid "Perfil del fabricante"
+msgstr "Manufacturer profile"
+
+msgid "Gobernador del procesador"
+msgstr "Processor governor"
+
+msgid "Preferencia entre ahorro y rendimiento"
+msgstr "Energy/performance preference"
+
+msgid "Nivel {n} de 4"
+msgstr "Level {n} of 4"
+
+msgid " (con avisos)"
+msgstr " (with warnings)"
+
+msgid "Seguridad del firmware (HSI)"
+msgstr "Firmware security (HSI)"
+
+msgid "Nota que el servicio de firmware (fwupd) pone a las protecciones de la placa, de 0 a 4. Depende casi por completo del fabricante: un nivel bajo no significa que hayas hecho algo mal."
+msgstr "Score that the firmware service (fwupd) gives to the board's protections, from 0 to 4. It depends almost entirely on the manufacturer: a low level does not mean you did anything wrong."
+
+msgid "Modo de funcionamiento que ofrece el propio equipo (silencioso, equilibrado, rendimiento)."
+msgstr "Operating mode offered by the computer itself (quiet, balanced, performance)."
+
+msgid "Regla con la que el sistema sube y baja la velocidad del procesador."
+msgstr "Rule the system uses to raise and lower the processor speed."
+
+msgid "Indicación que se da al procesador: gastar menos o responder más rápido."
+msgstr "Hint given to the processor: use less power or respond faster."
+
+msgid "Puesta a punto"
+msgstr "Setup checklist"
+
+msgid "Lista de comprobación"
+msgstr "Checklist"
+
+msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y MintMachine no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
+msgstr "Things worth getting done after installing the system. None of this is urgent and MintMachine changes nothing: each item takes you to the system tool that does it."
+
+msgid "{n} de {m} puntos en orden"
+msgstr "{n} of {m} items in order"
+
+msgid "No se ha podido comprobar ningún punto en este sistema."
+msgstr "No item could be checked on this system."
+
+msgid "El sistema está al día."
+msgstr "The system is up to date."
+
+msgid "Hay {n} actualizaciones pendientes."
+msgstr "There are {n} pending updates."
+
+msgid "Abre el Gestor de actualizaciones e instálalas: corrigen fallos y problemas de seguridad."
+msgstr "Open Update Manager and install them: they fix bugs and security problems."
+
+msgid "Drivers y firmware"
+msgstr "Drivers and firmware"
+
+msgid "No hay versiones nuevas de drivers ni de firmware en tus repositorios."
+msgstr "There are no new driver or firmware versions in your repositories."
+
+msgid "Hay {n} drivers o firmware con versión nueva."
+msgstr "There are {n} drivers or firmware with a new version."
+
+msgid "Mira la sección «Actualizaciones de drivers» y usa el Gestor de actualizaciones o el de controladores."
+msgstr "See the «Driver updates» section and use Update Manager or Driver Manager."
+
+msgid "El cortafuegos está activado."
+msgstr "The firewall is enabled."
+
+msgid "El cortafuegos no está activado."
+msgstr "The firewall is not enabled."
+
+msgid "En casa, detrás del router, es habitual. Actívalo si conectas el equipo a redes públicas."
+msgstr "At home, behind the router, this is common. Enable it if you connect the computer to public networks."
+
+msgid "Instantáneas del sistema"
+msgstr "System snapshots"
+
+msgid "Timeshift tiene instantáneas programadas."
+msgstr "Timeshift has scheduled snapshots."
+
+msgid "Timeshift está instalado, pero no tiene instantáneas programadas."
+msgstr "Timeshift is installed, but has no scheduled snapshots."
+
+msgid "Abre Timeshift y sigue el asistente: una instantánea permite deshacer una actualización que salga mal. No sustituye a la copia de seguridad de tus archivos."
+msgstr "Open Timeshift and follow the wizard: a snapshot lets you undo an update that goes wrong. It does not replace a backup of your files."
+
+msgid "Discos SSD"
+msgstr "SSD drives"
+
+msgid "El mantenimiento periódico de los SSD (TRIM) está activado."
+msgstr "Periodic SSD maintenance (TRIM) is enabled."
+
+msgid "El mantenimiento periódico de los SSD (TRIM) no está activado."
+msgstr "Periodic SSD maintenance (TRIM) is not enabled."
+
+msgid "Linux Mint lo trae activado de fábrica. Pregunta en el foro de tu distribución cómo volver a activarlo."
+msgstr "Linux Mint ships with it enabled. Ask in your distribution's forum how to enable it again."
+
+msgid "Códecs multimedia"
+msgstr "Multimedia codecs"
+
+msgid "Los códecs multimedia están instalados."
+msgstr "The multimedia codecs are installed."
+
+msgid "No se han encontrado los códecs multimedia."
+msgstr "The multimedia codecs were not found."
+
+msgid "Sin ellos, algunos vídeos y canciones no se reproducen. En Linux Mint, busca «Instalar códecs multimedia» en el menú."
+msgstr "Without them, some videos and songs will not play. In Linux Mint, search for «Install Multimedia Codecs» in the menu."
+
+msgid "Utilidades opcionales que no están instaladas"
+msgstr "Optional utilities that are not installed"
+
+msgid "Utilidad"
+msgstr "Utility"
+
+msgid "Qué se deja de ver"
+msgstr "What is not shown"
+
+msgid "Sin ellas el programa funciona igual, pero algunos apartados salen más cortos. Se instalan desde el Gestor de software, buscando el nombre del paquete."
+msgstr "The program works the same without them, but some sections are shorter. Install them from Software Manager by searching for the package name."
+
+msgid "Gráfica y dispositivos PCI"
+msgstr "Graphics and PCI devices"
+
+msgid "Discos y particiones"
+msgstr "Disks and partitions"
+
+msgid "Desgaste de los SSD"
+msgstr "SSD wear"
+
+msgid "Direcciones de red"
+msgstr "Network addresses"
+
+msgid "Señal y banda del Wi-Fi"
+msgstr "Wi-Fi signal and band"
+
+msgid "Vídeo por hardware"
+msgstr "Hardware video decoding"
+
+msgid "Firmware de los dispositivos"
+msgstr "Device firmware"
+
+msgid "Modo de pantalla en X11"
+msgstr "Display mode on X11"
+
+msgid "Intel (integrada)"
+msgstr "Intel (integrated)"
+
+msgid "Aplicaciones que más consumen"
+msgstr "Applications using the most resources"
+
+msgid "Aplicación"
+msgstr "Application"
+
+msgid "Procesos"
+msgstr "Processes"
+
+msgid "Suma todos los procesos de cada aplicación; un navegador, por ejemplo, abre muchos. La memoria es aproximada: la parte que comparten se cuenta en cada uno."
+msgstr "Adds up all the processes of each application; a browser, for example, starts many. Memory is approximate: the part they share is counted in each one."
+
+msgid "Resumen general"
+msgstr "General summary"
+
+msgid "Wi-Fi y red"
+msgstr "Wi-Fi and network"
+
+msgid "Batería, suspensión y temperatura"
+msgstr "Battery, suspend and temperature"
+
+msgid "Lentitud y arranque"
+msgstr "Slowness and startup"
+
+msgid "Problema: {tema}"
+msgstr "Problem: {tema}"
+
+msgid "Pedir ayuda con:"
+msgstr "Ask for help with:"
+
+msgid "Elige el problema y el resumen llevará la ficha del equipo y solo las secciones que hacen falta para ayudarte con él."
+msgstr "Choose the problem and the summary will include the computer's details and only the sections needed to help you with it."
+
+msgid "con --foro: resumen centrado en un problema (red, sonido, grafica, energia, lentitud)"
+msgstr "with --foro: summary focused on one problem (red = network, sonido = sound, grafica = graphics, energia = power, lentitud = slowness)"
+
+msgid "muestra qué utilidades se ejecutan y cuánto tardan (no guarda nada)"
+msgstr "shows which utilities are run and how long they take (nothing is saved)"
+
+msgid "Batería de un periférico Bluetooth"
+msgstr "Battery of a Bluetooth peripheral"

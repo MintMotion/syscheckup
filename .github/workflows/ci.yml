@@ -1,0 +1,57 @@
+name: Pruebas y paquete
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comprobar el código
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq pyflakes3 python3-pytest python3-gi gir1.2-gtk-3.0 gettext
+          pyflakes3 mintmachine.py tests/simular_portatil.py tests/test_unidad.py
+          python3 -m py_compile mintmachine.py
+          for po in po/*.po; do msgfmt --check -o /dev/null "$po"; done
+      - name: Pruebas unitarias
+        run: python3 -m pytest -q tests/test_unidad.py
+      - name: Ejecutar en este equipo
+        run: |
+          python3 mintmachine.py --texto > /dev/null
+          python3 mintmachine.py --json | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d['secciones']) == 21"
+      - name: Portátil simulado (texto, HTML, JSON, foro)
+        run: |
+          sudo tests/run.sh texto > informe.txt
+          ! grep -n "No se ha podido leer esta sección" informe.txt
+          sudo tests/run.sh texto --anon > anonimo.txt
+          ! grep -n "PF3ABC12\|S64KNX0T123456\|MiCasa_5G\|192.168.1.37\|f4:7b:09:aa:bb:cc\|HP_LaserJet\|WL1ABCDE\|D4:57:63:AA:BB:CC\|MX Master" anonimo.txt
+          sudo tests/run.sh html /tmp/informe.html
+          sudo tests/run.sh json /tmp/informe.json
+          python3 -c "import json; json.load(open('/tmp/informe.json'))"
+          sudo tests/run.sh foro /tmp/foro.txt --anon
+          head -1 /tmp/foro.txt | grep -q '^\[code\]$'
+          ! grep -n "PF3ABC12\|S64KNX0T123456\|MiCasa_5G\|192.168.1.37\|f4:7b:09:aa:bb:cc" /tmp/foro.txt
+          for l in en fr ja zh; do sudo MM_IDIOMA=$l tests/run.sh texto > /dev/null; done
+      - name: Construir el paquete .deb
+        run: packaging/build-deb.sh
+      - name: Instalar el paquete
+        run: |
+          sudo apt-get install -y ./dist/mintmachine_*_all.deb
+          mintmachine --version
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mintmachine-deb
+          path: dist/*.deb
+      - name: Adjuntar el .deb a la versión publicada
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${GITHUB_REF_NAME}" dist/*.deb --clobber || gh release create "${GITHUB_REF_NAME}" dist/*.deb --title "MintMachine ${GITHUB_REF_NAME#v}" --notes-file CHANGELOG.md

@@ -1,0 +1,2542 @@
+# Traducción de MintMachine: 日本語
+# Copyright (c) 2026 José Antonio Ramos Miralles «Sombra»
+# Este archivo se distribuye con la misma licencia que MintMachine (MIT).
+msgid ""
+msgstr ""
+"Project-Id-Version: MintMachine\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "MintMachine solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
+msgstr "MintMachine は情報を読み取るだけで、コンピューターの設定を変更することはありません。推奨事項はあくまで目安であり、システム上で安全に行える操作に限られます。コンピューターを開けたり部品に触れたりしないでください。内部の清掃やディスク・メモリ・バッテリーの交換など、物理的な作業は修理業者またはメーカーに依頼してください。重要な変更を行う前には、必ずファイルをバックアップしてください。"
+
+msgid "(oculto)"
+msgstr "（非表示）"
+
+msgid "(UUID oculto)"
+msgstr "（UUID 非表示）"
+
+msgid "(IPv6 oculta)"
+msgstr "（IPv6 非表示）"
+
+msgid "Abrir el Gestor de actualizaciones"
+msgstr "アップデートマネージャーを開く"
+
+msgid "Abrir el Gestor de controladores"
+msgstr "ドライバーマネージャーを開く"
+
+msgid "Abrir Discos"
+msgstr "ディスクを開く"
+
+msgid "Ver qué ocupa el disco"
+msgstr "ディスクの使用状況を見る"
+
+msgid "Abrir Copias de seguridad"
+msgstr "バックアップツールを開く"
+
+msgid "Abrir Timeshift"
+msgstr "Timeshift を開く"
+
+msgid "Abrir el Cortafuegos"
+msgstr "ファイアウォールを開く"
+
+msgid "Abrir Firmware"
+msgstr "ファームウェアを開く"
+
+msgid "Abrir el Monitor del sistema"
+msgstr "システムモニターを開く"
+
+msgid "Abrir los registros del sistema"
+msgstr "システムログを開く"
+
+msgid "Abrir la configuración de energía"
+msgstr "電源設定を開く"
+
+msgid "Memoria"
+msgstr "メモリー"
+
+msgid "Los programas están esperando por falta de memoria (presión del {n:.0f} %), y eso hace que el equipo vaya lento."
+msgstr "メモリー不足でプログラムが待たされています（負荷 {n:.0f} %）。そのためコンピューターが遅くなっています。"
+
+msgid "Cierra programas o pestañas del navegador que no estés usando. Si te pasa a menudo, un servicio técnico puede decirte si tu equipo admite más memoria."
+msgstr "使っていないプログラムやブラウザーのタブを閉じてください。頻繁に起こる場合は、メモリーを増設できるかどうか修理業者に相談してください。"
+
+msgid "Procesador"
+msgstr "プロセッサー"
+
+msgid "Uso"
+msgstr "使用率"
+
+msgid "Swap"
+msgstr "スワップ"
+
+msgid "Red"
+msgstr "ネットワーク"
+
+msgid "Bajada"
+msgstr "受信"
+
+msgid "Subida"
+msgstr "送信"
+
+msgid "Disco"
+msgstr "ディスク"
+
+msgid "Lectura"
+msgstr "読み込み"
+
+msgid "Escritura"
+msgstr "書き込み"
+
+msgid "Temperatura del procesador"
+msgstr "プロセッサーの温度"
+
+msgid "Uso de la gráfica"
+msgstr "グラフィックスの使用率"
+
+msgid "Uso de cada hilo"
+msgstr "スレッドごとの使用率"
+
+msgid "Ahora mismo"
+msgstr "現在の状態"
+
+msgid "Carga media (1, 5, 15 min)"
+msgstr "平均負荷（1・5・15 分）"
+
+msgid "Procesos en marcha"
+msgstr "実行中のプロセス"
+
+msgid "Tiempo perdido esperando recursos (10 s)"
+msgstr "リソース待ちの時間（10 秒）"
+
+msgid "Procesos que más procesador usan"
+msgstr "CPU を最も使っているプロセス"
+
+msgid "Proceso"
+msgstr "プロセス"
+
+msgid "Procesos que más memoria ocupan"
+msgstr "メモリーを最も使っているプロセス"
+
+msgid "Las gráficas empiezan a llenarse a los pocos segundos de abrir el programa."
+msgstr "グラフはプログラムを開いてから数秒で表示され始めます。"
+
+msgid "Monitor en vivo"
+msgstr "ライブモニター"
+
+msgid " de datos"
+msgstr " データ"
+
+msgid " de instrucciones"
+msgstr " 命令"
+
+msgid ", {ways} vías"
+msgstr "、{ways} ウェイ"
+
+msgid "Comprueba que las rejillas de ventilación no estén tapadas: no uses el portátil sobre la cama, el sofá o las piernas, y deja espacio libre alrededor del equipo. Cierra los programas que no uses. Si sigue pasando, que un servicio técnico revise la refrigeración: no abras el equipo por tu cuenta."
+msgstr "通気口がふさがれていないか確認してください。ノートパソコンをベッドやソファ、ひざの上で使わず、周囲に空間を空けてください。使っていないプログラムは閉じてください。それでも続く場合は、修理業者に冷却系の点検を依頼してください。ご自身でコンピューターを開けないでください。"
+
+msgid "Desconocido"
+msgstr "不明"
+
+msgid "Sí: hilos {pc} en núcleos P, hilos {ec} en núcleos E"
+msgstr "あり：P コアにスレッド {pc}、E コアにスレッド {ec}"
+
+msgid "Intel VT-x disponible"
+msgstr "Intel VT-x 利用可能"
+
+msgid "AMD-V disponible"
+msgstr "AMD-V 利用可能"
+
+msgid "No detectada (o desactivada en la BIOS)"
+msgstr "検出されません（または BIOS で無効）"
+
+msgid "El procesador ha bajado su velocidad por calor {thr} veces desde que encendiste el equipo."
+msgstr "コンピューターの起動以降、プロセッサーが熱のために速度を {thr} 回下げました。"
+
+msgid "Modelo"
+msgstr "モデル"
+
+msgid "Fabricante"
+msgstr "メーカー"
+
+msgid "Núcleos / hilos"
+msgstr "コア / スレッド"
+
+msgid "Arquitectura híbrida"
+msgstr "ハイブリッド構成"
+
+msgid "Frecuencia actual (media)"
+msgstr "現在の周波数（平均）"
+
+msgid "Rango de frecuencias"
+msgstr "周波数の範囲"
+
+msgid "Uso total"
+msgstr "全体の使用率"
+
+msgid "Frenazos por temperatura desde el arranque"
+msgstr "起動以降の熱による減速"
+
+msgid "Virtualización"
+msgstr "仮想化"
+
+msgid "Entorno"
+msgstr "環境"
+
+msgid "Máquina física"
+msgstr "物理マシン"
+
+msgid "Virtualizado ({virt})"
+msgstr "仮想化環境（{virt}）"
+
+msgid "Datos técnicos"
+msgstr "技術データ"
+
+msgid "Arquitectura"
+msgstr "アーキテクチャ"
+
+msgid "Familia / modelo / stepping"
+msgstr "ファミリー / モデル / ステッピング"
+
+msgid "Microcódigo"
+msgstr "マイクロコード"
+
+msgid "Zócalos"
+msgstr "ソケット"
+
+msgid "Gobernador / driver"
+msgstr "ガバナー / ドライバー"
+
+msgid "Direccionamiento"
+msgstr "アドレス幅"
+
+msgid "Instrucciones"
+msgstr "命令セット"
+
+msgid "CPU {n}"
+msgstr "CPU {n}"
+
+msgid "El kernel indica fallos de seguridad del procesador sin proteger: {lista}."
+msgstr "カーネルが未対策のプロセッサーの脆弱性を報告しています：{lista}。"
+
+msgid "Instala las actualizaciones pendientes, incluidas las del kernel, y el microcódigo del procesador que ofrezca el Gestor de controladores. Después, reinicia."
+msgstr "カーネルを含む保留中のアップデートと、ドライバーマネージャーが提供するプロセッサーのマイクロコードをインストールしてから、再起動してください。"
+
+msgid "{n} ({cores} núcleos, {threads} hilos)"
+msgstr "{n}（{cores} コア、{threads} スレッド）"
+
+msgid "Hilos en tiempo real"
+msgstr "スレッドのリアルタイム表示"
+
+msgid "Hilo"
+msgstr "スレッド"
+
+msgid "Frecuencia"
+msgstr "周波数"
+
+msgid "Cachés"
+msgstr "キャッシュ"
+
+msgid "Memoria muy rápida dentro del propio procesador. Más caché suele significar más rendimiento."
+msgstr "プロセッサー内部にある非常に高速なメモリーです。一般にキャッシュが多いほど性能が高くなります。"
+
+msgid "Vulnerabilidades y mitigaciones"
+msgstr "脆弱性と緩和策"
+
+msgid "Vulnerabilidad"
+msgstr "脆弱性"
+
+msgid "Estado según el kernel"
+msgstr "カーネルによる状態"
+
+msgid "Fallos de seguridad conocidos de los procesadores y cómo los neutraliza el kernel. «Not affected» y «Mitigation» son buenas noticias; «Vulnerable» no."
+msgstr "既知のプロセッサーの脆弱性と、カーネルによる対策です。「Not affected」と「Mitigation」は問題ありませんが、「Vulnerable」は要注意です。"
+
+msgid "Sobremesa"
+msgstr "デスクトップ"
+
+msgid "Sobremesa de perfil bajo"
+msgstr "薄型デスクトップ"
+
+msgid "Pizza box"
+msgstr "ピザボックス型"
+
+msgid "Minitorre"
+msgstr "ミニタワー"
+
+msgid "Torre"
+msgstr "タワー"
+
+msgid "Portátil"
+msgstr "ノートパソコン"
+
+msgid "Dispositivo de mano"
+msgstr "ハンドヘルド機器"
+
+msgid "Todo en uno"
+msgstr "一体型"
+
+msgid "Subportátil"
+msgstr "サブノート"
+
+msgid "Servidor"
+msgstr "サーバー"
+
+msgid "Servidor en rack"
+msgstr "ラックサーバー"
+
+msgid "Tableta"
+msgstr "タブレット"
+
+msgid "Convertible"
+msgstr "コンバーチブル"
+
+msgid "Desmontable"
+msgstr "デタッチャブル"
+
+msgid "Mini PC"
+msgstr "ミニ PC"
+
+msgid "Stick PC"
+msgstr "スティック PC"
+
+msgid "Equipo"
+msgstr "コンピューター"
+
+msgid "Versión"
+msgstr "バージョン"
+
+msgid "Familia"
+msgstr "ファミリー"
+
+msgid "Formato"
+msgstr "形状"
+
+msgid "Número de serie"
+msgstr "シリアル番号"
+
+msgid "Placa base"
+msgstr "マザーボード"
+
+msgid "Revisión"
+msgstr "リビジョン"
+
+msgid "BIOS / UEFI"
+msgstr "BIOS / UEFI"
+
+msgid "Fecha"
+msgstr "日付"
+
+msgid "Modo de arranque"
+msgstr "起動モード"
+
+msgid "BIOS clásico (legacy)"
+msgstr "従来の BIOS（レガシー）"
+
+msgid "Secure Boot"
+msgstr "セキュアブート"
+
+msgid "No aplicable"
+msgstr "該当なし"
+
+msgid "Activado"
+msgstr "有効"
+
+msgid "Desactivado"
+msgstr "無効"
+
+msgid "Versión {tpm}.x"
+msgstr "バージョン {tpm}.x"
+
+msgid "No detectado"
+msgstr "検出されません"
+
+msgid "Este sistema no expone datos DMI (habitual en máquinas virtuales, contenedores y placas ARM)."
+msgstr "このシステムは DMI データを公開していません（仮想マシン、コンテナー、ARM ボードではよくあります）。"
+
+msgid "Placa base y BIOS"
+msgstr "マザーボードと BIOS"
+
+msgid "{n} de {n2} ({n3:.0f} %)"
+msgstr "{n2} 中 {n}（{n3:.0f} %）"
+
+msgid "Detalle"
+msgstr "詳細"
+
+msgid "Total instalada (visible)"
+msgstr "搭載量（認識分）"
+
+msgid "Disponible"
+msgstr "利用可能"
+
+msgid "Caché y búferes"
+msgstr "キャッシュとバッファー"
+
+msgid "Memoria compartida"
+msgstr "共有メモリー"
+
+msgid "Memoria de intercambio (swap)"
+msgstr "スワップ領域"
+
+msgid "No hay"
+msgstr "なし"
+
+msgid "Tendencia a usar swap (swappiness)"
+msgstr "スワップの使いやすさ（swappiness）"
+
+msgid "Vacía"
+msgstr "空き"
+
+msgid "Módulos instalados"
+msgstr "搭載モジュール"
+
+msgid "Ranura"
+msgstr "スロット"
+
+msgid "Tamaño"
+msgstr "サイズ"
+
+msgid "Tipo"
+msgstr "種類"
+
+msgid "Velocidad"
+msgstr "速度"
+
+msgid "Referencia"
+msgstr "型番"
+
+msgid "Ampliación"
+msgstr "増設"
+
+msgid "Ranuras ocupadas"
+msgstr "使用中のスロット"
+
+msgid "{populated} de {n}"
+msgstr "{n} 中 {populated}"
+
+msgid "Máximo que admite la placa"
+msgstr "マザーボードの最大対応量"
+
+msgid "Hay un solo módulo de memoria y queda una ranura libre: la memoria trabaja en canal simple."
+msgstr "メモリーモジュールが 1 枚で空きスロットがあるため、シングルチャネルで動作しています。"
+
+msgid "No es un fallo. Si algún día quieres más rendimiento o más memoria, un servicio técnico puede añadir un módulo igual al que tienes."
+msgstr "故障ではありません。性能やメモリー容量を増やしたい場合は、修理業者に同じモジュールを追加してもらえます。"
+
+msgid "No se han podido leer los módulos de RAM (ocurre en máquinas virtuales y en algunos equipos con memoria soldada)."
+msgstr "RAM モジュールを読み取れませんでした（仮想マシンや、メモリーがはんだ付けされた一部の機種で起こります）。"
+
+msgid "Errores de memoria (EDAC)"
+msgstr "メモリーエラー（EDAC）"
+
+msgid "Corregidos"
+msgstr "訂正済み"
+
+msgid "Sin corregir"
+msgstr "未訂正"
+
+msgid "Errores que el controlador de memoria ha detectado. Lo normal es 0."
+msgstr "メモリーコントローラーが検出したエラーです。通常は 0 です。"
+
+msgid "El kernel ha registrado {ue} errores de memoria que no ha podido corregir. Es señal de un módulo de memoria defectuoso."
+msgstr "カーネルが訂正できないメモリーエラーを {ue} 件記録しました。メモリーモジュールの故障が疑われます。"
+
+msgid "Haz ya una copia de seguridad de tus archivos y lleva el equipo a un servicio técnico o al fabricante, sobre todo si está en garantía."
+msgstr "今すぐファイルをバックアップし、特に保証期間内であれば、修理業者またはメーカーにコンピューターを持ち込んでください。"
+
+msgid "El kernel ha corregido {ce} errores de memoria."
+msgstr "カーネルがメモリーエラーを {ce} 件訂正しました。"
+
+msgid "De momento no se pierde nada, pero puede ser el primer síntoma de un módulo que falla. Haz copias de seguridad con regularidad y coméntaselo a un servicio técnico."
+msgstr "現時点でデータは失われていませんが、モジュール故障の最初の兆候かもしれません。定期的にバックアップを取り、修理業者に相談してください。"
+
+msgid "Queda poca memoria libre ({n})."
+msgstr "空きメモリーが残りわずかです（{n}）。"
+
+msgid "Cierra programas o pestañas del navegador que no estés usando."
+msgstr "使っていないプログラムやブラウザーのタブを閉じてください。"
+
+msgid "No hay memoria de intercambio (swap) y el equipo tiene menos de 8 GiB de RAM."
+msgstr "スワップ領域がなく、RAM も 8 GiB 未満です。"
+
+msgid "Si algún programa se cierra solo por falta de memoria, pide en el foro de tu distribución cómo crear un archivo de intercambio. Si no te pasa, no hace falta hacer nada."
+msgstr "メモリー不足でプログラムが勝手に閉じる場合は、お使いのディストリビューションのフォーラムでスワップファイルの作り方を尋ねてください。起きていなければ、何もする必要はありません。"
+
+msgid "{n} visibles ({n2} × {n3}{n4})"
+msgstr "{n} 認識（{n2} × {n3}{n4}）"
+
+msgid "Clase [{n}]"
+msgstr "クラス [{n}]"
+
+msgid "Fabricante [{n}]"
+msgstr "ベンダー [{n}]"
+
+msgid "Dispositivo [{n}]"
+msgstr "デバイス [{n}]"
+
+msgid "máxima {mx} MHz"
+msgstr "最大 {mx} MHz"
+
+msgid "Monitor"
+msgstr "モニター"
+
+msgid "Resolución nativa"
+msgstr "ネイティブ解像度"
+
+msgid "Refresco nativo"
+msgstr "ネイティブリフレッシュレート"
+
+msgid "Modo en uso"
+msgstr "現在のモード"
+
+msgid "Conector"
+msgstr "コネクター"
+
+msgid "Fabricado en"
+msgstr "製造年"
+
+msgid "Tarjeta gráfica: {n}"
+msgstr "グラフィックカード：{n}"
+
+msgid "Identificador PCI"
+msgstr "PCI ID"
+
+msgid "Ensamblador"
+msgstr "製造元（ボード）"
+
+msgid "Driver en uso"
+msgstr "使用中のドライバー"
+
+msgid "Módulos disponibles"
+msgstr "利用可能なモジュール"
+
+msgid "Memoria de vídeo"
+msgstr "ビデオメモリー"
+
+msgid "Enlace PCIe"
+msgstr "PCIe リンク"
+
+msgid "Gráfica"
+msgstr "グラフィックス"
+
+msgid "La gráfica {dname} no tiene ningún driver cargado."
+msgstr "グラフィックカード {dname} にドライバーが読み込まれていません。"
+
+msgid "Abre el Gestor de controladores: si ofrece un driver recomendado para tu gráfica, instálalo y reinicia. Si no ofrece nada, pregunta en el foro de tu distribución."
+msgstr "ドライバーマネージャーを開いてください。お使いのグラフィックカード向けの推奨ドライバーがあればインストールして再起動してください。何も表示されない場合は、ディストリビューションのフォーラムで相談してください。"
+
+msgid "NVIDIA (driver privativo)"
+msgstr "NVIDIA（プロプライエタリドライバー）"
+
+msgid "Versión del driver"
+msgstr "ドライバーのバージョン"
+
+msgid "Temperatura °C"
+msgstr "温度 °C"
+
+msgid "Aceleración 3D"
+msgstr "3D アクセラレーション"
+
+msgid "Renderizador OpenGL"
+msgstr "OpenGL レンダラー"
+
+msgid "Versión de OpenGL"
+msgstr "OpenGL のバージョン"
+
+msgid "Renderizado directo"
+msgstr "ダイレクトレンダリング"
+
+msgid "Memoria de vídeo dedicada"
+msgstr "専用ビデオメモリー"
+
+msgid "Servidor gráfico"
+msgstr "ディスプレイサーバー"
+
+msgid "La gráfica no está acelerando el 3D: lo está dibujando el procesador (llvmpipe), así que vídeos, juegos y efectos irán lentos."
+msgstr "グラフィックカードが 3D を処理していません。プロセッサーが描画している（llvmpipe）ため、動画、ゲーム、エフェクトが遅くなります。"
+
+msgid "Abre el Gestor de controladores e instala el driver recomendado para tu gráfica. Después, reinicia."
+msgstr "ドライバーマネージャーを開き、グラフィックカードの推奨ドライバーをインストールしてから再起動してください。"
+
+msgid "Vídeo y Vulkan"
+msgstr "動画と Vulkan"
+
+msgid "Formatos de vídeo que la gráfica reproduce por sí sola, sin cargar al procesador, y versión de Vulkan, que usan los juegos."
+msgstr "プロセッサーに負担をかけずにグラフィックカードだけで再生できる動画形式と、ゲームで使われる Vulkan のバージョンです。"
+
+msgid "Decodifica por hardware"
+msgstr "ハードウェアデコード対応"
+
+msgid "Ningún formato"
+msgstr "対応形式なし"
+
+msgid "No decodifica por hardware"
+msgstr "ハードウェアデコード非対応"
+
+msgid "Dispositivo Vulkan"
+msgstr "Vulkan デバイス"
+
+msgid "Versión de Vulkan"
+msgstr "Vulkan のバージョン"
+
+msgid "Driver Vulkan"
+msgstr "Vulkan ドライバー"
+
+msgid "Pantallas conectadas"
+msgstr "接続されているディスプレイ"
+
+msgid "Salida"
+msgstr "出力"
+
+msgid "Resolución"
+msgstr "解像度"
+
+msgid "Refresco"
+msgstr "リフレッシュレート"
+
+msgid "No se ha detectado ninguna tarjeta gráfica por PCI."
+msgstr "PCI 上にグラフィックカードが検出されませんでした。"
+
+msgid "Gráfica y pantallas"
+msgstr "グラフィックスとディスプレイ"
+
+msgid "Dispositivos PCI y el driver que usa cada uno"
+msgstr "PCI デバイスと使用中のドライバー"
+
+msgid "Clase"
+msgstr "クラス"
+
+msgid "Dispositivo"
+msgstr "デバイス"
+
+msgid "Driver"
+msgstr "ドライバー"
+
+msgid "No hay bus PCI visible en este sistema."
+msgstr "このシステムでは PCI バスが見えません。"
+
+msgid "Dispositivos PCI"
+msgstr "PCI デバイス"
+
+msgid "{n} usados de {n2}; quedan {n3} libres"
+msgstr "{n2} 中 {n} 使用、空き {n3}"
+
+msgid "{used} % usada (queda un {n} % estimado)"
+msgstr "{used} % 消費（残り推定 {n} %）"
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube. Después, consulta con un servicio técnico o con el fabricante (si está en garantía) para sustituir la unidad."
+msgstr "今すぐ大切なファイルを別のディスクやクラウドにバックアップしてください。その後、ドライブの交換について修理業者またはメーカー（保証期間内の場合）に相談してください。"
+
+msgid "FALLO INMINENTE"
+msgstr "故障が迫っています"
+
+msgid "Con sectores dañados"
+msgstr "不良セクターあり"
+
+msgid "Correcto"
+msgstr "正常"
+
+msgid "{hours} h ({n} años)"
+msgstr "{hours} 時間（{n} 年）"
+
+msgid "Almacenamiento"
+msgstr "ストレージ"
+
+msgid "El disco {model} avisa de que va a fallar pronto (SMART)."
+msgstr "ディスク {model} が近いうちに故障すると報告しています（SMART）。"
+
+msgid "El disco {model} tiene {bad} sectores dañados."
+msgstr "ディスク {model} に不良セクターが {bad} 個あります。"
+
+msgid "Algunos sectores dañados no impiden usar el disco, pero si el número crece, el disco se está deteriorando."
+msgstr "不良セクターが少しあってもディスクは使えますが、数が増えていく場合はディスクが劣化しています。"
+
+msgid "El SSD {model} ha consumido el {wear} % de su vida útil estimada."
+msgstr "SSD {model} は推定寿命の {wear} % を消費しています。"
+
+msgid "Aún puede funcionar bastante tiempo, pero conviene planificar su sustitución."
+msgstr "まだしばらく使えますが、交換を計画しておくことをおすすめします。"
+
+msgid "AVISO: {warn}"
+msgstr "警告：{warn}"
+
+msgid "El SSD {model} avisa de un problema de salud ({warn})."
+msgstr "SSD {model} が健康状態の問題を報告しています（{warn}）。"
+
+msgid "El SSD {model} avisa de un problema de salud (le quedan pocos bloques de reserva)."
+msgstr "SSD {model} が健康状態の問題を報告しています（予備ブロックが残りわずか）。"
+
+msgid "El SSD {model} ha consumido el {used} % de su vida útil estimada."
+msgstr "SSD {model} は推定寿命の {used} % を消費しています。"
+
+msgid "Llegar al 100 % no significa que falle ese día: es la estimación del fabricante. Aun así, conviene planificar su sustitución."
+msgstr "100 % に達しても、その日に故障するわけではありません。メーカーによる推定値です。それでも交換を計画しておくことをおすすめします。"
+
+msgid "El SSD {model} ha registrado {media_errors} errores de datos."
+msgstr "SSD {model} がデータエラーを {media_errors} 件記録しています。"
+
+msgid "Sin datos SMART"
+msgstr "SMART データなし"
+
+msgid "Disco virtual"
+msgstr "仮想ディスク"
+
+msgid "SSD NVMe"
+msgstr "NVMe SSD"
+
+msgid "Disco duro (HDD)"
+msgstr "ハードディスク（HDD）"
+
+msgid "Memoria flash"
+msgstr "フラッシュメモリー"
+
+msgid "extraíble"
+msgstr "リムーバブル"
+
+msgid "Vacía la papelera y borra o mueve a otro disco lo que no necesites (descargas, vídeos, copias antiguas). «Ver qué ocupa el disco» te enseña qué carpetas ocupan más. Si usas Timeshift, revisa cuántas instantáneas guarda."
+msgstr "ゴミ箱を空にし、不要なもの（ダウンロード、動画、古いバックアップ）を削除するか別のディスクに移してください。「ディスクの使用状況を見る」で容量の大きいフォルダーがわかります。Timeshift を使っている場合は、保存しているスナップショットの数を確認してください。"
+
+msgid "«{mnt}» está prácticamente lleno (quedan {n}). Con el disco lleno pueden fallar las actualizaciones y los programas."
+msgstr "「{mnt}」はほぼ満杯です（残り {n}）。ディスクがいっぱいになると、アップデートやプログラムが失敗することがあります。"
+
+msgid "«{mnt}» está al {n:.0f} % (quedan {n2})."
+msgstr "「{mnt}」の使用率は {n:.0f} % です（残り {n2}）。"
+
+msgid "El sistema está instalado en un disco duro mecánico, que es mucho más lento que un SSD."
+msgstr "システムが機械式のハードディスクにインストールされています。SSD よりかなり遅くなります。"
+
+msgid "No es un fallo. Si el equipo te parece lento, cambiar el disco por un SSD es la mejora que más se nota; pídeselo a un servicio técnico, que también puede pasar tus datos."
+msgstr "故障ではありません。動作が遅いと感じる場合は、ディスクを SSD に交換するのが最も効果的です。データの移行も含めて修理業者に依頼してください。"
+
+msgid "Correcta"
+msgstr "正常"
+
+msgid "{n} de {n2} unidades con avisos (mira Almacenamiento)"
+msgstr "{n2} 台中 {n} 台に警告あり（ストレージを参照）"
+
+msgid "Espacio ocupado"
+msgstr "使用容量"
+
+msgid "Salud de los discos (SMART)"
+msgstr "ディスクの健康状態（SMART）"
+
+msgid "Unidad"
+msgstr "ドライブ"
+
+msgid "Estado"
+msgstr "状態"
+
+msgid "Vida útil"
+msgstr "寿命"
+
+msgid "Temperatura"
+msgstr "温度"
+
+msgid "Horas encendido"
+msgstr "通電時間"
+
+msgid "Sectores dañados / errores"
+msgstr "不良セクター / エラー"
+
+msgid "Última autoprueba"
+msgstr "最後のセルフテスト"
+
+msgid "El propio disco vigila su estado (SMART). «Vida útil» es la estimación de desgaste del fabricante para los SSD."
+msgstr "ディスク自身が状態を監視しています（SMART）。「寿命」は SSD についてのメーカーによる消耗の推定値です。"
+
+msgid "Unidades"
+msgstr "ドライブ"
+
+msgid "Capacidad"
+msgstr "容量"
+
+msgid "Interfaz"
+msgstr "インターフェース"
+
+msgid "Enlace"
+msgstr "リンク"
+
+msgid "Firmware"
+msgstr "ファームウェア"
+
+msgid "Planificador E/S"
+msgstr "I/O スケジューラー"
+
+msgid "Mantenimiento"
+msgstr "メンテナンス"
+
+msgid "TRIM periódico de los SSD"
+msgstr "SSD の定期 TRIM"
+
+msgid "Activado (fstrim.timer)"
+msgstr "有効（fstrim.timer）"
+
+msgid "El TRIM ayuda a que los SSD mantengan su velocidad. Linux Mint lo activa por defecto."
+msgstr "TRIM は SSD の速度を保つのに役立ちます。Linux Mint では標準で有効です。"
+
+msgid "Particiones y volúmenes"
+msgstr "パーティションとボリューム"
+
+msgid "Sistema de archivos"
+msgstr "ファイルシステム"
+
+msgid "Montado en"
+msgstr "マウント先"
+
+msgid "No se han detectado unidades físicas (¿falta la utilidad lsblk?)."
+msgstr "物理ドライブが検出されませんでした（lsblk ツールがありませんか？）。"
+
+msgid "No hay datos de salud de los discos: hace falta el servicio UDisks (paquete udisks2; para los NVMe, versión 2.10 o posterior). En máquinas virtuales no hay SMART."
+msgstr "ディスクの健康状態のデータがありません。UDisks サービスが必要です（udisks2 パッケージ。NVMe にはバージョン 2.10 以降）。仮想マシンには SMART がありません。"
+
+msgid "Bucle local"
+msgstr "ループバック"
+
+msgid "Ethernet"
+msgstr "イーサネット"
+
+msgid "Virtual"
+msgstr "仮想"
+
+msgid "Conectada"
+msgstr "接続中"
+
+msgid "Desconectada"
+msgstr "切断"
+
+msgid "En espera"
+msgstr "待機"
+
+msgid "2,4 GHz"
+msgstr "2.4 GHz"
+
+msgid "banda de {band}"
+msgstr "{band} 帯"
+
+msgid "{mhz} MHz (banda de {band})"
+msgstr "{mhz} MHz（{band} 帯）"
+
+msgid "débil"
+msgstr "弱い"
+
+msgid "La señal Wi-Fi es débil ({dbm} dBm): la conexión puede ir lenta o cortarse."
+msgstr "Wi-Fi の電波が弱くなっています（{dbm} dBm）。接続が遅くなったり切れたりすることがあります。"
+
+msgid "Acércate al router o quita obstáculos entre ambos. Si tu router tiene dos redes (2,4 y 5 GHz), la de 2,4 GHz llega más lejos."
+msgstr "ルーターに近づくか、間にある障害物を取り除いてください。ルーターに 2 つのネットワーク（2.4 GHz と 5 GHz）がある場合、2.4 GHz の方が遠くまで届きます。"
+
+msgid "Wi-Fi en {name}"
+msgstr "{name} の Wi-Fi"
+
+msgid "Red (SSID)"
+msgstr "ネットワーク（SSID）"
+
+msgid "Señal"
+msgstr "電波強度"
+
+msgid "Velocidad de bajada"
+msgstr "受信速度"
+
+msgid "Velocidad de subida"
+msgstr "送信速度"
+
+msgid "{n} por {n2}"
+msgstr "{n}（{n2} 経由）"
+
+msgid "General"
+msgstr "全般"
+
+msgid "Nombre del equipo"
+msgstr "コンピューター名"
+
+msgid "Puerta de enlace"
+msgstr "ゲートウェイ"
+
+msgid "Servidores DNS"
+msgstr "DNS サーバー"
+
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+msgid "Interfaces"
+msgstr "インターフェース"
+
+msgid "Tarjetas de sonido"
+msgstr "サウンドカード"
+
+msgid "Nombre"
+msgstr "名前"
+
+msgid "Servidor de sonido"
+msgstr "サウンドサーバー"
+
+msgid "Salida predeterminada"
+msgstr "既定の出力"
+
+msgid "Entrada predeterminada"
+msgstr "既定の入力"
+
+msgid "No se ha detectado ninguna tarjeta de sonido."
+msgstr "サウンドカードが検出されませんでした。"
+
+msgid "Sonido"
+msgstr "サウンド"
+
+msgid "Dispositivos USB conectados"
+msgstr "接続されている USB デバイス"
+
+msgid "Puerto"
+msgstr "ポート"
+
+msgid "Producto"
+msgstr "製品"
+
+msgid "Consumo máx."
+msgstr "最大消費電力"
+
+msgid "No hay dispositivos USB conectados (o el sistema no expone el bus USB)."
+msgstr "USB デバイスが接続されていません（またはシステムが USB バスを公開していません）。"
+
+msgid "Dispositivos USB"
+msgstr "USB デバイス"
+
+msgid "Gráfica AMD"
+msgstr "AMD グラフィックス"
+
+msgid "Gráfica NVIDIA"
+msgstr "NVIDIA グラフィックス"
+
+msgid "Chipset"
+msgstr "チップセット"
+
+msgid "Sin regulación (al máximo)"
+msgstr "制御なし（最大回転）"
+
+msgid "Curva personalizada"
+msgstr "カスタムカーブ"
+
+msgid "Manual (lo fija un programa)"
+msgstr "手動（プログラムが設定）"
+
+msgid "Automático (lo decide el firmware)"
+msgstr "自動（ファームウェアが制御）"
+
+msgid "Ventilador {idx}"
+msgstr "ファン {idx}"
+
+msgid "Sonda de temperatura {idx}"
+msgstr "温度センサー {idx}"
+
+msgid "acelera el ventilador"
+msgstr "ファンを加速"
+
+msgid "frena el procesador"
+msgstr "プロセッサーを減速"
+
+msgid "aviso de calor"
+msgstr "高温警告"
+
+msgid "apagado de emergencia"
+msgstr "緊急シャットダウン"
+
+msgid "{n:.0f} % de su máximo"
+msgstr "最大の {n:.0f} %"
+
+msgid "Parado"
+msgstr "停止"
+
+msgid "Ventilador"
+msgstr "ファン"
+
+msgid "{nice}, sensor {label}: {t:.0f} °C, muy cerca de su límite. Si lo alcanza, el equipo se frenará o se apagará para protegerse."
+msgstr "{nice}、センサー {label}：{t:.0f} °C で上限に近づいています。上限に達すると、保護のために減速またはシャットダウンします。"
+
+msgid "{nice}, sensor {label}: {t:.0f} °C, temperatura alta. Puede ser normal mientras el equipo trabaja a fondo (juegos, vídeo, compilar)."
+msgstr "{nice}、センサー {label}：{t:.0f} °C で高温です。高負荷の作業中（ゲーム、動画、コンパイル）なら正常なこともあります。"
+
+msgid "Zona térmica"
+msgstr "サーマルゾーン"
+
+msgid "Ventilador (ACPI)"
+msgstr "ファン（ACPI）"
+
+msgid "Freno del procesador"
+msgstr "プロセッサーの減速"
+
+msgid "{act} de {n} actuando"
+msgstr "{n} 中 {act} が動作中"
+
+msgid "En reposo"
+msgstr "待機中"
+
+msgid "Ventilador del ThinkPad"
+msgstr "ThinkPad のファン"
+
+msgid "Nivel"
+msgstr "レベル"
+
+msgid "Al máximo"
+msgstr "最大回転"
+
+msgid "Sin límite"
+msgstr "制限なし"
+
+msgid "Temperaturas"
+msgstr "温度"
+
+msgid "Chip"
+msgstr "チップ"
+
+msgid "Sensor"
+msgstr "センサー"
+
+msgid "Ahora"
+msgstr "現在"
+
+msgid "Máx. / crítica"
+msgstr "最大 / 危険"
+
+msgid "Cada chip informa de su temperatura. La columna de la derecha es el límite que fija el fabricante."
+msgstr "各チップが自身の温度を報告しています。右の列はメーカーが定めた上限です。"
+
+msgid "Ventiladores"
+msgstr "ファン"
+
+msgid "Potencia"
+msgstr "出力"
+
+msgid "Control"
+msgstr "制御"
+
+msgid "Mínimo"
+msgstr "最小"
+
+msgid "Curvas de ventilador programadas"
+msgstr "設定済みのファンカーブ"
+
+msgid "Canal"
+msgstr "チャネル"
+
+msgid "Temperatura → potencia"
+msgstr "温度 → 出力"
+
+msgid "A qué velocidad gira el ventilador según la temperatura."
+msgstr "温度に応じたファンの回転速度です。"
+
+msgid "Umbrales térmicos del firmware (ACPI)"
+msgstr "ファームウェアの温度しきい値（ACPI）"
+
+msgid "Zona"
+msgstr "ゾーン"
+
+msgid "Qué ocurre a cada temperatura"
+msgstr "各温度で起こること"
+
+msgid "Mecanismos de refrigeración del sistema"
+msgstr "システムの冷却機構"
+
+msgid "Mecanismo"
+msgstr "機構"
+
+msgid "Cantidad"
+msgstr "数"
+
+msgid "Voltajes"
+msgstr "電圧"
+
+msgid "Valor"
+msgstr "値"
+
+msgid "Potencia y corriente"
+msgstr "電力と電流"
+
+msgid "Este sistema no publica ningún sensor. Es habitual en máquinas virtuales y en algunos equipos cuyo fabricante no ofrece drivers de sensores para Linux."
+msgstr "このシステムはセンサーを公開していません。仮想マシンや、メーカーが Linux 用センサードライバーを提供していない機種ではよくあることです。"
+
+msgid "No aparecen ventiladores. Es normal en muchos equipos: el chip que los controla no siempre tiene driver en Linux, y en ese caso la placa los sigue gobernando por su cuenta con normalidad."
+msgstr "ファンが表示されません。多くの機種で普通のことです。ファンを制御するチップに Linux ドライバーがない場合でも、マザーボードが通常どおり自動で制御しています。"
+
+msgid "La curva que configuras en la BIOS vive en el chip de la placa y casi ningún driver deja leerla. Aparece aquí solo cuando el chip la publica (algunas placas con Nuvoton o ITE, portátiles ASUS ROG, gráficas AMD). Los umbrales ACPI de arriba son lo más parecido que ofrece el resto."
+msgstr "BIOS で設定したファンカーブはマザーボードのチップ内にあり、ほとんどのドライバーでは読み取れません。チップが公開している場合（Nuvoton や ITE チップの一部のボード、ASUS ROG のノートパソコン、AMD のグラフィックカード）にのみここに表示されます。それ以外の機種では、上の ACPI しきい値が最も近い情報です。"
+
+msgid "Sensores y ventiladores"
+msgstr "センサーとファン"
+
+msgid "Llena"
+msgstr "満充電"
+
+msgid "Alta"
+msgstr "高"
+
+msgid "Normal"
+msgstr "普通"
+
+msgid "Baja"
+msgstr "低"
+
+msgid "Crítica"
+msgstr "危険"
+
+msgid "Desconocida"
+msgstr "不明"
+
+msgid "Cargando"
+msgstr "充電中"
+
+msgid "Descargando"
+msgstr "放電中"
+
+msgid "Cargada"
+msgstr "充電完了"
+
+msgid "Sin cargar (enchufada)"
+msgstr "充電していません（接続中）"
+
+msgid "Potencia total"
+msgstr "総出力"
+
+msgid "Temperatura VRM"
+msgstr "VRM 温度"
+
+msgid "Temperatura interna"
+msgstr "内部温度"
+
+msgid "Potencia +12 V"
+msgstr "+12 V 出力"
+
+msgid "Potencia +5 V"
+msgstr "+5 V 出力"
+
+msgid "Potencia +3,3 V"
+msgstr "+3.3 V 出力"
+
+msgid "Fuente de alimentación"
+msgstr "電源ユニット"
+
+msgid "Batería {name}"
+msgstr "バッテリー {name}"
+
+msgid "Carga"
+msgstr "残量"
+
+msgid "Salud"
+msgstr "健康状態"
+
+msgid "{health:.0f} % de la capacidad original"
+msgstr "新品時容量の {health:.0f} %"
+
+msgid "Capacidad actual"
+msgstr "現在の容量"
+
+msgid "Capacidad de fábrica"
+msgstr "設計容量"
+
+msgid "Ciclos de carga"
+msgstr "充電サイクル"
+
+msgid "Consumo o carga ahora"
+msgstr "現在の消費 / 充電"
+
+msgid "Voltaje"
+msgstr "電圧"
+
+msgid "Tecnología"
+msgstr "種類"
+
+msgid "Fabricante / modelo"
+msgstr "メーカー / モデル"
+
+msgid "{n} % de carga, salud {health:.0f} %"
+msgstr "残量 {n} %、健康状態 {health:.0f} %"
+
+msgid "Es desgaste normal con el uso. Si la autonomía ya no te basta, el fabricante o un servicio técnico puede cambiarla por una original. No la desmontes tú: una batería de litio dañada puede incendiarse. Si notas que se hincha o deforma la carcasa, deja de usar el equipo y llévalo a revisar."
+msgstr "使用による通常の劣化です。駆動時間が足りなくなったら、メーカーまたは修理業者に純正品へ交換してもらってください。ご自身で分解しないでください。損傷したリチウム電池は発火するおそれがあります。膨らんだりケースが変形したりしている場合は、使用を中止して点検を受けてください。"
+
+msgid "Batería"
+msgstr "バッテリー"
+
+msgid "La batería conserva solo el {health:.0f} % de su capacidad original."
+msgstr "バッテリーは新品時の容量の {health:.0f} % しか残っていません。"
+
+msgid "La batería conserva el {health:.0f} % de su capacidad original."
+msgstr "バッテリーは新品時の容量の {health:.0f} % を保っています。"
+
+msgid "Batería de {dispositivo}"
+msgstr "{dispositivo} のバッテリー"
+
+msgid "Alimentación {name}"
+msgstr "電源 {name}"
+
+msgid "Corriente"
+msgstr "AC 電源"
+
+msgid "Sí"
+msgstr "はい"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "empieza al {a} %, para al {b} %"
+msgstr "{a} % で開始、{b} % で停止"
+
+msgid "para al {b} %"
+msgstr "{b} % で停止"
+
+msgid "Ahorro de energía"
+msgstr "省電力"
+
+msgid "Perfil de energía activo"
+msgstr "現在の電源プロファイル"
+
+msgid "Suspensión"
+msgstr "サスペンド"
+
+msgid "Profunda (S3): gasta muy poco"
+msgstr "ディープ（S3）：消費電力がごくわずか"
+
+msgid "Ligera (s2idle): gasta algo más"
+msgstr "ライト（s2idle）：やや多く消費"
+
+msgid "Modos de suspensión que admite"
+msgstr "対応するサスペンドモード"
+
+msgid "Hibernación"
+msgstr "ハイバネーション"
+
+msgid "Disponible en el kernel"
+msgstr "カーネルで利用可能"
+
+msgid "No disponible"
+msgstr "利用不可"
+
+msgid "Límite de carga de la batería"
+msgstr "バッテリーの充電上限"
+
+msgid "Este equipo no tiene batería (o el sistema no la expone)."
+msgstr "このコンピューターにはバッテリーがありません（またはシステムが公開していません）。"
+
+msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y MintMachine los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
+msgstr "電源ユニット：デスクトップの電源ユニットは、メーカー、型番、容量をコンピューターに伝えないため、どのプログラムでも読み取れません。内部 USB ケーブルを備えた「スマート」電源（Corsair HXi、RMi、AXi など）だけがデータを送り、検出されると MintMachine がここに表示します。お使いの電源を知るには請求書や製品の箱を確認してください。ラベルを見るためにコンピューターを開けないでください。"
+
+msgid "Batería y energía"
+msgstr "バッテリーと電源"
+
+msgid "{h} h {n} min"
+msgstr "{h} 時間 {n} 分"
+
+msgid "Sistema operativo"
+msgstr "オペレーティングシステム"
+
+msgid "Distribución"
+msgstr "ディストリビューション"
+
+msgid "Sistema"
+msgstr "システム"
+
+msgid "Nombre en clave"
+msgstr "コードネーム"
+
+msgid "Edición"
+msgstr "エディション"
+
+msgid "Base"
+msgstr "ベース"
+
+msgid "Instalado el"
+msgstr "インストール日"
+
+msgid "Núcleo"
+msgstr "カーネル"
+
+msgid "Kernel"
+msgstr "カーネル"
+
+msgid "Compilación"
+msgstr "ビルド"
+
+msgid "Parámetros de arranque"
+msgstr "起動パラメーター"
+
+msgid "Sistema de inicio"
+msgstr "init システム"
+
+msgid "Sesión"
+msgstr "セッション"
+
+msgid "Escritorio"
+msgstr "デスクトップ環境"
+
+msgid "Intérprete de órdenes"
+msgstr "シェル"
+
+msgid "Idioma"
+msgstr "言語"
+
+msgid "Zona horaria"
+msgstr "タイムゾーン"
+
+msgid "Encendido desde hace"
+msgstr "稼働時間"
+
+msgid "Duración del último arranque"
+msgstr "前回の起動時間"
+
+msgid "Lo que más tardó en el último arranque"
+msgstr "前回の起動で時間がかかった項目"
+
+msgid "Tiempo"
+msgstr "時間"
+
+msgid "Servicios que más tiempo tardaron en arrancar. Varios arrancan a la vez, así que los tiempos no se suman."
+msgstr "起動に時間がかかったサービスです。複数が同時に起動するため、時間は合計されません。"
+
+msgid "hay módulos privativos cargados"
+msgstr "プロプライエタリなモジュールが読み込まれています"
+
+msgid "se forzó la carga de un módulo"
+msgstr "モジュールが強制的に読み込まれました"
+
+msgid "el procesador notificó un error de hardware (machine check)"
+msgstr "プロセッサーがハードウェアエラーを報告しました（machine check）"
+
+msgid "se detectó una página de memoria corrupta"
+msgstr "破損したメモリーページが検出されました"
+
+msgid "el kernel sufrió un fallo grave (oops) en esta sesión"
+msgstr "このセッションでカーネルに重大な障害（oops）が発生しました"
+
+msgid "el kernel emitió una advertencia en esta sesión"
+msgstr "このセッションでカーネルが警告を出しました"
+
+msgid "hay drivers experimentales (staging) cargados"
+msgstr "実験的な（staging）ドライバーが読み込まれています"
+
+msgid "se aplicó un apaño por un fallo del firmware"
+msgstr "ファームウェアの不具合への回避策が適用されました"
+
+msgid "hay módulos externos al kernel (DKMS o de terceros)"
+msgstr "カーネル外のモジュール（DKMS またはサードパーティー）が読み込まれています"
+
+msgid "hay módulos sin firmar cargados"
+msgstr "署名のないモジュールが読み込まれています"
+
+msgid "hubo un bloqueo temporal del sistema (soft lockup)"
+msgstr "一時的なシステムのフリーズ（soft lockup）がありました"
+
+msgid "Suele deberse a calor, a la memoria o a un ajuste de la BIOS fuera de fábrica. Haz una copia de seguridad y, si se repite o el equipo se cuelga, consúltalo con un servicio técnico."
+msgstr "多くの場合、熱、メモリー、または工場出荷時から変更された BIOS 設定が原因です。バックアップを取り、繰り返したりフリーズしたりする場合は修理業者に相談してください。"
+
+msgid "Puede ser un fallo de la memoria. Haz una copia de seguridad y consúltalo con un servicio técnico si se repite."
+msgstr "メモリーの故障の可能性があります。バックアップを取り、繰り返す場合は修理業者に相談してください。"
+
+msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "コンピューターを再起動してください。再発する場合は「診断 → ログのエラー」でメッセージを確認し、個人情報を非表示にした MintMachine のレポートを添えてディストリビューションのフォーラムで相談してください。"
+
+msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de MintMachine."
+msgstr "一時的なものかもしれません。頻繁にフリーズする場合は、MintMachine のレポートを添えてディストリビューションのフォーラムで相談してください。"
+
+msgid "Alguien forzó la carga de un driver. Si no lo hiciste tú a propósito, pregunta en el foro de tu distribución."
+msgstr "誰かがドライバーを強制的に読み込みました。意図したものでなければ、ディストリビューションのフォーラムで相談してください。"
+
+msgid "externo al kernel"
+msgstr "カーネル外"
+
+msgid "sin firmar"
+msgstr "署名なし"
+
+msgid "El kernel indica que {problema}."
+msgstr "カーネルの報告：{problema}。"
+
+msgid "Estado del kernel"
+msgstr "カーネルの状態"
+
+msgid "Módulos cargados"
+msgstr "読み込み済みモジュール"
+
+msgid "Kernel «limpio»"
+msgstr "「クリーン」なカーネル"
+
+msgid "No (marca {mask})"
+msgstr "いいえ（フラグ {mask}）"
+
+msgid "Marca {l}"
+msgstr "フラグ {l}"
+
+msgid "Drivers privativos o externos"
+msgstr "プロプライエタリまたは外部のドライバー"
+
+msgid "Módulo"
+msgstr "モジュール"
+
+msgid "Motivo"
+msgstr "理由"
+
+msgid "Drivers que no vienen dentro del kernel, como el de NVIDIA. Es normal tenerlos."
+msgstr "NVIDIA のドライバーなど、カーネルに含まれていないドライバーです。あっても問題ありません。"
+
+msgid "Módulos DKMS"
+msgstr "DKMS モジュール"
+
+msgid "Drivers externos que se recompilan solos cada vez que se instala un kernel nuevo."
+msgstr "新しいカーネルがインストールされるたびに自動で再ビルドされる外部ドライバーです。"
+
+msgid "Todos los módulos cargados"
+msgstr "読み込み済みのすべてのモジュール"
+
+msgid "En uso"
+msgstr "使用数"
+
+msgid "Lo usan"
+msgstr "使用元"
+
+msgid "Notas"
+msgstr "備考"
+
+msgid "No se puede leer la lista de módulos del kernel en este sistema."
+msgstr "このシステムではカーネルモジュールの一覧を読み取れません。"
+
+msgid "En Linux los drivers son módulos del kernel. Para ver qué driver usa cada dispositivo, mira las secciones «Dispositivos PCI» y «Dispositivos USB»."
+msgstr "Linux ではドライバーはカーネルモジュールです。各デバイスが使うドライバーは「PCI デバイス」と「USB デバイス」のセクションで確認できます。"
+
+msgid "Drivers y módulos"
+msgstr "ドライバーとモジュール"
+
+msgid "Kernel (trae casi todos los drivers)"
+msgstr "カーネル（ほぼすべてのドライバーを含む）"
+
+msgid "Gráfica (drivers libres)"
+msgstr "グラフィックス（オープンソースのドライバー）"
+
+msgid "Firmware de dispositivos"
+msgstr "デバイスのファームウェア"
+
+msgid "Microcódigo del procesador"
+msgstr "プロセッサーのマイクロコード"
+
+msgid "Driver externo (DKMS)"
+msgstr "外部ドライバー（DKMS）"
+
+msgid "Periféricos"
+msgstr "周辺機器"
+
+msgid "gráfica"
+msgstr "グラフィックス"
+
+msgid "sonido o vídeo"
+msgstr "サウンドまたはビデオ"
+
+msgid "inalámbrico"
+msgstr "ワイヤレス"
+
+msgid "Hay versión nueva"
+msgstr "新しいバージョンあり"
+
+msgid "Al día"
+msgstr "最新"
+
+msgid "Sin datos del repositorio"
+msgstr "リポジトリーのデータなし"
+
+msgid "Drivers"
+msgstr "ドライバー"
+
+msgid "Hay versión nueva de: {paquetes}."
+msgstr "新しいバージョンがあります：{paquetes}。"
+
+msgid "y otros"
+msgstr "ほか"
+
+msgid "Instálala con el Gestor de actualizaciones, como el resto de actualizaciones, y reinicia al terminar."
+msgstr "ほかのアップデートと同じくアップデートマネージャーでインストールし、完了したら再起動してください。"
+
+msgid "Ya está instalado un kernel más nuevo ({newest}), pero sigues usando el anterior."
+msgstr "より新しいカーネル（{newest}）がインストール済みですが、まだ以前のカーネルを使っています。"
+
+msgid "Reinicia el equipo para empezar a usarlo."
+msgstr "使い始めるにはコンピューターを再起動してください。"
+
+msgid "El kernel no recibirá versiones nuevas por sí solo (falta el paquete linux-image-amd64 o linux-image-generic)."
+msgstr "カーネルが自動で新しいバージョンになりません（linux-image-amd64 または linux-image-generic パッケージがありません）。"
+
+msgid "En Linux Mint los kernels se gestionan desde el Gestor de actualizaciones, menú Ver → Kernels. Si no sabes por qué falta, pregunta en el foro antes de tocar nada."
+msgstr "Linux Mint では、カーネルはアップデートマネージャーの「表示 → Linux カーネル」で管理します。なぜないのかわからない場合は、何かを変更する前にフォーラムで相談してください。"
+
+msgid "La lista de paquetes se actualizó hace {age:.0f} días: puede haber versiones nuevas que aún no se ven."
+msgstr "パッケージ一覧は {age:.0f} 日前に更新されたものです。まだ表示されていない新しいバージョンがあるかもしれません。"
+
+msgid "Abre el Gestor de actualizaciones y pulsa «Actualizar» (el botón de refrescar la lista)."
+msgstr "アップデートマネージャーを開いて「更新」を押してください。"
+
+msgid "En ejecución"
+msgstr "実行中"
+
+msgid "Más reciente instalado"
+msgstr "インストール済みの最新版"
+
+msgid "El mismo que está en ejecución"
+msgstr "実行中のものと同じ"
+
+msgid "Se actualiza solo mediante"
+msgstr "自動更新に使うパッケージ"
+
+msgid "Nada (falta el metapaquete)"
+msgstr "なし（メタパッケージがありません）"
+
+msgid "Lista de paquetes consultada"
+msgstr "パッケージ一覧の確認"
+
+msgid "Actualizada hace {age:.0f} días"
+msgstr "{age:.0f} 日前に更新"
+
+msgid "Actualizada hoy"
+msgstr "今日更新"
+
+msgid "No se actualiza desde Linux"
+msgstr "Linux からは更新されません"
+
+msgid "El fabricante ha publicado firmware nuevo para: {dispositivos}."
+msgstr "メーカーが新しいファームウェアを公開しています：{dispositivos}。"
+
+msgid "No es urgente salvo que el fabricante lo indique. Si decides instalarlo: haz antes una copia de seguridad, enchufa el portátil a la corriente y no apagues el equipo mientras se instala, aunque tarde y la pantalla se quede en negro. Si no te sientes seguro, déjalo como está o pide ayuda a un técnico."
+msgstr "メーカーの指示がない限り急ぐ必要はありません。インストールする場合は、まずバックアップを取り、ノートパソコンを電源につなぎ、時間がかかったり画面が黒くなったりしても、インストール中は電源を切らないでください。自信がない場合はそのままにするか、技術者に相談してください。"
+
+msgid "Ninguno conocido"
+msgstr "既知のものなし"
+
+msgid "El dispositivo de {n} «{dname}» no tiene driver cargado."
+msgstr "{n} デバイス「{dname}」にドライバーが読み込まれていません。"
+
+msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "ドライバーマネージャーで提供されていないか確認してください。なければ、個人情報を非表示にした MintMachine のレポートを添えてディストリビューションのフォーラムで相談してください。"
+
+msgid "Un driver pidió {n} archivos de firmware que no están instalados."
+msgstr "ドライバーが、インストールされていないファームウェアファイルを {n} 個要求しました。"
+
+msgid "Si todos tus dispositivos funcionan bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si alguno falla, instala las actualizaciones pendientes y revisa el Gestor de controladores."
+msgstr "すべてのデバイスが正常に動いていれば何もする必要はありません。多くのドライバーは、インストール済みのものが見つかるまで複数のバージョンを試します。不具合がある場合は、保留中のアップデートをインストールし、ドライバーマネージャーを確認してください。"
+
+msgid "Paquetes de drivers y firmware"
+msgstr "ドライバーとファームウェアのパッケージ"
+
+msgid "Paquete"
+msgstr "パッケージ"
+
+msgid "Instalada"
+msgstr "インストール済み"
+
+msgid "Qué es"
+msgstr "内容"
+
+msgid "Comparación entre lo instalado y lo que ofrecen los repositorios de tu sistema."
+msgstr "インストール済みのものと、システムのリポジトリーが提供するものの比較です。"
+
+msgid "Firmware de los dispositivos (fwupd)"
+msgstr "デバイスのファームウェア（fwupd）"
+
+msgid "Versión actual"
+msgstr "現在のバージョン"
+
+msgid "Versión nueva"
+msgstr "新しいバージョン"
+
+msgid "Dispositivos sin driver cargado"
+msgstr "ドライバーが読み込まれていないデバイス"
+
+msgid "Módulos candidatos"
+msgstr "候補モジュール"
+
+msgid "Firmware que el kernel pidió y no encontró"
+msgstr "カーネルが要求したが見つからなかったファームウェア"
+
+msgid "Archivo"
+msgstr "ファイル"
+
+msgid "Con el paquete fwupd instalado, aquí aparecerían también las actualizaciones de BIOS, SSD, docks y periféricos que publica cada fabricante."
+msgstr "fwupd パッケージをインストールすると、各メーカーが公開している BIOS、SSD、ドック、周辺機器のアップデートもここに表示されます。"
+
+msgid "Que falte un archivo de firmware no siempre es un problema: algunos drivers prueban varias versiones hasta dar con la instalada. Si el dispositivo falla, el paquete que lo trae suele ser firmware-misc-nonfree, firmware-iwlwifi, firmware-realtek o linux-firmware."
+msgstr "ファームウェアファイルがなくても問題とは限りません。一部のドライバーは、インストール済みのものが見つかるまで複数のバージョンを試します。デバイスが動かない場合、それを提供するパッケージは通常 firmware-misc-nonfree、firmware-iwlwifi、firmware-realtek、linux-firmware のいずれかです。"
+
+msgid "En Linux casi todos los drivers viajan dentro del kernel, así que «tener el último driver» equivale a tener el último kernel que ofrece tu distribución. Aparte van el driver privativo de NVIDIA, los módulos DKMS, el firmware y el microcódigo. La comparación se hace con los repositorios configurados en tu sistema, sin conectar con internet: no dice si el fabricante ha publicado algo más nuevo por su cuenta."
+msgstr "Linux ではほぼすべてのドライバーがカーネルに含まれているため、「最新のドライバー」とは、ディストリビューションが提供する最新のカーネルのことです。NVIDIA のプロプライエタリドライバー、DKMS モジュール、ファームウェア、マイクロコードは別扱いです。比較はシステムに設定されたリポジトリーとの間で、インターネットに接続せずに行うため、メーカーが独自にもっと新しいものを公開しているかどうかはわかりません。"
+
+msgid "Actualizaciones de drivers"
+msgstr "ドライバーのアップデート"
+
+msgid "Mando de juego"
+msgstr "ゲームコントローラー"
+
+msgid "Panel táctil"
+msgstr "タッチパッド"
+
+msgid "Ratón o puntero"
+msgstr "マウスまたはポインター"
+
+msgid "Teclado"
+msgstr "キーボード"
+
+msgid "Monitores"
+msgstr "モニター"
+
+msgid "Teclados, ratones y mandos"
+msgstr "キーボード、マウス、コントローラー"
+
+msgid "Cámaras"
+msgstr "カメラ"
+
+msgid "Cámara"
+msgstr "カメラ"
+
+msgid "Nodo"
+msgstr "ノード"
+
+msgid "Impresoras configuradas"
+msgstr "設定済みのプリンター"
+
+msgid "Impresora"
+msgstr "プリンター"
+
+msgid "Dispositivos Bluetooth emparejados"
+msgstr "ペアリング済みの Bluetooth デバイス"
+
+msgid "Dirección"
+msgstr "アドレス"
+
+msgid "No se ha detectado ningún periférico."
+msgstr "周辺機器が検出されませんでした。"
+
+msgid "Biblioteca C (glibc)"
+msgstr "C ライブラリー（glibc）"
+
+msgid "Servidor Xorg"
+msgstr "Xorg サーバー"
+
+msgid "Mesa (drivers 3D libres)"
+msgstr "Mesa（オープンソースの 3D ドライバー）"
+
+msgid "Driver NVIDIA"
+msgstr "NVIDIA ドライバー"
+
+msgid "Firmware no libre"
+msgstr "非フリーのファームウェア"
+
+msgid "Microcódigo Intel"
+msgstr "Intel マイクロコード"
+
+msgid "Microcódigo AMD"
+msgstr "AMD マイクロコード"
+
+msgid "Kernel en ejecución"
+msgstr "実行中のカーネル"
+
+msgid "Software"
+msgstr "ソフトウェア"
+
+msgid "Hay {n} paquetes con actualización pendiente."
+msgstr "保留中のアップデートがあるパッケージが {n} 個あります。"
+
+msgid "Instálalas desde el Gestor de actualizaciones. Linux Mint recomienda tener antes una instantánea de Timeshift, por si algo no va bien."
+msgstr "アップデートマネージャーからインストールしてください。Linux Mint では、万一に備えて事前に Timeshift のスナップショットを作ることを推奨しています。"
+
+msgid "{n} pendientes"
+msgstr "{n} 件保留中"
+
+msgid "Hay actualizaciones instaladas que necesitan reiniciar el equipo para completarse."
+msgstr "インストールしたアップデートを完了するには再起動が必要です。"
+
+msgid "Guarda tu trabajo y reinicia cuando puedas."
+msgstr "作業を保存して、都合のよいときに再起動してください。"
+
+msgid "Servicios"
+msgstr "サービス"
+
+msgid "El servicio del sistema «{u}» no ha arrancado bien."
+msgstr "システムサービス「{u}」が正常に起動しませんでした。"
+
+msgid "Muchas veces es inofensivo (por ejemplo, si necesita internet y no había conexión). Si notas que algo no funciona, pregunta en el foro de tu distribución indicando ese nombre."
+msgstr "多くの場合は無害です（たとえば、インターネットが必要なのに接続がなかった場合など）。何かが動かないと感じたら、その名前を添えてディストリビューションのフォーラムで相談してください。"
+
+msgid "Resumen"
+msgstr "概要"
+
+msgid "Paquetes instalados (.deb)"
+msgstr "インストール済みパッケージ（.deb）"
+
+msgid "Aplicaciones Flatpak"
+msgstr "Flatpak アプリケーション"
+
+msgid "Actualizaciones pendientes"
+msgstr "保留中のアップデート"
+
+msgid "Kernels instalados"
+msgstr "インストール済みのカーネル"
+
+msgid "Servicios en ejecución"
+msgstr "実行中のサービス"
+
+msgid "Servicios con fallo"
+msgstr "失敗したサービス"
+
+msgid "Ninguno"
+msgstr "なし"
+
+msgid "Versiones de los componentes clave"
+msgstr "主要コンポーネントのバージョン"
+
+msgid "Componente"
+msgstr "コンポーネント"
+
+msgid "Últimos cambios de paquetes"
+msgstr "最近のパッケージの変更"
+
+msgid "Acción"
+msgstr "操作"
+
+msgid "Identificador"
+msgstr "識別子"
+
+msgid "Origen"
+msgstr "提供元"
+
+msgid "Programas que arrancan con tu sesión"
+msgstr "セッション開始時に起動するプログラム"
+
+msgid "Orden"
+msgstr "コマンド"
+
+msgid "Repositorios de software"
+msgstr "ソフトウェアのリポジトリー"
+
+msgid "Rama"
+msgstr "ブランチ"
+
+msgid "Componentes"
+msgstr "コンポーネント"
+
+msgid "Definido en"
+msgstr "定義ファイル"
+
+msgid "De dónde descarga tu sistema los programas y actualizaciones."
+msgstr "システムがプログラムやアップデートをダウンロードする場所です。"
+
+msgid "Este sistema no usa paquetes .deb, así que el inventario de software es parcial."
+msgstr "このシステムは .deb パッケージを使っていないため、ソフトウェアの一覧は一部のみです。"
+
+msgid "ufw activado"
+msgstr "ufw 有効"
+
+msgid "ufw instalado pero desactivado"
+msgstr "ufw はインストール済みだが無効"
+
+msgid "Seguridad"
+msgstr "セキュリティ"
+
+msgid "El cortafuegos está desactivado."
+msgstr "ファイアウォールが無効です。"
+
+msgid "En casa, detrás del router, es habitual. Si conectas el equipo a redes públicas (cafeterías, hoteles, estaciones), actívalo: abre el Cortafuegos y pon «Estado» en activado; la configuración de fábrica vale para casi todo el mundo."
+msgstr "自宅でルーターの内側にいる場合はよくあることです。公共のネットワーク（カフェ、ホテル、駅など）に接続する場合は有効にしてください。ファイアウォールを開いて「状態」をオンにします。初期設定のままでほとんどの人に適しています。"
+
+msgid "firewalld activo"
+msgstr "firewalld 動作中"
+
+msgid "No se ha detectado ufw ni firewalld"
+msgstr "ufw も firewalld も検出されませんでした"
+
+msgid "Secure Boot activado"
+msgstr "セキュアブート有効"
+
+msgid "disco cifrado"
+msgstr "ディスク暗号化"
+
+msgid "cortafuegos activo"
+msgstr "ファイアウォール有効"
+
+msgid "Completa"
+msgstr "完全"
+
+msgid "Parcial"
+msgstr "部分的"
+
+msgid "Desactivada"
+msgstr "無効"
+
+msgid "Arranque y firmware"
+msgstr "起動とファームウェア"
+
+msgid "Bloqueo del kernel (lockdown)"
+msgstr "カーネルロックダウン"
+
+msgid "Cifrado de disco (LUKS)"
+msgstr "ディスク暗号化（LUKS）"
+
+msgid "Detectado"
+msgstr "検出"
+
+msgid "Cortafuegos"
+msgstr "ファイアウォール"
+
+msgid "Módulos de seguridad del kernel"
+msgstr "カーネルのセキュリティモジュール"
+
+msgid "Aleatorización de memoria (ASLR)"
+msgstr "メモリー配置のランダム化（ASLR）"
+
+msgid "Servidor SSH"
+msgstr "SSH サーバー"
+
+msgid "En marcha"
+msgstr "動作中"
+
+msgid "Parado o no instalado"
+msgstr "停止中または未インストール"
+
+msgid "Puertos abiertos a la red"
+msgstr "ネットワークに開いているポート"
+
+msgid "Vulnerabilidades de CPU sin mitigar"
+msgstr "未対策の CPU 脆弱性"
+
+msgid "Ninguna"
+msgstr "なし"
+
+msgid "Problema"
+msgstr "問題"
+
+msgid "Aviso"
+msgstr "警告"
+
+msgid "Sugerencia"
+msgstr "提案"
+
+msgid "Hay algo que necesita tu atención"
+msgstr "確認が必要な項目があります"
+
+msgid "Hay {nb} cosas que necesitan tu atención"
+msgstr "確認が必要な項目が {nb} 件あります"
+
+msgid "Hay un aviso que conviene revisar"
+msgstr "確認したほうがよい警告が 1 件あります"
+
+msgid "Hay {nw} avisos que conviene revisar"
+msgstr "確認したほうがよい警告が {nw} 件あります"
+
+msgid "Todo en orden ({ni} sugerencias opcionales)"
+msgstr "問題ありません（任意の提案 {ni} 件）"
+
+msgid "Todo en orden (1 sugerencia opcional)"
+msgstr "問題ありません（任意の提案 1 件）"
+
+msgid "Todo en orden"
+msgstr "問題ありません"
+
+msgid "Hardware"
+msgstr "ハードウェア"
+
+msgid "El procesador ha notificado {mce} errores de hardware en este arranque."
+msgstr "今回の起動以降、プロセッサーがハードウェアエラーを {mce} 件報告しています。"
+
+msgid "Pueden deberse a calor, a la memoria o a un ajuste de la BIOS fuera de fábrica. Haz una copia de seguridad y consúltalo con un servicio técnico, sobre todo si el equipo se cuelga o se reinicia solo."
+msgstr "熱、メモリー、または工場出荷時から変更された BIOS 設定が原因の可能性があります。バックアップを取り、特にフリーズや勝手な再起動がある場合は修理業者に相談してください。"
+
+msgid "Hay {io} errores de lectura o escritura de disco en el registro del kernel."
+msgstr "カーネルログにディスクの読み書きエラーが {io} 件あります。"
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes. Mira el estado de los discos en la sección Almacenamiento y, si alguno muestra avisos o los errores se repiten, llévalo a un servicio técnico. Si el error es de un pendrive o disco USB, prueba en otro puerto o expúlsalo siempre antes de desconectarlo."
+msgstr "今すぐ大切なファイルをバックアップしてください。ストレージのセクションでディスクの状態を確認し、警告が出ているかエラーが繰り返す場合は修理業者に持ち込んでください。USB メモリーや USB ディスクのエラーなら、別のポートを試し、抜く前に必ず取り出し操作をしてください。"
+
+msgid "El sistema se quedó sin memoria y tuvo que cerrar a la fuerza: {programas}."
+msgstr "メモリー不足のため、システムが次のプログラムを強制終了しました：{programas}。"
+
+msgid "Cierra los programas y pestañas que no uses. Si te pasa a menudo, un servicio técnico puede decirte si tu equipo admite más memoria."
+msgstr "使っていないプログラムやタブを閉じてください。頻繁に起こる場合は、メモリーを増設できるかどうか修理業者に相談してください。"
+
+msgid "Conviene revisar"
+msgstr "確認したほうがよい項目"
+
+msgid "Sugerencias"
+msgstr "提案"
+
+msgid "No son fallos: son mejoras opcionales o cosas que conviene saber."
+msgstr "故障ではありません。任意の改善点や知っておくとよいことです。"
+
+msgid "No se ha encontrado nada que revisar."
+msgstr "確認が必要なものは見つかりませんでした。"
+
+msgid "Errores más repetidos en el registro del sistema desde el arranque"
+msgstr "起動以降、システムログで最も多いエラー"
+
+msgid "Veces"
+msgstr "回数"
+
+msgid "Mensaje"
+msgstr "メッセージ"
+
+msgid "Es normal que haya mensajes de error en cualquier equipo. Solo importan si coinciden con algo que notes que falla."
+msgstr "どのコンピューターにもエラーメッセージはあるものです。実際に気づいた不具合と一致する場合だけ気にしてください。"
+
+msgid "Qué se revisa: espacio y salud de los discos, temperaturas, batería, memoria, servicios, errores del registro del kernel, protección del procesador, drivers y actualizaciones."
+msgstr "確認項目：ディスクの容量と健康状態、温度、バッテリー、メモリー、サービス、カーネルログのエラー、プロセッサーの保護、ドライバー、アップデート。"
+
+msgid "No se ha podido leer el registro del kernel porque tu usuario no pertenece al grupo «adm»; esos avisos no se incluyen."
+msgstr "ユーザーが「adm」グループに属していないため、カーネルログを読めませんでした。それらの警告は含まれていません。"
+
+msgid "Diagnóstico"
+msgstr "診断"
+
+msgid "{cpu:.0f} % en uso"
+msgstr "{cpu:.0f} % 使用中"
+
+msgid "{n} de {n2} en uso"
+msgstr "{n2} 中 {n} 使用中"
+
+msgid "Disco del sistema"
+msgstr "システムディスク"
+
+msgid "{temp:.0f} °C en el procesador"
+msgstr "プロセッサー {temp:.0f} °C"
+
+msgid "Inicio"
+msgstr "ホーム"
+
+msgid "Lo más importante"
+msgstr "重要な項目"
+
+msgid "Pantalla"
+msgstr "ディスプレイ"
+
+msgid "Salud de los discos"
+msgstr "ディスクの健康状態"
+
+msgid "Actualizaciones"
+msgstr "アップデート"
+
+msgid "Conexión"
+msgstr "接続"
+
+msgid "Protección"
+msgstr "保護"
+
+msgid "MintMachine solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
+msgstr "MintMachine は情報を読み取るだけで、コンピューターを変更したり、インターネットにデータを送信したりしません。各部品の詳細はサイドバーにあります。"
+
+msgid "Sistema y software"
+msgstr "システムとソフトウェア"
+
+msgid "No se ha podido leer esta sección ({__name__}: {e}). Si abres una incidencia, incluye este mensaje."
+msgstr "このセクションを読み取れませんでした（{__name__}: {e}）。問題を報告する場合は、このメッセージを含めてください。"
+
+msgid "{app} {version}: informe del {fecha}"
+msgstr "{app} {version}：{fecha} のレポート"
+
+msgid "(datos personales ocultos)"
+msgstr "（個人情報は非表示）"
+
+msgid "Estado general: {estado}"
+msgstr "全体の状態：{estado}"
+
+msgid "Qué hacer:"
+msgstr "対処法："
+
+msgid "Herramienta:"
+msgstr "ツール："
+
+msgid "{serie}: ahora {ahora}, media {media}, máximo {maximo} (últimos {n} s)"
+msgstr "{serie}：現在 {ahora}、平均 {media}、最大 {maximo}（直近 {n} 秒）"
+
+msgid "hilo {n}: {uso} %"
+msgstr "スレッド {n}：{uso} %"
+
+msgid "Detalles técnicos"
+msgstr "技術的な詳細"
+
+msgid "ahora {ahora}, media {media}, máximo {maximo}"
+msgstr "現在 {ahora}、平均 {media}、最大 {maximo}"
+
+msgid "Hilo {n}"
+msgstr "スレッド {n}"
+
+msgid "Informe generado con {app} {version} el {fecha}."
+msgstr "{app} {version} で {fecha} に作成したレポートです。"
+
+msgid "Los datos personales se han ocultado."
+msgstr "個人情報は非表示にしています。"
+
+msgid "{app}: informe del sistema"
+msgstr "{app}：システムレポート"
+
+msgid "Texto"
+msgstr "テキスト"
+
+msgid "Para leerlo o adjuntarlo a un correo"
+msgstr "読む・メールに添付する用"
+
+msgid "Página web"
+msgstr "ウェブページ"
+
+msgid "Se abre en el navegador; cómoda para enviar a un técnico"
+msgstr "ブラウザーで開けます。技術者に送るのに便利です"
+
+msgid "Para un foro"
+msgstr "フォーラム用"
+
+msgid "Resumen listo para pegar en el foro de Linux Mint"
+msgstr "Linux Mint フォーラムにそのまま貼れる概要"
+
+msgid "Datos estructurados para otros programas"
+msgstr "他のプログラム用の構造化データ"
+
+msgid "Histórico del monitor (CSV)"
+msgstr "モニターの履歴（CSV）"
+
+msgid "Gráficas de los últimos 2 minutos, para una hoja de cálculo"
+msgstr "直近 2 分間のグラフ（表計算ソフト用）"
+
+msgid "Pequeña actualización interna del procesador que corrige fallos. Llega con las actualizaciones del sistema."
+msgstr "プロセッサーの不具合を修正する内部の小さなアップデートです。システムのアップデートで配信されます。"
+
+msgid "Cómo decide el sistema la velocidad del procesador en cada momento."
+msgstr "システムがプロセッサーの速度を決める方法です。"
+
+msgid "Permite ejecutar máquinas virtuales (VirtualBox, GNOME Boxes...) con buen rendimiento."
+msgstr "仮想マシン（VirtualBox、GNOME Boxes など）を快適に動かせます。"
+
+msgid "Veces que el procesador ha bajado su velocidad para no calentarse más."
+msgstr "これ以上熱くならないよう、プロセッサーが速度を下げた回数です。"
+
+msgid "Cuántas tareas esperan turno de media. Si supera el número de hilos, el equipo va justo."
+msgstr "順番待ちしているタスクの平均数です。スレッド数を超えると、コンピューターに余裕がありません。"
+
+msgid "Porcentaje de tiempo que los programas han esperado por el procesador, la memoria o el disco. Cuanto más bajo, mejor."
+msgstr "プログラムがプロセッサー、メモリー、ディスクを待っていた時間の割合です。低いほど良好です。"
+
+msgid "Espacio del disco que el sistema usa como memoria de reserva cuando la RAM se llena."
+msgstr "RAM がいっぱいになったときに、システムが予備のメモリーとして使うディスク領域です。"
+
+msgid "Cuánto prefiere el sistema usar la memoria de intercambio. 60 es el valor normal."
+msgstr "システムがスワップをどの程度使いたがるかを示します。通常は 60 です。"
+
+msgid "Comprueba al arrancar que el sistema no ha sido manipulado. Es compatible con Linux Mint."
+msgstr "起動時にシステムが改ざんされていないか確認します。Linux Mint に対応しています。"
+
+msgid "Chip de seguridad del equipo que guarda claves de forma protegida."
+msgstr "鍵を安全に保管するコンピューターのセキュリティチップです。"
+
+msgid "UEFI es el sistema moderno; BIOS clásico (legacy), el antiguo. Los dos funcionan."
+msgstr "UEFI は新しい方式、従来の BIOS（レガシー）は古い方式です。どちらでも動作します。"
+
+msgid "El núcleo del sistema operativo. Incluye casi todos los drivers."
+msgstr "オペレーティングシステムの中核です。ほぼすべてのドライバーを含みます。"
+
+msgid "«No» no significa un problema: aparece, por ejemplo, al usar el driver privativo de NVIDIA."
+msgstr "「いいえ」は問題を意味しません。たとえば NVIDIA のプロプライエタリドライバーを使っていると表示されます。"
+
+msgid "Velocidad de la conexión entre el dispositivo y la placa. En reposo baja para ahorrar energía."
+msgstr "デバイスとマザーボードの接続速度です。アイドル時は省電力のために下がります。"
+
+msgid "Impide que se modifique el kernel en marcha. Se activa con Secure Boot."
+msgstr "実行中のカーネルが変更されるのを防ぎます。セキュアブートで有効になります。"
+
+msgid "Protección que dificulta los ataques. Debe estar en «Completa»."
+msgstr "攻撃を難しくする保護機能です。「完全」になっているべきです。"
+
+msgid "Protección que limita lo que pueden hacer ciertos programas. Debe estar activado."
+msgstr "特定のプログラムができることを制限する保護機能です。有効にしておくべきです。"
+
+msgid "Sistemas de protección activos en el kernel."
+msgstr "カーネルで有効な保護機能です。"
+
+msgid "«Yes» significa que la gráfica acelera el 3D."
+msgstr "「Yes」はグラフィックカードが 3D を処理していることを意味します。"
+
+msgid "Capacidad que conserva la batería frente a cuando era nueva."
+msgstr "新品時と比べたバッテリーの残存容量です。"
+
+msgid "Número de cargas completas que ha hecho la batería."
+msgstr "バッテリーのフル充電の回数です。"
+
+msgid "La suspensión profunda gasta menos batería con la tapa cerrada."
+msgstr "ディープサスペンドの方が、ふたを閉じたときのバッテリー消費が少なくなります。"
+
+msgid "Parar la carga antes del 100 % alarga la vida de la batería."
+msgstr "100 % になる前に充電を止めると、バッテリーが長持ちします。"
+
+msgid "Lo que dicen los propios discos sobre su estado (SMART)."
+msgstr "ディスク自身が報告する状態です（SMART）。"
+
+msgid "Medidas de seguridad activas en el equipo."
+msgstr "コンピューターで有効なセキュリティ対策です。"
+
+msgid "La placa principal del equipo, donde se conectan todos los componentes."
+msgstr "すべての部品が接続される、コンピューターのメインボードです。"
+
+msgid "El programa de la placa que arranca el equipo. Su versión y fecha ayudan a saber si hay una más nueva."
+msgstr "コンピューターを起動するマザーボードのプログラムです。バージョンと日付から、新しいものがあるか判断できます。"
+
+msgid "Volver a leer todo el equipo (F5)"
+msgstr "コンピューター全体を読み込み直す（F5）"
+
+msgid "Menú"
+msgstr "メニュー"
+
+msgid "Exportar"
+msgstr "エクスポート"
+
+msgid "Guardar o copiar el informe: texto, página web, foro, JSON o CSV (Ctrl+E)"
+msgstr "レポートを保存またはコピー：テキスト、ウェブページ、フォーラム、JSON、CSV（Ctrl+E）"
+
+msgid "Buscar en el informe"
+msgstr "レポートを検索"
+
+msgid "Escribe, por ejemplo, «temperatura», «NVIDIA» o «batería» (Ctrl+F)"
+msgstr "たとえば「温度」「NVIDIA」「バッテリー」と入力（Ctrl+F）"
+
+msgid "Sin resultados."
+msgstr "結果がありません。"
+
+msgid "Abrir"
+msgstr "開く"
+
+msgid "Oscuro"
+msgstr "ダーク"
+
+msgid "Claro"
+msgstr "ライト"
+
+msgid "Aspecto"
+msgstr "外観"
+
+msgid "Ocultar datos personales en pantalla"
+msgstr "画面上の個人情報を隠す"
+
+msgid "Tapa números de serie, MAC, IP, nombre del equipo, red Wi-Fi y usuario. Útil para hacer capturas de pantalla."
+msgstr "シリアル番号、MAC、IP、コンピューター名、Wi-Fi ネットワーク、ユーザー名を隠します。スクリーンショットを撮るときに便利です。"
+
+msgid "Atajos de teclado"
+msgstr "キーボードショートカット"
+
+msgid "Acerca de MintMachine"
+msgstr "MintMachine について"
+
+msgid "Desinstalar MintMachine…"
+msgstr "MintMachine をアンインストール…"
+
+msgid "Volver a leer el equipo"
+msgstr "コンピューターを読み込み直す"
+
+msgid "Ir a la sección 1 a 9 de la lista"
+msgstr "リストの 1〜9 番目のセクションへ移動"
+
+msgid "Acerca de"
+msgstr "このアプリについて"
+
+msgid "Salir"
+msgstr "終了"
+
+msgid "Hardware, drivers y software de tu equipo en una sola ventana."
+msgstr "コンピューターのハードウェア、ドライバー、ソフトウェアをひとつのウィンドウに。"
+
+msgid "¿Desinstalar MintMachine?"
+msgstr "MintMachine をアンインストールしますか？"
+
+msgid "Se quitarán el programa, su icono del menú y su configuración, sin dejar rastro en el equipo. Los informes que hayas guardado son tuyos y no se tocan."
+msgstr "プログラム、メニューのアイコン、設定を削除し、コンピューターに痕跡を残しません。保存したレポートはあなたのものなので削除しません。"
+
+msgid "El sistema te pedirá tu contraseña para quitar el programa."
+msgstr "プログラムを削除するために、システムがパスワードを求めます。"
+
+msgid "Cancelar"
+msgstr "キャンセル"
+
+msgid "Desinstalar"
+msgstr "アンインストール"
+
+msgid "Configuración borrada"
+msgstr "設定を削除しました"
+
+msgid "MintMachine no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
+msgstr "MintMachine はパッケージとしてインストールされていません（フォルダーから実行しています）。設定は削除しました。最後にそのフォルダーを削除してください。"
+
+msgid "MintMachine se ha desinstalado"
+msgstr "MintMachine をアンインストールしました"
+
+msgid "Gracias por usarlo. La ventana se cerrará ahora."
+msgstr "ご利用ありがとうございました。ウィンドウを閉じます。"
+
+msgid "No se ha desinstalado"
+msgstr "アンインストールしていません"
+
+msgid "Se ha cancelado la contraseña. No se ha cambiado nada."
+msgstr "パスワード入力がキャンセルされました。何も変更していません。"
+
+msgid "No se ha podido desinstalar"
+msgstr "アンインストールできませんでした"
+
+msgid "Si el Gestor de actualizaciones u otro instalador está abierto, ciérralo y vuelve a intentarlo."
+msgstr "アップデートマネージャーや他のインストーラーが開いている場合は、閉じてからもう一度お試しください。"
+
+msgid "No se ha podido abrir «{prog}»: {err}"
+msgstr "「{prog}」を開けませんでした：{err}"
+
+msgid "Leyendo el equipo…"
+msgstr "コンピューターを読み込んでいます…"
+
+msgid "Tarda unos segundos. MintMachine solo lee: no cambia nada."
+msgstr "数秒かかります。MintMachine は読み取るだけで、何も変更しません。"
+
+msgid "Información para usuarios avanzados o para pedir ayuda en un foro"
+msgstr "上級者向け、またはフォーラムで助けを求めるときの情報"
+
+msgid "No se ha detectado ningún problema en la revisión automática."
+msgstr "自動チェックで問題は見つかりませんでした。"
+
+msgid "Abajo tienes qué pasa y qué puedes hacer."
+msgstr "下に状況と対処法があります。"
+
+msgid "Ver diagnóstico completo"
+msgstr "診断の詳細を見る"
+
+msgid "máx."
+msgstr "最大"
+
+msgid "Últimos 2 minutos, una muestra por segundo"
+msgstr "直近 2 分間、1 秒ごとのサンプル"
+
+msgid "Instala python3-gi-cairo para ver la gráfica"
+msgstr "グラフを表示するには python3-gi-cairo をインストールしてください"
+
+msgid "Exportar informe"
+msgstr "レポートをエクスポート"
+
+msgid "Qué incluir"
+msgstr "含める内容"
+
+msgid "Todo el informe"
+msgstr "レポート全体"
+
+msgid "Solo «{seccion}»"
+msgstr "「{seccion}」のみ"
+
+msgid "Ocultar datos personales"
+msgstr "個人情報を隠す"
+
+msgid "Tapa números de serie, MAC, IP, nombre del equipo, red Wi-Fi, usuario y otros datos que te identifican. Recomendado si lo vas a publicar o enviar."
+msgstr "シリアル番号、MAC、IP、コンピューター名、Wi-Fi ネットワーク、ユーザー名など、あなたを特定できる情報を隠します。公開・送信する場合におすすめです。"
+
+msgid "Copiar"
+msgstr "コピー"
+
+msgid "Copia el informe al portapapeles para pegarlo donde quieras"
+msgstr "レポートをクリップボードにコピーし、好きな場所に貼り付けられます"
+
+msgid "Guardar…"
+msgstr "保存…"
+
+msgid "Copiado al portapapeles en formato «{fmt}»."
+msgstr "「{fmt}」形式でクリップボードにコピーしました。"
+
+msgid "Los datos personales están ocultos."
+msgstr "個人情報は非表示です。"
+
+msgid "Pégalo con Ctrl+V."
+msgstr "Ctrl+V で貼り付けてください。"
+
+msgid "En el foro, pégalo tal cual: ya va entre [code] y [/code]."
+msgstr "フォーラムにはそのまま貼り付けてください。すでに [code] と [/code] で囲まれています。"
+
+msgid "Guardar informe"
+msgstr "レポートを保存"
+
+msgid "Guardar"
+msgstr "保存"
+
+msgid "Informe guardado en {ruta}"
+msgstr "レポートを {ruta} に保存しました"
+
+msgid "No se ha podido guardar el informe"
+msgstr "レポートを保存できませんでした"
+
+msgid "{app}: información de hardware y software del equipo. Solo lee: no cambia nada y no envía datos a internet."
+msgstr "{app}：このコンピューターのハードウェアとソフトウェアの情報。読み取るだけで、何も変更せず、インターネットにデータを送りません。"
+
+msgid "muestra el informe completo por terminal"
+msgstr "完全なレポートを端末に表示"
+
+msgid "resumen listo para pegar en un foro (oculta los datos personales)"
+msgstr "フォーラムに貼れる概要（個人情報は非表示）"
+
+msgid "vuelca el informe en JSON"
+msgstr "レポートを JSON で出力"
+
+msgid "ARCHIVO"
+msgstr "ファイル"
+
+msgid "guarda el informe completo en un archivo de texto"
+msgstr "完全なレポートをテキストファイルに保存"
+
+msgid "guarda el informe en un archivo HTML"
+msgstr "レポートを HTML ファイルに保存"
+
+msgid "mide durante 2 minutos y guarda el histórico del monitor en CSV"
+msgstr "2 分間計測し、モニターの履歴を CSV で保存"
+
+msgid "oculta números de serie, MAC, IP, nombres y usuario"
+msgstr "シリアル番号、MAC、IP、名前、ユーザー名を隠す"
+
+msgid "idioma: es, en, fr, ja, zh"
+msgstr "言語：es, en, fr, ja, zh"
+
+msgid "No se ha podido guardar {ruta}: {error}"
+msgstr "{ruta} を保存できませんでした：{error}"
+
+msgid "Midiendo durante 2 minutos (Ctrl+C para guardar antes)..."
+msgstr "2 分間計測しています（Ctrl+C で途中保存）..."
+
+msgid "No se puede abrir la interfaz gráfica ({error}). Falta el paquete python3-gi o gir1.2-gtk-3.0. Se muestra el informe en texto."
+msgstr "グラフィカルインターフェースを開けません（{error}）。python3-gi または gir1.2-gtk-3.0 パッケージがありません。レポートをテキストで表示します。"
+
+msgid "ufw instalado (estado no legible sin root)"
+msgstr "ufw はインストール済み（root 権限なしでは状態を読めません）"
+
+msgid "privativo"
+msgstr "プロプライエタリ"
+
+msgid "experimental"
+msgstr "実験的"
+
+msgid "forzado"
+msgstr "強制"
+
+msgid "excelente"
+msgstr "非常に良好"
+
+msgid "buena"
+msgstr "良好"
+
+msgid "justa"
+msgstr "普通"
+
+msgid "midiendo"
+msgstr "計測中"
+
+msgid "(escala {n})"
+msgstr "（スケール {n}）"
+
+msgid "En Wayland, el modo en uso lo da el escritorio: MintMachine lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
+msgstr "Wayland では、使用中のモードはデスクトップから取得します。MintMachine は GNOME、Cinnamon、KDE Plasma で読み取れます。Sway や Hyprland などでは wlr-randr がインストールされていれば読み取れます。各モニターの情報はすべて表示されています。"
+
+msgid "{a} guardados en {b}"
+msgstr "{a} を {b} に格納"
+
+msgid "Activada"
+msgstr "有効"
+
+msgid "Memoria comprimida"
+msgstr "圧縮メモリ"
+
+msgid "Linux puede comprimir en la propia RAM lo que menos se usa, en lugar de llevarlo al disco. Es más rápido que una swap normal y alivia a los equipos con poca memoria."
+msgstr "Linux は、あまり使われていないデータをディスクに移す代わりに RAM 内で圧縮できます。通常のスワップより高速で、メモリの少ないパソコンの助けになります。"
+
+msgid "Energía"
+msgstr "電源"
+
+msgid "El equipo está enchufado, pero tiene activo el perfil de ahorro de energía, que limita el rendimiento."
+msgstr "電源に接続されていますが、省電力プロファイルが有効で、性能が制限されています。"
+
+msgid "Si lo notas lento, elige el perfil equilibrado o el de rendimiento en la configuración de energía. Si lo prefieres silencioso y fresco, déjalo así."
+msgstr "動作が遅いと感じる場合は、電源設定で「バランス」または「パフォーマンス」を選んでください。静かで発熱の少ない状態がよければ、そのままで構いません。"
+
+msgid "Perfil del fabricante"
+msgstr "メーカーのプロファイル"
+
+msgid "Gobernador del procesador"
+msgstr "CPU ガバナー"
+
+msgid "Preferencia entre ahorro y rendimiento"
+msgstr "省電力と性能の優先度"
+
+msgid "Nivel {n} de 4"
+msgstr "レベル {n}（最高 4）"
+
+msgid " (con avisos)"
+msgstr "（警告あり）"
+
+msgid "Seguridad del firmware (HSI)"
+msgstr "ファームウェアのセキュリティ (HSI)"
+
+msgid "Nota que el servicio de firmware (fwupd) pone a las protecciones de la placa, de 0 a 4. Depende casi por completo del fabricante: un nivel bajo no significa que hayas hecho algo mal."
+msgstr "ファームウェアサービス (fwupd) がマザーボードの保護機能に付ける評価で、0 から 4 までです。ほぼメーカー次第であり、レベルが低くてもあなたの設定に問題があるわけではありません。"
+
+msgid "Modo de funcionamiento que ofrece el propio equipo (silencioso, equilibrado, rendimiento)."
+msgstr "パソコン本体が提供する動作モード（静音、バランス、パフォーマンス）です。"
+
+msgid "Regla con la que el sistema sube y baja la velocidad del procesador."
+msgstr "システムが CPU の速度を上げ下げする際のルールです。"
+
+msgid "Indicación que se da al procesador: gastar menos o responder más rápido."
+msgstr "CPU への指示です。消費電力を抑えるか、応答を速くするかを決めます。"
+
+msgid "Puesta a punto"
+msgstr "初期設定チェック"
+
+msgid "Lista de comprobación"
+msgstr "チェックリスト"
+
+msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y MintMachine no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
+msgstr "システムのインストール後に済ませておくとよい項目です。どれも急ぎではなく、MintMachine は何も変更しません。各項目から、それを行うシステムのツールを開けます。"
+
+msgid "{n} de {m} puntos en orden"
+msgstr "{m} 項目中 {n} 項目が完了"
+
+msgid "No se ha podido comprobar ningún punto en este sistema."
+msgstr "このシステムでは確認できる項目がありませんでした。"
+
+msgid "El sistema está al día."
+msgstr "システムは最新です。"
+
+msgid "Hay {n} actualizaciones pendientes."
+msgstr "保留中のアップデートが {n} 件あります。"
+
+msgid "Abre el Gestor de actualizaciones e instálalas: corrigen fallos y problemas de seguridad."
+msgstr "アップデートマネージャーを開いてインストールしてください。不具合やセキュリティの問題が修正されます。"
+
+msgid "Drivers y firmware"
+msgstr "ドライバーとファームウェア"
+
+msgid "No hay versiones nuevas de drivers ni de firmware en tus repositorios."
+msgstr "リポジトリに新しいドライバーやファームウェアはありません。"
+
+msgid "Hay {n} drivers o firmware con versión nueva."
+msgstr "新しいバージョンのあるドライバーまたはファームウェアが {n} 件あります。"
+
+msgid "Mira la sección «Actualizaciones de drivers» y usa el Gestor de actualizaciones o el de controladores."
+msgstr "「ドライバーのアップデート」セクションを確認し、アップデートマネージャーまたはドライバーマネージャーを使ってください。"
+
+msgid "El cortafuegos está activado."
+msgstr "ファイアウォールは有効です。"
+
+msgid "El cortafuegos no está activado."
+msgstr "ファイアウォールは有効になっていません。"
+
+msgid "En casa, detrás del router, es habitual. Actívalo si conectas el equipo a redes públicas."
+msgstr "自宅でルーターの内側にある場合はよくあることです。公共のネットワークに接続する場合は有効にしてください。"
+
+msgid "Instantáneas del sistema"
+msgstr "システムのスナップショット"
+
+msgid "Timeshift tiene instantáneas programadas."
+msgstr "Timeshift のスナップショットが予約されています。"
+
+msgid "Timeshift está instalado, pero no tiene instantáneas programadas."
+msgstr "Timeshift はインストールされていますが、スナップショットが予約されていません。"
+
+msgid "Abre Timeshift y sigue el asistente: una instantánea permite deshacer una actualización que salga mal. No sustituye a la copia de seguridad de tus archivos."
+msgstr "Timeshift を開いてウィザードに従ってください。スナップショットがあれば、失敗したアップデートを元に戻せます。ファイルのバックアップの代わりにはなりません。"
+
+msgid "Discos SSD"
+msgstr "SSD"
+
+msgid "El mantenimiento periódico de los SSD (TRIM) está activado."
+msgstr "SSD の定期メンテナンス (TRIM) は有効です。"
+
+msgid "El mantenimiento periódico de los SSD (TRIM) no está activado."
+msgstr "SSD の定期メンテナンス (TRIM) が有効になっていません。"
+
+msgid "Linux Mint lo trae activado de fábrica. Pregunta en el foro de tu distribución cómo volver a activarlo."
+msgstr "Linux Mint では標準で有効です。再び有効にする方法は、お使いのディストリビューションのフォーラムで尋ねてください。"
+
+msgid "Códecs multimedia"
+msgstr "マルチメディアコーデック"
+
+msgid "Los códecs multimedia están instalados."
+msgstr "マルチメディアコーデックはインストールされています。"
+
+msgid "No se han encontrado los códecs multimedia."
+msgstr "マルチメディアコーデックが見つかりませんでした。"
+
+msgid "Sin ellos, algunos vídeos y canciones no se reproducen. En Linux Mint, busca «Instalar códecs multimedia» en el menú."
+msgstr "これがないと、一部の動画や音楽を再生できません。Linux Mint では、メニューで「マルチメディアコーデックのインストール」を探してください。"
+
+msgid "Utilidades opcionales que no están instaladas"
+msgstr "インストールされていないオプションのツール"
+
+msgid "Utilidad"
+msgstr "ツール"
+
+msgid "Qué se deja de ver"
+msgstr "表示されなくなる情報"
+
+msgid "Sin ellas el programa funciona igual, pero algunos apartados salen más cortos. Se instalan desde el Gestor de software, buscando el nombre del paquete."
+msgstr "これらがなくてもプログラムは同じように動作しますが、一部の項目が短くなります。ソフトウェアマネージャーでパッケージ名を検索してインストールできます。"
+
+msgid "Gráfica y dispositivos PCI"
+msgstr "グラフィックスと PCI デバイス"
+
+msgid "Discos y particiones"
+msgstr "ディスクとパーティション"
+
+msgid "Desgaste de los SSD"
+msgstr "SSD の消耗"
+
+msgid "Direcciones de red"
+msgstr "ネットワークアドレス"
+
+msgid "Señal y banda del Wi-Fi"
+msgstr "Wi-Fi の信号強度と周波数帯"
+
+msgid "Vídeo por hardware"
+msgstr "ハードウェアによる動画再生"
+
+msgid "Firmware de los dispositivos"
+msgstr "デバイスのファームウェア"
+
+msgid "Modo de pantalla en X11"
+msgstr "X11 の画面モード"
+
+msgid "Intel (integrada)"
+msgstr "Intel（内蔵）"
+
+msgid "Aplicaciones que más consumen"
+msgstr "リソースを多く使っているアプリ"
+
+msgid "Aplicación"
+msgstr "アプリ"
+
+msgid "Procesos"
+msgstr "プロセス数"
+
+msgid "Suma todos los procesos de cada aplicación; un navegador, por ejemplo, abre muchos. La memoria es aproximada: la parte que comparten se cuenta en cada uno."
+msgstr "アプリごとにすべてのプロセスを合計します。たとえばブラウザーは多数のプロセスを起動します。メモリは概算で、共有部分はプロセスごとに重複して数えられます。"
+
+msgid "Resumen general"
+msgstr "全体の概要"
+
+msgid "Wi-Fi y red"
+msgstr "Wi-Fi とネットワーク"
+
+msgid "Batería, suspensión y temperatura"
+msgstr "バッテリー、サスペンド、温度"
+
+msgid "Lentitud y arranque"
+msgstr "動作の遅さと起動"
+
+msgid "Problema: {tema}"
+msgstr "問題: {tema}"
+
+msgid "Pedir ayuda con:"
+msgstr "相談したい問題:"
+
+msgid "Elige el problema y el resumen llevará la ficha del equipo y solo las secciones que hacen falta para ayudarte con él."
+msgstr "問題を選ぶと、パソコンの概要と、その問題の解決に必要なセクションだけを含む要約になります。"
+
+msgid "con --foro: resumen centrado en un problema (red, sonido, grafica, energia, lentitud)"
+msgstr "--foro と併用: 1 つの問題に絞った要約（red = ネットワーク、sonido = サウンド、grafica = グラフィックス、energia = 電源、lentitud = 動作の遅さ）"
+
+msgid "muestra qué utilidades se ejecutan y cuánto tardan (no guarda nada)"
+msgstr "実行されるツールと所要時間を表示します（何も保存しません）"
+
+msgid "Batería de un periférico Bluetooth"
+msgstr "Bluetooth 周辺機器のバッテリー"
