@@ -4555,7 +4555,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             fg = rgb("fg")
             n = max(len(rows), 1)
             gap = 6 if n <= 32 else 2
-            bw = max(2.0, min(30.0, (w - gap * (n - 1)) / n))
+            bw = max(2.0, min(56.0, (w - gap * (n - 1)) / n))
             bh = h - 16
             c1, c2 = rgb("a1"), rgb("a2")
             cr.set_font_size(9)
@@ -4575,6 +4575,12 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                     cr.set_source_rgba(*fg, 0.5)
                     cr.move_to(x + 1, h - 3)
                     cr.show_text(str(num_))
+                if bw >= 26:             # con sitio, el porcentaje de cada hilo sobre su barra
+                    t = f"{v:.0f}%"
+                    ext = cr.text_extents(t)
+                    cr.set_source_rgba(*fg, 0.85)
+                    cr.move_to(x + (bw - ext.width) / 2 - ext.x_bearing, 12)
+                    cr.show_text(t)
             return False
 
         def w_note(self, b):
@@ -4825,6 +4831,9 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             if start and "+detalles" in start:
                 for e in win.expanders(win.stack.get_visible_child()):
                     e.set_expanded(True)
+            if start and "+bajar" in start:
+                adj = win.stack.get_visible_child().get_vadjustment()
+                adj.set_value(adj.get_upper())
             if start and "+aviso" in start:
                 win.notify(_("Informe guardado en {ruta}").format(ruta="/home/neo/Documentos/mintmachine.txt"), "/tmp")
             return False
