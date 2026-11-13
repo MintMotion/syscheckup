@@ -48,7 +48,7 @@ APP = "MintMachine"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.5.2"
+VERSION = "0.5.3"
 JSON_SCHEMA = 2
 
 READONLY = "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"

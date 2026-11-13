@@ -177,7 +177,7 @@ Desde la terminal hace lo mismo: `sudo apt purge mintmachine` y después `rm -rf
 Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
 
 ```
-sudo apt install ./mintmachine_0.5.2_all.deb
+sudo apt install ./mintmachine_0.5.3_all.deb
 ```
 
 `apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre MintMachine. Si tenías una versión anterior, este paquete la actualiza; si tenías la primera, que se llamaba Radiografía, la sustituye.
@@ -263,7 +263,7 @@ Si falta alguna utilidad, la sección correspondiente sale más corta y el resto
 
 ## Estado del proyecto
 
-Versión 0.5.2. Conviene saber cómo se ha probado.
+Versión 0.5.3. Conviene saber cómo se ha probado.
 
 El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
 
@@ -322,7 +322,7 @@ packaging/build-deb.sh
 
 El paquete queda en `dist/`. Solo hace falta `dpkg-deb`. La versión se toma de la variable `VERSION` de `mintmachine.py`. El campo «Maintainer» del paquete lleva solo «MintMachine», sin datos personales: dpkg lo exige y, si falta, apt muestra un aviso cada vez que se usa.
 
-En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.5.2`, adjunta el `.deb` a esa versión.
+En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.5.3`, adjunta el `.deb` a esa versión.
 
 ## Pruebas
 
@@ -352,15 +352,15 @@ Para probar un caso nuevo, por ejemplo un ventilador parado o un disco con fallo
 ```
 git init
 git add .
-git commit -m "MintMachine 0.5.2"
+git commit -m "MintMachine 0.5.3"
 git branch -M main
 git remote add origin https://github.com/TU-USUARIO/mintmachine.git
 git push -u origin main
-git tag v0.5.2
-git push origin v0.5.2
+git tag v0.5.3
+git push origin v0.5.3
 ```
 
-3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.5.2`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.5.2` y adjunta `mintmachine_0.5.2_all.deb`.
+3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.5.3`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.5.3` y adjunta `mintmachine_0.5.3_all.deb`.
 4. Cuando tengas la dirección del repositorio, añádela a `data/mintmachine.metainfo.xml` con `<url type="homepage">…</url>`.
 
 Las incidencias usan las plantillas de `.github/ISSUE_TEMPLATE`, que piden el informe para foros con los datos personales ocultos.

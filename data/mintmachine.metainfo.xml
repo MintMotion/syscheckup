@@ -37,6 +37,11 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.5.3" date="2026-11-13">
+      <description>
+        <p>El icono del menú es el mismo que el del programa.</p>
+      </description>
+    </release>
     <release version="0.5.2" date="2026-11-13">
       <description>
         <p>Corregida la raya de colores bajo la barra superior.</p>

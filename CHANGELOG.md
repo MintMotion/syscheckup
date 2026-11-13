@@ -1,5 +1,9 @@
 # Cambios
 
+## 0.5.3 (13/11/2026)
+
+- El menú de Linux Mint mostraba el icono genérico de programa en lugar del de MintMachine. El paquete instala ahora el icono también en mapa de bits (de 16 a 256 píxeles) y en `/usr/share/pixmaps`, y al instalar y al quitar actualiza la caché de iconos y la base de datos de aplicaciones.
+
 ## 0.5.2 (13/11/2026)
 
 - Corregida la raya de colores entre la barra superior y el contenido. Con el compositor del escritorio activo (Cinnamon), la fila de píxeles del borde de la barra quedaba transparente y dejaba ver lo que había detrás de la ventana. Ahora el borde es opaco.

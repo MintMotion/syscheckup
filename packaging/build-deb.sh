@@ -17,6 +17,11 @@ install -Dm755 mintmachine.py           "$PKG/usr/bin/mintmachine"
 sed -i '1s|^#!/usr/bin/env python3$|#!/usr/bin/python3|' "$PKG/usr/bin/mintmachine"
 install -Dm644 data/mintmachine.desktop "$PKG/usr/share/applications/mintmachine.desktop"
 install -Dm644 data/mintmachine.svg     "$PKG/usr/share/icons/hicolor/scalable/apps/mintmachine.svg"
+# Iconos en mapa de bits: algunos menús y paneles solo buscan en las carpetas de tamaño fijo.
+for n in 16 22 24 32 48 64 128 256; do
+  install -Dm644 "data/icons/mintmachine-$n.png" "$PKG/usr/share/icons/hicolor/${n}x${n}/apps/mintmachine.png"
+done
+install -Dm644 data/mintmachine.svg     "$PKG/usr/share/pixmaps/mintmachine.svg"
 install -Dm644 data/mintmachine.metainfo.xml "$PKG/usr/share/metainfo/mintmachine.metainfo.xml"
 for po in po/*.po; do                    # traducciones: el programa lee los .po directamente
   install -Dm644 "$po" "$PKG/usr/share/mintmachine/po/$(basename "$po")"
@@ -50,6 +55,22 @@ Description: Información y diagnóstico del equipo
  Solo lee: no cambia nada, no necesita permisos de administrador y no envía
  datos a internet.
 CONTROL
+
+# Al instalar y al quitar: el menú tiene que ver el icono nuevo sin esperar a reiniciar la sesión.
+for script in postinst postrm; do
+  cat > "$PKG/DEBIAN/$script" <<'SCRIPT'
+#!/bin/sh
+set -e
+if command -v gtk-update-icon-cache >/dev/null 2>&1 && [ -f /usr/share/icons/hicolor/index.theme ]; then
+  gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor || true
+fi
+if command -v update-desktop-database >/dev/null 2>&1; then
+  update-desktop-database -q /usr/share/applications || true
+fi
+exit 0
+SCRIPT
+  chmod 755 "$PKG/DEBIAN/$script"
+done
 
 # -Zxz: compatible con cualquier dpkg (Ubuntu usa zstd por defecto)
 dpkg-deb --build --root-owner-group -Zxz "$PKG" "dist/mintmachine_${VERSION}_all.deb"
