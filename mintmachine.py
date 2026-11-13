@@ -823,6 +823,8 @@ def cpu_live():
     freqs = cpu_freqs()
     curs = [f["cur"] for f in freqs if f["cur"]]
     maxs = [f["max"] for f in freqs if f["max"]]
+    if not curs:
+        curs = [float(b["cpu MHz"]) * 1000 for b in cpuinfo() if b.get("cpu MHz")]
     if curs:
         cur = sum(curs) / len(curs) / 1000
         top = max(maxs) / 1000 if maxs else 0
