@@ -48,7 +48,7 @@ APP = "MintMachine"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.5.1"
+VERSION = "0.5.2"
 JSON_SCHEMA = 2
 
 READONLY = "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
@@ -3427,8 +3427,9 @@ CSS = """
 @define-color mm_bad {bad}; @define-color mm_info {info};
 
 .mm-win {{ background-color: @mm_bg; color: @mm_fg; }}
-.mm-win headerbar {{ background-color: @mm_bg; background-image: none; border: none; border-bottom: 1px solid @mm_line;
-    box-shadow: none; color: @mm_fg; padding: 6px 10px; min-height: 44px; }}
+.mm-win headerbar {{ background-color: @mm_bg; background-image: none; background-clip: border-box; border: none;
+    border-bottom: 1px solid mix(@mm_bg, @mm_fg, 0.08); box-shadow: none; color: @mm_fg; padding: 6px 10px;
+    min-height: 44px; }}
 .mm-win headerbar .title {{ font-weight: 700; color: @mm_fg; }}
 .mm-win headerbar .subtitle {{ color: @mm_dim; }}
 .mm-win headerbar button, .mm-win button.mm-ghost {{ background-color: alpha(@mm_fg, 0.06); background-image: none;

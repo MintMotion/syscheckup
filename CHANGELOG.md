@@ -1,11 +1,15 @@
 # Cambios
 
+## 0.5.2 (13/11/2026)
+
+- Corregida la raya de colores entre la barra superior y el contenido. Con el compositor del escritorio activo (Cinnamon), la fila de píxeles del borde de la barra quedaba transparente y dejaba ver lo que había detrás de la ventana. Ahora el borde es opaco.
+
 ## 0.5.1 (13/11/2026)
 
 - **Procesador:** indicadores en vivo de uso total, frecuencia media y temperatura, y una barra por hilo; se actualizan cada segundo.
 - **Memoria:** el fabricante de cada módulo ya no sale como «Unknown». Si la placa no lo da por su nombre, se lee su código JEDEC o se deduce de la referencia del módulo (G.Skill, Corsair, Kingston, Crucial, Samsung, SK hynix, Micron, ADATA, TeamGroup, Patriot), y se indica que es una deducción.
 - **Barra superior:** bajo el nombre del programa se lee «MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet». Esa nota sale del final del Inicio.
-- Fuera la línea discontinua de color que algunos temas (Mint-Y) dibujaban entre la barra superior y el contenido al desplazarse.
+- Fuera la línea discontinua que el tema Mint-Y dibuja en el borde del contenido al desplazarse.
 - Fuera los botones «i» de los campos.
 - **Tema claro** más apagado, para que no deslumbre.
 
