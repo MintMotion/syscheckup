@@ -1039,6 +1039,56 @@ def dmi_memory():
     return props, [mods[i] for i in sorted(mods)]
 
 
+# Códigos JEDEC JEP106 (banco de continuación + código, con su bit de paridad) de los fabricantes de
+# módulos más habituales, tomados de la tabla de decode-dimms (i2c-tools). Algunas BIOS publican el
+# fabricante solo así, por ejemplo «04CD» para G.Skill.
+JEDEC_RAM = {
+    "802C": "Micron", "80AD": "SK hynix", "80CE": "Samsung", "80C1": "Infineon", "8054": "HP",
+    "0194": "Smart Modular", "0198": "Kingston", "0132": "Mushkin", "01BA": "PNY", "014F": "Transcend",
+    "017A": "Apacer", "029E": "Corsair", "02FE": "Elpida", "830B": "Nanya", "8394": "Mushkin",
+    "8316": "Netlist", "8325": "Kingmax", "04B0": "OCZ", "0443": "Ramaxel", "04CB": "ADATA",
+    "04CD": "G.Skill", "04EF": "TeamGroup", "8502": "Patriot", "859B": "Crucial", "8551": "Qimonda",
+    "8634": "Super Talent", "86D3": "Silicon Power", "865E": "Lexar", "866D": "V-Color", "079E": "Teikon",
+    "0746": "Gloway", "07EA": "Transcend", "0813": "Gloway", "08F1": "Asgard", "8A76": "Lexar",
+    "0B92": "Kingbank",
+}
+# Prefijos de referencia propios de cada marca, para cuando la placa no da el fabricante.
+RAM_PARTS = [
+    (r"F[2-5]-", "G.Skill"), (r"CM[A-Z]", "Corsair"), (r"(KHX|KF\d|KVR|KCP)", "Kingston"),
+    (r"(CT\d|BL[SEMT]?\d)", "Crucial"), (r"M(378|471|391|393|386|425|474)[A-Z]", "Samsung"),
+    (r"HM[ACT]", "SK hynix"), (r"MTA?\d", "Micron"), (r"(AX[45]U|AD[45]U)", "ADATA"),
+    (r"(TF\d|TED\d|TLZ|TDZ)", "TeamGroup"), (r"(PV[ESR]?\d|PSD)", "Patriot"),
+]
+_RAM_JUNK = {"", "unknown", "undefined", "not specified", "none", "n/a", "na", "manufacturer",
+             "to be filled by o.e.m.", "default string", "no dimm", "other"}
+
+
+def ram_vendor(manufacturer, part):
+    """Fabricante de un módulo: el que da la placa, su código JEDEC o, si no hay, el de la referencia."""
+    m = (manufacturer or "").strip()
+    low = m.lower()
+    code = re.sub(r"^0x", "", m.replace(" ", ""), flags=re.I).upper()
+    bank = re.match(r"bank\s*(\d+)\s*,\s*hex\s*0x([0-9a-f]{2})", low)
+    if bank:                                     # «Bank 5, Hex 0xCD»
+        b, c = int(bank.group(1)) - 1, int(bank.group(2), 16) & 0x7F
+        par = lambda x: x if bin(x).count("1") % 2 else x | 0x80
+        code = f"{par(b):02X}{par(c):02X}"
+    hexa = re.fullmatch(r"[0-9A-F]{4,}", code) is not None
+    if hexa:
+        for k in (code[:4], code[2:4] + code[:2]):
+            if k in JEDEC_RAM:
+                return JEDEC_RAM[k]
+    elif low not in _RAM_JUNK and not low.startswith("manufacturer"):
+        return m
+    p = (part or "").strip().upper()
+    for rx, name in RAM_PARTS:
+        if re.match(rx, p):
+            return _("{marca} (según la referencia)").format(marca=name)
+    if hexa and code.strip("0"):
+        return _("Código JEDEC {codigo}").format(codigo=code[:4])
+    return _("La placa no lo indica")
+
+
 def sec_memory(ctx):
     m = meminfo()
     total, avail = m.get("MemTotal", 0), m.get("MemAvailable", 0)
@@ -1088,7 +1138,7 @@ def sec_memory(ctx):
                      d.get("TYPE", "") if present else "",
                      f"{speed} MT/s" if present and speed else "",
                      d.get("FORM_FACTOR", "") if present else "",
-                     d.get("MANUFACTURER", "") if present else "",
+                     ram_vendor(d.get("MANUFACTURER", ""), d.get("PART_NUMBER", "")) if present else "",
                      d.get("PART_NUMBER", "").strip() if present else ""))
     blocks = [bars("Uso", items), detalle, compresion,
               table("Módulos instalados", ["Ranura", "Tamaño", "Tipo", "Velocidad", "Formato",
