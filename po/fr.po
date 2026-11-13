@@ -2540,3 +2540,18 @@ msgstr "affiche les utilitaires exécutés et leur durée (rien n'est enregistr�
 
 msgid "Batería de un periférico Bluetooth"
 msgstr "Batterie d'un périphérique Bluetooth"
+
+msgid "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+msgstr "MintMachine ne fait que lire des informations. Il ne modifie rien sur votre ordinateur et n'envoie aucune donnée sur internet"
+
+msgid "Frecuencia media"
+msgstr "Fréquence moyenne"
+
+msgid "{marca} (según la referencia)"
+msgstr "{marca} (d'après la référence)"
+
+msgid "Código JEDEC {codigo}"
+msgstr "Code JEDEC {codigo}"
+
+msgid "La placa no lo indica"
+msgstr "Non indiqué par la carte mère"

@@ -2540,3 +2540,18 @@ msgstr "显示运行了哪些工具及其耗时（不保存任何内容）"
 
 msgid "Batería de un periférico Bluetooth"
 msgstr "蓝牙外设电池"
+
+msgid "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+msgstr "MintMachine 只读取信息。不会更改您电脑上的任何内容，也不会向互联网发送数据"
+
+msgid "Frecuencia media"
+msgstr "平均频率"
+
+msgid "{marca} (según la referencia)"
+msgstr "{marca}（根据型号判断）"
+
+msgid "Código JEDEC {codigo}"
+msgstr "JEDEC 代码 {codigo}"
+
+msgid "La placa no lo indica"
+msgstr "主板未提供此信息"

@@ -2540,3 +2540,18 @@ msgstr "実行されるツールと所要時間を表示します（何も保存
 
 msgid "Batería de un periférico Bluetooth"
 msgstr "Bluetooth 周辺機器のバッテリー"
+
+msgid "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+msgstr "MintMachine は情報を読み取るだけです。お使いのコンピューターには何も変更を加えず、インターネットにデータを送信しません"
+
+msgid "Frecuencia media"
+msgstr "平均周波数"
+
+msgid "{marca} (según la referencia)"
+msgstr "{marca}（型番から判定）"
+
+msgid "Código JEDEC {codigo}"
+msgstr "JEDEC コード {codigo}"
+
+msgid "La placa no lo indica"
+msgstr "マザーボードが報告していません"

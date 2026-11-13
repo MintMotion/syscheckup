@@ -199,6 +199,19 @@ def test_un_recopilador_que_falla_no_tumba_el_informe():
     assert sec["id"] == "cpu" and sec["blocks"][0]["type"] == "note"
 
 
+def test_fabricante_de_la_memoria():
+    assert mm.ram_vendor("G Skill Intl", "F4-3200C16-16GVK") == "G Skill Intl"
+    assert mm.ram_vendor("04CD", "") == "G.Skill"
+    assert mm.ram_vendor("CD04", "") == "G.Skill"
+    assert mm.ram_vendor("Bank 5, Hex 0xCD", "") == "G.Skill"
+    assert mm.ram_vendor("859B00000000", "") == "Crucial"
+    assert mm.ram_vendor("Unknown", "F4-3600C16D-32GTZNC") == "G.Skill (según la referencia)"
+    assert mm.ram_vendor("Unknown", "CMK32GX4M2E3200C16") == "Corsair (según la referencia)"
+    assert mm.ram_vendor("Unknown", "KF432C16BB/8") == "Kingston (según la referencia)"
+    assert mm.ram_vendor("0000", "ABC123") == "La placa no lo indica"
+    assert mm.ram_vendor("Undefined", "") == "La placa no lo indica"
+
+
 def test_registro_de_secciones_coherente():
     assert set(mm.COLLECTORS) == set(mm.ORDER)
     assert set(mm.COLLECTORS) | {"resumen", "diagnostico"} == set(mm.TITLES)
@@ -233,7 +246,9 @@ def test_textos_nuevos_traducidos():
     """Los textos fijos de las funciones añadidas en la 0.5.0 existen en todos los idiomas."""
     nuevos = ["Puesta a punto", "Lista de comprobación", "Aplicaciones que más consumen", "Memoria comprimida",
               "Seguridad del firmware (HSI)", "Pedir ayuda con:", "Problema: {tema}", "Wi-Fi y red",
-              "Utilidades opcionales que no están instaladas", "{n} de {m} puntos en orden"]
+              "Utilidades opcionales que no están instaladas", "{n} de {m} puntos en orden",
+              mm.READONLY, "Frecuencia media", "{marca} (según la referencia)", "Código JEDEC {codigo}",
+              "La placa no lo indica"]
     for lang in mm.LANGS:
         if lang != "es":
             cat = _po(lang)

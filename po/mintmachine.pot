@@ -3582,3 +3582,23 @@ msgstr ""
 #: mintmachine.py
 msgid "Batería de un periférico Bluetooth"
 msgstr ""
+
+#: mintmachine.py
+msgid "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+msgstr ""
+
+#: mintmachine.py
+msgid "Frecuencia media"
+msgstr ""
+
+#: mintmachine.py
+msgid "{marca} (según la referencia)"
+msgstr ""
+
+#: mintmachine.py
+msgid "Código JEDEC {codigo}"
+msgstr ""
+
+#: mintmachine.py
+msgid "La placa no lo indica"
+msgstr ""

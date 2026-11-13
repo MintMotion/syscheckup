@@ -2540,3 +2540,18 @@ msgstr "shows which utilities are run and how long they take (nothing is saved)"
 
 msgid "Batería de un periférico Bluetooth"
 msgstr "Battery of a Bluetooth peripheral"
+
+msgid "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+msgstr "MintMachine only reads information. It changes nothing on your computer and sends no data to the internet"
+
+msgid "Frecuencia media"
+msgstr "Average frequency"
+
+msgid "{marca} (según la referencia)"
+msgstr "{marca} (from the part number)"
+
+msgid "Código JEDEC {codigo}"
+msgstr "JEDEC code {codigo}"
+
+msgid "La placa no lo indica"
+msgstr "Not reported by the motherboard"
