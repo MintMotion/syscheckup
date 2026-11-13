@@ -51,6 +51,8 @@ EMAIL = "hola@joseantonioramos.es"
 VERSION = "0.5.0"
 JSON_SCHEMA = 2
 
+READONLY = "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+
 DISCLAIMER = ("MintMachine solo lee información: no cambia nada en tu equipo. Sus recomendaciones son "
               "orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo "
               "ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de "
@@ -810,6 +812,31 @@ VENDORS = {"GenuineIntel": "Intel", "AuthenticAMD": "AMD", "HygonGenuine": "Hygo
            "CentaurHauls": "VIA/Centaur"}
 
 
+def cpu_live():
+    """Indicadores en vivo de la pestaña Procesador: uso total, frecuencia, temperatura y cada hilo."""
+    with SAMPLER.lock:
+        usage = dict(SAMPLER.cpu)
+        temp = SAMPLER.h["temp"][-1] if SAMPLER.h["temp"] else None
+    items = []
+    if "cpu" in usage:
+        items.append(("Uso total", usage["cpu"] / 100, _("{cpu:.0f} % en uso").format(cpu=usage["cpu"])))
+    freqs = cpu_freqs()
+    curs = [f["cur"] for f in freqs if f["cur"]]
+    maxs = [f["max"] for f in freqs if f["max"]]
+    if curs:
+        cur = sum(curs) / len(curs) / 1000
+        top = max(maxs) / 1000 if maxs else 0
+        items.append(("Frecuencia media", min(cur / top, 1) if top else 0,
+                      f"{cur:.0f} MHz" + (" · " + _("máxima {mx} MHz").format(mx=f"{top:.0f}") if top else "")))
+    if temp is not None:
+        items.append(("Temperatura", temp / 100, _("{temp:.0f} °C en el procesador").format(temp=temp)))
+    cores = sorted((int(k[3:]), v) for k, v in usage.items() if k != "cpu")
+    blocks = [bars("Ahora mismo", items, gauge=True)] if items else []
+    if cores:
+        blocks.append({"type": "cores", "title": _("Uso de cada hilo"), "rows": cores})
+    return blocks
+
+
 def sec_cpu(ctx):
     blocks = [b for b in cpuinfo() if "processor" in b]
     b0 = blocks[0] if blocks else {}
@@ -861,7 +888,6 @@ def sec_cpu(ctx):
         ("Frecuencia actual (media)", f"{sum(curs) / len(curs) / 1000:.0f} MHz" if curs else ""),
         ("Rango de frecuencias", f"{min(mins) / 1000:.0f} a {max(maxs) / 1000:.0f} MHz"
          if mins and maxs else ""),
-        ("Uso total", f"{usage['cpu']:.0f} %" if "cpu" in usage else ""),
         ("Carga media (1, 5, 15 min)", " ".join(num(x, 2) for x in read("/proc/loadavg").split()[:3])),
         ("Frenazos por temperatura desde el arranque", thr if os.path.isdir(
             "/sys/devices/system/cpu/cpu0/thermal_throttle") else ""),
@@ -900,7 +926,7 @@ def sec_cpu(ctx):
     ctx.data["cpu_vulnerable"] = vulnerable
     ctx.summary["cpu"] = _("{n} ({cores} núcleos, {threads} hilos)").format(n=pretty_cpu(model), cores=cores, threads=threads)
 
-    return section("cpu", "Procesador", [
+    return section("cpu", "Procesador", cpu_live() + [
         general,
         table("Hilos en tiempo real", ["Hilo", "Frecuencia", "Uso"], per_core),
         tech,
@@ -2991,10 +3017,7 @@ def sec_summary(ctx):
             ("Actualizaciones", s.get("updates")), ("Conexión", s.get("red")),
             ("Protección", s.get("seguridad")),
         ]),
-        note("MintMachine solo lee información: no cambia nada en tu equipo y no envía datos a internet. "
-             "En la barra lateral tienes el detalle de cada componente."),
     ])
-    sec["subtitle"] = " · ".join(x for x in (s.get("os"), s.get("kernel")) if x)
     return sec
 
 
@@ -3309,43 +3332,6 @@ def export(fmt, sections, anon, topic=None):
 
 # ─────────────────────────────── interfaz GTK ───────────────────────────────
 
-KEY_HELP = {
-    "Microcódigo": "Pequeña actualización interna del procesador que corrige fallos. Llega con las actualizaciones del sistema.",
-    "Gobernador / driver": "Cómo decide el sistema la velocidad del procesador en cada momento.",
-    "Virtualización": "Permite ejecutar máquinas virtuales (VirtualBox, GNOME Boxes...) con buen rendimiento.",
-    "Frenazos por temperatura desde el arranque": "Veces que el procesador ha bajado su velocidad para no calentarse más.",
-    "Carga media (1, 5, 15 min)": "Cuántas tareas esperan turno de media. Si supera el número de hilos, el equipo va justo.",
-    "Tiempo perdido esperando recursos (10 s)": "Porcentaje de tiempo que los programas han esperado por el procesador, "
-                                                "la memoria o el disco. Cuanto más bajo, mejor.",
-    "Memoria de intercambio (swap)": "Espacio del disco que el sistema usa como memoria de reserva cuando la RAM se llena.",
-    "Tendencia a usar swap (swappiness)": "Cuánto prefiere el sistema usar la memoria de intercambio. 60 es el valor normal.",
-    "Secure Boot": "Comprueba al arrancar que el sistema no ha sido manipulado. Es compatible con Linux Mint.",
-    "TPM": "Chip de seguridad del equipo que guarda claves de forma protegida.",
-    "Modo de arranque": "UEFI es el sistema moderno; BIOS clásico (legacy), el antiguo. Los dos funcionan.",
-    "Kernel": "El núcleo del sistema operativo. Incluye casi todos los drivers.",
-    "Kernel «limpio»": "«No» no significa un problema: aparece, por ejemplo, al usar el driver privativo de NVIDIA.",
-    "Enlace PCIe": "Velocidad de la conexión entre el dispositivo y la placa. En reposo baja para ahorrar energía.",
-    "Bloqueo del kernel (lockdown)": "Impide que se modifique el kernel en marcha. Se activa con Secure Boot.",
-    "Aleatorización de memoria (ASLR)": "Protección que dificulta los ataques. Debe estar en «Completa».",
-    "AppArmor": "Protección que limita lo que pueden hacer ciertos programas. Debe estar activado.",
-    "Módulos de seguridad del kernel": "Sistemas de protección activos en el kernel.",
-    "Renderizado directo": "«Yes» significa que la gráfica acelera el 3D.",
-    "Salud": "Capacidad que conserva la batería frente a cuando era nueva.",
-    "Ciclos de carga": "Número de cargas completas que ha hecho la batería.",
-    "Suspensión": "La suspensión profunda gasta menos batería con la tapa cerrada.",
-    "Límite de carga de la batería": "Parar la carga antes del 100 % alarga la vida de la batería.",
-    "Salud de los discos": "Lo que dicen los propios discos sobre su estado (SMART).",
-    "Protección": "Medidas de seguridad activas en el equipo.",
-    "Placa base": "La placa principal del equipo, donde se conectan todos los componentes.",
-    "Seguridad del firmware (HSI)": "Nota que el servicio de firmware (fwupd) pone a las protecciones de la placa, "
-                                    "de 0 a 4. Depende casi por completo del fabricante: un nivel bajo no "
-                                    "significa que hayas hecho algo mal.",
-    "Perfil del fabricante": "Modo de funcionamiento que ofrece el propio equipo (silencioso, equilibrado, rendimiento).",
-    "Gobernador del procesador": "Regla con la que el sistema sube y baja la velocidad del procesador.",
-    "Preferencia entre ahorro y rendimiento": "Indicación que se da al procesador: gastar menos o responder más rápido.",
-    "BIOS": "El programa de la placa que arranca el equipo. Su versión y fecha ayudan a saber si hay una más nueva.",
-}
-
 LEVEL_ICONS = {"bad": "dialog-error-symbolic", "warn": "dialog-warning-symbolic",
                "info": "dialog-information-symbolic", "ok": "emblem-ok-symbolic"}
 
@@ -3377,8 +3363,8 @@ PALETTES = {
     "oscuro": dict(bg="#0b0e14", side="#0e121a", card="#131824", card2="#171d2b", fg="#e7eaf2", dim="#8a93a8",
                    line="rgba(255,255,255,0.07)", a1="#22d3ee", a2="#8b5cf6", ok="#34d399", warn="#fbbf24",
                    bad="#f87171", info="#60a5fa"),
-    "claro": dict(bg="#f4f6fb", side="#eef1f7", card="#ffffff", card2="#f7f8fc", fg="#0f172a", dim="#5b6478",
-                  line="rgba(15,23,42,0.09)", a1="#0891b2", a2="#7c3aed", ok="#059669", warn="#d97706",
+    "claro": dict(bg="#dde1e8", side="#d4d9e1", card="#e8ebf0", card2="#e2e6ec", fg="#111827", dim="#4a5366",
+                  line="rgba(15,23,42,0.12)", a1="#0891b2", a2="#7c3aed", ok="#059669", warn="#d97706",
                   bad="#dc2626", info="#2563eb"),
 }
 
@@ -3424,6 +3410,11 @@ CSS = """
 .mm-win entry image {{ color: @mm_dim; }}
 .mm-win scrolledwindow, .mm-win viewport, .mm-win stack {{ background-color: transparent; }}
 .mm-win scrollbar {{ background-color: transparent; border: none; }}
+.mm-win scrolledwindow undershoot.top, .mm-win scrolledwindow undershoot.bottom,
+.mm-win scrolledwindow undershoot.left, .mm-win scrolledwindow undershoot.right,
+.mm-win scrolledwindow overshoot.top, .mm-win scrolledwindow overshoot.bottom,
+.mm-win scrolledwindow overshoot.left, .mm-win scrolledwindow overshoot.right {{
+    background: none; background-image: none; background-color: transparent; border: none; box-shadow: none; }}
 .mm-win scrollbar slider {{ background-color: alpha(@mm_fg, 0.18); border-radius: 99px; min-width: 6px;
     min-height: 6px; border: none; }}
 .mm-win scrollbar slider:hover {{ background-color: alpha(@mm_fg, 0.32); }}
@@ -3447,9 +3438,6 @@ CSS = """
 .mm-ic-bad {{ color: @mm_bad; }} .mm-ic-warn {{ color: @mm_warn; }} .mm-ic-info {{ color: @mm_info; }} .mm-ic-ok {{ color: @mm_ok; }}
 .mm-finding {{ padding: 14px 16px; }}
 .mm-finding-area {{ font-weight: 700; color: @mm_fg; }}
-.mm-info {{ min-width: 18px; min-height: 18px; padding: 0; border-radius: 99px; border: none; font-size: 10px;
-    font-weight: 800; background-image: none; background-color: alpha(@mm_a1, 0.14); color: @mm_a1; box-shadow: none; }}
-.mm-info:hover {{ background-color: alpha(@mm_a1, 0.28); }}
 .mm-win treeview.view {{ background-color: @mm_card; color: @mm_fg; border-color: @mm_line; }}
 .mm-win treeview.view:hover {{ background-color: alpha(@mm_fg, 0.03); }}
 .mm-win treeview.view header button {{ background-color: @mm_card; background-image: none; color: @mm_dim;
@@ -3749,7 +3737,6 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             self.set_icon_name("mintmachine" if theme.has_icon("mintmachine") else "computer")
             self.anon, self.sections, self.refs, self.busy = anon, [], {}, False
             self.index, self.first, self._building = {}, True, None
-            self.help_map = {}
 
             hb = Gtk.HeaderBar(show_close_button=True, title=APP)
             self.set_titlebar(hb)
@@ -3854,7 +3841,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             self.search.set_tooltip_text(_("Escribe, por ejemplo, «temperatura», «NVIDIA» o «batería» (Ctrl+F)"))
             self.no_match.set_text(_("Sin resultados."))
             self.toast_open.set_label(_("Abrir"))
-            self.help_map = {_(k): _(v) for k, v in KEY_HELP.items()}
+            self.hb.set_subtitle(_(READONLY))
 
         # ── menú: idioma, tema, privacidad, ayuda y desinstalar ──
         def fill_menu(self, pop):
@@ -4114,7 +4101,6 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             self.on_search(self.search)
             if select:
                 self.nav.select_row(select)
-            self.hb.set_subtitle(secs[0].get("subtitle", ""))
             self.spinner.stop()
             self.btn_refresh.set_sensitive(True)
             self.export_btn.set_sensitive(True)
@@ -4278,32 +4264,16 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 box.pack_start(row, False, False, 0)
             return self.card(box), len(b["rows"])
 
-        def info_button(self, text):
-            btn = styled(Gtk.Button(label="i", valign=Gtk.Align.CENTER, halign=Gtk.Align.START), "mm-info")
-            btn.set_tooltip_text(text)
-            btn.set_relief(Gtk.ReliefStyle.NONE)
-            pop = styled(Gtk.Popover(relative_to=btn), "mm-pop")
-            lab = label(text, wrap=True)
-            lab.set_max_width_chars(46)
-            for m in ("top", "bottom", "start", "end"):
-                getattr(lab, "set_margin_" + m)(12)
-            pop.add(lab)
-            btn.connect("clicked", lambda *_a: (lab.show(), pop.popup()))
-            return btn
-
         def w_kv(self, b):
             grid = Gtk.Grid(column_spacing=28, row_spacing=10)
             grid.set_border_width(18)
             labels = []
             for i, (k, v) in enumerate(b["rows"]):
-                tip = self.help_map.get(k)
                 kbox = Gtk.Box(spacing=6, valign=Gtk.Align.START)
                 kl = label(k, "mm-key")
                 kl.set_line_wrap(True)
                 kl.set_max_width_chars(30)
                 kbox.pack_start(kl, False, False, 0)
-                if tip:
-                    kbox.pack_start(self.info_button(tip), False, False, 0)
                 kbox.set_size_request(240, -1)
                 vl = label(show(v, self.anon), "mm-val", wrap=True, selectable=True)
                 vl.set_max_width_chars(80)
@@ -4356,7 +4326,9 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
 
         @staticmethod
         def gauge_center(frac, text):
-            m = re.search(r"(-?[\d.,]+)\s*(°C|%)", text)
+            m = re.search(r"(-?[\d.,]+)\s*(°C|%|MHz)", text)
+            if m and m.group(2) == "MHz":
+                return num(float(m.group(1).replace(",", ".")) / 1000) + " GHz"
             return f"{m.group(1)}{' °C' if m.group(2) == '°C' else '%'}" if m else f"{frac * 100:.0f}%"
 
         def draw_gauge(self, area, cr, st):
@@ -4563,7 +4535,8 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             SAMPLER.tick()
             self.ticks += 1
             sid = self.current()
-            if self.busy or sid not in LIVE or (sid != "monitor" and self.ticks % 2):
+            fast = sid == "cpu" and self.ticks % 2
+            if self.busy or sid not in LIVE or (sid not in ("monitor", "cpu") and self.ticks % 2):
                 return True
             idx = next((i for i, s in enumerate(self.sections) if s["id"] == sid), None)
             if idx is None:
@@ -4572,6 +4545,12 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 old = self.sections[idx]
                 live = live_now()
                 new = dict(old, blocks=[live if b["type"] == "bars" and b.get("gauge") else b for b in old["blocks"]])
+            elif fast:                 # en Procesador, entre dos lecturas completas, solo lo que va en vivo
+                old = self.sections[idx]
+                live = {b["type"]: b for b in cpu_live()}
+                new = dict(old, blocks=[live.get("bars", b) if b["type"] == "bars" and b.get("gauge")
+                                        else live.get("cores", b) if b["type"] == "cores" else b
+                                        for b in old["blocks"]])
             else:
                 new = safe(sid, COLLECTORS[sid], Ctx())
             self.sections[idx] = new
