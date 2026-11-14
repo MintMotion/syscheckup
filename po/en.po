@@ -3287,3 +3287,6 @@ msgstr "Without the stress-ng package a light test will be run, which detects fe
 
 msgid "No se ha podido pedir la contraseña o no se ha autorizado: no se ha leído nada. Si no ha aparecido la ventana de la contraseña, tu escritorio no tiene un agente de polkit activo."
 msgstr "The password could not be requested or was not authorized: nothing has been read. If the password window did not appear, your desktop has no active polkit agent."
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con {herramienta} y reinicia."
+msgstr "If that device works fine, there is nothing to do: many drivers try several versions until they find the installed one. If it fails, install the {paquete} package with {herramienta} and restart."

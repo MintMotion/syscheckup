@@ -3287,3 +3287,6 @@ msgstr "未安装 stress-ng 软件包时将进行轻量测试，能发现的问�
 
 msgid "No se ha podido pedir la contraseña o no se ha autorizado: no se ha leído nada. Si no ha aparecido la ventana de la contraseña, tu escritorio no tiene un agente de polkit activo."
 msgstr "无法请求密码或未获授权：没有读取任何内容。如果没有出现输入密码的窗口，说明您的桌面没有正在运行的 polkit 代理。"
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con {herramienta} y reinicia."
+msgstr "如果该设备工作正常，则无需任何操作：许多驱动程序会尝试多个版本，直到找到已安装的版本。如果设备出现故障，请使用{herramienta}安装 {paquete} 软件包，然后重新启动。"

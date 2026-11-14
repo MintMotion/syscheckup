@@ -1,5 +1,13 @@
 # Cambios
 
+## 0.6.1 (14/11/2026)
+
+- **Menos contraseñas:** la frecuencia base, máxima y mínima del procesador con sus multiplicadores, los datos de los módulos de memoria (si el kernel ya los publica) y el consumo del procesador (si el sistema deja leerlo) se leen sin contraseña. El botón que la pide solo aparece cuando queda algo que solo puede leer el administrador, y solo pide lo de su pestaña.
+- **Botón «i» junto a cada prueba** y junto al de datos internos: qué hace, cuánto dura, qué utilidad usa, si pide contraseña y cuándo se para sola.
+- **Cualquier distribución basada en Debian y cualquier escritorio:** los botones abren la herramienta que haya instalada (Linux Mint, Ubuntu, GNOME, KDE Plasma, Xfce, MATE, LXQt…) y los consejos la nombran; los consejos propios de Linux Mint solo salen en Linux Mint; las pruebas proponen el paquete que exista en tus repositorios.
+- Consumo del procesador en vivo en la pestaña Procesador y en los máximos del Monitor, cuando el sistema deja leerlo.
+- Si el escritorio no tiene agente de polkit, lo explica en vez de decir que no se ha dado la contraseña.
+
 ## 0.6.0 (14/11/2026)
 
 - **Pruebas voluntarias**, con botón en su pestaña y siempre con aviso y confirmación: estabilidad y rendimiento del procesador, memoria, rendimiento y carga sostenida de la gráfica, y velocidad del disco. Ventana en vivo con temperatura, frecuencia y botón Detener; corte automático por temperatura o si el portátil se desconecta de la corriente; resultados guardados y comparados con tus mediciones anteriores.

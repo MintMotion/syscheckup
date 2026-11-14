@@ -49,7 +49,7 @@ APP = "MintMachine"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.6.0"
+VERSION = "0.6.1"
 JSON_SCHEMA = 2
 
 READONLY = "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
@@ -3117,8 +3117,8 @@ def sec_updates(ctx):
         pkgs = sorted({p for *_r, p, _o in faltan if p})
         ctx.flag("info", "Firmware", _("Falta firmware que pidió un driver: {lista}.").format(lista=lista),
                  _("Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias "
-                   "versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor "
-                   "de software o con las actualizaciones pendientes, y reinicia.").format(paquete=", ".join(pkgs))
+                   "versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con "
+                   "{herramienta} y reinicia.").format(paquete=", ".join(pkgs), herramienta=tool_name("store"))
                  if pkgs else
                  "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias "
                  "versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, "

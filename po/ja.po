@@ -3287,3 +3287,6 @@ msgstr "stress-ng パッケージがないため、検出できる問題が少�
 
 msgid "No se ha podido pedir la contraseña o no se ha autorizado: no se ha leído nada. Si no ha aparecido la ventana de la contraseña, tu escritorio no tiene un agente de polkit activo."
 msgstr "パスワードを要求できなかったか、承認されませんでした。何も読み取っていません。パスワードのウィンドウが表示されなかった場合、お使いのデスクトップでは polkit エージェントが動作していません。"
+
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con {herramienta} y reinicia."
+msgstr "そのデバイスが正常に動作していれば、何もする必要はありません。多くのドライバーは、インストール済みのものが見つかるまで複数のバージョンを試します。動作しない場合は、{herramienta}で {paquete} パッケージをインストールして再起動してください。"

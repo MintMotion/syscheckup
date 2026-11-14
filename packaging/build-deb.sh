@@ -56,9 +56,11 @@ Description: Información y diagnóstico del equipo
  versiones nuevas de drivers y firmware y hace un diagnóstico automático con
  recomendaciones seguras. Exporta el informe a texto, HTML, JSON, CSV o a un
  formato listo para pegar en un foro, con los datos personales ocultos.
+ Incluye pruebas voluntarias de estabilidad y rendimiento del procesador, la
+ memoria, la gráfica y el disco.
  .
- Solo lee: no cambia nada, no necesita permisos de administrador y no envía
- datos a internet.
+ Solo lee: no cambia nada y no envía datos a internet. Solo pide la contraseña
+ si eliges leer datos internos que el sistema reserva al administrador.
 CONTROL
 
 # Al instalar y al quitar: el menú tiene que ver el icono nuevo sin esperar a reiniciar la sesión.

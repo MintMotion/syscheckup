@@ -2,13 +2,24 @@
 
 Hardware, drivers y software de tu equipo Linux en una sola ventana, con gráficas de uso en vivo, revisión de drivers y firmware, un diagnóstico que te señala lo que conviene mirar y pruebas voluntarias de estabilidad y rendimiento.
 
-Está pensado para Linux Mint y LMDE. Funciona también en Debian, Ubuntu y derivadas. Disponible en español, inglés, francés, japonés y chino.
+Funciona en Linux Mint, LMDE, Ubuntu, Debian y cualquier distribución basada en ellas, con cualquier escritorio (Cinnamon, GNOME, KDE Plasma, Xfce, MATE, LXQt…), en X11 y en Wayland. Disponible en español, inglés, francés, japonés y chino.
 
 Autor: José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es>. Licencia MIT.
 
 ![Pantalla de inicio](docs/captura-inicio.png)
 
 Las capturas de `docs/` salen del banco de pruebas, que simula un portátil. Los datos que aparecen en ellas son inventados.
+
+## Distribuciones y escritorios
+
+MintMachine solo necesita Python 3 y GTK 3, que traen todas las distribuciones basadas en Debian, y reconoce dónde se está ejecutando:
+
+- **Herramientas del sistema.** Los botones del diagnóstico abren la que esté instalada: en Linux Mint, el Gestor de actualizaciones, el Gestor de controladores y el Gestor de software; en Ubuntu, el Actualizador de software, «Controladores adicionales» y el Centro de aplicaciones; en GNOME, la aplicación Software; en KDE Plasma, Discover; si no hay ninguna, Synaptic. Lo mismo con el monitor del sistema, la configuración de energía, Discos o el analizador de uso de disco de cada escritorio. Si no hay ninguna herramienta gráfica de ese tipo, el consejo lo dice con palabras y no sale botón.
+- **Textos.** Los consejos nombran la herramienta que tienes. Los que solo valen para una distribución (los códecs multimedia, el menú de kernels de Linux Mint) cambian según la distribución.
+- **Paquetes.** Las pruebas proponen el paquete que exista en tus repositorios (`7zip` o `p7zip-full`; `glmark2-x11`, `glmark2` o `glmark2-wayland`).
+- **Pantallas en Wayland.** El modo en uso se pide a GNOME, Cinnamon, KDE Plasma o a los compositores wlroots, como se explica más abajo.
+
+Se ha comprobado con el banco de pruebas haciéndose pasar por LMDE con Cinnamon, Ubuntu con KDE Plasma en Wayland y Debian con Xfce, y con el paquete instalado en Ubuntu 24.04. No se ha probado en cada escritorio real.
 
 ## Pensado para cualquiera
 
@@ -92,7 +103,14 @@ Los resultados se guardan en `~/.config/mintmachine/historial.json` y aparecen e
 
 ## Datos internos de la memoria y del procesador
 
-El botón **Leer datos internos… (pide tu contraseña)** de las pestañas Procesador y Memoria lee lo que guardan los propios componentes y que el sistema solo enseña al administrador:
+Todo lo que el sistema deja leer a tu usuario se lee sin contraseña, y solo hay que darla para lo que de verdad la necesita:
+
+- **Sin contraseña:** la frecuencia base, la máxima y la mínima del procesador con sus multiplicadores (de `cpufreq`); los datos de los módulos de memoria cuando el kernel ya los publica (los drivers `ee1004` y `spd5118` se cargan solos en muchas placas, y entonces sus datos los puede leer cualquier usuario); y el consumo del procesador en vatios, en vivo, si tu sistema deja leer sus contadores.
+- **Con contraseña:** solo lo que falta. En la pestaña Memoria el botón aparece únicamente si tu sistema no publica los datos de los módulos. En la pestaña Procesador, únicamente si queda algo que solo el administrador puede leer: el consumo en vatios (desde Linux 5.10, por seguridad, sus contadores son solo del administrador) y, en AMD, los estados de rendimiento.
+
+Junto a cada botón de prueba y de datos internos hay una «i»: al pulsarla explica qué hace, cuánto dura, qué utilidad usa, si pide contraseña y cuándo se detiene sola.
+
+El botón **Leer datos internos… (pide tu contraseña)** lee lo que guardan los propios componentes y que el sistema solo enseña al administrador:
 
 - **Memoria (SPD):** fabricante del módulo y de sus chips, referencia, fecha de fabricación, velocidad y tiempos de serie (CL-tRCD-tRP-tRAS) y los perfiles del fabricante (XMP). Si la memoria funciona a la velocidad estándar y sus perfiles permiten más, lo indica. Funciona con DDR4 y DDR5 cuando la placa publica estos datos al sistema (drivers `ee1004` y `spd5118` del kernel; en Ubuntu 24.04 la DDR5 necesita el kernel HWE).
 - **Procesador:** frecuencia base y multiplicadores, estados de rendimiento (AMD) y turbo máximo (Intel), y el consumo del procesador en vatios medido durante un segundo.
@@ -213,7 +231,7 @@ Desde la terminal hace lo mismo: `sudo apt purge mintmachine` y después `rm -rf
 Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
 
 ```
-sudo apt install ./mintmachine_0.6.0_all.deb
+sudo apt install ./mintmachine_0.6.1_all.deb
 ```
 
 `apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre MintMachine. Si tenías una versión anterior, este paquete la actualiza; si tenías la primera, que se llamaba Radiografía, la sustituye.
@@ -304,7 +322,7 @@ Si falta alguna utilidad, la sección correspondiente sale más corta y el resto
 
 ## Estado del proyecto
 
-Versión 0.6.0. Conviene saber cómo se ha probado.
+Versión 0.6.1. Conviene saber cómo se ha probado.
 
 El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
 
@@ -366,7 +384,7 @@ packaging/build-deb.sh
 
 El paquete queda en `dist/`. Solo hace falta `dpkg-deb`. La versión se toma de la variable `VERSION` de `mintmachine.py`. El campo «Maintainer» del paquete lleva solo «MintMachine», sin datos personales: dpkg lo exige y, si falta, apt muestra un aviso cada vez que se usa.
 
-En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.6.0`, adjunta el `.deb` a esa versión.
+En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.6.1`, adjunta el `.deb` a esa versión.
 
 ## Pruebas
 
@@ -396,15 +414,15 @@ Para probar un caso nuevo, por ejemplo un ventilador parado o un disco con fallo
 ```
 git init
 git add .
-git commit -m "MintMachine 0.6.0"
+git commit -m "MintMachine 0.6.1"
 git branch -M main
 git remote add origin https://github.com/TU-USUARIO/mintmachine.git
 git push -u origin main
-git tag v0.6.0
-git push origin v0.6.0
+git tag v0.6.1
+git push origin v0.6.1
 ```
 
-3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.6.0`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.6.0` y adjunta `mintmachine_0.6.0_all.deb`.
+3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.6.1`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.6.1` y adjunta `mintmachine_0.6.1_all.deb`.
 4. Cuando tengas la dirección del repositorio, añádela a `data/mintmachine.metainfo.xml` con `<url type="homepage">…</url>`.
 
 Las incidencias usan las plantillas de `.github/ISSUE_TEMPLATE`, que piden el informe para foros con los datos personales ocultos.
