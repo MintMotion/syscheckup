@@ -37,6 +37,11 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.6.0" date="2026-11-14">
+      <description>
+        <p>Pruebas voluntarias de procesador, memoria, gráfica y disco; datos internos de la memoria y del procesador con contraseña; historial de salud de los discos; más datos de la gráfica.</p>
+      </description>
+    </release>
     <release version="0.5.4" date="2026-11-14">
       <description>
         <p>El aviso de firmware que falta dice qué archivo es, de qué dispositivo y qué paquete lo trae.</p>

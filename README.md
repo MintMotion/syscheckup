@@ -1,6 +1,6 @@
 # MintMachine
 
-Hardware, drivers y software de tu equipo Linux en una sola ventana, con gráficas de uso en vivo, revisión de drivers y firmware, y un diagnóstico que te señala lo que conviene mirar.
+Hardware, drivers y software de tu equipo Linux en una sola ventana, con gráficas de uso en vivo, revisión de drivers y firmware, un diagnóstico que te señala lo que conviene mirar y pruebas voluntarias de estabilidad y rendimiento.
 
 Está pensado para Linux Mint y LMDE. Funciona también en Debian, Ubuntu y derivadas. Disponible en español, inglés, francés, japonés y chino.
 
@@ -45,12 +45,12 @@ Veintiuna secciones en la barra lateral:
 |---|---|
 | Inicio | Estado general, indicadores en vivo (procesador, memoria, disco, temperatura, batería), lo más importante del diagnóstico, ficha del equipo con placa base y BIOS, y sistema |
 | Diagnóstico | Revisión automática: qué conviene revisar, sugerencias opcionales, qué hacer en cada caso y errores más repetidos del registro del sistema |
-| Monitor en vivo | Gráficas de los últimos dos minutos de procesador, RAM y swap, red, disco, temperatura y gráfica; uso de cada hilo; procesos que más consumen |
-| Procesador | Indicadores en vivo de uso total, frecuencia media y temperatura, con una barra por hilo que se actualiza cada segundo; modelo, familia y stepping, microcódigo, núcleos e hilos, núcleos P y E, cachés, juegos de instrucciones, frecuencia y uso de cada hilo, frenazos por temperatura, vulnerabilidades y mitigaciones |
+| Monitor en vivo | Gráficas de los últimos dos minutos de procesador, RAM y swap, red, disco, temperatura y gráfica; uso de cada hilo; programas que usan la gráfica; máximos alcanzados desde que abriste el programa; procesos que más consumen |
+| Procesador | Indicadores en vivo de uso total, frecuencia media y temperatura, con una barra por hilo que se actualiza cada segundo; modelo, familia y stepping, microcódigo, núcleos e hilos, núcleos P y E, cachés, juegos de instrucciones, frecuencia y uso de cada hilo, frenazos por temperatura, vulnerabilidades y mitigaciones. Con tu contraseña, si lo pides: frecuencia base y multiplicadores, estados de rendimiento y consumo en vatios. Pruebas voluntarias de estabilidad y de rendimiento |
 | Placa base y BIOS | Fabricante y modelo del equipo y de la placa, versión y fecha de la BIOS, UEFI o legacy, Secure Boot, TPM |
-| Memoria | Uso de RAM y swap, módulos instalados ranura a ranura con su fabricante (si la placa no lo da, se deduce del código JEDEC o de la referencia del módulo), ranuras libres, máximo que admite la placa, errores de memoria corregidos |
-| Gráfica y pantallas | Tarjetas, driver en uso, frecuencia, enlace PCIe, OpenGL y Vulkan, formatos de vídeo que decodifica por hardware, monitores y modo en uso |
-| Almacenamiento | Espacio ocupado; salud SMART, desgaste de los SSD, temperatura y horas de uso; unidades con modelo, tipo, interfaz, enlace PCIe y firmware; particiones y cifrado; TRIM |
+| Memoria | Uso de RAM y swap, módulos instalados ranura a ranura con su fabricante (si la placa no lo da, se deduce del código JEDEC o de la referencia del módulo), ranuras libres, máximo que admite la placa, errores de memoria corregidos, protección ante falta de memoria. Con tu contraseña, si lo pides: tiempos, perfiles XMP, fabricante de los chips y fecha de fabricación, leídos de los propios módulos. Prueba voluntaria de la memoria |
+| Gráfica y pantallas | Tarjetas, driver en uso, frecuencia, temperatura, consumo y su límite, qué la está limitando (consumo, temperatura…), BIOS de la tarjeta, memoria de vídeo y su fabricante, Resizable BAR, enlace PCIe, OpenGL y Vulkan, formatos de vídeo que decodifica por hardware, monitores y modo en uso. Pruebas voluntarias de rendimiento y de carga sostenida |
+| Almacenamiento | Espacio ocupado; salud SMART, desgaste de los SSD, temperatura y horas de uso; evolución de la salud de cada disco día a día; unidades con modelo, tipo, interfaz, enlace PCIe y firmware; particiones y cifrado; TRIM. Prueba voluntaria de velocidad |
 | Red | Interfaces con driver, MAC, IP y velocidad; Wi-Fi con calidad de la señal y banda; puerta de enlace, DNS, Bluetooth |
 | Sonido | Tarjetas de sonido y servidor de audio |
 | Dispositivos USB | Lo que hay conectado, con velocidad, consumo y driver |
@@ -66,6 +66,40 @@ Veintiuna secciones en la barra lateral:
 | Puesta a punto | Lista de comprobación de lo que conviene dejar hecho tras instalar el sistema: actualizaciones, drivers y firmware, cortafuegos, instantáneas de Timeshift, TRIM de los SSD y códecs multimedia. Cada punto lleva a la herramienta del sistema que lo hace |
 
 ![Puesta a punto](docs/captura-puesta.png)
+
+## Pruebas voluntarias
+
+Las pestañas Procesador, Memoria, Gráfica y pantallas y Almacenamiento tienen al final un apartado **Pruebas voluntarias**. Ninguna prueba se hace sola: hay que pulsar el botón, leer el aviso, marcar la casilla «He leído el aviso y quiero hacer la prueba» y pulsar **Empezar**.
+
+| Prueba | Qué hace | Utilidad que usa |
+|---|---|---|
+| Estabilidad del procesador (1, 10 o 60 min) | Todos los núcleos al máximo con cálculos variados, comprobando que los resultados son correctos | `stress-ng` (sin él, una prueba ligera en Python que detecta menos) |
+| Rendimiento del procesador (2–3 min) | Puntuación comprimiendo y descomprimiendo, con un núcleo y con todos | `7z b` (paquete `7zip`) |
+| Memoria (1, 10 o 30 min) | Escribe y comprueba patrones en la mitad de la memoria libre | `stress-ng` |
+| Rendimiento de la gráfica (unos 5 min) | Escenas 3D en una ventana y una puntuación | `glmark2` |
+| Carga sostenida de la gráfica (1, 10 o 30 min) | Mantiene la gráfica trabajando para ver si es estable | `glmark2` |
+| Velocidad del disco | Escribe 1 GiB en tu carpeta personal, lo lee y lo borra | `dd` |
+
+Mientras dura, una ventana muestra el tiempo que queda, la temperatura y su gráfica, la frecuencia y el uso, con un botón **Detener**. La prueba se para sola si:
+
+- la temperatura del procesador llega a 5 °C del máximo que declara (90 °C en AMD y 95 °C en Intel si no lo declara), o la de la gráfica a 10 °C de su máximo (87 °C si no lo declara);
+- el portátil se desconecta de la corriente (con batería no deja empezar, ni con menos del 30 % de carga);
+- se cierra MintMachine.
+
+Cada prueba va en su propio grupo de procesos y lleva además su propio límite de tiempo, para que nunca se quede funcionando sola. Al terminar se ve el resultado: superada, con errores (fallos de cálculo o errores de hardware nuevos en el registro del kernel), detenida por temperatura… con la temperatura máxima, la frecuencia sostenida y las veces que el procesador se frenó por calor. Las puntuaciones se comparan con tus mediciones anteriores; MintMachine no envía nada a internet, así que no hay comparación con otros equipos.
+
+Los resultados se guardan en `~/.config/mintmachine/historial.json` y aparecen en la tabla «Pruebas que has hecho» de cada pestaña y en los informes exportados.
+
+## Datos internos de la memoria y del procesador
+
+El botón **Leer datos internos… (pide tu contraseña)** de las pestañas Procesador y Memoria lee lo que guardan los propios componentes y que el sistema solo enseña al administrador:
+
+- **Memoria (SPD):** fabricante del módulo y de sus chips, referencia, fecha de fabricación, velocidad y tiempos de serie (CL-tRCD-tRP-tRAS) y los perfiles del fabricante (XMP). Si la memoria funciona a la velocidad estándar y sus perfiles permiten más, lo indica. Funciona con DDR4 y DDR5 cuando la placa publica estos datos al sistema (drivers `ee1004` y `spd5118` del kernel; en Ubuntu 24.04 la DDR5 necesita el kernel HWE).
+- **Procesador:** frecuencia base y multiplicadores, estados de rendimiento (AMD) y turbo máximo (Intel), y el consumo del procesador en vatios medido durante un segundo.
+
+Lo hace un ayudante aparte, `/usr/libexec/mintmachine/mintmachine-probe`, que se lanza con `pkexec` solo cuando pulsas el botón. Solo lee: copia los datos que publican los drivers del kernel, sin usar `/dev/i2c-*` ni escribir en el bus de la memoria, lee una lista cerrada de registros del procesador y no admite otros argumentos. Si tiene que cargar un módulo del kernel (`ee1004`, `spd5118` o `msr`), lo descarga al terminar. Los datos de la memoria solo se muestran si superan su suma de control.
+
+Las posiciones de cada dato en el chip SPD siguen las normas JEDEC y se han contrastado con `decode-dimms` (DDR4) y con memtest86+ (DDR4 y DDR5, perfiles XMP). La DDR5 y los perfiles XMP no se han podido probar todavía con módulos reales.
 
 ## Exportar
 
@@ -109,6 +143,8 @@ MintMachine toma una muestra por segundo desde que arranca y guarda los últimos
 - **Disco:** lectura y escritura de todas las unidades, con `/proc/diskstats`.
 - **Temperatura del procesador:** el sensor más caliente de la CPU.
 - **Gráfica:** uso de la GPU en tarjetas AMD, NVIDIA e Intel. Intel no publica un porcentaje, así que se calcula con el tiempo que la gráfica pasa dormida (RC6); en los portátiles con dos gráficas salen las dos líneas.
+- **Programas que usan la gráfica:** el kernel publica en `/proc/<pid>/fdinfo` el tiempo de gráfica de cada programa (AMD, Intel y el driver libre de NVIDIA); con el driver privativo de NVIDIA lo da `nvidia-smi pmon`. Solo salen tus propios programas.
+- **Máximos de la sesión:** lo más alto que han llegado el uso y la temperatura del procesador, la memoria y la gráfica desde que abriste MintMachine, con la hora.
 
 Cada gráfica muestra el valor actual y el máximo de los dos últimos minutos. Debajo van dos tablas con los procesos que más procesador y más memoria gastan, y la presión del sistema (PSI): el porcentaje de tiempo que los programas pasan esperando CPU, memoria o disco.
 
@@ -168,16 +204,16 @@ Cada aviso dice qué hacer y, si existe, ofrece un botón para abrir la herramie
 
 ## Desinstalar
 
-Menú (☰) → **Desinstalar MintMachine…**. Quita el programa, su icono del menú y su configuración, sin dejar rastro. El sistema pide tu contraseña, como en cualquier desinstalación; es la única vez que MintMachine hace algo con permisos de administrador, y solo si lo pides. Los informes que hayas guardado son tuyos y no se tocan.
+Menú (☰) → **Desinstalar MintMachine…**. Quita el programa, su icono del menú, su configuración y su historial, sin dejar rastro. El sistema pide tu contraseña, como en cualquier desinstalación. Los informes que hayas guardado son tuyos y no se tocan.
 
-Desde la terminal hace lo mismo: `sudo apt purge mintmachine` y después `rm -rf ~/.config/mintmachine`.
+Desde la terminal hace lo mismo: `sudo apt purge mintmachine` y después `rm -rf ~/.config/mintmachine ~/.cache/mintmachine`.
 
 ## Instalación
 
 Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
 
 ```
-sudo apt install ./mintmachine_0.5.4_all.deb
+sudo apt install ./mintmachine_0.6.0_all.deb
 ```
 
 `apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre MintMachine. Si tenías una versión anterior, este paquete la actualiza; si tenías la primera, que se llamaba Radiografía, la sustituye.
@@ -214,15 +250,15 @@ Sin entorno gráfico, por ejemplo por SSH, el programa pasa solo al modo texto.
 
 ## Privacidad
 
-MintMachine no pide contraseña de administrador y no abre ninguna conexión a internet. Lee archivos de `/proc` y `/sys` y ejecuta utilidades que ya están en tu sistema. Los informes se quedan donde tú los guardes.
+MintMachine no abre ninguna conexión a internet. Lee archivos de `/proc` y `/sys` y ejecuta utilidades que ya están en tu sistema. Solo pide la contraseña de administrador si eliges «Leer datos internos» o «Desinstalar». Los informes se quedan donde tú los guardes.
 
 Al exportar, «Ocultar datos personales» viene marcado. Revisa igualmente el informe antes de publicarlo: la ocultación busca los datos que el programa conoce y los formatos habituales (MAC, IP, UUID), pero no puede adivinar cualquier dato personal que aparezca en un nombre de archivo o de dispositivo.
 
 Lo que garantiza el código, y comprueban las pruebas automáticas en cada cambio:
 
 - No importa ningún módulo de red. La única función de red que usa es la que devuelve el nombre del equipo.
-- Lo único que escribe en tu carpeta personal es `~/.config/mintmachine/config.json`, con el idioma y el tema. No guarda históricos ni informes por su cuenta.
-- Solo pide la contraseña si tú eliges «Desinstalar» en el menú.
+- En tu carpeta personal solo escribe dentro de `~/.config/mintmachine/`: `config.json` (idioma y tema) e `historial.json` (una medición diaria de la salud de cada disco, los resultados de las pruebas que hagas y los datos internos que leas). Los discos se identifican con una huella, no con su número de serie. La prueba de velocidad del disco crea un archivo temporal en `~/.cache/mintmachine/` y lo borra al terminar.
+- Solo pide la contraseña si tú eliges «Leer datos internos» o «Desinstalar». El ayudante que usa para los datos internos solo lee.
 - `--debug` escribe en la terminal el nombre de cada utilidad y sus opciones, nunca sus argumentos ni su salida, y no crea ningún archivo.
 - De la configuración de Timeshift solo mira si hay instantáneas programadas; del escritorio en Wayland, solo el conector y el modo de cada pantalla.
 - Con «Ocultar datos personales» se tapan también los nombres de las impresoras y los de los teclados y ratones Bluetooth, que pueden llevar el nombre de una persona.
@@ -235,6 +271,11 @@ Lo que garantiza el código, y comprueban las pruebas automáticas en cada cambi
 | Placa y BIOS | `/sys/class/dmi/id` |
 | Secure Boot, TPM | `/sys/firmware/efi/efivars`, `/sys/class/tpm` |
 | Módulos de RAM | `udevadm info` sobre el nodo DMI, sin root |
+| Datos internos de la memoria | `/sys/bus/i2c/drivers/ee1004/*/eeprom` y `…/spd5118/*/eeprom`, con el ayudante y tu contraseña |
+| Multiplicadores y consumo del procesador | Registros MSR (`/dev/cpu/0/msr`) y `/sys/class/powercap/intel-rapl:*/energy_uj`, con el ayudante y tu contraseña |
+| Límites, temperatura y consumo de la gráfica | AMD: `/sys/class/drm/card*/device/gpu_metrics` y `hwmon`; NVIDIA: `nvidia-smi` |
+| Resizable BAR | Tamaño de las ventanas de memoria PCI de la tarjeta (`resource`) frente a su memoria de vídeo |
+| Protección ante falta de memoria | `systemctl is-active` de systemd-oomd, earlyoom y nohang |
 | Gráfica y vídeo | `lspci`, `glxinfo`, `vainfo`, `vulkaninfo`, `nvidia-smi` |
 | Monitores | EDID en `/sys/class/drm` o, con NVIDIA, `xrandr --verbose` |
 | Modo de pantalla en uso | X11: `xrandr`. Wayland: D-Bus del escritorio (GNOME, Cinnamon), `kscreen-doctor -j` (KDE), `wlr-randr --json` (wlroots) |
@@ -263,7 +304,7 @@ Si falta alguna utilidad, la sección correspondiente sale más corta y el resto
 
 ## Estado del proyecto
 
-Versión 0.5.4. Conviene saber cómo se ha probado.
+Versión 0.6.0. Conviene saber cómo se ha probado.
 
 El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
 
@@ -278,8 +319,11 @@ Lo que falta es rodaje en hardware real. Los formatos del banco de pruebas está
 - **Desgaste de los SSD sin probar en hardware real.** La respuesta de UDisks está escrita a partir de su documentación. Si en tu SSD la columna «Vida útil» sale vacía, abre una incidencia.
 - **Detalle de SMART.** Se muestra estado, temperatura, horas y sectores dañados. La tabla completa de atributos sigue pidiendo `sudo smartctl -a`.
 - **Registro del kernel.** Para leerlo, tu usuario debe pertenecer al grupo `adm`. El primer usuario de Mint suele estar.
-- **Uso de la GPU en Intel.** Es una estimación a partir del tiempo de reposo de la gráfica, sin probar todavía en hardware real. El uso por programa sigue sin mostrarse.
-- **Latencias de la RAM.** Los tiempos del SPD necesitan acceso al bus I2C con root.
+- **Uso de la GPU en Intel.** Es una estimación a partir del tiempo de reposo de la gráfica, sin probar todavía en hardware real.
+- **Datos internos de la memoria.** Dependen de que la placa publique el SPD al sistema; muchas sí, algunas no. La lectura de DDR4 está contrastada con `decode-dimms`; la de DDR5 y los perfiles XMP siguen las posiciones de memtest86+ y aún no se han probado con módulos reales. Los perfiles EXPO se detectan, pero sus tiempos no se leen.
+- **Multiplicadores del procesador.** Se leen en AMD Ryzen (Zen 1 a Zen 5) e Intel. No se muestra el voltaje que pide el procesador: su codificación cambia según la generación y no está verificada.
+- **Motivos de límite de la gráfica.** En AMD solo para las versiones de `gpu_metrics` que MintMachine conoce (las de las gráficas Radeon de consumo y las integradas recientes); en las demás no sale la fila.
+- **Pruebas.** Las de estrés y rendimiento se han probado en una máquina virtual sin sensores de temperatura y con la gráfica por software; el corte por temperatura y el de batería se han probado con datos simulados.
 - **Wayland.** El modo de pantalla en uso se pide al escritorio: GNOME y Cinnamon por D-Bus, KDE Plasma con `kscreen-doctor` y Sway, Hyprland y similares con `wlr-randr`. Está comprobado con respuestas de ejemplo, no en cada escritorio real; en otros compositores sale la ficha del monitor sin el modo en uso.
 - **Aplicaciones del Monitor.** GNOME, KDE, Flatpak y Snap dan el nombre exacto de cada aplicación; en Cinnamon se agrupa por ejecutable, así que varios programas hechos en Python salen juntos como `python3`.
 - **Distribuciones sin `.deb`.** El programa funciona, pero el inventario de paquetes y la revisión de drivers salen vacíos.
@@ -322,7 +366,7 @@ packaging/build-deb.sh
 
 El paquete queda en `dist/`. Solo hace falta `dpkg-deb`. La versión se toma de la variable `VERSION` de `mintmachine.py`. El campo «Maintainer» del paquete lleva solo «MintMachine», sin datos personales: dpkg lo exige y, si falta, apt muestra un aviso cada vez que se usa.
 
-En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.5.4`, adjunta el `.deb` a esa versión.
+En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.6.0`, adjunta el `.deb` a esa versión.
 
 ## Pruebas
 
@@ -352,15 +396,15 @@ Para probar un caso nuevo, por ejemplo un ventilador parado o un disco con fallo
 ```
 git init
 git add .
-git commit -m "MintMachine 0.5.4"
+git commit -m "MintMachine 0.6.0"
 git branch -M main
 git remote add origin https://github.com/TU-USUARIO/mintmachine.git
 git push -u origin main
-git tag v0.5.4
-git push origin v0.5.4
+git tag v0.6.0
+git push origin v0.6.0
 ```
 
-3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.5.4`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.5.4` y adjunta `mintmachine_0.5.4_all.deb`.
+3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.6.0`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.6.0` y adjunta `mintmachine_0.6.0_all.deb`.
 4. Cuando tengas la dirección del repositorio, añádela a `data/mintmachine.metainfo.xml` con `<url type="homepage">…</url>`.
 
 Las incidencias usan las plantillas de `.github/ISSUE_TEMPLATE`, que piden el informe para foros con los datos personales ocultos.

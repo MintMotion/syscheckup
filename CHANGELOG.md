@@ -1,5 +1,15 @@
 # Cambios
 
+## 0.6.0 (14/11/2026)
+
+- **Pruebas voluntarias**, con botón en su pestaña y siempre con aviso y confirmación: estabilidad y rendimiento del procesador, memoria, rendimiento y carga sostenida de la gráfica, y velocidad del disco. Ventana en vivo con temperatura, frecuencia y botón Detener; corte automático por temperatura o si el portátil se desconecta de la corriente; resultados guardados y comparados con tus mediciones anteriores.
+- **Datos internos con tu contraseña**, solo si los pides: tiempos, perfiles XMP, fabricante de los chips y fecha de fabricación de cada módulo de memoria (DDR4 y DDR5), y frecuencia base, multiplicadores y consumo en vatios del procesador. Los lee un ayudante aparte que solo lee.
+- **Historial de salud de los discos:** una medición al día; avisa si aparecen sectores dañados o errores nuevos y estima cuánto le queda a un SSD a su ritmo de desgaste.
+- **Gráfica:** temperatura, consumo y su límite, qué la está limitando, BIOS de la tarjeta, fabricante de la memoria de vídeo y Resizable BAR (AMD y NVIDIA).
+- **Monitor en vivo:** programas que usan la gráfica y máximos alcanzados desde que abriste el programa.
+- **Memoria:** si hay un servicio que proteja el equipo cuando se acaba la memoria; si no lo hay y se han cerrado programas por falta de memoria, sugiere earlyoom.
+- Corregido: la presión del sistema del Monitor salía con «memoria» y «disco» en español en los demás idiomas.
+
 ## 0.5.4 (14/11/2026)
 
 - **Firmware que falta:** el aviso del diagnóstico dice ahora qué archivo falta, de qué dispositivo es y qué paquete lo trae (en LMDE y Debian, el paquete `firmware-*` que corresponde; en Linux Mint y Ubuntu, `linux-firmware`). En «Actualizaciones de drivers», la tabla de detalles añade el driver, el dispositivo, el paquete y una nota.
