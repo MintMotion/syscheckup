@@ -49,7 +49,7 @@ APP = "MintMachine"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.6.1"
+VERSION = "0.6.2"
 JSON_SCHEMA = 2
 
 READONLY = "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
@@ -6023,7 +6023,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                               max_children_per_line=4, homogeneous=False)
             if (sid == "memoria" and not spd_sysfs()) or (sid == "cpu" and cpu_needs_password()):
                 what = "spd" if sid == "memoria" else "cpu"
-                b = styled(Gtk.Button(label=_("Leer datos internos… (pide tu contraseña)")), "mm-ghost")
+                b = styled(Gtk.Button(label=_("Leer datos internos…")), "mm-ghost")
                 b.connect("clicked", lambda _b, w=what: self.on_probe(w))
                 row.add(self.with_info(b, probe_info(what)))
             for tid, t in TESTS.items():

@@ -3290,3 +3290,6 @@ msgstr "Le mot de passe n'a pas pu être demandé ou n'a pas été autorisé : r
 
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con {herramienta} y reinicia."
 msgstr "Si ce périphérique fonctionne bien, il n'y a rien à faire : beaucoup de pilotes essaient plusieurs versions jusqu'à trouver celle qui est installée. S'il ne fonctionne pas, installez le paquet {paquete} avec {herramienta} et redémarrez."
+
+msgid "Leer datos internos…"
+msgstr "Lire les données internes…"

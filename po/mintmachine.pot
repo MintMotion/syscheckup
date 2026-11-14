@@ -4582,3 +4582,7 @@ msgstr ""
 #: mintmachine.py
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con {herramienta} y reinicia."
 msgstr ""
+
+#: mintmachine.py
+msgid "Leer datos internos…"
+msgstr ""

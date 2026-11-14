@@ -3290,3 +3290,6 @@ msgstr "无法请求密码或未获授权：没有读取任何内容。如果没
 
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con {herramienta} y reinicia."
 msgstr "如果该设备工作正常，则无需任何操作：许多驱动程序会尝试多个版本，直到找到已安装的版本。如果设备出现故障，请使用{herramienta}安装 {paquete} 软件包，然后重新启动。"
+
+msgid "Leer datos internos…"
+msgstr "读取内部数据…"

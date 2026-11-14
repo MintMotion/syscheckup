@@ -37,6 +37,11 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.6.2" date="2026-11-14">
+      <description>
+        <p>Texto del botón de datos internos más corto.</p>
+      </description>
+    </release>
     <release version="0.6.1" date="2026-11-14">
       <description>
         <p>Menos contraseñas, explicación de cada prueba y compatibilidad con cualquier distribución basada en Debian y cualquier escritorio.</p>

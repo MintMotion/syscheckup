@@ -3290,3 +3290,6 @@ msgstr "パスワードを要求できなかったか、承認されませんで
 
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con {herramienta} y reinicia."
 msgstr "そのデバイスが正常に動作していれば、何もする必要はありません。多くのドライバーは、インストール済みのものが見つかるまで複数のバージョンを試します。動作しない場合は、{herramienta}で {paquete} パッケージをインストールして再起動してください。"
+
+msgid "Leer datos internos…"
+msgstr "内部データを読み取る…"

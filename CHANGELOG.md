@@ -1,5 +1,9 @@
 # Cambios
 
+## 0.6.2 (14/11/2026)
+
+- El botón de datos internos ya no dice «pide tu contraseña»: si hace falta, el sistema la pide al pulsarlo.
+
 ## 0.6.1 (14/11/2026)
 
 - **Menos contraseñas:** la frecuencia base, máxima y mínima del procesador con sus multiplicadores, los datos de los módulos de memoria (si el kernel ya los publica) y el consumo del procesador (si el sistema deja leerlo) se leen sin contraseña. El botón que la pide solo aparece cuando queda algo que solo puede leer el administrador, y solo pide lo de su pestaña.

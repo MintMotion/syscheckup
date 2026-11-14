@@ -110,7 +110,7 @@ Todo lo que el sistema deja leer a tu usuario se lee sin contraseña, y solo hay
 
 Junto a cada botón de prueba y de datos internos hay una «i»: al pulsarla explica qué hace, cuánto dura, qué utilidad usa, si pide contraseña y cuándo se detiene sola.
 
-El botón **Leer datos internos… (pide tu contraseña)** lee lo que guardan los propios componentes y que el sistema solo enseña al administrador:
+El botón **Leer datos internos…** (al pulsarlo, el sistema te pide la contraseña) lee lo que guardan los propios componentes y que el sistema solo enseña al administrador:
 
 - **Memoria (SPD):** fabricante del módulo y de sus chips, referencia, fecha de fabricación, velocidad y tiempos de serie (CL-tRCD-tRP-tRAS) y los perfiles del fabricante (XMP). Si la memoria funciona a la velocidad estándar y sus perfiles permiten más, lo indica. Funciona con DDR4 y DDR5 cuando la placa publica estos datos al sistema (drivers `ee1004` y `spd5118` del kernel; en Ubuntu 24.04 la DDR5 necesita el kernel HWE).
 - **Procesador:** frecuencia base y multiplicadores, estados de rendimiento (AMD) y turbo máximo (Intel), y el consumo del procesador en vatios medido durante un segundo.
@@ -231,7 +231,7 @@ Desde la terminal hace lo mismo: `sudo apt purge mintmachine` y después `rm -rf
 Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
 
 ```
-sudo apt install ./mintmachine_0.6.1_all.deb
+sudo apt install ./mintmachine_0.6.2_all.deb
 ```
 
 `apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre MintMachine. Si tenías una versión anterior, este paquete la actualiza; si tenías la primera, que se llamaba Radiografía, la sustituye.
@@ -322,7 +322,7 @@ Si falta alguna utilidad, la sección correspondiente sale más corta y el resto
 
 ## Estado del proyecto
 
-Versión 0.6.1. Conviene saber cómo se ha probado.
+Versión 0.6.2. Conviene saber cómo se ha probado.
 
 El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
 
@@ -384,7 +384,7 @@ packaging/build-deb.sh
 
 El paquete queda en `dist/`. Solo hace falta `dpkg-deb`. La versión se toma de la variable `VERSION` de `mintmachine.py`. El campo «Maintainer» del paquete lleva solo «MintMachine», sin datos personales: dpkg lo exige y, si falta, apt muestra un aviso cada vez que se usa.
 
-En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.6.1`, adjunta el `.deb` a esa versión.
+En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.6.2`, adjunta el `.deb` a esa versión.
 
 ## Pruebas
 
@@ -414,15 +414,15 @@ Para probar un caso nuevo, por ejemplo un ventilador parado o un disco con fallo
 ```
 git init
 git add .
-git commit -m "MintMachine 0.6.1"
+git commit -m "MintMachine 0.6.2"
 git branch -M main
 git remote add origin https://github.com/TU-USUARIO/mintmachine.git
 git push -u origin main
-git tag v0.6.1
-git push origin v0.6.1
+git tag v0.6.2
+git push origin v0.6.2
 ```
 
-3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.6.1`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.6.1` y adjunta `mintmachine_0.6.1_all.deb`.
+3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.6.2`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.6.2` y adjunta `mintmachine_0.6.2_all.deb`.
 4. Cuando tengas la dirección del repositorio, añádela a `data/mintmachine.metainfo.xml` con `<url type="homepage">…</url>`.
 
 Las incidencias usan las plantillas de `.github/ISSUE_TEMPLATE`, que piden el informe para foros con los datos personales ocultos.

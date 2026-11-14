@@ -3290,3 +3290,6 @@ msgstr "The password could not be requested or was not authorized: nothing has b
 
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con {herramienta} y reinicia."
 msgstr "If that device works fine, there is nothing to do: many drivers try several versions until they find the installed one. If it fails, install the {paquete} package with {herramienta} and restart."
+
+msgid "Leer datos internos…"
+msgstr "Read internal data…"
