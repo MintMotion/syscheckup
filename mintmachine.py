@@ -846,7 +846,7 @@ def sec_monitor(ctx):
     for res, label in (("cpu", "CPU"), ("memory", "memoria"), ("io", "disco")):
         m = re.search(r"some avg10=([\d.]+)", read("/proc/pressure/" + res))
         if m:
-            psi.append(f"{label} {float(m.group(1)):.0f} %")
+            psi.append(f"{_(label)} {float(m.group(1)):.0f} %")
             if res == "memory" and float(m.group(1)) >= 10:
                 ctx.flag("warn", "Memoria", _("Los programas están esperando por falta de memoria (presión del {n:.0f} %), y eso hace que el equipo vaya lento.").format(n=float(m.group(1))),
                          "Cierra programas o pestañas del navegador que no estés usando. Si te pasa a "

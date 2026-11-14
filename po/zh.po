@@ -3071,3 +3071,24 @@ msgstr "电流"
 
 msgid "temperatura"
 msgstr "温度"
+
+msgid "BIOS de la tarjeta"
+msgstr "显卡 BIOS"
+
+msgid "Pruebas que has hecho"
+msgstr "您进行过的测试"
+
+msgid "Consumo del procesador al leerlo"
+msgstr "读取时的处理器功耗"
+
+msgid "Velocidad y tiempos de serie"
+msgstr "默认速度和时序"
+
+msgid "Datos internos del procesador"
+msgstr "处理器内部数据"
+
+msgid "glmark2-x11 (o glmark2-wayland)"
+msgstr "glmark2-x11（或 glmark2-wayland）"
+
+msgid "disco"
+msgstr "磁盘"

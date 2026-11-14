@@ -3071,3 +3071,24 @@ msgstr "電流"
 
 msgid "temperatura"
 msgstr "温度"
+
+msgid "BIOS de la tarjeta"
+msgstr "カードの BIOS"
+
+msgid "Pruebas que has hecho"
+msgstr "実行したテスト"
+
+msgid "Consumo del procesador al leerlo"
+msgstr "読み取り時のプロセッサー消費電力"
+
+msgid "Velocidad y tiempos de serie"
+msgstr "標準の速度とタイミング"
+
+msgid "Datos internos del procesador"
+msgstr "プロセッサーの内部データ"
+
+msgid "glmark2-x11 (o glmark2-wayland)"
+msgstr "glmark2-x11（または glmark2-wayland）"
+
+msgid "disco"
+msgstr "ディスク"

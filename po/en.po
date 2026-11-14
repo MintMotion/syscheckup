@@ -3071,3 +3071,24 @@ msgstr "current"
 
 msgid "temperatura"
 msgstr "temperature"
+
+msgid "BIOS de la tarjeta"
+msgstr "Card BIOS"
+
+msgid "Pruebas que has hecho"
+msgstr "Tests you have run"
+
+msgid "Consumo del procesador al leerlo"
+msgstr "Processor power draw when read"
+
+msgid "Velocidad y tiempos de serie"
+msgstr "Stock speed and timings"
+
+msgid "Datos internos del procesador"
+msgstr "Processor internal data"
+
+msgid "glmark2-x11 (o glmark2-wayland)"
+msgstr "glmark2-x11 (or glmark2-wayland)"
+
+msgid "disco"
+msgstr "disk"

@@ -4290,3 +4290,31 @@ msgstr ""
 #: mintmachine.py
 msgid "temperatura"
 msgstr ""
+
+#: mintmachine.py
+msgid "BIOS de la tarjeta"
+msgstr ""
+
+#: mintmachine.py
+msgid "Pruebas que has hecho"
+msgstr ""
+
+#: mintmachine.py
+msgid "Consumo del procesador al leerlo"
+msgstr ""
+
+#: mintmachine.py
+msgid "Velocidad y tiempos de serie"
+msgstr ""
+
+#: mintmachine.py
+msgid "Datos internos del procesador"
+msgstr ""
+
+#: mintmachine.py
+msgid "glmark2-x11 (o glmark2-wayland)"
+msgstr ""
+
+#: mintmachine.py
+msgid "disco"
+msgstr ""
