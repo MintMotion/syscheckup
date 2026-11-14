@@ -1098,6 +1098,7 @@ def sec_cpu(ctx):
 
     return section("cpu", "Procesador", cpu_live() + [
         general,
+        cpu_adv_block(),
         table("Hilos en tiempo real", ["Hilo", "Frecuencia", "Uso"], per_core),
         tech,
         kv("Cachés", cpu_caches(), adv=True,
@@ -1375,7 +1376,7 @@ def sec_memory(ctx):
     else:
         ctx.summary["ram"] = human(total)
     ctx.data["ram_frac"] = items[0]
-    return section("memoria", "Memoria", blocks)
+    return section("memoria", "Memoria", blocks + spd_blocks())
 
 
 # ───────────────────────── PCI, gráfica y pantallas ─────────────────────────
@@ -3990,6 +3991,246 @@ def tests_block(tab):
                  help="Solo se hacen si pulsas el botón. Se guardan en tu equipo para poder comparar.")
 
 
+# ───────────── datos avanzados (con contraseña, mediante el ayudante de solo lectura) ─────────────
+
+def probe_path():
+    for p in ("/usr/libexec/mintmachine/mintmachine-probe",
+              os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "mintmachine-probe")):
+        if os.path.isfile(p) and os.access(p, os.X_OK):
+            return p
+    return None
+
+
+def run_probe(what):
+    """Lanza el ayudante con pkexec (pide la contraseña). Devuelve (datos, mensaje de error)."""
+    helper = probe_path()
+    if not helper or not have("pkexec"):
+        return None, _("Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine.")
+    try:
+        p = subprocess.run(["pkexec", helper, what], capture_output=True, text=True, timeout=120)
+    except (OSError, subprocess.TimeoutExpired):
+        return None, _("El ayudante no respondió.")
+    if p.returncode in (126, 127):
+        return None, _("No se ha dado la contraseña: no se ha leído nada.")
+    try:
+        return json.loads(p.stdout), ""
+    except ValueError:
+        return None, _("El ayudante no devolvió datos válidos.")
+
+
+def spd_crc(b, end):
+    crc = 0
+    for x in b[:end]:
+        crc ^= x << 8
+        for _i in range(8):
+            crc = ((crc << 1) ^ 0x1021) if crc & 0x8000 else crc << 1
+    return crc & 0xFFFF
+
+
+def _bcd(x):
+    return (x >> 4) * 10 + (x & 0xF) if (x >> 4) < 10 and (x & 0xF) < 10 else None
+
+
+def _jedec(c, v):
+    code = f"{c:02X}{v:02X}"
+    if c in (0, 0xFF) and v in (0, 0xFF):
+        return ""
+    return JEDEC_RAM.get(code) or _("Código JEDEC {codigo}").format(codigo=code)
+
+
+def _ascii(b):
+    return bytes(x for x in b if 32 <= x < 127).decode().strip()
+
+
+def _cl_ddr4(tns, tck):
+    return int(tns / tck + 0.9)          # mismo redondeo que las herramientas de referencia
+
+
+def decode_spd(raw):
+    """Decodifica los datos SPD de un módulo DDR4 o DDR5. Las posiciones de los campos son las de las
+    normas JEDEC (anexo L de JESD21-C para DDR4 y JESD400-5 para DDR5), contrastadas con memtest86+.
+    Si la suma de control no coincide, no se muestra ningún tiempo."""
+    b = bytes.fromhex(raw)
+    if len(b) < 256 or set(b[:128]) <= {0x00, 0xFF}:
+        return {"error": _("La placa no deja leer los datos del módulo (se leen vacíos).")}
+    kind = b[2]
+    s8 = lambda x: x - 256 if x > 127 else x
+    if kind == 0x0C and len(b) >= 512:                      # DDR4
+        if spd_crc(b, 126) != b[126] | (b[127] << 8):
+            return {"error": _("Los datos del módulo no superan la comprobación de integridad.")}
+        mtb = lambda coarse, fine: coarse * 0.125 + s8(fine) * 0.001
+        tck = mtb(b[18], b[125])
+        out = {"tipo": "DDR4", "fabricante": _jedec(b[320], b[321]), "chips": _jedec(b[350], b[351]),
+               "referencia": _ascii(b[329:349])}
+        y, w = _bcd(b[323]), _bcd(b[324])
+        out["fecha"] = _("semana {w} de {y}").format(w=w, y=2000 + y) if y is not None and w else ""
+        dies = ((b[6] >> 4) & 0x7) + 1 if (b[6] & 0x3) == 2 else 1          # solo los apilados 3DS
+        size_mb = (1 << (((b[4] & 0xF) + 5) + ((b[13] & 0x7) + 3) - ((b[12] & 0x7) + 2) + ((b[12] >> 3) & 0x7))) * dies
+        out["tamano"] = size_mb << 20
+        out["rangos"] = ((b[12] >> 3) & 0x7) + 1
+        out["ecc"] = bool((b[13] >> 3) & 1)
+
+        def prof(tck_, aa, rcd, rp, ras):
+            return {"velocidad": ddr_rate(2000 / tck_),
+                    "tiempos": f"{_cl_ddr4(aa, tck_)}-{_cl_ddr4(rcd, tck_)}-{_cl_ddr4(rp, tck_)}-{_cl_ddr4(ras, tck_)}"}
+        out["jedec"] = prof(tck, mtb(b[24], b[123]), mtb(b[25], b[122]), mtb(b[26], b[121]),
+                            ((b[27] & 0x0F) << 8 | b[28]) * 0.125)
+        if b[384] == 0x0C and b[385] == 0x4A:               # perfil XMP 2.0 n.º 1
+            t = mtb(b[396], b[431])
+            if t > 0:
+                out["xmp"] = [prof(t, mtb(b[401], b[430]), mtb(b[402], b[429]), mtb(b[403], b[428]),
+                                   mtb(b[405], b[427]) + (b[404] & 0x0F) * 32)]
+        return out
+    if kind == 0x12 and len(b) >= 1024:                     # DDR5
+        if spd_crc(b, 510) != b[510] | (b[511] << 8):
+            return {"error": _("Los datos del módulo no superan la comprobación de integridad.")}
+        u16 = lambda i: b[i] | (b[i + 1] << 8)
+        out = {"tipo": "DDR5", "fabricante": _jedec(b[512], b[513]), "chips": "",
+               "referencia": _ascii(b[521:551]), "ecc": bool((b[235] >> 3) & 3)}
+        y, w = _bcd(b[515]), _bcd(b[516])
+        out["fecha"] = _("semana {w} de {y}").format(w=w, y=2000 + y) if y is not None and w else ""
+
+        def cl5(tps, tck_):
+            return (tps + tck_ - 30) // tck_
+
+        def prof5(tck_, base):
+            cl = cl5(u16(base), tck_)
+            cl += cl % 2
+            return {"velocidad": ddr_rate(2e6 / tck_),
+                    "tiempos": f"{cl}-{cl5(u16(base + 2), tck_)}-{cl5(u16(base + 4), tck_)}-{cl5(u16(base + 6), tck_)}"}
+        tck = u16(20)
+        if tck:
+            out["jedec"] = prof5(tck, 30)
+        if b[640] == 0x0C and b[641] == 0x4A:               # XMP 3.0: dos perfiles del fabricante
+            out["xmp"] = []
+            for off in (0, 64):
+                t = u16(709 + off)
+                if t >= 100:
+                    out["xmp"].append(prof5(t, 717 + off))
+        if b"EXPO" in b[640:1024]:
+            out["expo"] = True
+        return out
+    return {"error": _("Tipo de memoria que MintMachine aún no sabe leer.")}
+
+
+def ddr_rate(mhz2):
+    """MT/s redondeados a las velocidades comerciales (…, 2133, 2400, 2666, 3200, 3600…)."""
+    r = round(mhz2)
+    for nominal in (1600, 1866, 2133, 2400, 2666, 2933, 3000, 3200, 3333, 3466, 3600, 3733, 3866, 4000,
+                    4133, 4266, 4400, 4600, 4800, 5200, 5600, 6000, 6200, 6400, 6600, 6800, 7000, 7200,
+                    7600, 8000, 8400, 8800):
+        if abs(r - nominal) <= 15:
+            return nominal
+    return int(round(r / 100.0) * 100)
+
+
+def decode_cpu(d):
+    """P-states de AMD (registros 0xC0010064…6B) o multiplicadores de Intel (0xCE, 0x1AD)."""
+    msr = {int(k, 16): v for k, v in d.get("msr", {}).items()}
+    rows = []
+    fam = d.get("family") or next((int(b.get("cpu family", "0")) for b in cpuinfo() if b.get("cpu family")), 0)
+    if d.get("vendor") == "AMD" and fam in (0x17, 0x19, 0x1A):
+        states = []
+        for i in range(8):
+            v = msr.get(0xC0010064 + i)
+            if not v or not v >> 63:
+                continue
+            if fam == 0x1A:
+                f = (v & 0xFFF) * 5
+            else:
+                did = (v >> 8) & 0x3F
+                f = (v & 0xFF) * 200 / did if did else 0
+            if f:
+                states.append((i, f))
+        if states:
+            rows.append(("Frecuencia base (P0)", f"{states[0][1]:.0f} MHz · " + _("multiplicador ×{m}").format(
+                m=num(states[0][1] / 100, 2).rstrip("0").rstrip(",.") or "0")))
+            rows.append(("Estados de rendimiento", " · ".join(f"P{i} {f:.0f} MHz" for i, f in states)))
+    elif d.get("vendor") == "Intel":
+        pi, tr = msr.get(0xCE), msr.get(0x1AD)
+        if pi:
+            base, low = (pi >> 8) & 0xFF, (pi >> 40) & 0xFF
+            if base:
+                rows.append(("Frecuencia base", f"{base * 100} MHz · " + _("multiplicador ×{m}").format(m=base)))
+            if low:
+                rows.append(("Frecuencia mínima", f"{low * 100} MHz · " + _("multiplicador ×{m}").format(m=low)))
+        if tr and tr & 0xFF:
+            rows.append(("Turbo máximo con un núcleo", f"{(tr & 0xFF) * 100} MHz · " +
+                         _("multiplicador ×{m}").format(m=tr & 0xFF)))
+        if rows:
+            rows.append(("Reloj de bus", _("100 MHz (el habitual en los procesadores actuales)")))
+    for name, w in d.get("rapl", {}).items():
+        if name.startswith("package"):
+            rows.append(("Consumo del procesador al leerlo", f"{num(w)} W"))
+    if not rows and d.get("msr_error"):
+        rows.append(("Registros internos", _("El sistema no deja leerlos ({e}).").format(e=d["msr_error"])))
+    return rows
+
+
+def adv_store(key, value):
+    d = history_load()
+    d[key] = dict(value, t=time.strftime("%Y-%m-%d %H:%M"))
+    history_save(d)
+
+
+def spd_blocks():
+    saved = history_load().get("spd")
+    if not saved:
+        return []
+    rows, notes = [], []
+    for m in saved.get("modules", []):
+        if m.get("error") and not m.get("data"):
+            notes.append(m["error"])
+            continue
+        dec = decode_spd(m["data"])
+        if dec.get("error"):
+            rows.append((m.get("bus", ""), dec["error"], "", "", "", "", ""))
+            continue
+        prof = dec.get("xmp") or []
+        rows.append((m.get("bus", ""), " ".join(x for x in (dec["fabricante"], dec["referencia"]) if x),
+                     f"{dec['tipo']}" + (f" · {human(dec['tamano'])}" if dec.get("tamano") else ""),
+                     (f"{dec['jedec']['velocidad']} MT/s · {dec['jedec']['tiempos']}" if dec.get("jedec") else ""),
+                     " / ".join(f"{p['velocidad']} MT/s · {p['tiempos']}" for p in prof) +
+                     ((" · " if prof else "") + _("perfil EXPO presente") if dec.get("expo") else ""),
+                     dec.get("chips", ""), dec.get("fecha", "")))
+    if not rows and not notes:
+        notes.append(_("Tu placa no publica los datos internos de los módulos de memoria para el sistema."))
+    blocks = [table("Datos internos de los módulos (SPD)", ["Bus", "Módulo", "Tipo", "Velocidad y tiempos de serie",
+                                                             "Perfiles del fabricante (XMP)", "Chips de memoria",
+                                                             "Fabricado"], rows,
+                    help=_("Leído el {fecha} de los propios módulos. Los tiempos son CL-tRCD-tRP-tRAS en ciclos. "
+                           "Los perfiles del fabricante solo se usan si los activas en la BIOS.").format(
+                        fecha=saved.get("t", "")))] if rows else []
+    if rows:
+        speed = configured_speed()
+        jedecs = [decode_spd(m["data"]).get("jedec", {}).get("velocidad") for m in saved.get("modules", []) if m.get("data")]
+        xmps = [p["velocidad"] for m in saved.get("modules", []) if m.get("data")
+                for p in (decode_spd(m["data"]).get("xmp") or [])]
+        if speed and xmps and speed < min(xmps) - 50 and jedecs and jedecs[0] and speed <= jedecs[0] + 50:
+            blocks.append(note(_("Tu memoria funciona a {a} MT/s, la velocidad estándar. Sus perfiles de fábrica "
+                                 "permiten {b} MT/s si los activas en la BIOS (XMP, EXPO o DOCP, según la marca). "
+                                 "Es opcional: hazlo solo si sabes moverte por la BIOS.").format(a=speed, b=max(xmps))))
+    for n_ in notes:
+        blocks.append(note(n_))
+    return blocks
+
+
+def configured_speed():
+    """Velocidad a la que funciona ahora la memoria, según la tabla DMI."""
+    vals = [int(re.sub(r"\D", "", d.get("CONFIGURED_SPEED_MTS", "")) or 0) for d in dmi_memory()[1]]
+    vals = [v for v in vals if v]
+    return min(vals) if vals else None
+
+
+def cpu_adv_block():
+    saved = history_load().get("cpu_avanzado")
+    if not saved:
+        return None
+    rows = decode_cpu(saved)
+    return kv("Datos internos del procesador", rows,
+              help=_("Leído el {fecha} de los registros internos del procesador.").format(fecha=saved.get("t", ""))) if rows else None
+
+
 def live_now():
     """Barras de «Ahora mismo» del Inicio: se recalculan cada pocos segundos."""
     items = []
@@ -5578,6 +5819,12 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                                  "mm-dim", wrap=True), False, False, 0)
             row = Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, column_spacing=10, row_spacing=10,
                               max_children_per_line=4, homogeneous=False)
+            if sid in ("cpu", "memoria"):
+                b = styled(Gtk.Button(label=_("Leer datos internos… (pide tu contraseña)")), "mm-ghost")
+                b.set_tooltip_text(_("Lee, sin cambiar nada, los datos que guardan los propios componentes: "
+                                     "tiempos y perfiles de la memoria, multiplicadores y consumo del procesador."))
+                b.connect("clicked", lambda _b: self.on_probe())
+                row.add(b)
             for tid, t in TESTS.items():
                 if t["tab"] != sid:
                     continue
@@ -5587,6 +5834,27 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 row.add(b)
             box.pack_start(row, False, False, 0)
             return self.card(box)
+
+        def on_probe(self):
+            self.notify(_("Esperando la contraseña…"))
+
+            def work():
+                data, err = run_probe("todo")
+                GLib.idle_add(done, data, err)
+
+            def done(data, err):
+                if err:
+                    self.message(Gtk.MessageType.INFO, _("No se han leído los datos internos"), err)
+                    return False
+                if data.get("spd") is not None:
+                    adv_store("spd", data["spd"])
+                if data.get("cpu") is not None:
+                    adv_store("cpu_avanzado", data["cpu"])
+                for sid_ in ("cpu", "memoria"):
+                    self.refresh_section(sid_)
+                self.notify(_("Datos internos leídos"))
+                return False
+            threading.Thread(target=work, daemon=True).start()
 
         def on_test(self, tid):
             if getattr(self, "test_run", None) and not self.test_run.done:

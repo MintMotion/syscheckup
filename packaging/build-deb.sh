@@ -22,6 +22,11 @@ for n in 16 22 24 32 48 64 128 256; do
   install -Dm644 "data/icons/mintmachine-$n.png" "$PKG/usr/share/icons/hicolor/${n}x${n}/apps/mintmachine.png"
 done
 install -Dm644 data/mintmachine.svg     "$PKG/usr/share/pixmaps/mintmachine.svg"
+# Ayudante de solo lectura para los datos internos (SPD de la memoria, registros del procesador) y su
+# regla de polkit: solo se ejecuta si el usuario lo pide y escribe su contraseña.
+install -Dm755 data/mintmachine-probe   "$PKG/usr/libexec/mintmachine/mintmachine-probe"
+sed -i '1s|.*|#!/usr/bin/python3|' "$PKG/usr/libexec/mintmachine/mintmachine-probe"
+install -Dm644 data/org.mintmachine.probe.policy "$PKG/usr/share/polkit-1/actions/org.mintmachine.probe.policy"
 install -Dm644 data/mintmachine.metainfo.xml "$PKG/usr/share/metainfo/mintmachine.metainfo.xml"
 for po in po/*.po; do                    # traducciones: el programa lee los .po directamente
   install -Dm644 "$po" "$PKG/usr/share/mintmachine/po/$(basename "$po")"
@@ -38,8 +43,8 @@ Section: utils
 Priority: optional
 Architecture: all
 Depends: python3 (>= 3.8), python3-gi, python3-gi-cairo, gir1.2-gtk-3.0
-Recommends: pciutils, iproute2, udisks2, libglib2.0-bin, fwupd, mesa-utils, x11-xserver-utils, iw, pkexec | policykit-1
-Suggests: vainfo, vulkan-tools, lm-sensors, fonts-noto-cjk
+Recommends: pciutils, iproute2, udisks2, libglib2.0-bin, fwupd, mesa-utils, x11-xserver-utils, iw, pkexec | policykit-1, stress-ng, 7zip, glmark2-x11 | glmark2-wayland
+Suggests: vainfo, vulkan-tools, lm-sensors, fonts-noto-cjk, memtest86+, earlyoom
 Conflicts: radiografia
 Replaces: radiografia
 Installed-Size: $(du -sk "$PKG/usr" | cut -f1)
