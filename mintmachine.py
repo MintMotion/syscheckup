@@ -460,28 +460,81 @@ def section(sid, title, blocks):
 # Herramientas gráficas del propio sistema a las que puede llevar un aviso del
 # diagnóstico. Se abren como programas normales: si necesitan permisos, son
 # ellas las que piden la contraseña. MintMachine nunca ejecuta nada como root.
+@once
+def distro():
+    """Familia de la distribución: «mint» (también LMDE), «ubuntu» (y derivadas), «debian» u «otra»."""
+    osr = keyvals(read("/etc/os-release"))
+    ids = (osr.get("ID", "") + " " + osr.get("ID_LIKE", "")).lower()
+    if "linuxmint" in ids:
+        return "mint"
+    if "ubuntu" in ids:
+        return "ubuntu"
+    if "debian" in ids:
+        return "debian"
+    return "otra"
+
+
+# Herramientas gráficas del sistema, por orden de preferencia, para cada escritorio y distribución.
+# Cada aviso del diagnóstico lleva el botón de la primera que esté instalada; si no hay ninguna, no
+# sale botón. El nombre que se muestra es el de la herramienta que se va a abrir.
 ACTIONS = {
-    "updates": ("Abrir el Gestor de actualizaciones", [["mintupdate"], ["update-manager"], ["gnome-software", "--mode=updates"]]),
-    "drivers": ("Abrir el Gestor de controladores", [["driver-manager"], ["software-properties-gtk", "--open-tab=4"]]),
-    "disks": ("Abrir Discos", [["gnome-disks"]]),
-    "usage": ("Ver qué ocupa el disco", [["baobab"]]),
-    "backup": ("Abrir Copias de seguridad", [["mintbackup"], ["deja-dup"]]),
-    "snapshots": ("Abrir Timeshift", [["timeshift-launcher"], ["timeshift-gtk"]]),
-    "firewall": ("Abrir el Cortafuegos", [["gufw"]]),
-    "firmware": ("Abrir Firmware", [["gnome-firmware"]]),
-    "sysmon": ("Abrir el Monitor del sistema", [["gnome-system-monitor"], ["mate-system-monitor"], ["xfce4-taskmanager"]]),
-    "logs": ("Abrir los registros del sistema", [["mintreport"], ["gnome-logs"]]),
-    "power": ("Abrir la configuración de energía", [["cinnamon-settings", "power"], ["mate-power-preferences"],
-                                                   ["xfce4-power-manager-settings"]]),
+    "updates": [("el Gestor de actualizaciones", ["mintupdate"]), ("el Actualizador de software", ["update-manager"]),
+                ("la aplicación Software", ["gnome-software", "--mode=updates"]),
+                ("Discover", ["plasma-discover", "--mode", "update"]), ("el Centro de aplicaciones", ["snap-store"]),
+                ("el Gestor de paquetes Synaptic", ["synaptic-pkexec"])],
+    "drivers": [("el Gestor de controladores", ["driver-manager"]),
+                ("«Controladores adicionales» de «Software y actualizaciones»", ["software-properties-gtk", "--open-tab=4"])],
+    "store": [("el Gestor de software", ["mintinstall"]), ("la aplicación Software", ["gnome-software"]),
+              ("Discover", ["plasma-discover"]), ("el Centro de aplicaciones", ["snap-store"]),
+              ("el Gestor de paquetes Synaptic", ["synaptic-pkexec"])],
+    "disks": [("Discos", ["gnome-disks"]), ("el Gestor de particiones de KDE", ["partitionmanager"])],
+    "usage": [("el Analizador de uso de disco", ["baobab"]), ("Filelight", ["filelight"]), ("QDirStat", ["qdirstat"])],
+    "backup": [("Copias de seguridad", ["mintbackup"]), ("Déjà Dup", ["deja-dup"]), ("Kup", ["kup"])],
+    "snapshots": [("Timeshift", ["timeshift-launcher"]), ("Timeshift", ["timeshift-gtk"])],
+    "firewall": [("el Cortafuegos", ["gufw"]), ("el Cortafuegos", ["firewall-config"])],
+    "firmware": [("Firmware", ["gnome-firmware"]), ("Discover", ["plasma-discover", "--mode", "update"])],
+    "sysmon": [("el Monitor del sistema", ["gnome-system-monitor"]), ("el Monitor del sistema", ["mate-system-monitor"]),
+               ("el Monitor del sistema", ["plasma-systemmonitor"]), ("el Monitor del sistema", ["ksysguard"]),
+               ("el Gestor de tareas", ["xfce4-taskmanager"]), ("el Gestor de tareas", ["lxtask"]),
+               ("Mission Center", ["missioncenter"])],
+    "logs": [("el Informe del sistema", ["mintreport"]), ("Registros", ["gnome-logs"]), ("KSystemLog", ["ksystemlog"])],
+    "power": [("la configuración de energía", ["cinnamon-settings", "power"]),
+              ("la configuración de energía", ["gnome-control-center", "power"]),
+              ("la configuración de energía", ["mate-power-preferences"]),
+              ("la configuración de energía", ["xfce4-power-manager-settings"]),
+              ("la configuración de energía", ["systemsettings", "kcm_powerdevilprofilesconfig"]),
+              ("la configuración de energía", ["lxqt-config-powermanagement"])],
 }
+# Lo que se dice cuando no hay herramienta gráfica de ese tipo
+TOOL_FALLBACK = {"updates": "la herramienta de actualizaciones de tu sistema",
+                 "drivers": "la herramienta de drivers de tu distribución",
+                 "store": "el instalador de programas de tu sistema"}
+
+
+def tool_entry(key):
+    for name, cmd in ACTIONS.get(key, []):
+        if cmd[0] == "software-properties-gtk" and not have("ubuntu-drivers"):
+            continue                  # la pestaña de drivers solo existe en Ubuntu y derivadas
+        if have(cmd[0]):
+            return name, cmd
+    return None, None
+
+
+def tool_name(key):
+    """Nombre, con su artículo, de la herramienta del sistema que hace algo (actualizar, instalar…)."""
+    name = tool_entry(key)[0]
+    return _(name) if name else _(TOOL_FALLBACK.get(key, "la herramienta de tu sistema"))
 
 
 def action_cmd(key):
     """Primera orden disponible para una acción, o None."""
-    for cmd in ACTIONS.get(key, ("", []))[1]:
-        if have(cmd[0]):
-            return cmd
-    return None
+    return tool_entry(key)[1]
+
+
+def action_label(key):
+    if key == "usage":
+        return _("Ver qué ocupa el disco")
+    return _("Abrir {herramienta}").format(herramienta=_(tool_entry(key)[0] or ""))
 
 
 class Ctx:
@@ -1091,8 +1144,8 @@ def sec_cpu(ctx):
     if vulnerable:
         ctx.flag("warn", "Procesador", _("El kernel indica fallos de seguridad del procesador sin proteger: "
                                          "{lista}.").format(lista=", ".join(vulnerable)),
-                 "Instala las actualizaciones pendientes, incluidas las del kernel, y el microcódigo del "
-                 "procesador que ofrezca el Gestor de controladores. Después, reinicia.", "updates")
+                 _("Instala las actualizaciones pendientes, incluidas las del kernel y el microcódigo del "
+                   "procesador, con {herramienta}. Después, reinicia.").format(herramienta=tool_name("updates")), "updates")
     ctx.data["cpu_vulnerable"] = vulnerable
     ctx.summary["cpu"] = _("{n} ({cores} núcleos, {threads} hilos)").format(n=pretty_cpu(model), cores=cores, threads=threads)
 
@@ -1827,8 +1880,9 @@ def sec_gpu(ctx):
         ]))
         if not d.get("Driver"):
             ctx.flag("warn", "Gráfica", _("La gráfica {dname} no tiene ningún driver cargado.").format(dname=dname),
-                     "Abre el Gestor de controladores: si ofrece un driver recomendado para tu gráfica, "
-                     "instálalo y reinicia. Si no ofrece nada, pregunta en el foro de tu distribución.", "drivers")
+                     _("Abre {herramienta}: si ofrece un driver recomendado para tu gráfica, instálalo y "
+                       "reinicia. Si no ofrece nada, pregunta en el foro de tu distribución.").format(
+                         herramienta=tool_name("drivers")), "drivers")
 
     for r in nvidia_info() if have("nvidia-smi") else []:
         vram_nv = int(float(r["memory.total"])) << 20 if r.get("memory.total") else 0
@@ -1862,8 +1916,8 @@ def sec_gpu(ctx):
     if "llvmpipe" in g.get("OpenGL renderer string", "").lower() and virt_env() in ("", "none"):
         ctx.flag("warn", "Gráfica", "La gráfica no está acelerando el 3D: lo está dibujando el procesador "
                  "(llvmpipe), así que vídeos, juegos y efectos irán lentos.",
-                 "Abre el Gestor de controladores e instala el driver recomendado para tu gráfica. "
-                 "Después, reinicia.", "drivers")
+                 _("Abre {herramienta} e instala el driver recomendado para tu gráfica. Después, "
+                   "reinicia.").format(herramienta=tool_name("drivers")), "drivers")
 
     va_all = re.findall(r"VAProfile(\w+)\s*:\s*VAEntrypointVLD", va_info())
     va = {k for k in ("H264", "HEVC", "VP9", "AV1", "MPEG2", "VP8", "VC1") if any(n.startswith(k) for n in va_all)}
@@ -2243,7 +2297,7 @@ def sec_storage(ctx):
                            "Número de serie", "Planificador E/S"], disks),
         kv("Mantenimiento", [("TRIM periódico de los SSD", {"enabled": "Activado (fstrim.timer)",
                                                            "disabled": "Desactivado"}.get(trim, ""))],
-           help="El TRIM ayuda a que los SSD mantengan su velocidad. Linux Mint lo activa por defecto."),
+           help="El TRIM ayuda a que los SSD mantengan su velocidad. Las distribuciones actuales lo suelen activar por defecto."),
         table("Particiones y volúmenes", ["Dispositivo", "Tipo", "Sistema de archivos", "Tamaño",
                                           "Montado en", "Uso"], parts, adv=True),
     ]
@@ -2969,8 +3023,8 @@ def sec_updates(ctx):
     if pending:
         ctx.flag("info", "Drivers", _("Hay versión nueva de: {paquetes}.").format(
                  paquetes=", ".join(pending[:8]) + (" " + _("y otros") if len(pending) > 8 else "")),
-                 "Instálala con el Gestor de actualizaciones, como el resto de actualizaciones, y reinicia "
-                 "al terminar.", "updates")
+                 _("Instálala con {herramienta}, como el resto de actualizaciones, y reinicia al "
+                   "terminar.").format(herramienta=tool_name("updates")), "updates")
     ctx.data["driver_updates"] = len(pending)
 
     kernels = sorted((n.replace("linux-image-", "") for n in pk if re.match(r"linux-image-\d", n)), key=natural)
@@ -2983,14 +3037,17 @@ def sec_updates(ctx):
     if kernels and not meta:
         ctx.flag("info", "Drivers", "El kernel no recibirá versiones nuevas por sí solo (falta el paquete "
                  "linux-image-amd64 o linux-image-generic).",
-                 "En Linux Mint los kernels se gestionan desde el Gestor de actualizaciones, menú Ver → Kernels. "
-                 "Si no sabes por qué falta, pregunta en el foro antes de tocar nada.", "updates")
+                 ("En Linux Mint los kernels se gestionan desde el Gestor de actualizaciones, menú Ver → Kernels. "
+                  "Si no sabes por qué falta, pregunta en el foro antes de tocar nada." if have("mintupdate") else
+                  "Si no sabes por qué falta, pregunta en el foro de tu distribución antes de tocar nada."), "updates")
     stamps = [os.path.getmtime(x) for x in ["/var/lib/apt/periodic/update-success-stamp", "/var/lib/apt/lists"]
               + glob.glob("/var/lib/apt/lists/*Release") if os.path.exists(x)]
     age = (time.time() - max(stamps)) / 86400 if stamps else None
     if age is not None and age > 10 and pk:
         ctx.flag("info", "Drivers", _("La lista de paquetes se actualizó hace {age:.0f} días: puede haber versiones nuevas que aún no se ven.").format(age=age),
-                 "Abre el Gestor de actualizaciones y pulsa «Actualizar» (el botón de refrescar la lista).", "updates")
+                 (_("Abre el Gestor de actualizaciones y pulsa «Actualizar» (el botón de refrescar la lista).")
+                  if have("mintupdate") else _("Abre {herramienta} y busca actualizaciones.").format(
+                      herramienta=tool_name("updates"))), "updates")
     resumen = kv("Kernel", [
         ("En ejecución", running),
         ("Más reciente instalado", newest if newest != running else "El mismo que está en ejecución"),
@@ -3029,8 +3086,9 @@ def sec_updates(ctx):
                           ", ".join(d["modules"]) or "Ninguno conocido"))
             if cid[:2] in IMPORTANT_PCI:
                 ctx.flag("warn", "Drivers", _("El dispositivo de {n} «{dname}» no tiene driver cargado.").format(n=IMPORTANT_PCI[cid[:2]], dname=dname),
-                         "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu "
-                         "distribución con el informe de MintMachine (con los datos personales ocultos).", "drivers")
+                         _("Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución "
+                           "con el informe de MintMachine (con los datos personales ocultos).").format(
+                             herramienta=tool_name("drivers")), "drivers")
     log = kernel_log()
     fwrows = firmware_rows(log, pk)
     faltan = [r for r in fwrows if not r[4]]
@@ -3173,8 +3231,9 @@ def sec_software(ctx):
     ctx.data["updates"] = len(upg)
     if upg:
         ctx.flag("info", "Software", _("Hay {n} paquetes con actualización pendiente.").format(n=len(upg)),
-                 "Instálalas desde el Gestor de actualizaciones. Linux Mint recomienda tener antes una "
-                 "instantánea de Timeshift, por si algo no va bien.", "updates")
+                 _("Instálalas con {herramienta}.").format(herramienta=tool_name("updates")) + " " + (
+                     _("Conviene tener antes una instantánea de Timeshift, por si algo no va bien.") if have("timeshift")
+                     else _("Conviene tener antes una copia de seguridad de tus archivos.")), "updates")
     ctx.summary["updates"] = (_("{n} pendientes").format(n=len(upg)) if upg else "Al día") if have("apt") else ""
     if os.path.exists("/var/run/reboot-required"):
         ctx.flag("warn", "Software", "Hay actualizaciones instaladas que necesitan reiniciar el equipo para "
@@ -3317,13 +3376,14 @@ def sec_setup(ctx):
         n = ctx.data["updates"]
         add(not n, "Actualizaciones", "El sistema está al día.",
             _("Hay {n} actualizaciones pendientes.").format(n=n),
-            "Abre el Gestor de actualizaciones e instálalas: corrigen fallos y problemas de seguridad.", "updates")
+            _("Abre {herramienta} e instálalas: corrigen fallos y problemas de seguridad.").format(
+                herramienta=tool_name("updates")), "updates")
     if ctx.data.get("driver_updates") is not None:
         n = ctx.data["driver_updates"]
         add(not n, "Drivers y firmware", "No hay versiones nuevas de drivers ni de firmware en tus repositorios.",
             _("Hay {n} drivers o firmware con versión nueva.").format(n=n),
-            "Mira la sección «Actualizaciones de drivers» y usa el Gestor de actualizaciones o el de "
-            "controladores.", "drivers")
+            _("Mira la sección «Actualizaciones de drivers» e instálalas con {herramienta}.").format(
+                herramienta=tool_name("updates")), "updates")
     if ctx.data.get("firewall") is not None:
         add(ctx.data["firewall"], "Cortafuegos", "El cortafuegos está activado.", "El cortafuegos no está activado.",
             "En casa, detrás del router, es habitual. Actívalo si conectas el equipo a redes públicas.", "firewall")
@@ -3337,15 +3397,19 @@ def sec_setup(ctx):
     if ctx.data.get("trim"):
         add(ctx.data["trim"] == "enabled", "Discos SSD", "El mantenimiento periódico de los SSD (TRIM) está activado.",
             "El mantenimiento periódico de los SSD (TRIM) no está activado.",
-            "Linux Mint lo trae activado de fábrica. Pregunta en el foro de tu distribución cómo volver a activarlo.")
+            "Normalmente viene activado de fábrica. Pregunta en el foro de tu distribución cómo volver a activarlo.")
     pk = dpkg_packages()
     if pk:
         codecs = any(n in pk for n in ("mint-meta-codecs", "ubuntu-restricted-extras", "ubuntu-restricted-addons")) \
             or any(n.startswith("libavcodec-extra") for n in pk)
         add(codecs, "Códecs multimedia", "Los códecs multimedia están instalados.",
             "No se han encontrado los códecs multimedia.",
-            "Sin ellos, algunos vídeos y canciones no se reproducen. En Linux Mint, busca «Instalar códecs "
-            "multimedia» en el menú.")
+            {"mint": _("Sin ellos, algunos vídeos y canciones no se reproducen. En Linux Mint, busca «Instalar "
+                       "códecs multimedia» en el menú."),
+             "ubuntu": _("Sin ellos, algunos vídeos y canciones no se reproducen. Instala el paquete "
+                         "ubuntu-restricted-extras con {herramienta}.").format(herramienta=tool_name("store"))}.get(
+                distro(), _("Sin ellos, algunos vídeos y canciones no se reproducen. Instala el paquete "
+                            "libavcodec-extra con {herramienta}.").format(herramienta=tool_name("store"))))
     hechos = sum(1 for f in items if f["level"] == "ok")
     blocks = []
     if items:
@@ -3381,7 +3445,7 @@ def findings_block(title, items, help="", compact=False):
     compact=True (Inicio): la ventana muestra solo el aviso, sin «qué hacer»."""
     rows = sorted(items, key=lambda f: LEVELS[f["level"]][0])
     for f in rows:
-        f["action_label"] = _(ACTIONS[f["action"]][0]) if f.get("action") in ACTIONS and action_cmd(f["action"]) else ""
+        f["action_label"] = action_label(f["action"]) if f.get("action") in ACTIONS and action_cmd(f["action"]) else ""
     return {"type": "findings", "title": _(title), "rows": rows, "adv": False, "help": _(help), "compact": compact}
 
 
@@ -3424,8 +3488,9 @@ def sec_diagnosis(ctx):
                                       "{programas}.").format(programas=", ".join(sorted(set(log["oom"])))),
                  _("Cierra los programas y pestañas que no uses. Si te pasa a menudo, un servicio técnico puede "
                    "decirte si tu equipo admite más memoria.") + ("" if oom_guard() or not have("systemctl") else
-                  " " + _("También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el "
-                          "programa que más memoria usa y evita que el equipo se quede congelado.")), "sysmon")
+                  " " + _("También puedes instalar el paquete earlyoom con {herramienta}: cierra a tiempo el "
+                          "programa que más memoria usa y evita que el equipo se quede congelado.").format(
+                              herramienta=tool_name("store"))), "sysmon")
     state, headline = health(ctx)
     ctx.data["health"] = (state, headline)
     blocks = [
@@ -3443,8 +3508,8 @@ def sec_diagnosis(ctx):
                    "con algo que notes que falla."),
         table("Utilidades opcionales que no están instaladas", ["Utilidad", "Paquete", "Qué se deja de ver"],
               [(t, pkg, what) for t, (pkg, what) in TOOL_PKGS.items() if t in _MISSING], adv=True,
-              help="Sin ellas el programa funciona igual, pero algunos apartados salen más cortos. Se instalan "
-                   "desde el Gestor de software, buscando el nombre del paquete."),
+              help=_("Sin ellas el programa funciona igual, pero algunos apartados salen más cortos. Se instalan "
+                     "con {herramienta}, buscando el nombre del paquete.").format(herramienta=tool_name("store"))),
         note("Qué se revisa: espacio y salud de los discos, temperaturas, batería, memoria, servicios, errores "
              "del registro del kernel, protección del procesador, drivers y actualizaciones."),
         None if log["ok"] else note("No se ha podido leer el registro del kernel porque tu usuario no pertenece al "
@@ -4580,7 +4645,7 @@ def to_html(sections, anon=False):
 EXPORTERS = collections.OrderedDict([
     ("txt", (to_text, "txt", "Texto", "Para leerlo o adjuntarlo a un correo")),
     ("html", (to_html, "html", "Página web", "Se abre en el navegador; cómoda para enviar a un técnico")),
-    ("foro", (to_forum, "txt", "Para un foro", "Resumen listo para pegar en el foro de Linux Mint")),
+    ("foro", (to_forum, "txt", "Para un foro", "Resumen listo para pegar en el foro de tu distribución")),
     ("json", (to_json, "json", "JSON", "Datos estructurados para otros programas")),
     ("csv", (to_csv, "csv", "Histórico del monitor (CSV)", "Gráficas de los últimos 2 minutos, para una hoja de cálculo")),
 ])
@@ -5271,7 +5336,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 else:
                     tail = "\n".join(out.strip().splitlines()[-4:])
                     self.message(Gtk.MessageType.ERROR, _("No se ha podido desinstalar"),
-                                 _("Si el Gestor de actualizaciones u otro instalador está abierto, ciérralo y vuelve "
+                                 _("Si hay otro instalador o gestor de actualizaciones abierto, ciérralo y vuelve "
                                    "a intentarlo.") + ("\n\n" + tail if tail else ""))
                 return False
             threading.Thread(target=work, daemon=True).start()
@@ -5527,7 +5592,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                                          wrap=True, markup=True), False, False, 0)
                 cmd = action_cmd(f.get("action")) if f.get("action") and not b.get("compact") else None
                 if cmd:
-                    btn = styled(Gtk.Button(label=_(ACTIONS[f["action"]][0]), halign=Gtk.Align.START, margin_top=6),
+                    btn = styled(Gtk.Button(label=action_label(f["action"]), halign=Gtk.Align.START, margin_top=6),
                                  "mm-ghost")
                     btn.connect("clicked", lambda _b, c=cmd: self.launch(c))
                     col.pack_start(btn, False, False, 0)
@@ -5868,8 +5933,8 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             if not tool and tid != "cpu_estabilidad":
                 pkg = "glmark2-x11 (o glmark2-wayland)" if t["tool"] == "glmark2" else t["pkg"]
                 self.message(Gtk.MessageType.INFO, _("Falta una utilidad para esta prueba"),
-                             _("Instala el paquete {paquete} con el Gestor de software y vuelve a pulsar el "
-                               "botón.").format(paquete=pkg))
+                             _("Instala el paquete {paquete} con {herramienta} y vuelve a pulsar el "
+                               "botón.").format(paquete=pkg, herramienta=tool_name("store")))
                 return
             d = styled(Gtk.Dialog(title=_(t["short"]), transient_for=self, modal=True), "mm-win")
             d.set_default_size(560, -1)
@@ -5881,8 +5946,8 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             area.pack_start(label(_(t["desc"]), wrap=True), False, False, 0)
             if not tool:
                 area.pack_start(label(_("Sin el paquete stress-ng se hará una prueba ligera, que detecta menos "
-                                        "problemas. Para la prueba completa, instala stress-ng con el Gestor de "
-                                        "software."), "mm-dim", wrap=True), False, False, 0)
+                                        "problemas. Para la prueba completa, instala stress-ng con {herramienta}.").format(
+                    herramienta=tool_name("store")), "mm-dim", wrap=True), False, False, 0)
             dur = None
             if t["durations"]:
                 hb = Gtk.Box(spacing=12)
