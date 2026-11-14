@@ -518,6 +518,9 @@ class Sampler:
         self._temp_files = None
         self._nv, self._nv_busy = None, False
         self._rc6, self._rc6_prev = None, None
+        self.gpu_procs = {}  # pid → (uso de la gráfica %, memoria de vídeo en bytes)
+        self._drm_prev, self._nvp_busy = {}, False
+        self.peaks = {}      # serie → (valor máximo, hora): lo más alto desde que se abrió el programa
 
     def tick(self):
         with self.lock:
@@ -530,10 +533,16 @@ class Sampler:
                 except Exception:
                     pass
             if self._n % 2 == 0:
-                try:
-                    self._processes(now)
-                except Exception:
-                    pass
+                for step in (lambda: self._processes(now), lambda: self._gpu_procs(now)):
+                    try:
+                        step()
+                    except Exception:
+                        pass
+            for k in ("cpu", "temp", "gpu", "igpu", "ram", "gpu_temp", "gpu_power"):
+                if self.h[k]:
+                    v = self.h[k][-1]
+                    if k not in self.peaks or v > self.peaks[k][0]:
+                        self.peaks[k] = (v, time.strftime("%H:%M:%S"))
             self._n += 1
 
     def _cpu(self):
@@ -598,20 +607,36 @@ class Sampler:
             v = read_int(amd[0])
             if v is not None:
                 self.h["gpu"].append(float(v))
+            for hw in glob.glob(os.path.dirname(amd[0]) + "/hwmon/hwmon*"):
+                t = read_int(hw + "/temp1_input")
+                w = read_int(hw + "/power1_average") or read_int(hw + "/power1_input")
+                if t:
+                    self.h["gpu_temp"].append(t / 1000)
+                if w:
+                    self.h["gpu_power"].append(w / 1e6)
+                break
         elif have("nvidia-smi"):
             if self._n % 3 == 0 and not self._nv_busy:     # nvidia-smi tarda: va en segundo plano
                 self._nv_busy = True
 
                 def ask():
-                    out = run(["nvidia-smi", "--query-gpu=utilization.gpu", "--format=csv,noheader,nounits"], 4)
+                    out = run(["nvidia-smi", "--query-gpu=utilization.gpu,temperature.gpu,power.draw",
+                               "--format=csv,noheader,nounits"], 4)
                     try:
-                        self._nv = float(out.splitlines()[0])
+                        vals = [x.strip() for x in out.splitlines()[0].split(",")]
+                        self._nv = float(vals[0])
+                        self._nv_extra = [float(x) if re.fullmatch(r"[\d.]+", x) else None for x in vals[1:3]]
                     except Exception:
                         pass
                     self._nv_busy = False
                 threading.Thread(target=ask, daemon=True).start()
             if self._nv is not None:
                 self.h["gpu"].append(self._nv)
+                t, w = (getattr(self, "_nv_extra", None) or [None, None])[:2]
+                if t:
+                    self.h["gpu_temp"].append(t)
+                if w:
+                    self.h["gpu_power"].append(w)
         self._gpu_intel()
 
     def _gpu_intel(self):
@@ -637,6 +662,91 @@ class Sampler:
         if prev and now - prev[1] > 0.2 and ms >= prev[0]:            # el contador puede dar la vuelta
             idle = (ms - prev[0]) / ((now - prev[1]) * 1000)
             self.h["igpu"].append(max(0.0, min(100.0, 100.0 * (1 - idle))))
+
+    def _gpu_procs(self, now):
+        """Qué programas usan la gráfica. El kernel publica en /proc/PID/fdinfo el tiempo de gráfica
+        de cada cliente (amdgpu, i915, xe, nouveau…): se leen solo los procesos propios, sin root."""
+        cur, vram, owner = {}, {}, {}
+        for d in os.listdir("/proc"):
+            if not d.isdigit():
+                continue
+            try:
+                fds = os.listdir(f"/proc/{d}/fd")
+            except OSError:
+                continue
+            for fd in fds:
+                try:
+                    if not os.readlink(f"/proc/{d}/fd/{fd}").startswith("/dev/dri/"):
+                        continue
+                    with open(f"/proc/{d}/fdinfo/{fd}", errors="replace") as f:
+                        info = f.read()
+                except OSError:
+                    continue
+                kv_ = dict(l.split(":", 1) for l in info.splitlines() if ":" in l)
+                cid = kv_.get("drm-client-id", "").strip()
+                if not cid:
+                    continue
+                key = (kv_.get("drm-driver", "").strip(), kv_.get("drm-pdev", "").strip(), cid)
+                if key in owner:               # el mismo cliente puede estar abierto varias veces
+                    continue
+                owner[key] = d
+                eng = {}
+                for k, v in kv_.items():
+                    m = re.match(r"drm-engine-(\S+)", k)
+                    if m and v.strip().endswith("ns"):
+                        eng[m.group(1)] = ("ns", int(v.split()[0]))
+                    m = re.match(r"drm-cycles-(\S+)", k)
+                    if m:
+                        tot = kv_.get("drm-total-cycles-" + m.group(1), "").strip()
+                        if tot.isdigit():
+                            eng[m.group(1)] = ("cy", int(v.split()[0]), int(tot))
+                cur[key] = eng
+                mem = kv_.get("drm-total-vram") or kv_.get("drm-memory-vram") or kv_.get("drm-resident-vram") or ""
+                m = re.match(r"\s*(\d+)\s*(KiB|MiB|GiB)?", mem)
+                if m:
+                    vram[key] = int(m.group(1)) * {"KiB": 1024, "MiB": 1 << 20, "GiB": 1 << 30}.get(m.group(2), 1)
+        res = {}
+        for key, eng in cur.items():
+            prev = self._drm_prev.get(key)
+            use = 0.0
+            if prev:
+                pe, pt = prev
+                for name, val in eng.items():
+                    old = pe.get(name)
+                    if not old:
+                        continue
+                    if val[0] == "ns" and now > pt:
+                        use = max(use, (val[1] - old[1]) / ((now - pt) * 1e9) * 100)
+                    elif val[0] == "cy" and val[2] > old[2]:
+                        use = max(use, (val[1] - old[1]) / (val[2] - old[2]) * 100)
+            pid = owner[key]
+            u, mb = res.get(pid, (0.0, 0))
+            res[pid] = (min(100.0, max(u, use)), mb + vram.get(key, 0))
+        self._drm_prev = {k: (v, now) for k, v in cur.items()}
+        if not cur and have("nvidia-smi") and not self._nvp_busy:     # driver privativo de NVIDIA
+            self._nvp_busy = True
+
+            def ask():
+                got, cols = {}, []
+                for line in run(["nvidia-smi", "pmon", "-c", "1", "-s", "um"], 6).splitlines():
+                    p = line.split()
+                    if line.startswith("# gpu"):           # las columnas cambian entre versiones del driver
+                        cols = p[1:]
+                        continue
+                    if line.startswith("#") or not cols or len(p) < len(cols) - 1:
+                        continue
+                    row = dict(zip(cols, p))
+                    if not row.get("pid", "").isdigit():
+                        continue
+                    sm, fb = row.get("sm", "-"), row.get("fb", "-")
+                    got[row["pid"]] = (float(sm) if sm.replace(".", "").isdigit() else 0.0,
+                                       int(fb) << 20 if fb.isdigit() else 0)
+                with self.lock:
+                    self.gpu_procs = got
+                self._nvp_busy = False
+            threading.Thread(target=ask, daemon=True).start()
+        elif cur:
+            self.gpu_procs = res
 
     def _processes(self, now):
         clk, page = os.sysconf("SC_CLK_TCK"), os.sysconf("SC_PAGE_SIZE")
@@ -717,6 +827,19 @@ def sec_monitor(ctx):
     with SAMPLER.lock:
         cores = sorted(((int(k[3:]), v) for k, v in SAMPLER.cpu.items() if k != "cpu"))
         procs, nprocs, owner = list(SAMPLER.procs), SAMPLER.nprocs, dict(SAMPLER.apps)
+        gprocs, peaks = dict(SAMPLER.gpu_procs), dict(SAMPLER.peaks)
+    gapps = {}
+    for pid, (u, vb) in gprocs.items():
+        a = gapps.setdefault(owner.get(pid) or (read(f"/proc/{pid}/comm") or pid), [0.0, 0])
+        a[0], a[1] = min(100.0, a[0] + u), a[1] + vb
+    gpu_apps = sorted(gapps.items(), key=lambda kv: (kv[1][0], kv[1][1]), reverse=True)[:8]
+    peak_rows = []
+    for k, label, unit in (("cpu", "Procesador", "%"), ("temp", "Temperatura del procesador", "°C"),
+                           ("ram", "Memoria", "%"), ("gpu", "Gráfica", "%"), ("igpu", "Gráfica Intel (integrada)", "%"),
+                           ("gpu_temp", "Temperatura de la gráfica", "°C"), ("gpu_power", "Consumo de la gráfica", "W")):
+        if k in peaks:
+            v, t = peaks[k]
+            peak_rows.append((label, _("{valor} a las {hora}").format(valor=f"{num(v, 0)} {unit}" if unit != "%" else f"{v:.0f} %", hora=t)))
     psi = []
     for res, label in (("cpu", "CPU"), ("memory", "memoria"), ("io", "disco")):
         m = re.search(r"some avg10=([\d.]+)", read("/proc/pressure/" + res))
@@ -751,6 +874,12 @@ def sec_monitor(ctx):
               [(a, k, human(rss), f"{num(c)} %") for a, (k, c, rss) in by_app],
               help="Suma todos los procesos de cada aplicación; un navegador, por ejemplo, abre "
                    "muchos. La memoria es aproximada: la parte que comparten se cuenta en cada uno."),
+        table("Programas que usan la gráfica", ["Aplicación", "Uso de la gráfica", "Memoria de vídeo"],
+              [(a, f"{u:.0f} %", human(vb) if vb else "") for a, (u, vb) in gpu_apps],
+              help="Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato "
+                   "lo da la utilidad nvidia-smi."),
+        kv("Máximos desde que abriste MintMachine", peak_rows,
+           help="Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."),
         table("Procesos que más procesador usan", ["Proceso", "PID", "CPU", "Memoria"],
               [(n, pid, f"{num(c)} %", human(rss)) for c, rss, pid, n in by_cpu]),
         table("Procesos que más memoria ocupan", ["Proceso", "PID", "Memoria", "CPU"],
@@ -1300,6 +1429,90 @@ def gpu_clock(sysp, card):
     return f"{now} MHz" + (" (" + _("máxima {mx} MHz").format(mx=mx) + ")" if mx else "")
 
 
+# gpu_metrics de amdgpu: posición del campo «indep_throttle_status» (64 bits, igual en todas las
+# gráficas) según la versión de la estructura, calculada a partir de kgd_pp_interface.h del kernel.
+# Se comprueba también el tamaño que declara la cabecera, para no leer una estructura que no conocemos.
+GPU_METRICS = {(1, 3): (112, 120), (2, 2): (120, 128), (2, 3): (120, 152), (2, 4): (120, 168)}
+THROTTLE_GROUPS = [(0, 16, "consumo"), (16, 32, "corriente"), (32, 48, "temperatura"), (48, 64, "otros límites")]
+
+
+def amd_throttle(sysp):
+    """Por qué limita su velocidad ahora mismo una gráfica AMD, según su propio firmware (sin root)."""
+    try:
+        with open(sysp + "/gpu_metrics", "rb") as f:
+            data = f.read(1024)
+    except OSError:
+        return None
+    if len(data) < 4:
+        return None
+    size, fmt, content = int.from_bytes(data[0:2], "little"), data[2], data[3]
+    where = GPU_METRICS.get((fmt, content))
+    if not where or size != where[1] or len(data) < where[0] + 8:
+        return None
+    bits = int.from_bytes(data[where[0]:where[0] + 8], "little")
+    if bits == (1 << 64) - 1:
+        return None                     # el firmware no lo rellena
+    return [name for lo, hi, name in THROTTLE_GROUPS if bits & (((1 << (hi - lo)) - 1) << lo)]
+
+
+# Motivos de límite que da nvidia-smi (máscara «clocks_event_reasons» / «clocks_throttle_reasons»)
+NV_REASONS = [(0x1, "en reposo"), (0x4, "consumo"), (0x8, "límite de la placa"), (0x20, "temperatura"),
+              (0x40, "temperatura"), (0x80, "freno de consumo de la placa")]
+
+
+def nvidia_info():
+    """Datos de las gráficas NVIDIA con el driver privativo (una fila por gráfica)."""
+    base = ["name", "driver_version", "memory.total", "temperature.gpu", "vbios_version", "power.draw",
+            "power.limit", "clocks.gr", "clocks.max.gr", "fan.speed", "pci.bus_id"]
+    rows = []
+    for reasons in ("clocks_event_reasons.active", "clocks_throttle_reasons.active", None):
+        q = base + ([reasons] if reasons else [])
+        out = run(["nvidia-smi", "--query-gpu=" + ",".join(q), "--format=csv,noheader,nounits"], 6)
+        if out and "Field" not in out and "not a valid" not in out:
+            for line in out.splitlines():
+                vals = [c.strip() for c in line.split(",")]
+                if len(vals) == len(q):
+                    rows.append({k: ("" if v.startswith("[") or v in ("N/A", "Not Supported") else v)
+                                 for k, v in zip(q, vals)})
+            break
+    bar = re.findall(r"BAR1 Memory Usage\s*\n\s*Total\s*:\s*(\d+)\s*MiB",
+                     run(["nvidia-smi", "-q", "-d", "MEMORY"], 6)) if rows else []
+    for r, b in zip(rows, bar):
+        r["bar1"] = int(b) << 20
+    return rows
+
+
+def nv_reasons(mask):
+    try:
+        m = int(mask, 16)
+    except (TypeError, ValueError):
+        return ""
+    names = []
+    for bit, name in NV_REASONS:
+        if m & bit and _(name) not in names:
+            names.append(_(name))
+    return ", ".join(names) or _("Ninguno: a la velocidad que pide")
+
+
+def large_bar(sysp, vram):
+    """¿Ve el procesador toda la memoria de vídeo (Resizable BAR)? Se deduce del tamaño de la mayor
+    ventana de memoria PCI de la tarjeta, comparado con su memoria de vídeo."""
+    if not vram:
+        return ""
+    big = 0
+    for line in read(sysp + "/resource").splitlines():
+        p = line.split()
+        if len(p) == 3:
+            start, end, flags = (int(x, 16) for x in p)
+            if end > start and flags & 0x200:          # IORESOURCE_MEM
+                big = max(big, end - start + 1)
+    if not big:
+        return ""
+    if big >= vram * 0.9:
+        return _("Activado: el procesador ve los {n} completos").format(n=human(vram))
+    return _("Desactivado: el procesador ve {a} de {b}").format(a=human(big), b=human(vram))
+
+
 PNP = {"AAC": "AcerView", "ACI": "ASUS", "ACR": "Acer", "AOC": "AOC", "AUO": "AU Optronics", "AUS": "ASUS",
        "BNQ": "BenQ", "BOE": "BOE", "CMN": "Innolux", "CSO": "CSOT", "DEL": "Dell", "ENC": "EIZO", "GBT": "Gigabyte",
        "GSM": "LG", "HKC": "HKC", "HPN": "HP", "HSD": "HannStar", "HWP": "HP", "HWV": "Huawei", "IVM": "iiyama",
@@ -1558,6 +1771,18 @@ def sec_gpu(ctx):
         sysp = "/sys/bus/pci/devices/" + d["Slot"]
         vram = read_int(sysp + "/mem_info_vram_total")
         names.append(f"{vname} {dname}".strip())
+        hw = (glob.glob(sysp + "/hwmon/hwmon*") or [""])[0]
+        temps = []
+        for t in sorted(glob.glob(hw + "/temp*_input")) if hw else []:
+            v = read_int(t)
+            if v:
+                lab = read(t.replace("_input", "_label")) or ""
+                temps.append(f"{_({'edge': 'borde', 'junction': 'punto más caliente', 'mem': 'memoria'}.get(lab, lab))} "
+                             f"{v / 1000:.0f} °C".strip())
+        watts = (read_int(hw + "/power1_average") or read_int(hw + "/power1_input")) if hw else None
+        cap = read_int(hw + "/power1_cap") if hw else None
+        thr = amd_throttle(sysp) if d.get("Driver") == "amdgpu" else None
+        vvendor = read(sysp + "/mem_info_vram_vendor")
         cards = [c for c in glob.glob("/sys/class/drm/card[0-9]*") if "-" not in os.path.basename(c)
                  and os.path.realpath(c + "/device") == os.path.realpath(sysp)]
         blocks.append(kv(_("Tarjeta gráfica: {n}").format(n=dname or cname), [
@@ -1567,8 +1792,14 @@ def sec_gpu(ctx):
             ("Revisión", d.get("Rev", "")),
             ("Driver en uso", d.get("Driver", "Ninguno")),
             ("Módulos disponibles", ", ".join(d["modules"])),
-            ("Memoria de vídeo", human(vram) if vram else ""),
+            ("Memoria de vídeo", " · ".join(x for x in (human(vram) if vram else "", vvendor.capitalize() if vvendor else "") if x)),
+            ("Acceso completo a la memoria de vídeo (Resizable BAR)", large_bar(sysp, vram)),
+            ("BIOS de la tarjeta", read(sysp + "/vbios_version")),
             ("Frecuencia", gpu_clock(sysp, cards[0]) if cards else ""),
+            ("Temperatura", ", ".join(temps)),
+            ("Consumo", " · ".join(x for x in (f"{watts / 1e6:.0f} W" if watts else "",
+                                               _("límite {n} W").format(n=f"{cap / 1e6:.0f}") if cap else "") if x)),
+            ("Limitada ahora por", (", ".join(_(x) for x in thr) or _("Nada: va a la velocidad que pide")) if thr is not None else ""),
             ("Enlace PCIe", pcie_link(sysp)),
             ("Ranura", d["Slot"]),
         ]))
@@ -1577,11 +1808,25 @@ def sec_gpu(ctx):
                      "Abre el Gestor de controladores: si ofrece un driver recomendado para tu gráfica, "
                      "instálalo y reinicia. Si no ofrece nada, pregunta en el foro de tu distribución.", "drivers")
 
-    nv = run(["nvidia-smi", "--query-gpu=name,driver_version,memory.total,temperature.gpu",
-              "--format=csv,noheader"])
-    if nv:
-        rows = [[c.strip() for c in l.split(",")] for l in nv.splitlines()]
-        blocks.append(table("NVIDIA (driver privativo)", ["GPU", "Versión del driver", "Memoria", "Temperatura °C"], rows))
+    for r in nvidia_info() if have("nvidia-smi") else []:
+        vram_nv = int(float(r["memory.total"])) << 20 if r.get("memory.total") else 0
+        bar1 = r.get("bar1", 0)
+        reasons = r.get("clocks_event_reasons.active") or r.get("clocks_throttle_reasons.active")
+        blocks.append(kv(_("NVIDIA (driver privativo): {n}").format(n=r.get("name", "")), [
+            ("Versión del driver", r.get("driver_version")),
+            ("Memoria de vídeo", human(vram_nv) if vram_nv else ""),
+            ("Acceso completo a la memoria de vídeo (Resizable BAR)",
+             (_("Activado: el procesador ve los {n} completos").format(n=human(vram_nv)) if bar1 >= vram_nv * 0.9 else
+              _("Desactivado: el procesador ve {a} de {b}").format(a=human(bar1), b=human(vram_nv))) if bar1 and vram_nv else ""),
+            ("BIOS de la tarjeta", r.get("vbios_version")),
+            ("Frecuencia", (f"{r['clocks.gr']} MHz" + (" (" + _("máxima {mx} MHz").format(mx=r["clocks.max.gr"]) + ")"
+                                                        if r.get("clocks.max.gr") else "")) if r.get("clocks.gr") else ""),
+            ("Temperatura", f"{r['temperature.gpu']} °C" if r.get("temperature.gpu") else ""),
+            ("Consumo", " · ".join(x for x in (f"{float(r['power.draw']):.0f} W" if r.get("power.draw") else "",
+                                               _("límite {n} W").format(n=f"{float(r['power.limit']):.0f}") if r.get("power.limit") else "") if x)),
+            ("Ventilador", f"{r['fan.speed']} %" if r.get("fan.speed") else ""),
+            ("Limitada ahora por", nv_reasons(reasons) if reasons else ""),
+        ]))
 
     g = glx_info()
     session = os.environ.get("XDG_SESSION_TYPE", "")
