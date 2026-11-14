@@ -1,5 +1,11 @@
 # Cambios
 
+## 0.7.0 (14/11/2026)
+
+- **Nuevo nombre: SysCheckup** (antes MintMachine), porque funciona en cualquier distribución basada en Debian y no solo en Linux Mint. Paquete y comando `syscheckup`. El paquete sustituye a `mintmachine` si estaba instalado, y la configuración y el historial de `~/.config/mintmachine` se trasladan solos a `~/.config/syscheckup`.
+
+Hasta la 0.6.2 el programa se llamaba MintMachine; en las entradas de abajo ya aparece con el nombre nuevo.
+
 ## 0.6.2 (14/11/2026)
 
 - El botón de datos internos ya no dice «pide tu contraseña»: si hace falta, el sistema la pide al pulsarlo.
@@ -30,7 +36,7 @@
 
 ## 0.5.3 (13/11/2026)
 
-- El menú de Linux Mint mostraba el icono genérico de programa en lugar del de MintMachine. El paquete instala ahora el icono también en mapa de bits (de 16 a 256 píxeles) y en `/usr/share/pixmaps`, y al instalar y al quitar actualiza la caché de iconos y la base de datos de aplicaciones.
+- El menú de Linux Mint mostraba el icono genérico de programa en lugar del de SysCheckup. El paquete instala ahora el icono también en mapa de bits (de 16 a 256 píxeles) y en `/usr/share/pixmaps`, y al instalar y al quitar actualiza la caché de iconos y la base de datos de aplicaciones.
 
 ## 0.5.2 (13/11/2026)
 
@@ -40,7 +46,7 @@
 
 - **Procesador:** indicadores en vivo de uso total, frecuencia media y temperatura, y una barra por hilo; se actualizan cada segundo.
 - **Memoria:** el fabricante de cada módulo ya no sale como «Unknown». Si la placa no lo da por su nombre, se lee su código JEDEC o se deduce de la referencia del módulo (G.Skill, Corsair, Kingston, Crucial, Samsung, SK hynix, Micron, ADATA, TeamGroup, Patriot), y se indica que es una deducción.
-- **Barra superior:** bajo el nombre del programa se lee «MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet». Esa nota sale del final del Inicio.
+- **Barra superior:** bajo el nombre del programa se lee «SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet». Esa nota sale del final del Inicio.
 - Fuera la línea discontinua que el tema Mint-Y dibuja en el borde del contenido al desplazarse.
 - Fuera los botones «i» de los campos.
 - **Tema claro** más apagado, para que no deslumbre.
@@ -124,7 +130,7 @@ Autor: José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es>.
 
 ## 0.2.0 (13/11/2026)
 
-El programa pasa a llamarse MintMachine. Autor: Sombra.
+El programa pasa a llamarse SysCheckup. Autor: Sombra.
 
 - Monitor en vivo: gráficas de procesador, RAM y swap, red, disco, temperatura y gráfica, uso por hilo y procesos que más consumen.
 - Ventiladores: porcentaje de potencia, modo de control, curvas programadas cuando el chip las publica, umbrales térmicos ACPI y mecanismos de refrigeración.

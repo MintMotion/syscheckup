@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+  "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>SysCheckup</vendor>
+  <action id="org.syscheckup.probe">
+    <description>Read internal hardware data (memory SPD, CPU registers and power)</description>
+    <description xml:lang="es">Leer datos internos del hardware (memoria, registros y consumo del procesador)</description>
+    <message>SysCheckup needs your password to read, without changing anything, the data stored in your memory modules and processor.</message>
+    <message xml:lang="es">SysCheckup necesita tu contraseña para leer, sin cambiar nada, los datos que guardan tus módulos de memoria y tu procesador.</message>
+    <message xml:lang="fr">SysCheckup a besoin de votre mot de passe pour lire, sans rien modifier, les données enregistrées dans vos barrettes de mémoire et votre processeur.</message>
+    <message xml:lang="ja">SysCheckup は、何も変更せずにメモリモジュールとプロセッサーに保存されているデータを読み取るために、パスワードが必要です。</message>
+    <message xml:lang="zh_CN">SysCheckup 需要您的密码，以便在不做任何更改的情况下读取内存条和处理器中保存的数据。</message>
+    <icon_name>syscheckup</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/syscheckup/syscheckup-probe</annotate>
+  </action>
+</policyconfig>

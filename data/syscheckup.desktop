@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=Application
-Name=MintMachine
+Name=SysCheckup
 GenericName=Información del sistema
 GenericName[en]=System information
 Comment=Hardware, drivers y software del equipo de un vistazo
 Comment[en]=Hardware, drivers and software of this computer at a glance
-Exec=mintmachine
-Icon=mintmachine
+Exec=syscheckup
+Icon=syscheckup
 Terminal=false
 StartupNotify=true
 Categories=System;Monitor;

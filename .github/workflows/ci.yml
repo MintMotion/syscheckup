@@ -18,15 +18,15 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq pyflakes3 python3-pytest python3-gi gir1.2-gtk-3.0 gettext
-          pyflakes3 mintmachine.py tests/simular_portatil.py tests/test_unidad.py
-          python3 -m py_compile mintmachine.py
+          pyflakes3 syscheckup.py tests/simular_portatil.py tests/test_unidad.py
+          python3 -m py_compile syscheckup.py
           for po in po/*.po; do msgfmt --check -o /dev/null "$po"; done
       - name: Pruebas unitarias
         run: python3 -m pytest -q tests/test_unidad.py
       - name: Ejecutar en este equipo
         run: |
-          python3 mintmachine.py --texto > /dev/null
-          python3 mintmachine.py --json | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d['secciones']) == 21"
+          python3 syscheckup.py --texto > /dev/null
+          python3 syscheckup.py --json | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d['secciones']) == 21"
       - name: Portátil simulado (texto, HTML, JSON, foro)
         run: |
           sudo tests/run.sh texto > informe.txt
@@ -44,14 +44,14 @@ jobs:
         run: packaging/build-deb.sh
       - name: Instalar el paquete
         run: |
-          sudo apt-get install -y ./dist/mintmachine_*_all.deb
-          mintmachine --version
+          sudo apt-get install -y ./dist/syscheckup_*_all.deb
+          syscheckup --version
       - uses: actions/upload-artifact@v4
         with:
-          name: mintmachine-deb
+          name: syscheckup-deb
           path: dist/*.deb
       - name: Adjuntar el .deb a la versión publicada
         if: startsWith(github.ref, 'refs/tags/v')
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${GITHUB_REF_NAME}" dist/*.deb --clobber || gh release create "${GITHUB_REF_NAME}" dist/*.deb --title "MintMachine ${GITHUB_REF_NAME#v}" --notes-file CHANGELOG.md
+        run: gh release upload "${GITHUB_REF_NAME}" dist/*.deb --clobber || gh release create "${GITHUB_REF_NAME}" dist/*.deb --title "SysCheckup ${GITHUB_REF_NAME#v}" --notes-file CHANGELOG.md

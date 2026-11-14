@@ -6,8 +6,8 @@ body:
     attributes:
       value: |
         Gracias por avisar. Para poder ayudarte necesitamos el informe del equipo **con los datos personales ocultos**.
-        En MintMachine: botón **Exportar** → formato **Para un foro** → deja marcada **Ocultar datos personales** → **Copiar**, y pégalo abajo.
-        Desde la terminal también vale: `mintmachine --foro`
+        En SysCheckup: botón **Exportar** → formato **Para un foro** → deja marcada **Ocultar datos personales** → **Copiar**, y pégalo abajo.
+        Desde la terminal también vale: `syscheckup --foro`
   - type: textarea
     id: que
     attributes:
@@ -40,7 +40,7 @@ body:
   - type: textarea
     id: informe
     attributes:
-      label: Informe de MintMachine (con los datos personales ocultos)
+      label: Informe de SysCheckup (con los datos personales ocultos)
       render: text
     validations:
       required: true

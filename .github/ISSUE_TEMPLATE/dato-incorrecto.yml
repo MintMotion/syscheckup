@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        MintMachine se ha probado en pocos equipos reales. Cada informe ayuda a que funcione en más hardware.
+        SysCheckup se ha probado en pocos equipos reales. Cada informe ayuda a que funcione en más hardware.
   - type: input
     id: seccion
     attributes:
@@ -23,8 +23,8 @@ body:
   - type: textarea
     id: informe
     attributes:
-      label: Informe de MintMachine (con los datos personales ocultos)
-      description: "Exportar → Para un foro → Ocultar datos personales → Copiar. O `mintmachine --foro`."
+      label: Informe de SysCheckup (con los datos personales ocultos)
+      description: "Exportar → Para un foro → Ocultar datos personales → Copiar. O `syscheckup --foro`."
       render: text
     validations:
       required: true

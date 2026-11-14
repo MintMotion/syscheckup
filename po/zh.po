@@ -1,16 +1,16 @@
-# Traducción de MintMachine: 中文（简体）
+# Traducción de SysCheckup: 中文（简体）
 # Copyright (c) 2026 José Antonio Ramos Miralles «Sombra»
-# Este archivo se distribuye con la misma licencia que MintMachine (MIT).
+# Este archivo se distribuye con la misma licencia que SysCheckup (MIT).
 msgid ""
 msgstr ""
-"Project-Id-Version: MintMachine\n"
+"Project-Id-Version: SysCheckup\n"
 "Language: zh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "MintMachine solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
-msgstr "MintMachine 只读取信息，不会更改电脑上的任何内容。其建议仅供参考，并且仅限于在系统内可以安全进行的操作。请勿自行打开电脑或拆动内部部件：任何硬件方面的检查（内部清洁、更换硬盘、内存或电池）都应交给维修服务商或制造商处理。进行任何重要更改之前，请先备份您的文件。"
+msgid "SysCheckup solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
+msgstr "SysCheckup 只读取信息，不会更改电脑上的任何内容。其建议仅供参考，并且仅限于在系统内可以安全进行的操作。请勿自行打开电脑或拆动内部部件：任何硬件方面的检查（内部清洁、更换硬盘、内存或电池）都应交给维修服务商或制造商处理。进行任何重要更改之前，请先备份您的文件。"
 
 msgid "(oculto)"
 msgstr "（已隐藏）"
@@ -1218,8 +1218,8 @@ msgstr "电池充电上限"
 msgid "Este equipo no tiene batería (o el sistema no la expone)."
 msgstr "此电脑没有电池（或系统未提供电池信息）。"
 
-msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y MintMachine los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
-msgstr "电源：台式机电源不会把品牌、型号和功率告诉电脑，因此任何程序都无法读取。只有带内部 USB 线的“智能”电源（例如 Corsair HXi、RMi 和 AXi）会发送数据，MintMachine 检测到时会在这里显示。想了解您的电源，请查看发票或电脑包装盒；不要为了查看标签而打开电脑。"
+msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y SysCheckup los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
+msgstr "电源：台式机电源不会把品牌、型号和功率告诉电脑，因此任何程序都无法读取。只有带内部 USB 线的“智能”电源（例如 Corsair HXi、RMi 和 AXi）会发送数据，SysCheckup 检测到时会在这里显示。想了解您的电源，请查看发票或电脑包装盒；不要为了查看标签而打开电脑。"
 
 msgid "Batería y energía"
 msgstr "电池与电源"
@@ -1332,11 +1332,11 @@ msgstr "通常是由于过热、内存或 BIOS 设置偏离出厂值造成的。
 msgid "Puede ser un fallo de la memoria. Haz una copia de seguridad y consúltalo con un servicio técnico si se repite."
 msgstr "可能是内存故障。请备份文件，如果反复出现请咨询维修服务商。"
 
-msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "请重启电脑。如果再次发生，请在“诊断 → 日志错误”中查找该消息，并附上 MintMachine 报告（隐藏个人信息）到您所用发行版的论坛上咨询。"
+msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "请重启电脑。如果再次发生，请在“诊断 → 日志错误”中查找该消息，并附上 SysCheckup 报告（隐藏个人信息）到您所用发行版的论坛上咨询。"
 
-msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de MintMachine."
-msgstr "可能只是偶发情况。如果电脑经常卡死，请附上 MintMachine 报告到您所用发行版的论坛上咨询。"
+msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de SysCheckup."
+msgstr "可能只是偶发情况。如果电脑经常卡死，请附上 SysCheckup 报告到您所用发行版的论坛上咨询。"
 
 msgid "Alguien forzó la carga de un driver. Si no lo hiciste tú a propósito, pregunta en el foro de tu distribución."
 msgstr "有人强制加载了某个驱动。如果不是您有意为之，请在您所用发行版的论坛上咨询。"
@@ -1509,8 +1509,8 @@ msgstr "无已知驱动"
 msgid "El dispositivo de {n} «{dname}» no tiene driver cargado."
 msgstr "{n}设备“{dname}”没有加载驱动。"
 
-msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "打开驱动管理器看看是否提供驱动。如果没有，请附上 MintMachine 报告（隐藏个人信息）到您所用发行版的论坛上咨询。"
+msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "打开驱动管理器看看是否提供驱动。如果没有，请附上 SysCheckup 报告（隐藏个人信息）到您所用发行版的论坛上咨询。"
 
 msgid "Un driver pidió {n} archivos de firmware que no están instalados."
 msgstr "有驱动请求了 {n} 个未安装的固件文件。"
@@ -1920,8 +1920,8 @@ msgstr "网络连接"
 msgid "Protección"
 msgstr "防护"
 
-msgid "MintMachine solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
-msgstr "MintMachine 只读取信息：不会更改电脑上的任何内容，也不会向互联网发送数据。侧边栏中有每个部件的详细信息。"
+msgid "SysCheckup solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
+msgstr "SysCheckup 只读取信息：不会更改电脑上的任何内容，也不会向互联网发送数据。侧边栏中有每个部件的详细信息。"
 
 msgid "Sistema y software"
 msgstr "系统与软件"
@@ -2118,11 +2118,11 @@ msgstr "隐藏序列号、MAC、IP、计算机名、Wi-Fi 网络和用户名。�
 msgid "Atajos de teclado"
 msgstr "键盘快捷键"
 
-msgid "Acerca de MintMachine"
-msgstr "关于 MintMachine"
+msgid "Acerca de SysCheckup"
+msgstr "关于 SysCheckup"
 
-msgid "Desinstalar MintMachine…"
-msgstr "卸载 MintMachine…"
+msgid "Desinstalar SysCheckup…"
+msgstr "卸载 SysCheckup…"
 
 msgid "Volver a leer el equipo"
 msgstr "重新读取电脑"
@@ -2139,8 +2139,8 @@ msgstr "退出"
 msgid "Hardware, drivers y software de tu equipo en una sola ventana."
 msgstr "在一个窗口中查看电脑的硬件、驱动和软件。"
 
-msgid "¿Desinstalar MintMachine?"
-msgstr "卸载 MintMachine？"
+msgid "¿Desinstalar SysCheckup?"
+msgstr "卸载 SysCheckup？"
 
 msgid "Se quitarán el programa, su icono del menú y su configuración, sin dejar rastro en el equipo. Los informes que hayas guardado son tuyos y no se tocan."
 msgstr "将移除程序、菜单图标及其设置，不在电脑上留下任何痕迹。您保存的报告属于您，不会被删除。"
@@ -2157,11 +2157,11 @@ msgstr "卸载"
 msgid "Configuración borrada"
 msgstr "设置已删除"
 
-msgid "MintMachine no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
-msgstr "MintMachine 不是以软件包方式安装的：您是在其文件夹中运行它。其设置已删除；最后请删除该文件夹。"
+msgid "SysCheckup no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
+msgstr "SysCheckup 不是以软件包方式安装的：您是在其文件夹中运行它。其设置已删除；最后请删除该文件夹。"
 
-msgid "MintMachine se ha desinstalado"
-msgstr "MintMachine 已卸载"
+msgid "SysCheckup se ha desinstalado"
+msgstr "SysCheckup 已卸载"
 
 msgid "Gracias por usarlo. La ventana se cerrará ahora."
 msgstr "感谢使用。窗口即将关闭。"
@@ -2184,8 +2184,8 @@ msgstr "无法打开“{prog}”：{err}"
 msgid "Leyendo el equipo…"
 msgstr "正在读取电脑信息…"
 
-msgid "Tarda unos segundos. MintMachine solo lee: no cambia nada."
-msgstr "需要几秒钟。MintMachine 只读取信息，不做任何更改。"
+msgid "Tarda unos segundos. SysCheckup solo lee: no cambia nada."
+msgstr "需要几秒钟。SysCheckup 只读取信息，不做任何更改。"
 
 msgid "Información para usuarios avanzados o para pedir ayuda en un foro"
 msgstr "供高级用户或在论坛求助时使用的信息"
@@ -2325,8 +2325,8 @@ msgstr "测量中"
 msgid "(escala {n})"
 msgstr "（缩放 {n}）"
 
-msgid "En Wayland, el modo en uso lo da el escritorio: MintMachine lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
-msgstr "在 Wayland 下，当前显示模式由桌面环境提供：MintMachine 可在 GNOME、Cinnamon 和 KDE Plasma 中读取；在 Sway、Hyprland 等环境中，需要安装 wlr-randr 工具。各显示器本身的数据是完整的。"
+msgid "En Wayland, el modo en uso lo da el escritorio: SysCheckup lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
+msgstr "在 Wayland 下，当前显示模式由桌面环境提供：SysCheckup 可在 GNOME、Cinnamon 和 KDE Plasma 中读取；在 Sway、Hyprland 等环境中，需要安装 wlr-randr 工具。各显示器本身的数据是完整的。"
 
 msgid "{a} guardados en {b}"
 msgstr "{a} 压缩为 {b}"
@@ -2385,8 +2385,8 @@ msgstr "系统检查清单"
 msgid "Lista de comprobación"
 msgstr "检查清单"
 
-msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y MintMachine no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
-msgstr "安装系统后建议完成的事项。这些都不紧急，MintMachine 也不会更改任何内容：每一项都会带您打开相应的系统工具。"
+msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y SysCheckup no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
+msgstr "安装系统后建议完成的事项。这些都不紧急，SysCheckup 也不会更改任何内容：每一项都会带您打开相应的系统工具。"
 
 msgid "{n} de {m} puntos en orden"
 msgstr "{m} 项中有 {n} 项已就绪"
@@ -2541,8 +2541,8 @@ msgstr "显示运行了哪些工具及其耗时（不保存任何内容）"
 msgid "Batería de un periférico Bluetooth"
 msgstr "蓝牙外设电池"
 
-msgid "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
-msgstr "MintMachine 只读取信息。不会更改您电脑上的任何内容，也不会向互联网发送数据"
+msgid "SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+msgstr "SysCheckup 只读取信息。不会更改您电脑上的任何内容，也不会向互联网发送数据"
 
 msgid "Frecuencia media"
 msgstr "平均频率"
@@ -2562,8 +2562,8 @@ msgstr "Intel Wi-Fi 的可选调试配置，供 Intel 开发人员使用。任�
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor de software o con las actualizaciones pendientes, y reinicia."
 msgstr "如果该设备工作正常，则无需任何操作：许多驱动程序会尝试多个版本，直到找到已安装的版本。如果设备出现故障，请通过软件管理器或待安装的更新安装 {paquete} 软件包，然后重新启动。"
 
-msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "如果该设备工作正常，则无需任何操作：许多驱动程序会尝试多个版本，直到找到已安装的版本。如果设备出现故障，请安装待安装的更新并重新启动；如果问题仍然存在，请附上 MintMachine 报告（隐藏个人数据）到您所用发行版的论坛求助。"
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "如果该设备工作正常，则无需任何操作：许多驱动程序会尝试多个版本，直到找到已安装的版本。如果设备出现故障，请安装待安装的更新并重新启动；如果问题仍然存在，请附上 SysCheckup 报告（隐藏个人数据）到您所用发行版的论坛求助。"
 
 msgid "Falta firmware que pidió un driver: {lista}."
 msgstr "缺少驱动程序请求的固件：{lista}。"
@@ -2616,11 +2616,11 @@ msgstr "正在使用显卡的程序"
 msgid "Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato lo da la utilidad nvidia-smi."
 msgstr "仅显示您自己的程序。对于使用专有驱动的 NVIDIA 显卡，数据来自 nvidia-smi 工具。"
 
-msgid "Máximos desde que abriste MintMachine"
-msgstr "自打开 MintMachine 以来的峰值"
+msgid "Máximos desde que abriste SysCheckup"
+msgstr "自打开 SysCheckup 以来的峰值"
 
-msgid "Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
-msgstr "在玩游戏或工作时保持 MintMachine 打开，之后在这里查看达到的最高值。"
+msgid "Deja SysCheckup abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
+msgstr "在玩游戏或工作时保持 SysCheckup 打开，之后在这里查看达到的最高值。"
 
 msgid "Protección ante falta de memoria"
 msgstr "内存耗尽保护"
@@ -2724,8 +2724,8 @@ msgstr "新增使用时间"
 msgid "Estimación"
 msgstr "估计"
 
-msgid "MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
-msgstr "MintMachine 每次打开时会在您的电脑上保存每天一次的测量值，并与第一次进行比较，从而看出磁盘是否开始劣化。数据不会离开您的电脑。"
+msgid "SysCheckup guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
+msgstr "SysCheckup 每次打开时会在您的电脑上保存每天一次的测量值，并与第一次进行比较，从而看出磁盘是否开始劣化。数据不会离开您的电脑。"
 
 msgid "También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
 msgstr "您也可以通过软件管理器安装 earlyoom 软件包：它会及时关闭占用内存最多的程序，避免电脑卡死。"
@@ -2778,8 +2778,8 @@ msgstr "测量速度…"
 msgid "Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la velocidad de escritura y de lectura del disco donde está tu carpeta personal. Escribir 1 GiB no desgasta el disco de forma apreciable."
 msgstr "在主文件夹中写入一个 1 GiB 的测试文件，读取后删除。测量主文件夹所在磁盘的写入和读取速度。写入 1 GiB 不会明显磨损磁盘。"
 
-msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
-msgstr "此测试将在您选择的时间内让电脑满负荷运行。温度和风扇噪音升高是正常的。如果温度过高或笔记本断开电源，MintMachine 会自动停止测试。开始前请保存您的工作。您可以随时停止。如果测试期间电脑关机或重启，请不要重复测试，并咨询维修服务。"
+msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. SysCheckup la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
+msgstr "此测试将在您选择的时间内让电脑满负荷运行。温度和风扇噪音升高是正常的。如果温度过高或笔记本断开电源，SysCheckup 会自动停止测试。开始前请保存您的工作。您可以随时停止。如果测试期间电脑关机或重启，请不要重复测试，并咨询维修服务。"
 
 msgid "La gráfica dedicada NVIDIA"
 msgstr "独立 NVIDIA 显卡"
@@ -2889,8 +2889,8 @@ msgstr "内存条数据未通过完整性校验。"
 msgid "semana {w} de {y}"
 msgstr "{y} 年第 {w} 周"
 
-msgid "Tipo de memoria que MintMachine aún no sabe leer."
-msgstr "MintMachine 暂时无法读取的内存类型。"
+msgid "Tipo de memoria que SysCheckup aún no sabe leer."
+msgstr "SysCheckup 暂时无法读取的内存类型。"
 
 msgid "Frecuencia base (P0)"
 msgstr "基础频率（P0）"
@@ -2982,8 +2982,8 @@ msgstr "时长："
 msgid "Gráfica que se prueba:"
 msgstr "要测试的显卡："
 
-msgid "No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la prueba por calor. Vigila el equipo mientras dura."
-msgstr "无法读取处理器温度，因此 MintMachine 无法因过热而停止测试。测试期间请留意电脑状况。"
+msgid "No se puede leer la temperatura del procesador, así que SysCheckup no podrá detener la prueba por calor. Vigila el equipo mientras dura."
+msgstr "无法读取处理器温度，因此 SysCheckup 无法因过热而停止测试。测试期间请留意电脑状况。"
 
 msgid "He leído el aviso y quiero hacer la prueba"
 msgstr "我已阅读警告并希望进行测试"
@@ -3000,8 +3000,8 @@ msgstr "处理器使用率"
 msgid "Detener"
 msgstr "停止"
 
-msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
-msgstr "温度达到 {n} °C，接近安全上限，MintMachine 已停止测试。请检查通风口是否被堵住，并在电脑周围留出空间。如果在通风良好的情况下仍然出现，请让维修服务检查散热。"
+msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y SysCheckup detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
+msgstr "温度达到 {n} °C，接近安全上限，SysCheckup 已停止测试。请检查通风口是否被堵住，并在电脑周围留出空间。如果在通风良好的情况下仍然出现，请让维修服务检查散热。"
 
 msgid "La prueba ha encontrado errores. Guarda tu trabajo y, si el equipo se cuelga o se reinicia solo con frecuencia, consulta con un servicio técnico."
 msgstr "测试发现了错误。请保存您的工作；如果电脑经常卡死或自行重启，请咨询维修服务。"
@@ -3042,8 +3042,8 @@ msgstr "系统默认使用的显卡"
 msgid "No se puede escribir en tu carpeta personal."
 msgstr "无法写入您的主文件夹。"
 
-msgid "Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine."
-msgstr "缺少 MintMachine 辅助程序或 pkexec 工具。请重新安装 MintMachine。"
+msgid "Falta el ayudante de SysCheckup o la utilidad pkexec. Reinstala SysCheckup."
+msgstr "缺少 SysCheckup 辅助程序或 pkexec 工具。请重新安装 SysCheckup。"
 
 msgid "Ya hay una prueba en marcha"
 msgstr "已有测试在进行"
@@ -3183,8 +3183,8 @@ msgstr "如果不知道为什么缺少，请在改动任何东西之前先到发
 msgid "Abre {herramienta} y busca actualizaciones."
 msgstr "打开{herramienta}并检查更新。"
 
-msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "打开{herramienta}看看是否提供驱动。如果没有，请附上 MintMachine 报告（隐藏个人数据）到发行版论坛提问。"
+msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "打开{herramienta}看看是否提供驱动。如果没有，请附上 SysCheckup 报告（隐藏个人数据）到发行版论坛提问。"
 
 msgid "Instálalas con {herramienta}."
 msgstr "使用{herramienta}安装。"
@@ -3240,8 +3240,8 @@ msgstr "从内存条本身读取时序、XMP 配置文件、颗粒制造商和�
 msgid "Lee el consumo del procesador en vatios y, en los procesadores AMD, sus estados de rendimiento. Desde Linux 5.10 estos contadores solo los puede leer el administrador, por seguridad."
 msgstr "读取处理器的功耗（瓦），以及 AMD 处理器的性能状态。出于安全原因，自 Linux 5.10 起这些计数器只有管理员才能读取。"
 
-msgid "Lo hace un ayudante de MintMachine que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
-msgstr "由一个只读的 MintMachine 辅助程序完成：它不会更改电脑上的任何内容。如果需要加载内核模块，完成后会将其卸载。"
+msgid "Lo hace un ayudante de SysCheckup que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
+msgstr "由一个只读的 SysCheckup 辅助程序完成：它不会更改电脑上的任何内容。如果需要加载内核模块，完成后会将其卸载。"
 
 msgid "Frecuencia máxima (turbo)"
 msgstr "最高频率（睿频）"

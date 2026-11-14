@@ -1,7 +1,7 @@
 """Simula un portátil real (sysfs + utilidades falsas) para probar los analizadores."""
 import os, sys, tempfile
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-BIN = tempfile.mkdtemp(prefix="mintmachine-bin-")
+BIN = tempfile.mkdtemp(prefix="syscheckup-bin-")
 
 # Uso (como root, porque monta un /sys falso en un espacio de montajes privado):
 #   sudo tests/run.sh texto [--anon]
@@ -376,7 +376,7 @@ def patch(rx):
 
 if __name__ == "__main__":
     build()
-    import mintmachine as rx
+    import syscheckup as rx
     patch(rx)
     rx.set_language(os.environ.get("MM_IDIOMA", "es"))      # MM_IDIOMA=en|fr|ja|zh para probar traducciones
     mode = sys.argv[1] if len(sys.argv) > 1 else "texto"

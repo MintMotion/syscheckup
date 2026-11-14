@@ -1,16 +1,16 @@
-# Traducción de MintMachine: 日本語
+# Traducción de SysCheckup: 日本語
 # Copyright (c) 2026 José Antonio Ramos Miralles «Sombra»
-# Este archivo se distribuye con la misma licencia que MintMachine (MIT).
+# Este archivo se distribuye con la misma licencia que SysCheckup (MIT).
 msgid ""
 msgstr ""
-"Project-Id-Version: MintMachine\n"
+"Project-Id-Version: SysCheckup\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "MintMachine solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
-msgstr "MintMachine は情報を読み取るだけで、コンピューターの設定を変更することはありません。推奨事項はあくまで目安であり、システム上で安全に行える操作に限られます。コンピューターを開けたり部品に触れたりしないでください。内部の清掃やディスク・メモリ・バッテリーの交換など、物理的な作業は修理業者またはメーカーに依頼してください。重要な変更を行う前には、必ずファイルをバックアップしてください。"
+msgid "SysCheckup solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
+msgstr "SysCheckup は情報を読み取るだけで、コンピューターの設定を変更することはありません。推奨事項はあくまで目安であり、システム上で安全に行える操作に限られます。コンピューターを開けたり部品に触れたりしないでください。内部の清掃やディスク・メモリ・バッテリーの交換など、物理的な作業は修理業者またはメーカーに依頼してください。重要な変更を行う前には、必ずファイルをバックアップしてください。"
 
 msgid "(oculto)"
 msgstr "（非表示）"
@@ -1218,8 +1218,8 @@ msgstr "バッテリーの充電上限"
 msgid "Este equipo no tiene batería (o el sistema no la expone)."
 msgstr "このコンピューターにはバッテリーがありません（またはシステムが公開していません）。"
 
-msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y MintMachine los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
-msgstr "電源ユニット：デスクトップの電源ユニットは、メーカー、型番、容量をコンピューターに伝えないため、どのプログラムでも読み取れません。内部 USB ケーブルを備えた「スマート」電源（Corsair HXi、RMi、AXi など）だけがデータを送り、検出されると MintMachine がここに表示します。お使いの電源を知るには請求書や製品の箱を確認してください。ラベルを見るためにコンピューターを開けないでください。"
+msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y SysCheckup los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
+msgstr "電源ユニット：デスクトップの電源ユニットは、メーカー、型番、容量をコンピューターに伝えないため、どのプログラムでも読み取れません。内部 USB ケーブルを備えた「スマート」電源（Corsair HXi、RMi、AXi など）だけがデータを送り、検出されると SysCheckup がここに表示します。お使いの電源を知るには請求書や製品の箱を確認してください。ラベルを見るためにコンピューターを開けないでください。"
 
 msgid "Batería y energía"
 msgstr "バッテリーと電源"
@@ -1332,11 +1332,11 @@ msgstr "多くの場合、熱、メモリー、または工場出荷時から変
 msgid "Puede ser un fallo de la memoria. Haz una copia de seguridad y consúltalo con un servicio técnico si se repite."
 msgstr "メモリーの故障の可能性があります。バックアップを取り、繰り返す場合は修理業者に相談してください。"
 
-msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "コンピューターを再起動してください。再発する場合は「診断 → ログのエラー」でメッセージを確認し、個人情報を非表示にした MintMachine のレポートを添えてディストリビューションのフォーラムで相談してください。"
+msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "コンピューターを再起動してください。再発する場合は「診断 → ログのエラー」でメッセージを確認し、個人情報を非表示にした SysCheckup のレポートを添えてディストリビューションのフォーラムで相談してください。"
 
-msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de MintMachine."
-msgstr "一時的なものかもしれません。頻繁にフリーズする場合は、MintMachine のレポートを添えてディストリビューションのフォーラムで相談してください。"
+msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de SysCheckup."
+msgstr "一時的なものかもしれません。頻繁にフリーズする場合は、SysCheckup のレポートを添えてディストリビューションのフォーラムで相談してください。"
 
 msgid "Alguien forzó la carga de un driver. Si no lo hiciste tú a propósito, pregunta en el foro de tu distribución."
 msgstr "誰かがドライバーを強制的に読み込みました。意図したものでなければ、ディストリビューションのフォーラムで相談してください。"
@@ -1509,8 +1509,8 @@ msgstr "既知のものなし"
 msgid "El dispositivo de {n} «{dname}» no tiene driver cargado."
 msgstr "{n} デバイス「{dname}」にドライバーが読み込まれていません。"
 
-msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "ドライバーマネージャーで提供されていないか確認してください。なければ、個人情報を非表示にした MintMachine のレポートを添えてディストリビューションのフォーラムで相談してください。"
+msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "ドライバーマネージャーで提供されていないか確認してください。なければ、個人情報を非表示にした SysCheckup のレポートを添えてディストリビューションのフォーラムで相談してください。"
 
 msgid "Un driver pidió {n} archivos de firmware que no están instalados."
 msgstr "ドライバーが、インストールされていないファームウェアファイルを {n} 個要求しました。"
@@ -1920,8 +1920,8 @@ msgstr "接続"
 msgid "Protección"
 msgstr "保護"
 
-msgid "MintMachine solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
-msgstr "MintMachine は情報を読み取るだけで、コンピューターを変更したり、インターネットにデータを送信したりしません。各部品の詳細はサイドバーにあります。"
+msgid "SysCheckup solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
+msgstr "SysCheckup は情報を読み取るだけで、コンピューターを変更したり、インターネットにデータを送信したりしません。各部品の詳細はサイドバーにあります。"
 
 msgid "Sistema y software"
 msgstr "システムとソフトウェア"
@@ -2118,11 +2118,11 @@ msgstr "シリアル番号、MAC、IP、コンピューター名、Wi-Fi ネッ�
 msgid "Atajos de teclado"
 msgstr "キーボードショートカット"
 
-msgid "Acerca de MintMachine"
-msgstr "MintMachine について"
+msgid "Acerca de SysCheckup"
+msgstr "SysCheckup について"
 
-msgid "Desinstalar MintMachine…"
-msgstr "MintMachine をアンインストール…"
+msgid "Desinstalar SysCheckup…"
+msgstr "SysCheckup をアンインストール…"
 
 msgid "Volver a leer el equipo"
 msgstr "コンピューターを読み込み直す"
@@ -2139,8 +2139,8 @@ msgstr "終了"
 msgid "Hardware, drivers y software de tu equipo en una sola ventana."
 msgstr "コンピューターのハードウェア、ドライバー、ソフトウェアをひとつのウィンドウに。"
 
-msgid "¿Desinstalar MintMachine?"
-msgstr "MintMachine をアンインストールしますか？"
+msgid "¿Desinstalar SysCheckup?"
+msgstr "SysCheckup をアンインストールしますか？"
 
 msgid "Se quitarán el programa, su icono del menú y su configuración, sin dejar rastro en el equipo. Los informes que hayas guardado son tuyos y no se tocan."
 msgstr "プログラム、メニューのアイコン、設定を削除し、コンピューターに痕跡を残しません。保存したレポートはあなたのものなので削除しません。"
@@ -2157,11 +2157,11 @@ msgstr "アンインストール"
 msgid "Configuración borrada"
 msgstr "設定を削除しました"
 
-msgid "MintMachine no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
-msgstr "MintMachine はパッケージとしてインストールされていません（フォルダーから実行しています）。設定は削除しました。最後にそのフォルダーを削除してください。"
+msgid "SysCheckup no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
+msgstr "SysCheckup はパッケージとしてインストールされていません（フォルダーから実行しています）。設定は削除しました。最後にそのフォルダーを削除してください。"
 
-msgid "MintMachine se ha desinstalado"
-msgstr "MintMachine をアンインストールしました"
+msgid "SysCheckup se ha desinstalado"
+msgstr "SysCheckup をアンインストールしました"
 
 msgid "Gracias por usarlo. La ventana se cerrará ahora."
 msgstr "ご利用ありがとうございました。ウィンドウを閉じます。"
@@ -2184,8 +2184,8 @@ msgstr "「{prog}」を開けませんでした：{err}"
 msgid "Leyendo el equipo…"
 msgstr "コンピューターを読み込んでいます…"
 
-msgid "Tarda unos segundos. MintMachine solo lee: no cambia nada."
-msgstr "数秒かかります。MintMachine は読み取るだけで、何も変更しません。"
+msgid "Tarda unos segundos. SysCheckup solo lee: no cambia nada."
+msgstr "数秒かかります。SysCheckup は読み取るだけで、何も変更しません。"
 
 msgid "Información para usuarios avanzados o para pedir ayuda en un foro"
 msgstr "上級者向け、またはフォーラムで助けを求めるときの情報"
@@ -2325,8 +2325,8 @@ msgstr "計測中"
 msgid "(escala {n})"
 msgstr "（スケール {n}）"
 
-msgid "En Wayland, el modo en uso lo da el escritorio: MintMachine lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
-msgstr "Wayland では、使用中のモードはデスクトップから取得します。MintMachine は GNOME、Cinnamon、KDE Plasma で読み取れます。Sway や Hyprland などでは wlr-randr がインストールされていれば読み取れます。各モニターの情報はすべて表示されています。"
+msgid "En Wayland, el modo en uso lo da el escritorio: SysCheckup lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
+msgstr "Wayland では、使用中のモードはデスクトップから取得します。SysCheckup は GNOME、Cinnamon、KDE Plasma で読み取れます。Sway や Hyprland などでは wlr-randr がインストールされていれば読み取れます。各モニターの情報はすべて表示されています。"
 
 msgid "{a} guardados en {b}"
 msgstr "{a} を {b} に格納"
@@ -2385,8 +2385,8 @@ msgstr "初期設定チェック"
 msgid "Lista de comprobación"
 msgstr "チェックリスト"
 
-msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y MintMachine no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
-msgstr "システムのインストール後に済ませておくとよい項目です。どれも急ぎではなく、MintMachine は何も変更しません。各項目から、それを行うシステムのツールを開けます。"
+msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y SysCheckup no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
+msgstr "システムのインストール後に済ませておくとよい項目です。どれも急ぎではなく、SysCheckup は何も変更しません。各項目から、それを行うシステムのツールを開けます。"
 
 msgid "{n} de {m} puntos en orden"
 msgstr "{m} 項目中 {n} 項目が完了"
@@ -2541,8 +2541,8 @@ msgstr "実行されるツールと所要時間を表示します（何も保存
 msgid "Batería de un periférico Bluetooth"
 msgstr "Bluetooth 周辺機器のバッテリー"
 
-msgid "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
-msgstr "MintMachine は情報を読み取るだけです。お使いのコンピューターには何も変更を加えず、インターネットにデータを送信しません"
+msgid "SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+msgstr "SysCheckup は情報を読み取るだけです。お使いのコンピューターには何も変更を加えず、インターネットにデータを送信しません"
 
 msgid "Frecuencia media"
 msgstr "平均周波数"
@@ -2562,8 +2562,8 @@ msgstr "Intel Wi-Fi 用のオプションのデバッグ設定で、Intel の開
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor de software o con las actualizaciones pendientes, y reinicia."
 msgstr "そのデバイスが正常に動作していれば、何もする必要はありません。多くのドライバーは、インストール済みのものが見つかるまで複数のバージョンを試します。動作しない場合は、ソフトウェアマネージャーまたは保留中の更新で {paquete} パッケージをインストールし、再起動してください。"
 
-msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "そのデバイスが正常に動作していれば、何もする必要はありません。多くのドライバーは、インストール済みのものが見つかるまで複数のバージョンを試します。動作しない場合は、保留中の更新をインストールして再起動し、それでも直らなければ、MintMachine のレポート（個人データを非表示にしたもの）を添えてディストリビューションのフォーラムで質問してください。"
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "そのデバイスが正常に動作していれば、何もする必要はありません。多くのドライバーは、インストール済みのものが見つかるまで複数のバージョンを試します。動作しない場合は、保留中の更新をインストールして再起動し、それでも直らなければ、SysCheckup のレポート（個人データを非表示にしたもの）を添えてディストリビューションのフォーラムで質問してください。"
 
 msgid "Falta firmware que pidió un driver: {lista}."
 msgstr "ドライバーが要求したファームウェアがありません: {lista}。"
@@ -2616,11 +2616,11 @@ msgstr "グラフィックスを使用しているプログラム"
 msgid "Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato lo da la utilidad nvidia-smi."
 msgstr "表示されるのは自分のプログラムだけです。プロプライエタリドライバーを使う NVIDIA グラフィックスでは、データは nvidia-smi ユーティリティから取得します。"
 
-msgid "Máximos desde que abriste MintMachine"
-msgstr "MintMachine を開いてからの最大値"
+msgid "Máximos desde que abriste SysCheckup"
+msgstr "SysCheckup を開いてからの最大値"
 
-msgid "Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
-msgstr "ゲームや作業の間 MintMachine を開いたままにしておき、後でここで到達した最大値を確認してください。"
+msgid "Deja SysCheckup abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
+msgstr "ゲームや作業の間 SysCheckup を開いたままにしておき、後でここで到達した最大値を確認してください。"
 
 msgid "Protección ante falta de memoria"
 msgstr "メモリ不足に対する保護"
@@ -2724,8 +2724,8 @@ msgstr "追加された使用時間"
 msgid "Estimación"
 msgstr "推定"
 
-msgid "MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
-msgstr "MintMachine は開くたびに 1 日 1 回の測定値をコンピューターに保存し、最初の値と比較します。これでディスクが劣化し始めているかどうかがわかります。データがコンピューターの外に出ることはありません。"
+msgid "SysCheckup guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
+msgstr "SysCheckup は開くたびに 1 日 1 回の測定値をコンピューターに保存し、最初の値と比較します。これでディスクが劣化し始めているかどうかがわかります。データがコンピューターの外に出ることはありません。"
 
 msgid "También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
 msgstr "ソフトウェアマネージャーで earlyoom パッケージをインストールすることもできます。最もメモリを使っているプログラムを早めに終了し、コンピューターが固まるのを防ぎます。"
@@ -2778,8 +2778,8 @@ msgstr "速度を測定…"
 msgid "Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la velocidad de escritura y de lectura del disco donde está tu carpeta personal. Escribir 1 GiB no desgasta el disco de forma apreciable."
 msgstr "ホームフォルダーに 1 GiB のテストファイルを書き込み、読み取ってから削除します。ホームフォルダーがあるディスクの書き込み速度と読み取り速度を測定します。1 GiB の書き込みでディスクが目に見えて消耗することはありません。"
 
-msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
-msgstr "このテストは選んだ時間のあいだ、コンピューターを最大負荷で動かします。温度やファンの音が上がるのは正常です。温度が高くなりすぎたり、ノートパソコンの電源が外れたりすると、MintMachine が自動的に停止します。開始前に作業を保存してください。いつでも停止できます。テスト中にコンピューターの電源が切れたり再起動したりした場合は、繰り返さずに修理サービスに相談してください。"
+msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. SysCheckup la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
+msgstr "このテストは選んだ時間のあいだ、コンピューターを最大負荷で動かします。温度やファンの音が上がるのは正常です。温度が高くなりすぎたり、ノートパソコンの電源が外れたりすると、SysCheckup が自動的に停止します。開始前に作業を保存してください。いつでも停止できます。テスト中にコンピューターの電源が切れたり再起動したりした場合は、繰り返さずに修理サービスに相談してください。"
 
 msgid "La gráfica dedicada NVIDIA"
 msgstr "専用の NVIDIA グラフィックス"
@@ -2889,8 +2889,8 @@ msgstr "モジュールのデータが整合性チェックに合格しません
 msgid "semana {w} de {y}"
 msgstr "{y} 年第 {w} 週"
 
-msgid "Tipo de memoria que MintMachine aún no sabe leer."
-msgstr "MintMachine がまだ読み取れないメモリの種類です。"
+msgid "Tipo de memoria que SysCheckup aún no sabe leer."
+msgstr "SysCheckup がまだ読み取れないメモリの種類です。"
 
 msgid "Frecuencia base (P0)"
 msgstr "ベース周波数（P0）"
@@ -2982,8 +2982,8 @@ msgstr "時間:"
 msgid "Gráfica que se prueba:"
 msgstr "テストするグラフィックス:"
 
-msgid "No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la prueba por calor. Vigila el equipo mientras dura."
-msgstr "プロセッサーの温度を読み取れないため、MintMachine は熱による停止ができません。実行中はコンピューターから目を離さないでください。"
+msgid "No se puede leer la temperatura del procesador, así que SysCheckup no podrá detener la prueba por calor. Vigila el equipo mientras dura."
+msgstr "プロセッサーの温度を読み取れないため、SysCheckup は熱による停止ができません。実行中はコンピューターから目を離さないでください。"
 
 msgid "He leído el aviso y quiero hacer la prueba"
 msgstr "注意事項を読み、テストを実行します"
@@ -3000,8 +3000,8 @@ msgstr "プロセッサー使用率"
 msgid "Detener"
 msgstr "停止"
 
-msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
-msgstr "温度が安全な上限に近い {n} °C に達したため、MintMachine がテストを停止しました。通気口がふさがれていないか確認し、コンピューターの周りに空間をあけてください。十分に換気された状態でも繰り返す場合は、修理サービスに冷却の点検を依頼してください。"
+msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y SysCheckup detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
+msgstr "温度が安全な上限に近い {n} °C に達したため、SysCheckup がテストを停止しました。通気口がふさがれていないか確認し、コンピューターの周りに空間をあけてください。十分に換気された状態でも繰り返す場合は、修理サービスに冷却の点検を依頼してください。"
 
 msgid "La prueba ha encontrado errores. Guarda tu trabajo y, si el equipo se cuelga o se reinicia solo con frecuencia, consulta con un servicio técnico."
 msgstr "テストでエラーが見つかりました。作業を保存し、コンピューターが頻繁に固まったり勝手に再起動したりする場合は、修理サービスに相談してください。"
@@ -3042,8 +3042,8 @@ msgstr "システムが標準で使うもの"
 msgid "No se puede escribir en tu carpeta personal."
 msgstr "ホームフォルダーに書き込めません。"
 
-msgid "Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine."
-msgstr "MintMachine のヘルパーまたは pkexec ユーティリティがありません。MintMachine を再インストールしてください。"
+msgid "Falta el ayudante de SysCheckup o la utilidad pkexec. Reinstala SysCheckup."
+msgstr "SysCheckup のヘルパーまたは pkexec ユーティリティがありません。SysCheckup を再インストールしてください。"
 
 msgid "Ya hay una prueba en marcha"
 msgstr "すでにテストが実行中です"
@@ -3183,8 +3183,8 @@ msgstr "なぜ欠けているのかわからない場合は、何かを変更す
 msgid "Abre {herramienta} y busca actualizaciones."
 msgstr "{herramienta}を開いて更新を確認してください。"
 
-msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "{herramienta}を開いて、提供されているか確認してください。なければ、MintMachine のレポート（個人データを非表示にしたもの）を添えてディストリビューションのフォーラムで質問してください。"
+msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "{herramienta}を開いて、提供されているか確認してください。なければ、SysCheckup のレポート（個人データを非表示にしたもの）を添えてディストリビューションのフォーラムで質問してください。"
 
 msgid "Instálalas con {herramienta}."
 msgstr "{herramienta}でインストールしてください。"
@@ -3240,8 +3240,8 @@ msgstr "メモリモジュール自体から、タイミング、XMP プロフ�
 msgid "Lee el consumo del procesador en vatios y, en los procesadores AMD, sus estados de rendimiento. Desde Linux 5.10 estos contadores solo los puede leer el administrador, por seguridad."
 msgstr "プロセッサーの消費電力（ワット）と、AMD プロセッサーではパフォーマンスステートを読み取ります。Linux 5.10 以降、セキュリティ上の理由からこれらのカウンターは管理者しか読み取れません。"
 
-msgid "Lo hace un ayudante de MintMachine que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
-msgstr "読み取りしか行わない MintMachine のヘルパーが処理します。コンピューターは何も変更されません。カーネルモジュールを読み込む必要がある場合は、終了時に取り外します。"
+msgid "Lo hace un ayudante de SysCheckup que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
+msgstr "読み取りしか行わない SysCheckup のヘルパーが処理します。コンピューターは何も変更されません。カーネルモジュールを読み込む必要がある場合は、終了時に取り外します。"
 
 msgid "Frecuencia máxima (turbo)"
 msgstr "最大周波数（ターボ）"

@@ -1,4588 +1,4588 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: MintMachine\n"
+"Project-Id-Version: SysCheckup\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: mintmachine.py:48
+#: syscheckup.py:48
 msgid "Sombra"
 msgstr ""
 
-#: mintmachine.py:49
+#: syscheckup.py:49
 msgid "José Antonio Ramos Miralles «Sombra»"
 msgstr ""
 
-#: mintmachine.py:50
+#: syscheckup.py:50
 msgid "hola@joseantonioramos.es"
 msgstr ""
 
-#: mintmachine.py:54
-msgid "MintMachine solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
+#: syscheckup.py:54
+msgid "SysCheckup solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
 msgstr ""
 
-#: mintmachine.py:64
+#: syscheckup.py:64
 msgid ":/usr/sbin:/sbin"
 msgstr ""
 
-#: mintmachine.py:141
+#: syscheckup.py:141
 msgid "Español"
 msgstr ""
 
-#: mintmachine.py:141
+#: syscheckup.py:141
 msgid "English"
 msgstr ""
 
-#: mintmachine.py:329
+#: syscheckup.py:329
 msgid "(oculto)"
 msgstr ""
 
-#: mintmachine.py:331
+#: syscheckup.py:331
 msgid "(UUID oculto)"
 msgstr ""
 
-#: mintmachine.py:333
+#: syscheckup.py:333
 msgid "(IPv6 oculta)"
 msgstr ""
 
-#: mintmachine.py:400
+#: syscheckup.py:400
 msgid "Abrir el Gestor de actualizaciones"
 msgstr ""
 
-#: mintmachine.py:401
+#: syscheckup.py:401
 msgid "Abrir el Gestor de controladores"
 msgstr ""
 
-#: mintmachine.py:402
+#: syscheckup.py:402
 msgid "Abrir Discos"
 msgstr ""
 
-#: mintmachine.py:403
+#: syscheckup.py:403
 msgid "Ver qué ocupa el disco"
 msgstr ""
 
-#: mintmachine.py:404
+#: syscheckup.py:404
 msgid "Abrir Copias de seguridad"
 msgstr ""
 
-#: mintmachine.py:405
+#: syscheckup.py:405
 msgid "Abrir Timeshift"
 msgstr ""
 
-#: mintmachine.py:406
+#: syscheckup.py:406
 msgid "Abrir el Cortafuegos"
 msgstr ""
 
-#: mintmachine.py:407
+#: syscheckup.py:407
 msgid "Abrir Firmware"
 msgstr ""
 
-#: mintmachine.py:408
+#: syscheckup.py:408
 msgid "Abrir el Monitor del sistema"
 msgstr ""
 
-#: mintmachine.py:409
+#: syscheckup.py:409
 msgid "Abrir los registros del sistema"
 msgstr ""
 
-#: mintmachine.py:410
+#: syscheckup.py:410
 msgid "Abrir la configuración de energía"
 msgstr ""
 
-#: mintmachine.py:597
+#: syscheckup.py:597
 msgid "Memoria"
 msgstr ""
 
-#: mintmachine.py:597
+#: syscheckup.py:597
 msgid "Los programas están esperando por falta de memoria (presión del {n:.0f} %), y eso hace que el equipo vaya lento."
 msgstr ""
 
-#: mintmachine.py:598
+#: syscheckup.py:598
 msgid "Cierra programas o pestañas del navegador que no estés usando. Si te pasa a menudo, un servicio técnico puede decirte si tu equipo admite más memoria."
 msgstr ""
 
-#: mintmachine.py:604
+#: syscheckup.py:604
 msgid "Procesador"
 msgstr ""
 
-#: mintmachine.py:604
+#: syscheckup.py:604
 msgid "Uso"
 msgstr ""
 
-#: mintmachine.py:605
+#: syscheckup.py:605
 msgid "Swap"
 msgstr ""
 
-#: mintmachine.py:606
+#: syscheckup.py:606
 msgid "Red"
 msgstr ""
 
-#: mintmachine.py:606
+#: syscheckup.py:606
 msgid "Bajada"
 msgstr ""
 
-#: mintmachine.py:606
+#: syscheckup.py:606
 msgid "Subida"
 msgstr ""
 
-#: mintmachine.py:607
+#: syscheckup.py:607
 msgid "Disco"
 msgstr ""
 
-#: mintmachine.py:607
+#: syscheckup.py:607
 msgid "Lectura"
 msgstr ""
 
-#: mintmachine.py:607
+#: syscheckup.py:607
 msgid "Escritura"
 msgstr ""
 
-#: mintmachine.py:608
+#: syscheckup.py:608
 msgid "Temperatura del procesador"
 msgstr ""
 
-#: mintmachine.py:609
+#: syscheckup.py:609
 msgid "Uso de la gráfica"
 msgstr ""
 
-#: mintmachine.py:610
+#: syscheckup.py:610
 msgid "Uso de cada hilo"
 msgstr ""
 
-#: mintmachine.py:611
+#: syscheckup.py:611
 msgid "Ahora mismo"
 msgstr ""
 
-#: mintmachine.py:612
+#: syscheckup.py:612
 msgid "Carga media (1, 5, 15 min)"
 msgstr ""
 
-#: mintmachine.py:613
+#: syscheckup.py:613
 msgid "Procesos en marcha"
 msgstr ""
 
-#: mintmachine.py:614
+#: syscheckup.py:614
 msgid "Tiempo perdido esperando recursos (10 s)"
 msgstr ""
 
-#: mintmachine.py:616
+#: syscheckup.py:616
 msgid "Procesos que más procesador usan"
 msgstr ""
 
-#: mintmachine.py:616
+#: syscheckup.py:616
 msgid "Proceso"
 msgstr ""
 
-#: mintmachine.py:618
+#: syscheckup.py:618
 msgid "Procesos que más memoria ocupan"
 msgstr ""
 
-#: mintmachine.py:622
+#: syscheckup.py:622
 msgid "Las gráficas empiezan a llenarse a los pocos segundos de abrir el programa."
 msgstr ""
 
-#: mintmachine.py:623
+#: syscheckup.py:623
 msgid "Monitor en vivo"
 msgstr ""
 
-#: mintmachine.py:679
+#: syscheckup.py:679
 msgid " de datos"
 msgstr ""
 
-#: mintmachine.py:679
+#: syscheckup.py:679
 msgid " de instrucciones"
 msgstr ""
 
-#: mintmachine.py:682
+#: syscheckup.py:682
 msgid ", {ways} vías"
 msgstr ""
 
-#: mintmachine.py:688
+#: syscheckup.py:688
 msgid "SSE4.1"
 msgstr ""
 
-#: mintmachine.py:688
+#: syscheckup.py:688
 msgid "SSE4.2"
 msgstr ""
 
-#: mintmachine.py:695
+#: syscheckup.py:695
 msgid "Comprueba que las rejillas de ventilación no estén tapadas: no uses el portátil sobre la cama, el sofá o las piernas, y deja espacio libre alrededor del equipo. Cierra los programas que no uses. Si sigue pasando, que un servicio técnico revise la refrigeración: no abras el equipo por tu cuenta."
 msgstr ""
 
-#: mintmachine.py:710
+#: syscheckup.py:710
 msgid "Intel"
 msgstr ""
 
-#: mintmachine.py:710
+#: syscheckup.py:710
 msgid "Hygon"
 msgstr ""
 
-#: mintmachine.py:711
+#: syscheckup.py:711
 msgid "VIA/Centaur"
 msgstr ""
 
-#: mintmachine.py:718
+#: syscheckup.py:718
 msgid "Desconocido"
 msgstr ""
 
-#: mintmachine.py:740
+#: syscheckup.py:740
 msgid "Sí: hilos {pc} en núcleos P, hilos {ec} en núcleos E"
 msgstr ""
 
-#: mintmachine.py:744
+#: syscheckup.py:744
 msgid "Intel VT-x disponible"
 msgstr ""
 
-#: mintmachine.py:746
+#: syscheckup.py:746
 msgid "AMD-V disponible"
 msgstr ""
 
-#: mintmachine.py:748
+#: syscheckup.py:748
 msgid "No detectada (o desactivada en la BIOS)"
 msgstr ""
 
-#: mintmachine.py:754
+#: syscheckup.py:754
 msgid "El procesador ha bajado su velocidad por calor {thr} veces desde que encendiste el equipo."
 msgstr ""
 
-#: mintmachine.py:758
+#: syscheckup.py:758
 msgid "Modelo"
 msgstr ""
 
-#: mintmachine.py:759
+#: syscheckup.py:759
 msgid "Fabricante"
 msgstr ""
 
-#: mintmachine.py:760
+#: syscheckup.py:760
 msgid "Núcleos / hilos"
 msgstr ""
 
-#: mintmachine.py:761
+#: syscheckup.py:761
 msgid "Arquitectura híbrida"
 msgstr ""
 
-#: mintmachine.py:762
+#: syscheckup.py:762
 msgid "Frecuencia actual (media)"
 msgstr ""
 
-#: mintmachine.py:763
+#: syscheckup.py:763
 msgid "Rango de frecuencias"
 msgstr ""
 
-#: mintmachine.py:765
+#: syscheckup.py:765
 msgid "Uso total"
 msgstr ""
 
-#: mintmachine.py:767
+#: syscheckup.py:767
 msgid "Frenazos por temperatura desde el arranque"
 msgstr ""
 
-#: mintmachine.py:769
+#: syscheckup.py:769
 msgid "Virtualización"
 msgstr ""
 
-#: mintmachine.py:770
+#: syscheckup.py:770
 msgid "Entorno"
 msgstr ""
 
-#: mintmachine.py:770
+#: syscheckup.py:770
 msgid "Máquina física"
 msgstr ""
 
-#: mintmachine.py:770
+#: syscheckup.py:770
 msgid "Virtualizado ({virt})"
 msgstr ""
 
-#: mintmachine.py:772
+#: syscheckup.py:772
 msgid "Datos técnicos"
 msgstr ""
 
-#: mintmachine.py:773
+#: syscheckup.py:773
 msgid "Arquitectura"
 msgstr ""
 
-#: mintmachine.py:774
+#: syscheckup.py:774
 msgid "Familia / modelo / stepping"
 msgstr ""
 
-#: mintmachine.py:775
+#: syscheckup.py:775
 msgid "Microcódigo"
 msgstr ""
 
-#: mintmachine.py:776
+#: syscheckup.py:776
 msgid "Zócalos"
 msgstr ""
 
-#: mintmachine.py:777
+#: syscheckup.py:777
 msgid "Gobernador / driver"
 msgstr ""
 
-#: mintmachine.py:778
+#: syscheckup.py:778
 msgid "Direccionamiento"
 msgstr ""
 
-#: mintmachine.py:779
+#: syscheckup.py:779
 msgid "Instrucciones"
 msgstr ""
 
-#: mintmachine.py:785
+#: syscheckup.py:785
 msgid "CPU {n}"
 msgstr ""
 
-#: mintmachine.py:797
+#: syscheckup.py:797
 msgid "El kernel indica fallos de seguridad del procesador sin proteger: {lista}."
 msgstr ""
 
-#: mintmachine.py:799
+#: syscheckup.py:799
 msgid "Instala las actualizaciones pendientes, incluidas las del kernel, y el microcódigo del procesador que ofrezca el Gestor de controladores. Después, reinicia."
 msgstr ""
 
-#: mintmachine.py:802
+#: syscheckup.py:802
 msgid "{n} ({cores} núcleos, {threads} hilos)"
 msgstr ""
 
-#: mintmachine.py:806
+#: syscheckup.py:806
 msgid "Hilos en tiempo real"
 msgstr ""
 
-#: mintmachine.py:806
+#: syscheckup.py:806
 msgid "Hilo"
 msgstr ""
 
-#: mintmachine.py:806
+#: syscheckup.py:806
 msgid "Frecuencia"
 msgstr ""
 
-#: mintmachine.py:808
+#: syscheckup.py:808
 msgid "Cachés"
 msgstr ""
 
-#: mintmachine.py:809
+#: syscheckup.py:809
 msgid "Memoria muy rápida dentro del propio procesador. Más caché suele significar más rendimiento."
 msgstr ""
 
-#: mintmachine.py:810
+#: syscheckup.py:810
 msgid "Vulnerabilidades y mitigaciones"
 msgstr ""
 
-#: mintmachine.py:810
+#: syscheckup.py:810
 msgid "Vulnerabilidad"
 msgstr ""
 
-#: mintmachine.py:810
+#: syscheckup.py:810
 msgid "Estado según el kernel"
 msgstr ""
 
-#: mintmachine.py:811
+#: syscheckup.py:811
 msgid "Fallos de seguridad conocidos de los procesadores y cómo los neutraliza el kernel. «Not affected» y «Mitigation» son buenas noticias; «Vulnerable» no."
 msgstr ""
 
-#: mintmachine.py:818
+#: syscheckup.py:818
 msgid "Sobremesa"
 msgstr ""
 
-#: mintmachine.py:818
+#: syscheckup.py:818
 msgid "Sobremesa de perfil bajo"
 msgstr ""
 
-#: mintmachine.py:818
+#: syscheckup.py:818
 msgid "Pizza box"
 msgstr ""
 
-#: mintmachine.py:818
+#: syscheckup.py:818
 msgid "Minitorre"
 msgstr ""
 
-#: mintmachine.py:819
+#: syscheckup.py:819
 msgid "Torre"
 msgstr ""
 
-#: mintmachine.py:819
+#: syscheckup.py:819
 msgid "Portátil"
 msgstr ""
 
-#: mintmachine.py:819
+#: syscheckup.py:819
 msgid "Dispositivo de mano"
 msgstr ""
 
-#: mintmachine.py:820
+#: syscheckup.py:820
 msgid "Todo en uno"
 msgstr ""
 
-#: mintmachine.py:820
+#: syscheckup.py:820
 msgid "Subportátil"
 msgstr ""
 
-#: mintmachine.py:820
+#: syscheckup.py:820
 msgid "Servidor"
 msgstr ""
 
-#: mintmachine.py:820
+#: syscheckup.py:820
 msgid "Servidor en rack"
 msgstr ""
 
-#: mintmachine.py:821
+#: syscheckup.py:821
 msgid "Tableta"
 msgstr ""
 
-#: mintmachine.py:821
+#: syscheckup.py:821
 msgid "Convertible"
 msgstr ""
 
-#: mintmachine.py:821
+#: syscheckup.py:821
 msgid "Desmontable"
 msgstr ""
 
-#: mintmachine.py:821
+#: syscheckup.py:821
 msgid "Mini PC"
 msgstr ""
 
-#: mintmachine.py:821
+#: syscheckup.py:821
 msgid "Stick PC"
 msgstr ""
 
-#: mintmachine.py:826
+#: syscheckup.py:826
 msgid "to be filled by o.e.m."
 msgstr ""
 
-#: mintmachine.py:826
+#: syscheckup.py:826
 msgid "default string"
 msgstr ""
 
-#: mintmachine.py:826
+#: syscheckup.py:826
 msgid "system product name"
 msgstr ""
 
-#: mintmachine.py:827
+#: syscheckup.py:827
 msgid "system manufacturer"
 msgstr ""
 
-#: mintmachine.py:827
+#: syscheckup.py:827
 msgid "not specified"
 msgstr ""
 
-#: mintmachine.py:866
+#: syscheckup.py:866
 msgid "Equipo"
 msgstr ""
 
-#: mintmachine.py:868
+#: syscheckup.py:868
 msgid "Versión"
 msgstr ""
 
-#: mintmachine.py:868
+#: syscheckup.py:868
 msgid "Familia"
 msgstr ""
 
-#: mintmachine.py:869
+#: syscheckup.py:869
 msgid "Formato"
 msgstr ""
 
-#: mintmachine.py:870
+#: syscheckup.py:870
 msgid "Número de serie"
 msgstr ""
 
-#: mintmachine.py:872
+#: syscheckup.py:872
 msgid "Placa base"
 msgstr ""
 
-#: mintmachine.py:874
+#: syscheckup.py:874
 msgid "Revisión"
 msgstr ""
 
-#: mintmachine.py:876
+#: syscheckup.py:876
 msgid "BIOS / UEFI"
 msgstr ""
 
-#: mintmachine.py:878
+#: syscheckup.py:878
 msgid "Fecha"
 msgstr ""
 
-#: mintmachine.py:879
+#: syscheckup.py:879
 msgid "Modo de arranque"
 msgstr ""
 
-#: mintmachine.py:879
+#: syscheckup.py:879
 msgid "BIOS clásico (legacy)"
 msgstr ""
 
-#: mintmachine.py:880
+#: syscheckup.py:880
 msgid "Secure Boot"
 msgstr ""
 
-#: mintmachine.py:880
+#: syscheckup.py:880
 msgid "No aplicable"
 msgstr ""
 
-#: mintmachine.py:880
+#: syscheckup.py:880
 msgid "Activado"
 msgstr ""
 
-#: mintmachine.py:880
+#: syscheckup.py:880
 msgid "Desactivado"
 msgstr ""
 
-#: mintmachine.py:881
+#: syscheckup.py:881
 msgid "Versión {tpm}.x"
 msgstr ""
 
-#: mintmachine.py:881
+#: syscheckup.py:881
 msgid "No detectado"
 msgstr ""
 
-#: mintmachine.py:885
+#: syscheckup.py:885
 msgid "Este sistema no expone datos DMI (habitual en máquinas virtuales, contenedores y placas ARM)."
 msgstr ""
 
-#: mintmachine.py:887
+#: syscheckup.py:887
 msgid "Placa base y BIOS"
 msgstr ""
 
-#: mintmachine.py:923
+#: syscheckup.py:923
 msgid "{n} de {n2} ({n3:.0f} %)"
 msgstr ""
 
-#: mintmachine.py:928
+#: syscheckup.py:928
 msgid "Detalle"
 msgstr ""
 
-#: mintmachine.py:929
+#: syscheckup.py:929
 msgid "Total instalada (visible)"
 msgstr ""
 
-#: mintmachine.py:930
+#: syscheckup.py:930
 msgid "Disponible"
 msgstr ""
 
-#: mintmachine.py:931
+#: syscheckup.py:931
 msgid "Caché y búferes"
 msgstr ""
 
-#: mintmachine.py:932
+#: syscheckup.py:932
 msgid "Memoria compartida"
 msgstr ""
 
-#: mintmachine.py:933
+#: syscheckup.py:933
 msgid "Memoria de intercambio (swap)"
 msgstr ""
 
-#: mintmachine.py:934
+#: syscheckup.py:934
 msgid "No hay"
 msgstr ""
 
-#: mintmachine.py:935
+#: syscheckup.py:935
 msgid "Tendencia a usar swap (swappiness)"
 msgstr ""
 
-#: mintmachine.py:946
+#: syscheckup.py:946
 msgid "Vacía"
 msgstr ""
 
-#: mintmachine.py:953
+#: syscheckup.py:953
 msgid "Módulos instalados"
 msgstr ""
 
-#: mintmachine.py:953
+#: syscheckup.py:953
 msgid "Ranura"
 msgstr ""
 
-#: mintmachine.py:953
+#: syscheckup.py:953
 msgid "Tamaño"
 msgstr ""
 
-#: mintmachine.py:953
+#: syscheckup.py:953
 msgid "Tipo"
 msgstr ""
 
-#: mintmachine.py:953
+#: syscheckup.py:953
 msgid "Velocidad"
 msgstr ""
 
-#: mintmachine.py:954
+#: syscheckup.py:954
 msgid "Referencia"
 msgstr ""
 
-#: mintmachine.py:957
+#: syscheckup.py:957
 msgid "Ampliación"
 msgstr ""
 
-#: mintmachine.py:958
+#: syscheckup.py:958
 msgid "Ranuras ocupadas"
 msgstr ""
 
-#: mintmachine.py:958
+#: syscheckup.py:958
 msgid "{populated} de {n}"
 msgstr ""
 
-#: mintmachine.py:959
+#: syscheckup.py:959
 msgid "Máximo que admite la placa"
 msgstr ""
 
-#: mintmachine.py:962
+#: syscheckup.py:962
 msgid "Hay un solo módulo de memoria y queda una ranura libre: la memoria trabaja en canal simple."
 msgstr ""
 
-#: mintmachine.py:964
+#: syscheckup.py:964
 msgid "No es un fallo. Si algún día quieres más rendimiento o más memoria, un servicio técnico puede añadir un módulo igual al que tienes."
 msgstr ""
 
-#: mintmachine.py:967
+#: syscheckup.py:967
 msgid "No se han podido leer los módulos de RAM (ocurre en máquinas virtuales y en algunos equipos con memoria soldada)."
 msgstr ""
 
-#: mintmachine.py:973
+#: syscheckup.py:973
 msgid "Errores de memoria (EDAC)"
 msgstr ""
 
-#: mintmachine.py:973
+#: syscheckup.py:973
 msgid "Corregidos"
 msgstr ""
 
-#: mintmachine.py:973
+#: syscheckup.py:973
 msgid "Sin corregir"
 msgstr ""
 
-#: mintmachine.py:974
+#: syscheckup.py:974
 msgid "Errores que el controlador de memoria ha detectado. Lo normal es 0."
 msgstr ""
 
-#: mintmachine.py:976
+#: syscheckup.py:976
 msgid "El kernel ha registrado {ue} errores de memoria que no ha podido corregir. Es señal de un módulo de memoria defectuoso."
 msgstr ""
 
-#: mintmachine.py:977
+#: syscheckup.py:977
 msgid "Haz ya una copia de seguridad de tus archivos y lleva el equipo a un servicio técnico o al fabricante, sobre todo si está en garantía."
 msgstr ""
 
-#: mintmachine.py:980
+#: syscheckup.py:980
 msgid "El kernel ha corregido {ce} errores de memoria."
 msgstr ""
 
-#: mintmachine.py:981
+#: syscheckup.py:981
 msgid "De momento no se pierde nada, pero puede ser el primer síntoma de un módulo que falla. Haz copias de seguridad con regularidad y coméntaselo a un servicio técnico."
 msgstr ""
 
-#: mintmachine.py:984
+#: syscheckup.py:984
 msgid "Queda poca memoria libre ({n})."
 msgstr ""
 
-#: mintmachine.py:985
+#: syscheckup.py:985
 msgid "Cierra programas o pestañas del navegador que no estés usando."
 msgstr ""
 
-#: mintmachine.py:987
+#: syscheckup.py:987
 msgid "No hay memoria de intercambio (swap) y el equipo tiene menos de 8 GiB de RAM."
 msgstr ""
 
-#: mintmachine.py:988
+#: syscheckup.py:988
 msgid "Si algún programa se cierra solo por falta de memoria, pide en el foro de tu distribución cómo crear un archivo de intercambio. Si no te pasa, no hace falta hacer nada."
 msgstr ""
 
-#: mintmachine.py:994
+#: syscheckup.py:994
 msgid "{n} visibles ({n2} × {n3}{n4})"
 msgstr ""
 
-#: mintmachine.py:1024
+#: syscheckup.py:1024
 msgid "Clase [{n}]"
 msgstr ""
 
-#: mintmachine.py:1025
+#: syscheckup.py:1025
 msgid "Fabricante [{n}]"
 msgstr ""
 
-#: mintmachine.py:1026
+#: syscheckup.py:1026
 msgid "Dispositivo [{n}]"
 msgstr ""
 
-#: mintmachine.py:1070
+#: syscheckup.py:1070
 msgid "máxima {mx} MHz"
 msgstr ""
 
-#: mintmachine.py:1073
+#: syscheckup.py:1073
 msgid "Acer"
 msgstr ""
 
-#: mintmachine.py:1073
+#: syscheckup.py:1073
 msgid "AU Optronics"
 msgstr ""
 
-#: mintmachine.py:1074
+#: syscheckup.py:1074
 msgid "Innolux"
 msgstr ""
 
-#: mintmachine.py:1074
+#: syscheckup.py:1074
 msgid "Dell"
 msgstr ""
 
-#: mintmachine.py:1074
+#: syscheckup.py:1074
 msgid "Gigabyte"
 msgstr ""
 
-#: mintmachine.py:1075
+#: syscheckup.py:1075
 msgid "Huawei"
 msgstr ""
 
-#: mintmachine.py:1076
+#: syscheckup.py:1076
 msgid "Lenovo"
 msgstr ""
 
-#: mintmachine.py:1076
+#: syscheckup.py:1076
 msgid "LG Display"
 msgstr ""
 
-#: mintmachine.py:1076
+#: syscheckup.py:1076
 msgid "Panasonic"
 msgstr ""
 
-#: mintmachine.py:1077
+#: syscheckup.py:1077
 msgid "Philips"
 msgstr ""
 
-#: mintmachine.py:1077
+#: syscheckup.py:1077
 msgid "Samsung"
 msgstr ""
 
-#: mintmachine.py:1077
+#: syscheckup.py:1077
 msgid "Samsung Display"
 msgstr ""
 
-#: mintmachine.py:1077
+#: syscheckup.py:1077
 msgid "Sharp"
 msgstr ""
 
-#: mintmachine.py:1077
+#: syscheckup.py:1077
 msgid "Sony"
 msgstr ""
 
-#: mintmachine.py:1078
+#: syscheckup.py:1078
 msgid "Xiaomi"
 msgstr ""
 
-#: mintmachine.py:1078
+#: syscheckup.py:1078
 msgid "Skyworth"
 msgstr ""
 
-#: mintmachine.py:1078
+#: syscheckup.py:1078
 msgid "Medion"
 msgstr ""
 
-#: mintmachine.py:1188
+#: syscheckup.py:1188
 msgid "Monitor"
 msgstr ""
 
-#: mintmachine.py:1188
+#: syscheckup.py:1188
 msgid "Resolución nativa"
 msgstr ""
 
-#: mintmachine.py:1188
+#: syscheckup.py:1188
 msgid "Refresco nativo"
 msgstr ""
 
-#: mintmachine.py:1188
+#: syscheckup.py:1188
 msgid "Modo en uso"
 msgstr ""
 
-#: mintmachine.py:1188
+#: syscheckup.py:1188
 msgid "Conector"
 msgstr ""
 
-#: mintmachine.py:1189
+#: syscheckup.py:1189
 msgid "Fabricado en"
 msgstr ""
 
-#: mintmachine.py:1215
+#: syscheckup.py:1215
 msgid "Tarjeta gráfica: {n}"
 msgstr ""
 
-#: mintmachine.py:1217
+#: syscheckup.py:1217
 msgid "Identificador PCI"
 msgstr ""
 
-#: mintmachine.py:1218
+#: syscheckup.py:1218
 msgid "Ensamblador"
 msgstr ""
 
-#: mintmachine.py:1220
+#: syscheckup.py:1220
 msgid "Driver en uso"
 msgstr ""
 
-#: mintmachine.py:1221
+#: syscheckup.py:1221
 msgid "Módulos disponibles"
 msgstr ""
 
-#: mintmachine.py:1222
+#: syscheckup.py:1222
 msgid "Memoria de vídeo"
 msgstr ""
 
-#: mintmachine.py:1224
+#: syscheckup.py:1224
 msgid "Enlace PCIe"
 msgstr ""
 
-#: mintmachine.py:1228
+#: syscheckup.py:1228
 msgid "Gráfica"
 msgstr ""
 
-#: mintmachine.py:1228
+#: syscheckup.py:1228
 msgid "La gráfica {dname} no tiene ningún driver cargado."
 msgstr ""
 
-#: mintmachine.py:1229
+#: syscheckup.py:1229
 msgid "Abre el Gestor de controladores: si ofrece un driver recomendado para tu gráfica, instálalo y reinicia. Si no ofrece nada, pregunta en el foro de tu distribución."
 msgstr ""
 
-#: mintmachine.py:1236
+#: syscheckup.py:1236
 msgid "NVIDIA (driver privativo)"
 msgstr ""
 
-#: mintmachine.py:1236
+#: syscheckup.py:1236
 msgid "Versión del driver"
 msgstr ""
 
-#: mintmachine.py:1236
+#: syscheckup.py:1236
 msgid "Temperatura °C"
 msgstr ""
 
-#: mintmachine.py:1240
+#: syscheckup.py:1240
 msgid "Aceleración 3D"
 msgstr ""
 
-#: mintmachine.py:1241
+#: syscheckup.py:1241
 msgid "Renderizador OpenGL"
 msgstr ""
 
-#: mintmachine.py:1242
+#: syscheckup.py:1242
 msgid "Versión de OpenGL"
 msgstr ""
 
-#: mintmachine.py:1243
+#: syscheckup.py:1243
 msgid "Renderizado directo"
 msgstr ""
 
-#: mintmachine.py:1244
+#: syscheckup.py:1244
 msgid "Memoria de vídeo dedicada"
 msgstr ""
 
-#: mintmachine.py:1245
+#: syscheckup.py:1245
 msgid "Servidor gráfico"
 msgstr ""
 
-#: mintmachine.py:1245
+#: syscheckup.py:1245
 msgid "X11 (Xorg)"
 msgstr ""
 
-#: mintmachine.py:1245
+#: syscheckup.py:1245
 msgid "Wayland"
 msgstr ""
 
-#: mintmachine.py:1248
+#: syscheckup.py:1248
 msgid "La gráfica no está acelerando el 3D: lo está dibujando el procesador (llvmpipe), así que vídeos, juegos y efectos irán lentos."
 msgstr ""
 
-#: mintmachine.py:1250
+#: syscheckup.py:1250
 msgid "Abre el Gestor de controladores e instala el driver recomendado para tu gráfica. Después, reinicia."
 msgstr ""
 
-#: mintmachine.py:1255
+#: syscheckup.py:1255
 msgid "H.265 (HEVC)"
 msgstr ""
 
-#: mintmachine.py:1258
+#: syscheckup.py:1258
 msgid "Vídeo y Vulkan"
 msgstr ""
 
-#: mintmachine.py:1258
+#: syscheckup.py:1258
 msgid "Formatos de vídeo que la gráfica reproduce por sí sola, sin cargar al procesador, y versión de Vulkan, que usan los juegos."
 msgstr ""
 
-#: mintmachine.py:1260
+#: syscheckup.py:1260
 msgid "Decodifica por hardware"
 msgstr ""
 
-#: mintmachine.py:1261
+#: syscheckup.py:1261
 msgid "Ningún formato"
 msgstr ""
 
-#: mintmachine.py:1262
+#: syscheckup.py:1262
 msgid "No decodifica por hardware"
 msgstr ""
 
-#: mintmachine.py:1263
+#: syscheckup.py:1263
 msgid "Dispositivo Vulkan"
 msgstr ""
 
-#: mintmachine.py:1264
+#: syscheckup.py:1264
 msgid "Versión de Vulkan"
 msgstr ""
 
-#: mintmachine.py:1265
+#: syscheckup.py:1265
 msgid "Driver Vulkan"
 msgstr ""
 
-#: mintmachine.py:1269
+#: syscheckup.py:1269
 msgid "Pantallas conectadas"
 msgstr ""
 
-#: mintmachine.py:1275
+#: syscheckup.py:1275
 msgid "Salida"
 msgstr ""
 
-#: mintmachine.py:1275
+#: syscheckup.py:1275
 msgid "Resolución"
 msgstr ""
 
-#: mintmachine.py:1275
+#: syscheckup.py:1275
 msgid "Refresco"
 msgstr ""
 
-#: mintmachine.py:1283
+#: syscheckup.py:1283
 msgid "No se ha detectado ninguna tarjeta gráfica por PCI."
 msgstr ""
 
-#: mintmachine.py:1284
+#: syscheckup.py:1284
 msgid "Gráfica y pantallas"
 msgstr ""
 
-#: mintmachine.py:1294
+#: syscheckup.py:1294
 msgid "Dispositivos PCI y el driver que usa cada uno"
 msgstr ""
 
-#: mintmachine.py:1295
+#: syscheckup.py:1295
 msgid "Clase"
 msgstr ""
 
-#: mintmachine.py:1295
+#: syscheckup.py:1295
 msgid "Dispositivo"
 msgstr ""
 
-#: mintmachine.py:1295
+#: syscheckup.py:1295
 msgid "Driver"
 msgstr ""
 
-#: mintmachine.py:1297
+#: syscheckup.py:1297
 msgid "No hay bus PCI visible en este sistema."
 msgstr ""
 
-#: mintmachine.py:1298
+#: syscheckup.py:1298
 msgid "Dispositivos PCI"
 msgstr ""
 
-#: mintmachine.py:1321
+#: syscheckup.py:1321
 msgid "{n} usados de {n2}; quedan {n3} libres"
 msgstr ""
 
-#: mintmachine.py:1379
+#: syscheckup.py:1379
 msgid "{used} % usada (queda un {n} % estimado)"
 msgstr ""
 
-#: mintmachine.py:1384
+#: syscheckup.py:1384
 msgid "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube. Después, consulta con un servicio técnico o con el fabricante (si está en garantía) para sustituir la unidad."
 msgstr ""
 
-#: mintmachine.py:1399
+#: syscheckup.py:1399
 msgid "FALLO INMINENTE"
 msgstr ""
 
-#: mintmachine.py:1399
+#: syscheckup.py:1399
 msgid "Con sectores dañados"
 msgstr ""
 
-#: mintmachine.py:1399
+#: syscheckup.py:1399
 msgid "Correcto"
 msgstr ""
 
-#: mintmachine.py:1401
+#: syscheckup.py:1401
 msgid "{hours} h ({n} años)"
 msgstr ""
 
-#: mintmachine.py:1404
+#: syscheckup.py:1404
 msgid "Almacenamiento"
 msgstr ""
 
-#: mintmachine.py:1404
+#: syscheckup.py:1404
 msgid "El disco {model} avisa de que va a fallar pronto (SMART)."
 msgstr ""
 
-#: mintmachine.py:1407
+#: syscheckup.py:1407
 msgid "El disco {model} tiene {bad} sectores dañados."
 msgstr ""
 
-#: mintmachine.py:1408
+#: syscheckup.py:1408
 msgid "Algunos sectores dañados no impiden usar el disco, pero si el número crece, el disco se está deteriorando."
 msgstr ""
 
-#: mintmachine.py:1411
+#: syscheckup.py:1411
 msgid "El SSD {model} ha consumido el {wear} % de su vida útil estimada."
 msgstr ""
 
-#: mintmachine.py:1412
+#: syscheckup.py:1412
 msgid "Aún puede funcionar bastante tiempo, pero conviene planificar su sustitución."
 msgstr ""
 
-#: mintmachine.py:1420
+#: syscheckup.py:1420
 msgid "AVISO: {warn}"
 msgstr ""
 
-#: mintmachine.py:1426
+#: syscheckup.py:1426
 msgid "El SSD {model} avisa de un problema de salud ({warn})."
 msgstr ""
 
-#: mintmachine.py:1427
+#: syscheckup.py:1427
 msgid "El SSD {model} avisa de un problema de salud (le quedan pocos bloques de reserva)."
 msgstr ""
 
-#: mintmachine.py:1431
+#: syscheckup.py:1431
 msgid "El SSD {model} ha consumido el {used} % de su vida útil estimada."
 msgstr ""
 
-#: mintmachine.py:1432
+#: syscheckup.py:1432
 msgid "Llegar al 100 % no significa que falle ese día: es la estimación del fabricante. Aun así, conviene planificar su sustitución."
 msgstr ""
 
-#: mintmachine.py:1435
+#: syscheckup.py:1435
 msgid "El SSD {model} ha registrado {media_errors} errores de datos."
 msgstr ""
 
-#: mintmachine.py:1437
+#: syscheckup.py:1437
 msgid "Sin datos SMART"
 msgstr ""
 
-#: mintmachine.py:1445
+#: syscheckup.py:1445
 msgid "NAME,MODEL,SERIAL,SIZE,TYPE,TRAN,ROTA,FSTYPE,MOUNTPOINT,REV,RM,PKNAME"
 msgstr ""
 
-#: mintmachine.py:1480
+#: syscheckup.py:1480
 msgid "Disco virtual"
 msgstr ""
 
-#: mintmachine.py:1482
+#: syscheckup.py:1482
 msgid "SSD NVMe"
 msgstr ""
 
-#: mintmachine.py:1484
+#: syscheckup.py:1484
 msgid "Disco duro (HDD)"
 msgstr ""
 
-#: mintmachine.py:1486
+#: syscheckup.py:1486
 msgid "Memoria flash"
 msgstr ""
 
-#: mintmachine.py:1488
+#: syscheckup.py:1488
 msgid "extraíble"
 msgstr ""
 
-#: mintmachine.py:1511
+#: syscheckup.py:1511
 msgid "Vacía la papelera y borra o mueve a otro disco lo que no necesites (descargas, vídeos, copias antiguas). «Ver qué ocupa el disco» te enseña qué carpetas ocupan más. Si usas Timeshift, revisa cuántas instantáneas guarda."
 msgstr ""
 
-#: mintmachine.py:1516
+#: syscheckup.py:1516
 msgid "«{mnt}» está prácticamente lleno (quedan {n}). Con el disco lleno pueden fallar las actualizaciones y los programas."
 msgstr ""
 
-#: mintmachine.py:1518
+#: syscheckup.py:1518
 msgid "«{mnt}» está al {n:.0f} % (quedan {n2})."
 msgstr ""
 
-#: mintmachine.py:1521
+#: syscheckup.py:1521
 msgid "El sistema está instalado en un disco duro mecánico, que es mucho más lento que un SSD."
 msgstr ""
 
-#: mintmachine.py:1523
+#: syscheckup.py:1523
 msgid "No es un fallo. Si el equipo te parece lento, cambiar el disco por un SSD es la mejora que más se nota; pídeselo a un servicio técnico, que también puede pasar tus datos."
 msgstr ""
 
-#: mintmachine.py:1533
+#: syscheckup.py:1533
 msgid "Correcta"
 msgstr ""
 
-#: mintmachine.py:1534
+#: syscheckup.py:1534
 msgid "{n} de {n2} unidades con avisos (mira Almacenamiento)"
 msgstr ""
 
-#: mintmachine.py:1536
+#: syscheckup.py:1536
 msgid "Espacio ocupado"
 msgstr ""
 
-#: mintmachine.py:1537
+#: syscheckup.py:1537
 msgid "Salud de los discos (SMART)"
 msgstr ""
 
-#: mintmachine.py:1537
+#: syscheckup.py:1537
 msgid "Unidad"
 msgstr ""
 
-#: mintmachine.py:1537
+#: syscheckup.py:1537
 msgid "Estado"
 msgstr ""
 
-#: mintmachine.py:1537
+#: syscheckup.py:1537
 msgid "Vida útil"
 msgstr ""
 
-#: mintmachine.py:1537
+#: syscheckup.py:1537
 msgid "Temperatura"
 msgstr ""
 
-#: mintmachine.py:1537
+#: syscheckup.py:1537
 msgid "Horas encendido"
 msgstr ""
 
-#: mintmachine.py:1538
+#: syscheckup.py:1538
 msgid "Sectores dañados / errores"
 msgstr ""
 
-#: mintmachine.py:1538
+#: syscheckup.py:1538
 msgid "Última autoprueba"
 msgstr ""
 
-#: mintmachine.py:1539
+#: syscheckup.py:1539
 msgid "El propio disco vigila su estado (SMART). «Vida útil» es la estimación de desgaste del fabricante para los SSD."
 msgstr ""
 
-#: mintmachine.py:1541
+#: syscheckup.py:1541
 msgid "Unidades"
 msgstr ""
 
-#: mintmachine.py:1541
+#: syscheckup.py:1541
 msgid "Capacidad"
 msgstr ""
 
-#: mintmachine.py:1541
+#: syscheckup.py:1541
 msgid "Interfaz"
 msgstr ""
 
-#: mintmachine.py:1541
+#: syscheckup.py:1541
 msgid "Enlace"
 msgstr ""
 
-#: mintmachine.py:1541
+#: syscheckup.py:1541
 msgid "Firmware"
 msgstr ""
 
-#: mintmachine.py:1542
+#: syscheckup.py:1542
 msgid "Planificador E/S"
 msgstr ""
 
-#: mintmachine.py:1543
+#: syscheckup.py:1543
 msgid "Mantenimiento"
 msgstr ""
 
-#: mintmachine.py:1543
+#: syscheckup.py:1543
 msgid "TRIM periódico de los SSD"
 msgstr ""
 
-#: mintmachine.py:1543
+#: syscheckup.py:1543
 msgid "Activado (fstrim.timer)"
 msgstr ""
 
-#: mintmachine.py:1545
+#: syscheckup.py:1545
 msgid "El TRIM ayuda a que los SSD mantengan su velocidad. Linux Mint lo activa por defecto."
 msgstr ""
 
-#: mintmachine.py:1546
+#: syscheckup.py:1546
 msgid "Particiones y volúmenes"
 msgstr ""
 
-#: mintmachine.py:1546
+#: syscheckup.py:1546
 msgid "Sistema de archivos"
 msgstr ""
 
-#: mintmachine.py:1547
+#: syscheckup.py:1547
 msgid "Montado en"
 msgstr ""
 
-#: mintmachine.py:1550
+#: syscheckup.py:1550
 msgid "No se han detectado unidades físicas (¿falta la utilidad lsblk?)."
 msgstr ""
 
-#: mintmachine.py:1552
+#: syscheckup.py:1552
 msgid "No hay datos de salud de los discos: hace falta el servicio UDisks (paquete udisks2; para los NVMe, versión 2.10 o posterior). En máquinas virtuales no hay SMART."
 msgstr ""
 
-#: mintmachine.py:1571
+#: syscheckup.py:1571
 msgid "Bucle local"
 msgstr ""
 
-#: mintmachine.py:1575
+#: syscheckup.py:1575
 msgid "Ethernet"
 msgstr ""
 
-#: mintmachine.py:1577
+#: syscheckup.py:1577
 msgid "Virtual"
 msgstr ""
 
-#: mintmachine.py:1582
+#: syscheckup.py:1582
 msgid "Conectada"
 msgstr ""
 
-#: mintmachine.py:1582
+#: syscheckup.py:1582
 msgid "Desconectada"
 msgstr ""
 
-#: mintmachine.py:1583
+#: syscheckup.py:1583
 msgid "En espera"
 msgstr ""
 
-#: mintmachine.py:1594
+#: syscheckup.py:1594
 msgid "2,4 GHz"
 msgstr ""
 
-#: mintmachine.py:1594
+#: syscheckup.py:1594
 msgid "5 GHz"
 msgstr ""
 
-#: mintmachine.py:1594
+#: syscheckup.py:1594
 msgid "6 GHz"
 msgstr ""
 
-#: mintmachine.py:1595
+#: syscheckup.py:1595
 msgid "banda de {band}"
 msgstr ""
 
-#: mintmachine.py:1596
+#: syscheckup.py:1596
 msgid "{mhz} MHz (banda de {band})"
 msgstr ""
 
-#: mintmachine.py:1607
+#: syscheckup.py:1607
 msgid "débil"
 msgstr ""
 
-#: mintmachine.py:1610
+#: syscheckup.py:1610
 msgid "La señal Wi-Fi es débil ({dbm} dBm): la conexión puede ir lenta o cortarse."
 msgstr ""
 
-#: mintmachine.py:1611
+#: syscheckup.py:1611
 msgid "Acércate al router o quita obstáculos entre ambos. Si tu router tiene dos redes (2,4 y 5 GHz), la de 2,4 GHz llega más lejos."
 msgstr ""
 
-#: mintmachine.py:1613
+#: syscheckup.py:1613
 msgid "Wi-Fi en {name}"
 msgstr ""
 
-#: mintmachine.py:1614
+#: syscheckup.py:1614
 msgid "Red (SSID)"
 msgstr ""
 
-#: mintmachine.py:1614
+#: syscheckup.py:1614
 msgid "Señal"
 msgstr ""
 
-#: mintmachine.py:1616
+#: syscheckup.py:1616
 msgid "Velocidad de bajada"
 msgstr ""
 
-#: mintmachine.py:1617
+#: syscheckup.py:1617
 msgid "Velocidad de subida"
 msgstr ""
 
-#: mintmachine.py:1622
+#: syscheckup.py:1622
 msgid "{n} por {n2}"
 msgstr ""
 
-#: mintmachine.py:1628
+#: syscheckup.py:1628
 msgid "General"
 msgstr ""
 
-#: mintmachine.py:1629
+#: syscheckup.py:1629
 msgid "Nombre del equipo"
 msgstr ""
 
-#: mintmachine.py:1630
+#: syscheckup.py:1630
 msgid "Puerta de enlace"
 msgstr ""
 
-#: mintmachine.py:1631
+#: syscheckup.py:1631
 msgid "Servidores DNS"
 msgstr ""
 
-#: mintmachine.py:1632
+#: syscheckup.py:1632
 msgid "Bluetooth"
 msgstr ""
 
-#: mintmachine.py:1635
+#: syscheckup.py:1635
 msgid "Interfaces"
 msgstr ""
 
-#: mintmachine.py:1649
+#: syscheckup.py:1649
 msgid "Tarjetas de sonido"
 msgstr ""
 
-#: mintmachine.py:1649
+#: syscheckup.py:1649
 msgid "Nombre"
 msgstr ""
 
-#: mintmachine.py:1650
+#: syscheckup.py:1650
 msgid "Servidor de sonido"
 msgstr ""
 
-#: mintmachine.py:1652
+#: syscheckup.py:1652
 msgid "Salida predeterminada"
 msgstr ""
 
-#: mintmachine.py:1653
+#: syscheckup.py:1653
 msgid "Entrada predeterminada"
 msgstr ""
 
-#: mintmachine.py:1658
+#: syscheckup.py:1658
 msgid "No se ha detectado ninguna tarjeta de sonido."
 msgstr ""
 
-#: mintmachine.py:1659
+#: syscheckup.py:1659
 msgid "Sonido"
 msgstr ""
 
-#: mintmachine.py:1683
+#: syscheckup.py:1683
 msgid "Dispositivos USB conectados"
 msgstr ""
 
-#: mintmachine.py:1683
+#: syscheckup.py:1683
 msgid "Puerto"
 msgstr ""
 
-#: mintmachine.py:1683
+#: syscheckup.py:1683
 msgid "Producto"
 msgstr ""
 
-#: mintmachine.py:1684
+#: syscheckup.py:1684
 msgid "Consumo máx."
 msgstr ""
 
-#: mintmachine.py:1686
+#: syscheckup.py:1686
 msgid "No hay dispositivos USB conectados (o el sistema no expone el bus USB)."
 msgstr ""
 
-#: mintmachine.py:1687
+#: syscheckup.py:1687
 msgid "Dispositivos USB"
 msgstr ""
 
-#: mintmachine.py:1693
+#: syscheckup.py:1693
 msgid "Gráfica AMD"
 msgstr ""
 
-#: mintmachine.py:1693
+#: syscheckup.py:1693
 msgid "Gráfica NVIDIA"
 msgstr ""
 
-#: mintmachine.py:1694
+#: syscheckup.py:1694
 msgid "Chipset"
 msgstr ""
 
-#: mintmachine.py:1701
+#: syscheckup.py:1701
 msgid "Sin regulación (al máximo)"
 msgstr ""
 
-#: mintmachine.py:1703
+#: syscheckup.py:1703
 msgid "Curva personalizada"
 msgstr ""
 
-#: mintmachine.py:1703
+#: syscheckup.py:1703
 msgid "Manual (lo fija un programa)"
 msgstr ""
 
-#: mintmachine.py:1704
+#: syscheckup.py:1704
 msgid "Automático (lo decide el firmware)"
 msgstr ""
 
-#: mintmachine.py:1719
+#: syscheckup.py:1719
 msgid "Ventilador {idx}"
 msgstr ""
 
-#: mintmachine.py:1719
+#: syscheckup.py:1719
 msgid "Sonda de temperatura {idx}"
 msgstr ""
 
-#: mintmachine.py:1724
+#: syscheckup.py:1724
 msgid "acelera el ventilador"
 msgstr ""
 
-#: mintmachine.py:1724
+#: syscheckup.py:1724
 msgid "frena el procesador"
 msgstr ""
 
-#: mintmachine.py:1725
+#: syscheckup.py:1725
 msgid "aviso de calor"
 msgstr ""
 
-#: mintmachine.py:1725
+#: syscheckup.py:1725
 msgid "apagado de emergencia"
 msgstr ""
 
-#: mintmachine.py:1774
+#: syscheckup.py:1774
 msgid "{n:.0f} % de su máximo"
 msgstr ""
 
-#: mintmachine.py:1776
+#: syscheckup.py:1776
 msgid "Parado"
 msgstr ""
 
-#: mintmachine.py:1784
+#: syscheckup.py:1784
 msgid "Ventilador"
 msgstr ""
 
-#: mintmachine.py:1788
+#: syscheckup.py:1788
 msgid "{nice}, sensor {label}: {t:.0f} °C, muy cerca de su límite. Si lo alcanza, el equipo se frenará o se apagará para protegerse."
 msgstr ""
 
-#: mintmachine.py:1790
+#: syscheckup.py:1790
 msgid "{nice}, sensor {label}: {t:.0f} °C, temperatura alta. Puede ser normal mientras el equipo trabaja a fondo (juegos, vídeo, compilar)."
 msgstr ""
 
-#: mintmachine.py:1803
+#: syscheckup.py:1803
 msgid "Zona térmica"
 msgstr ""
 
-#: mintmachine.py:1814
+#: syscheckup.py:1814
 msgid "Ventilador (ACPI)"
 msgstr ""
 
-#: mintmachine.py:1814
+#: syscheckup.py:1814
 msgid "Freno del procesador"
 msgstr ""
 
-#: mintmachine.py:1815
+#: syscheckup.py:1815
 msgid "{act} de {n} actuando"
 msgstr ""
 
-#: mintmachine.py:1815
+#: syscheckup.py:1815
 msgid "En reposo"
 msgstr ""
 
-#: mintmachine.py:1819
+#: syscheckup.py:1819
 msgid "Ventilador del ThinkPad"
 msgstr ""
 
-#: mintmachine.py:1821
+#: syscheckup.py:1821
 msgid "Nivel"
 msgstr ""
 
-#: mintmachine.py:1821
+#: syscheckup.py:1821
 msgid "Al máximo"
 msgstr ""
 
-#: mintmachine.py:1822
+#: syscheckup.py:1822
 msgid "Sin límite"
 msgstr ""
 
-#: mintmachine.py:1831
+#: syscheckup.py:1831
 msgid "Temperaturas"
 msgstr ""
 
-#: mintmachine.py:1831
+#: syscheckup.py:1831
 msgid "Chip"
 msgstr ""
 
-#: mintmachine.py:1831
+#: syscheckup.py:1831
 msgid "Sensor"
 msgstr ""
 
-#: mintmachine.py:1831
+#: syscheckup.py:1831
 msgid "Ahora"
 msgstr ""
 
-#: mintmachine.py:1831
+#: syscheckup.py:1831
 msgid "Máx. / crítica"
 msgstr ""
 
-#: mintmachine.py:1832
+#: syscheckup.py:1832
 msgid "Cada chip informa de su temperatura. La columna de la derecha es el límite que fija el fabricante."
 msgstr ""
 
-#: mintmachine.py:1833
+#: syscheckup.py:1833
 msgid "Ventiladores"
 msgstr ""
 
-#: mintmachine.py:1833
+#: syscheckup.py:1833
 msgid "Potencia"
 msgstr ""
 
-#: mintmachine.py:1833
+#: syscheckup.py:1833
 msgid "Control"
 msgstr ""
 
-#: mintmachine.py:1833
+#: syscheckup.py:1833
 msgid "Mínimo"
 msgstr ""
 
-#: mintmachine.py:1835
+#: syscheckup.py:1835
 msgid "Curvas de ventilador programadas"
 msgstr ""
 
-#: mintmachine.py:1835
+#: syscheckup.py:1835
 msgid "Canal"
 msgstr ""
 
-#: mintmachine.py:1835
+#: syscheckup.py:1835
 msgid "Temperatura → potencia"
 msgstr ""
 
-#: mintmachine.py:1836
+#: syscheckup.py:1836
 msgid "A qué velocidad gira el ventilador según la temperatura."
 msgstr ""
 
-#: mintmachine.py:1837
+#: syscheckup.py:1837
 msgid "Umbrales térmicos del firmware (ACPI)"
 msgstr ""
 
-#: mintmachine.py:1837
+#: syscheckup.py:1837
 msgid "Zona"
 msgstr ""
 
-#: mintmachine.py:1837
+#: syscheckup.py:1837
 msgid "Qué ocurre a cada temperatura"
 msgstr ""
 
-#: mintmachine.py:1839
+#: syscheckup.py:1839
 msgid "Mecanismos de refrigeración del sistema"
 msgstr ""
 
-#: mintmachine.py:1839
+#: syscheckup.py:1839
 msgid "Mecanismo"
 msgstr ""
 
-#: mintmachine.py:1839
+#: syscheckup.py:1839
 msgid "Cantidad"
 msgstr ""
 
-#: mintmachine.py:1841
+#: syscheckup.py:1841
 msgid "Voltajes"
 msgstr ""
 
-#: mintmachine.py:1841
+#: syscheckup.py:1841
 msgid "Valor"
 msgstr ""
 
-#: mintmachine.py:1842
+#: syscheckup.py:1842
 msgid "Potencia y corriente"
 msgstr ""
 
-#: mintmachine.py:1845
+#: syscheckup.py:1845
 msgid "Este sistema no publica ningún sensor. Es habitual en máquinas virtuales y en algunos equipos cuyo fabricante no ofrece drivers de sensores para Linux."
 msgstr ""
 
-#: mintmachine.py:1849
+#: syscheckup.py:1849
 msgid "No aparecen ventiladores. Es normal en muchos equipos: el chip que los controla no siempre tiene driver en Linux, y en ese caso la placa los sigue gobernando por su cuenta con normalidad."
 msgstr ""
 
-#: mintmachine.py:1853
+#: syscheckup.py:1853
 msgid "La curva que configuras en la BIOS vive en el chip de la placa y casi ningún driver deja leerla. Aparece aquí solo cuando el chip la publica (algunas placas con Nuvoton o ITE, portátiles ASUS ROG, gráficas AMD). Los umbrales ACPI de arriba son lo más parecido que ofrece el resto."
 msgstr ""
 
-#: mintmachine.py:1857
+#: syscheckup.py:1857
 msgid "Sensores y ventiladores"
 msgstr ""
 
-#: mintmachine.py:1860
+#: syscheckup.py:1860
 msgid "Llena"
 msgstr ""
 
-#: mintmachine.py:1860
+#: syscheckup.py:1860
 msgid "Alta"
 msgstr ""
 
-#: mintmachine.py:1860
+#: syscheckup.py:1860
 msgid "Normal"
 msgstr ""
 
-#: mintmachine.py:1860
+#: syscheckup.py:1860
 msgid "Baja"
 msgstr ""
 
-#: mintmachine.py:1860
+#: syscheckup.py:1860
 msgid "Crítica"
 msgstr ""
 
-#: mintmachine.py:1861
+#: syscheckup.py:1861
 msgid "Desconocida"
 msgstr ""
 
-#: mintmachine.py:1863
+#: syscheckup.py:1863
 msgid "Cargando"
 msgstr ""
 
-#: mintmachine.py:1863
+#: syscheckup.py:1863
 msgid "Descargando"
 msgstr ""
 
-#: mintmachine.py:1863
+#: syscheckup.py:1863
 msgid "Cargada"
 msgstr ""
 
-#: mintmachine.py:1864
+#: syscheckup.py:1864
 msgid "Sin cargar (enchufada)"
 msgstr ""
 
-#: mintmachine.py:1868
+#: syscheckup.py:1868
 msgid "Potencia total"
 msgstr ""
 
-#: mintmachine.py:1868
+#: syscheckup.py:1868
 msgid "Temperatura VRM"
 msgstr ""
 
-#: mintmachine.py:1868
+#: syscheckup.py:1868
 msgid "Temperatura interna"
 msgstr ""
 
-#: mintmachine.py:1869
+#: syscheckup.py:1869
 msgid "Potencia +12 V"
 msgstr ""
 
-#: mintmachine.py:1869
+#: syscheckup.py:1869
 msgid "Potencia +5 V"
 msgstr ""
 
-#: mintmachine.py:1869
+#: syscheckup.py:1869
 msgid "Potencia +3,3 V"
 msgstr ""
 
-#: mintmachine.py:1883
+#: syscheckup.py:1883
 msgid "Corsair"
 msgstr ""
 
-#: mintmachine.py:1898
+#: syscheckup.py:1898
 msgid "Fuente de alimentación"
 msgstr ""
 
-#: mintmachine.py:1908
+#: syscheckup.py:1908
 msgid "Wh"
 msgstr ""
 
-#: mintmachine.py:1908
+#: syscheckup.py:1908
 msgid "Ah"
 msgstr ""
 
-#: mintmachine.py:1914
+#: syscheckup.py:1914
 msgid "Batería {name}"
 msgstr ""
 
-#: mintmachine.py:1915
+#: syscheckup.py:1915
 msgid "Carga"
 msgstr ""
 
-#: mintmachine.py:1916
+#: syscheckup.py:1916
 msgid "Salud"
 msgstr ""
 
-#: mintmachine.py:1916
+#: syscheckup.py:1916
 msgid "{health:.0f} % de la capacidad original"
 msgstr ""
 
-#: mintmachine.py:1917
+#: syscheckup.py:1917
 msgid "Capacidad actual"
 msgstr ""
 
-#: mintmachine.py:1918
+#: syscheckup.py:1918
 msgid "Capacidad de fábrica"
 msgstr ""
 
-#: mintmachine.py:1919
+#: syscheckup.py:1919
 msgid "Ciclos de carga"
 msgstr ""
 
-#: mintmachine.py:1920
+#: syscheckup.py:1920
 msgid "Consumo o carga ahora"
 msgstr ""
 
-#: mintmachine.py:1921
+#: syscheckup.py:1921
 msgid "Voltaje"
 msgstr ""
 
-#: mintmachine.py:1922
+#: syscheckup.py:1922
 msgid "Tecnología"
 msgstr ""
 
-#: mintmachine.py:1923
+#: syscheckup.py:1923
 msgid "Fabricante / modelo"
 msgstr ""
 
-#: mintmachine.py:1926
+#: syscheckup.py:1926
 msgid "{n} % de carga, salud {health:.0f} %"
 msgstr ""
 
-#: mintmachine.py:1928
+#: syscheckup.py:1928
 msgid "Es desgaste normal con el uso. Si la autonomía ya no te basta, el fabricante o un servicio técnico puede cambiarla por una original. No la desmontes tú: una batería de litio dañada puede incendiarse. Si notas que se hincha o deforma la carcasa, deja de usar el equipo y llévalo a revisar."
 msgstr ""
 
-#: mintmachine.py:1933
+#: syscheckup.py:1933
 msgid "Batería"
 msgstr ""
 
-#: mintmachine.py:1933
+#: syscheckup.py:1933
 msgid "La batería conserva solo el {health:.0f} % de su capacidad original."
 msgstr ""
 
-#: mintmachine.py:1936
+#: syscheckup.py:1936
 msgid "La batería conserva el {health:.0f} % de su capacidad original."
 msgstr ""
 
-#: mintmachine.py:1940
+#: syscheckup.py:1940
 msgid "Batería de {dispositivo}"
 msgstr ""
 
-#: mintmachine.py:1944
+#: syscheckup.py:1944
 msgid "Alimentación {name}"
 msgstr ""
 
-#: mintmachine.py:1945
+#: syscheckup.py:1945
 msgid "Corriente"
 msgstr ""
 
-#: mintmachine.py:1946
+#: syscheckup.py:1946
 msgid "Sí"
 msgstr ""
 
-#: mintmachine.py:1946
+#: syscheckup.py:1946
 msgid "No"
 msgstr ""
 
-#: mintmachine.py:1953
+#: syscheckup.py:1953
 msgid "empieza al {a} %, para al {b} %"
 msgstr ""
 
-#: mintmachine.py:1953
+#: syscheckup.py:1953
 msgid "para al {b} %"
 msgstr ""
 
-#: mintmachine.py:1955
+#: syscheckup.py:1955
 msgid "Ahorro de energía"
 msgstr ""
 
-#: mintmachine.py:1956
+#: syscheckup.py:1956
 msgid "Perfil de energía activo"
 msgstr ""
 
-#: mintmachine.py:1957
+#: syscheckup.py:1957
 msgid "Suspensión"
 msgstr ""
 
-#: mintmachine.py:1957
+#: syscheckup.py:1957
 msgid "Profunda (S3): gasta muy poco"
 msgstr ""
 
-#: mintmachine.py:1957
+#: syscheckup.py:1957
 msgid "Ligera (s2idle): gasta algo más"
 msgstr ""
 
-#: mintmachine.py:1959
+#: syscheckup.py:1959
 msgid "Modos de suspensión que admite"
 msgstr ""
 
-#: mintmachine.py:1960
+#: syscheckup.py:1960
 msgid "Hibernación"
 msgstr ""
 
-#: mintmachine.py:1960
+#: syscheckup.py:1960
 msgid "Disponible en el kernel"
 msgstr ""
 
-#: mintmachine.py:1960
+#: syscheckup.py:1960
 msgid "No disponible"
 msgstr ""
 
-#: mintmachine.py:1961
+#: syscheckup.py:1961
 msgid "Límite de carga de la batería"
 msgstr ""
 
-#: mintmachine.py:1967
+#: syscheckup.py:1967
 msgid "Este equipo no tiene batería (o el sistema no la expone)."
 msgstr ""
 
-#: mintmachine.py:1970
-msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y MintMachine los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
+#: syscheckup.py:1970
+msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y SysCheckup los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
 msgstr ""
 
-#: mintmachine.py:1975
+#: syscheckup.py:1975
 msgid "Batería y energía"
 msgstr ""
 
-#: mintmachine.py:1983
+#: syscheckup.py:1983
 msgid "{h} h {n} min"
 msgstr ""
 
-#: mintmachine.py:2020
+#: syscheckup.py:2020
 msgid "Debian "
 msgstr ""
 
-#: mintmachine.py:2028
+#: syscheckup.py:2028
 msgid "Sistema operativo"
 msgstr ""
 
-#: mintmachine.py:2029
+#: syscheckup.py:2029
 msgid "Distribución"
 msgstr ""
 
-#: mintmachine.py:2030
+#: syscheckup.py:2030
 msgid "Sistema"
 msgstr ""
 
-#: mintmachine.py:2030
+#: syscheckup.py:2030
 msgid "Nombre en clave"
 msgstr ""
 
-#: mintmachine.py:2031
+#: syscheckup.py:2031
 msgid "Edición"
 msgstr ""
 
-#: mintmachine.py:2031
+#: syscheckup.py:2031
 msgid "Base"
 msgstr ""
 
-#: mintmachine.py:2032
+#: syscheckup.py:2032
 msgid "Instalado el"
 msgstr ""
 
-#: mintmachine.py:2034
+#: syscheckup.py:2034
 msgid "Núcleo"
 msgstr ""
 
-#: mintmachine.py:2035
+#: syscheckup.py:2035
 msgid "Kernel"
 msgstr ""
 
-#: mintmachine.py:2035
+#: syscheckup.py:2035
 msgid "Compilación"
 msgstr ""
 
-#: mintmachine.py:2037
+#: syscheckup.py:2037
 msgid "Parámetros de arranque"
 msgstr ""
 
-#: mintmachine.py:2038
+#: syscheckup.py:2038
 msgid "Sistema de inicio"
 msgstr ""
 
-#: mintmachine.py:2040
+#: syscheckup.py:2040
 msgid "Sesión"
 msgstr ""
 
-#: mintmachine.py:2041
+#: syscheckup.py:2041
 msgid "Escritorio"
 msgstr ""
 
-#: mintmachine.py:2043
+#: syscheckup.py:2043
 msgid "Intérprete de órdenes"
 msgstr ""
 
-#: mintmachine.py:2044
+#: syscheckup.py:2044
 msgid "Idioma"
 msgstr ""
 
-#: mintmachine.py:2044
+#: syscheckup.py:2044
 msgid "Zona horaria"
 msgstr ""
 
-#: mintmachine.py:2045
+#: syscheckup.py:2045
 msgid "Encendido desde hace"
 msgstr ""
 
-#: mintmachine.py:2046
+#: syscheckup.py:2046
 msgid "Duración del último arranque"
 msgstr ""
 
-#: mintmachine.py:2048
+#: syscheckup.py:2048
 msgid "Lo que más tardó en el último arranque"
 msgstr ""
 
-#: mintmachine.py:2048
+#: syscheckup.py:2048
 msgid "Tiempo"
 msgstr ""
 
-#: mintmachine.py:2049
+#: syscheckup.py:2049
 msgid "Servicios que más tiempo tardaron en arrancar. Varios arrancan a la vez, así que los tiempos no se suman."
 msgstr ""
 
-#: mintmachine.py:2056
+#: syscheckup.py:2056
 msgid "hay módulos privativos cargados"
 msgstr ""
 
-#: mintmachine.py:2057
+#: syscheckup.py:2057
 msgid "se forzó la carga de un módulo"
 msgstr ""
 
-#: mintmachine.py:2058
+#: syscheckup.py:2058
 msgid "el procesador notificó un error de hardware (machine check)"
 msgstr ""
 
-#: mintmachine.py:2059
+#: syscheckup.py:2059
 msgid "se detectó una página de memoria corrupta"
 msgstr ""
 
-#: mintmachine.py:2060
+#: syscheckup.py:2060
 msgid "el kernel sufrió un fallo grave (oops) en esta sesión"
 msgstr ""
 
-#: mintmachine.py:2061
+#: syscheckup.py:2061
 msgid "el kernel emitió una advertencia en esta sesión"
 msgstr ""
 
-#: mintmachine.py:2062
+#: syscheckup.py:2062
 msgid "hay drivers experimentales (staging) cargados"
 msgstr ""
 
-#: mintmachine.py:2063
+#: syscheckup.py:2063
 msgid "se aplicó un apaño por un fallo del firmware"
 msgstr ""
 
-#: mintmachine.py:2064
+#: syscheckup.py:2064
 msgid "hay módulos externos al kernel (DKMS o de terceros)"
 msgstr ""
 
-#: mintmachine.py:2065
+#: syscheckup.py:2065
 msgid "hay módulos sin firmar cargados"
 msgstr ""
 
-#: mintmachine.py:2066
+#: syscheckup.py:2066
 msgid "hubo un bloqueo temporal del sistema (soft lockup)"
 msgstr ""
 
-#: mintmachine.py:2069
+#: syscheckup.py:2069
 msgid "Suele deberse a calor, a la memoria o a un ajuste de la BIOS fuera de fábrica. Haz una copia de seguridad y, si se repite o el equipo se cuelga, consúltalo con un servicio técnico."
 msgstr ""
 
-#: mintmachine.py:2071
+#: syscheckup.py:2071
 msgid "Puede ser un fallo de la memoria. Haz una copia de seguridad y consúltalo con un servicio técnico si se repite."
 msgstr ""
 
-#: mintmachine.py:2073
-msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+#: syscheckup.py:2073
+msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
 msgstr ""
 
-#: mintmachine.py:2075
-msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de MintMachine."
+#: syscheckup.py:2075
+msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de SysCheckup."
 msgstr ""
 
-#: mintmachine.py:2077
+#: syscheckup.py:2077
 msgid "Alguien forzó la carga de un driver. Si no lo hiciste tú a propósito, pregunta en el foro de tu distribución."
 msgstr ""
 
-#: mintmachine.py:2081
+#: syscheckup.py:2081
 msgid "externo al kernel"
 msgstr ""
 
-#: mintmachine.py:2081
+#: syscheckup.py:2081
 msgid "sin firmar"
 msgstr ""
 
-#: mintmachine.py:2105
+#: syscheckup.py:2105
 msgid "El kernel indica que {problema}."
 msgstr ""
 
-#: mintmachine.py:2109
+#: syscheckup.py:2109
 msgid "Estado del kernel"
 msgstr ""
 
-#: mintmachine.py:2110
+#: syscheckup.py:2110
 msgid "Módulos cargados"
 msgstr ""
 
-#: mintmachine.py:2111
+#: syscheckup.py:2111
 msgid "Kernel «limpio»"
 msgstr ""
 
-#: mintmachine.py:2111
+#: syscheckup.py:2111
 msgid "No (marca {mask})"
 msgstr ""
 
-#: mintmachine.py:2112
+#: syscheckup.py:2112
 msgid "Marca {l}"
 msgstr ""
 
-#: mintmachine.py:2113
+#: syscheckup.py:2113
 msgid "Drivers privativos o externos"
 msgstr ""
 
-#: mintmachine.py:2113
+#: syscheckup.py:2113
 msgid "Módulo"
 msgstr ""
 
-#: mintmachine.py:2113
+#: syscheckup.py:2113
 msgid "Motivo"
 msgstr ""
 
-#: mintmachine.py:2114
+#: syscheckup.py:2114
 msgid "Drivers que no vienen dentro del kernel, como el de NVIDIA. Es normal tenerlos."
 msgstr ""
 
-#: mintmachine.py:2115
+#: syscheckup.py:2115
 msgid "Módulos DKMS"
 msgstr ""
 
-#: mintmachine.py:2116
+#: syscheckup.py:2116
 msgid "Drivers externos que se recompilan solos cada vez que se instala un kernel nuevo."
 msgstr ""
 
-#: mintmachine.py:2117
+#: syscheckup.py:2117
 msgid "Todos los módulos cargados"
 msgstr ""
 
-#: mintmachine.py:2117
+#: syscheckup.py:2117
 msgid "En uso"
 msgstr ""
 
-#: mintmachine.py:2117
+#: syscheckup.py:2117
 msgid "Lo usan"
 msgstr ""
 
-#: mintmachine.py:2117
+#: syscheckup.py:2117
 msgid "Notas"
 msgstr ""
 
-#: mintmachine.py:2121
+#: syscheckup.py:2121
 msgid "No se puede leer la lista de módulos del kernel en este sistema."
 msgstr ""
 
-#: mintmachine.py:2122
+#: syscheckup.py:2122
 msgid "En Linux los drivers son módulos del kernel. Para ver qué driver usa cada dispositivo, mira las secciones «Dispositivos PCI» y «Dispositivos USB»."
 msgstr ""
 
-#: mintmachine.py:2124
+#: syscheckup.py:2124
 msgid "Drivers y módulos"
 msgstr ""
 
-#: mintmachine.py:2171
+#: syscheckup.py:2171
 msgid "Kernel (trae casi todos los drivers)"
 msgstr ""
 
-#: mintmachine.py:2174
+#: syscheckup.py:2174
 msgid "Gráfica (drivers libres)"
 msgstr ""
 
-#: mintmachine.py:2175
+#: syscheckup.py:2175
 msgid "Firmware de dispositivos"
 msgstr ""
 
-#: mintmachine.py:2176
+#: syscheckup.py:2176
 msgid "Microcódigo del procesador"
 msgstr ""
 
-#: mintmachine.py:2177
+#: syscheckup.py:2177
 msgid "Driver externo (DKMS)"
 msgstr ""
 
-#: mintmachine.py:2178
+#: syscheckup.py:2178
 msgid "Periféricos"
 msgstr ""
 
-#: mintmachine.py:2180
+#: syscheckup.py:2180
 msgid "gráfica"
 msgstr ""
 
-#: mintmachine.py:2180
+#: syscheckup.py:2180
 msgid "sonido o vídeo"
 msgstr ""
 
-#: mintmachine.py:2181
+#: syscheckup.py:2181
 msgid "inalámbrico"
 msgstr ""
 
-#: mintmachine.py:2210
+#: syscheckup.py:2210
 msgid "Hay versión nueva"
 msgstr ""
 
-#: mintmachine.py:2210
+#: syscheckup.py:2210
 msgid "Al día"
 msgstr ""
 
-#: mintmachine.py:2210
+#: syscheckup.py:2210
 msgid "Sin datos del repositorio"
 msgstr ""
 
-#: mintmachine.py:2214
+#: syscheckup.py:2214
 msgid "Drivers"
 msgstr ""
 
-#: mintmachine.py:2214
+#: syscheckup.py:2214
 msgid "Hay versión nueva de: {paquetes}."
 msgstr ""
 
-#: mintmachine.py:2215
+#: syscheckup.py:2215
 msgid "y otros"
 msgstr ""
 
-#: mintmachine.py:2216
+#: syscheckup.py:2216
 msgid "Instálala con el Gestor de actualizaciones, como el resto de actualizaciones, y reinicia al terminar."
 msgstr ""
 
-#: mintmachine.py:2225
+#: syscheckup.py:2225
 msgid "Ya está instalado un kernel más nuevo ({newest}), pero sigues usando el anterior."
 msgstr ""
 
-#: mintmachine.py:2226
+#: syscheckup.py:2226
 msgid "Reinicia el equipo para empezar a usarlo."
 msgstr ""
 
-#: mintmachine.py:2228
+#: syscheckup.py:2228
 msgid "El kernel no recibirá versiones nuevas por sí solo (falta el paquete linux-image-amd64 o linux-image-generic)."
 msgstr ""
 
-#: mintmachine.py:2230
+#: syscheckup.py:2230
 msgid "En Linux Mint los kernels se gestionan desde el Gestor de actualizaciones, menú Ver → Kernels. Si no sabes por qué falta, pregunta en el foro antes de tocar nada."
 msgstr ""
 
-#: mintmachine.py:2236
+#: syscheckup.py:2236
 msgid "La lista de paquetes se actualizó hace {age:.0f} días: puede haber versiones nuevas que aún no se ven."
 msgstr ""
 
-#: mintmachine.py:2237
+#: syscheckup.py:2237
 msgid "Abre el Gestor de actualizaciones y pulsa «Actualizar» (el botón de refrescar la lista)."
 msgstr ""
 
-#: mintmachine.py:2239
+#: syscheckup.py:2239
 msgid "En ejecución"
 msgstr ""
 
-#: mintmachine.py:2240
+#: syscheckup.py:2240
 msgid "Más reciente instalado"
 msgstr ""
 
-#: mintmachine.py:2240
+#: syscheckup.py:2240
 msgid "El mismo que está en ejecución"
 msgstr ""
 
-#: mintmachine.py:2241
+#: syscheckup.py:2241
 msgid "Se actualiza solo mediante"
 msgstr ""
 
-#: mintmachine.py:2241
+#: syscheckup.py:2241
 msgid "Nada (falta el metapaquete)"
 msgstr ""
 
-#: mintmachine.py:2242
+#: syscheckup.py:2242
 msgid "Lista de paquetes consultada"
 msgstr ""
 
-#: mintmachine.py:2242
+#: syscheckup.py:2242
 msgid "Actualizada hace {age:.0f} días"
 msgstr ""
 
-#: mintmachine.py:2242
+#: syscheckup.py:2242
 msgid "Actualizada hoy"
 msgstr ""
 
-#: mintmachine.py:2256
+#: syscheckup.py:2256
 msgid "No se actualiza desde Linux"
 msgstr ""
 
-#: mintmachine.py:2260
+#: syscheckup.py:2260
 msgid "El fabricante ha publicado firmware nuevo para: {dispositivos}."
 msgstr ""
 
-#: mintmachine.py:2262
+#: syscheckup.py:2262
 msgid "No es urgente salvo que el fabricante lo indique. Si decides instalarlo: haz antes una copia de seguridad, enchufa el portátil a la corriente y no apagues el equipo mientras se instala, aunque tarde y la pantalla se quede en negro. Si no te sientes seguro, déjalo como está o pide ayuda a un técnico."
 msgstr ""
 
-#: mintmachine.py:2273
+#: syscheckup.py:2273
 msgid "Ninguno conocido"
 msgstr ""
 
-#: mintmachine.py:2275
+#: syscheckup.py:2275
 msgid "El dispositivo de {n} «{dname}» no tiene driver cargado."
 msgstr ""
 
-#: mintmachine.py:2276
-msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+#: syscheckup.py:2276
+msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
 msgstr ""
 
-#: mintmachine.py:2280
+#: syscheckup.py:2280
 msgid "Un driver pidió {n} archivos de firmware que no están instalados."
 msgstr ""
 
-#: mintmachine.py:2281
+#: syscheckup.py:2281
 msgid "Si todos tus dispositivos funcionan bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si alguno falla, instala las actualizaciones pendientes y revisa el Gestor de controladores."
 msgstr ""
 
-#: mintmachine.py:2287
+#: syscheckup.py:2287
 msgid "Paquetes de drivers y firmware"
 msgstr ""
 
-#: mintmachine.py:2287
+#: syscheckup.py:2287
 msgid "Paquete"
 msgstr ""
 
-#: mintmachine.py:2287
+#: syscheckup.py:2287
 msgid "Instalada"
 msgstr ""
 
-#: mintmachine.py:2287
+#: syscheckup.py:2287
 msgid "Qué es"
 msgstr ""
 
-#: mintmachine.py:2288
+#: syscheckup.py:2288
 msgid "Comparación entre lo instalado y lo que ofrecen los repositorios de tu sistema."
 msgstr ""
 
-#: mintmachine.py:2289
+#: syscheckup.py:2289
 msgid "Firmware de los dispositivos (fwupd)"
 msgstr ""
 
-#: mintmachine.py:2289
+#: syscheckup.py:2289
 msgid "Versión actual"
 msgstr ""
 
-#: mintmachine.py:2290
+#: syscheckup.py:2290
 msgid "Versión nueva"
 msgstr ""
 
-#: mintmachine.py:2291
+#: syscheckup.py:2291
 msgid "Dispositivos sin driver cargado"
 msgstr ""
 
-#: mintmachine.py:2291
+#: syscheckup.py:2291
 msgid "Módulos candidatos"
 msgstr ""
 
-#: mintmachine.py:2292
+#: syscheckup.py:2292
 msgid "Firmware que el kernel pidió y no encontró"
 msgstr ""
 
-#: mintmachine.py:2292
+#: syscheckup.py:2292
 msgid "Archivo"
 msgstr ""
 
-#: mintmachine.py:2295
+#: syscheckup.py:2295
 msgid "Con el paquete fwupd instalado, aquí aparecerían también las actualizaciones de BIOS, SSD, docks y periféricos que publica cada fabricante."
 msgstr ""
 
-#: mintmachine.py:2298
+#: syscheckup.py:2298
 msgid "Que falte un archivo de firmware no siempre es un problema: algunos drivers prueban varias versiones hasta dar con la instalada. Si el dispositivo falla, el paquete que lo trae suele ser firmware-misc-nonfree, firmware-iwlwifi, firmware-realtek o linux-firmware."
 msgstr ""
 
-#: mintmachine.py:2302
+#: syscheckup.py:2302
 msgid "En Linux casi todos los drivers viajan dentro del kernel, así que «tener el último driver» equivale a tener el último kernel que ofrece tu distribución. Aparte van el driver privativo de NVIDIA, los módulos DKMS, el firmware y el microcódigo. La comparación se hace con los repositorios configurados en tu sistema, sin conectar con internet: no dice si el fabricante ha publicado algo más nuevo por su cuenta."
 msgstr ""
 
-#: mintmachine.py:2307
+#: syscheckup.py:2307
 msgid "Actualizaciones de drivers"
 msgstr ""
 
-#: mintmachine.py:2323
+#: syscheckup.py:2323
 msgid "Mando de juego"
 msgstr ""
 
-#: mintmachine.py:2325
+#: syscheckup.py:2325
 msgid "Panel táctil"
 msgstr ""
 
-#: mintmachine.py:2325
+#: syscheckup.py:2325
 msgid "Ratón o puntero"
 msgstr ""
 
-#: mintmachine.py:2327
+#: syscheckup.py:2327
 msgid "Teclado"
 msgstr ""
 
-#: mintmachine.py:2344
+#: syscheckup.py:2344
 msgid "Monitores"
 msgstr ""
 
-#: mintmachine.py:2345
+#: syscheckup.py:2345
 msgid "Teclados, ratones y mandos"
 msgstr ""
 
-#: mintmachine.py:2346
+#: syscheckup.py:2346
 msgid "Cámaras"
 msgstr ""
 
-#: mintmachine.py:2346
+#: syscheckup.py:2346
 msgid "Cámara"
 msgstr ""
 
-#: mintmachine.py:2346
+#: syscheckup.py:2346
 msgid "Nodo"
 msgstr ""
 
-#: mintmachine.py:2347
+#: syscheckup.py:2347
 msgid "Impresoras configuradas"
 msgstr ""
 
-#: mintmachine.py:2347
+#: syscheckup.py:2347
 msgid "Impresora"
 msgstr ""
 
-#: mintmachine.py:2348
+#: syscheckup.py:2348
 msgid "Dispositivos Bluetooth emparejados"
 msgstr ""
 
-#: mintmachine.py:2348
+#: syscheckup.py:2348
 msgid "Dirección"
 msgstr ""
 
-#: mintmachine.py:2351
+#: syscheckup.py:2351
 msgid "No se ha detectado ningún periférico."
 msgstr ""
 
-#: mintmachine.py:2357
+#: syscheckup.py:2357
 msgid "Biblioteca C (glibc)"
 msgstr ""
 
-#: mintmachine.py:2358
+#: syscheckup.py:2358
 msgid "Servidor Xorg"
 msgstr ""
 
-#: mintmachine.py:2358
+#: syscheckup.py:2358
 msgid "Mesa (drivers 3D libres)"
 msgstr ""
 
-#: mintmachine.py:2359
+#: syscheckup.py:2359
 msgid "Driver NVIDIA"
 msgstr ""
 
-#: mintmachine.py:2360
+#: syscheckup.py:2360
 msgid "Cinnamon"
 msgstr ""
 
-#: mintmachine.py:2360
+#: syscheckup.py:2360
 msgid "GTK 3"
 msgstr ""
 
-#: mintmachine.py:2363
+#: syscheckup.py:2363
 msgid "Firmware no libre"
 msgstr ""
 
-#: mintmachine.py:2364
+#: syscheckup.py:2364
 msgid "Microcódigo Intel"
 msgstr ""
 
-#: mintmachine.py:2364
+#: syscheckup.py:2364
 msgid "Microcódigo AMD"
 msgstr ""
 
-#: mintmachine.py:2365
+#: syscheckup.py:2365
 msgid "Python"
 msgstr ""
 
-#: mintmachine.py:2365
+#: syscheckup.py:2365
 msgid "Bash"
 msgstr ""
 
-#: mintmachine.py:2366
+#: syscheckup.py:2366
 msgid "Firefox"
 msgstr ""
 
-#: mintmachine.py:2367
+#: syscheckup.py:2367
 msgid "Flatpak"
 msgstr ""
 
-#: mintmachine.py:2367
+#: syscheckup.py:2367
 msgid "Wine"
 msgstr ""
 
-#: mintmachine.py:2387
+#: syscheckup.py:2387
 msgid "Kernel en ejecución"
 msgstr ""
 
-#: mintmachine.py:2404
+#: syscheckup.py:2404
 msgid "Software"
 msgstr ""
 
-#: mintmachine.py:2404
+#: syscheckup.py:2404
 msgid "Hay {n} paquetes con actualización pendiente."
 msgstr ""
 
-#: mintmachine.py:2405
+#: syscheckup.py:2405
 msgid "Instálalas desde el Gestor de actualizaciones. Linux Mint recomienda tener antes una instantánea de Timeshift, por si algo no va bien."
 msgstr ""
 
-#: mintmachine.py:2407
+#: syscheckup.py:2407
 msgid "{n} pendientes"
 msgstr ""
 
-#: mintmachine.py:2409
+#: syscheckup.py:2409
 msgid "Hay actualizaciones instaladas que necesitan reiniciar el equipo para completarse."
 msgstr ""
 
-#: mintmachine.py:2410
+#: syscheckup.py:2410
 msgid "Guarda tu trabajo y reinicia cuando puedas."
 msgstr ""
 
-#: mintmachine.py:2425
+#: syscheckup.py:2425
 msgid "Servicios"
 msgstr ""
 
-#: mintmachine.py:2425
+#: syscheckup.py:2425
 msgid "El servicio del sistema «{u}» no ha arrancado bien."
 msgstr ""
 
-#: mintmachine.py:2426
+#: syscheckup.py:2426
 msgid "Muchas veces es inofensivo (por ejemplo, si necesita internet y no había conexión). Si notas que algo no funciona, pregunta en el foro de tu distribución indicando ese nombre."
 msgstr ""
 
-#: mintmachine.py:2435
+#: syscheckup.py:2435
 msgid "Resumen"
 msgstr ""
 
-#: mintmachine.py:2436
+#: syscheckup.py:2436
 msgid "Paquetes instalados (.deb)"
 msgstr ""
 
-#: mintmachine.py:2437
+#: syscheckup.py:2437
 msgid "Aplicaciones Flatpak"
 msgstr ""
 
-#: mintmachine.py:2438
+#: syscheckup.py:2438
 msgid "Actualizaciones pendientes"
 msgstr ""
 
-#: mintmachine.py:2439
+#: syscheckup.py:2439
 msgid "Kernels instalados"
 msgstr ""
 
-#: mintmachine.py:2440
+#: syscheckup.py:2440
 msgid "Servicios en ejecución"
 msgstr ""
 
-#: mintmachine.py:2441
+#: syscheckup.py:2441
 msgid "Servicios con fallo"
 msgstr ""
 
-#: mintmachine.py:2441
+#: syscheckup.py:2441
 msgid "Ninguno"
 msgstr ""
 
-#: mintmachine.py:2443
+#: syscheckup.py:2443
 msgid "Versiones de los componentes clave"
 msgstr ""
 
-#: mintmachine.py:2443
+#: syscheckup.py:2443
 msgid "Componente"
 msgstr ""
 
-#: mintmachine.py:2445
+#: syscheckup.py:2445
 msgid "Últimos cambios de paquetes"
 msgstr ""
 
-#: mintmachine.py:2445
+#: syscheckup.py:2445
 msgid "Acción"
 msgstr ""
 
-#: mintmachine.py:2446
+#: syscheckup.py:2446
 msgid "Identificador"
 msgstr ""
 
-#: mintmachine.py:2446
+#: syscheckup.py:2446
 msgid "Origen"
 msgstr ""
 
-#: mintmachine.py:2447
+#: syscheckup.py:2447
 msgid "Programas que arrancan con tu sesión"
 msgstr ""
 
-#: mintmachine.py:2447
+#: syscheckup.py:2447
 msgid "Orden"
 msgstr ""
 
-#: mintmachine.py:2448
+#: syscheckup.py:2448
 msgid "Repositorios de software"
 msgstr ""
 
-#: mintmachine.py:2448
+#: syscheckup.py:2448
 msgid "Rama"
 msgstr ""
 
-#: mintmachine.py:2448
+#: syscheckup.py:2448
 msgid "Componentes"
 msgstr ""
 
-#: mintmachine.py:2448
+#: syscheckup.py:2448
 msgid "Definido en"
 msgstr ""
 
-#: mintmachine.py:2449
+#: syscheckup.py:2449
 msgid "De dónde descarga tu sistema los programas y actualizaciones."
 msgstr ""
 
-#: mintmachine.py:2452
+#: syscheckup.py:2452
 msgid "Este sistema no usa paquetes .deb, así que el inventario de software es parcial."
 msgstr ""
 
-#: mintmachine.py:2463
+#: syscheckup.py:2463
 msgid "ufw activado"
 msgstr ""
 
-#: mintmachine.py:2463
+#: syscheckup.py:2463
 msgid "ufw instalado pero desactivado"
 msgstr ""
 
-#: mintmachine.py:2466
+#: syscheckup.py:2466
 msgid "Seguridad"
 msgstr ""
 
-#: mintmachine.py:2466
+#: syscheckup.py:2466
 msgid "El cortafuegos está desactivado."
 msgstr ""
 
-#: mintmachine.py:2467
+#: syscheckup.py:2467
 msgid "En casa, detrás del router, es habitual. Si conectas el equipo a redes públicas (cafeterías, hoteles, estaciones), actívalo: abre el Cortafuegos y pon «Estado» en activado; la configuración de fábrica vale para casi todo el mundo."
 msgstr ""
 
-#: mintmachine.py:2471
+#: syscheckup.py:2471
 msgid "firewalld activo"
 msgstr ""
 
-#: mintmachine.py:2473
+#: syscheckup.py:2473
 msgid "No se ha detectado ufw ni firewalld"
 msgstr ""
 
-#: mintmachine.py:2486
+#: syscheckup.py:2486
 msgid "Secure Boot activado"
 msgstr ""
 
-#: mintmachine.py:2487
+#: syscheckup.py:2487
 msgid "disco cifrado"
 msgstr ""
 
-#: mintmachine.py:2488
+#: syscheckup.py:2488
 msgid "cortafuegos activo"
 msgstr ""
 
-#: mintmachine.py:2489
+#: syscheckup.py:2489
 msgid "Completa"
 msgstr ""
 
-#: mintmachine.py:2489
+#: syscheckup.py:2489
 msgid "Parcial"
 msgstr ""
 
-#: mintmachine.py:2489
+#: syscheckup.py:2489
 msgid "Desactivada"
 msgstr ""
 
-#: mintmachine.py:2491
+#: syscheckup.py:2491
 msgid "Arranque y firmware"
 msgstr ""
 
-#: mintmachine.py:2495
+#: syscheckup.py:2495
 msgid "Bloqueo del kernel (lockdown)"
 msgstr ""
 
-#: mintmachine.py:2498
+#: syscheckup.py:2498
 msgid "Cifrado de disco (LUKS)"
 msgstr ""
 
-#: mintmachine.py:2498
+#: syscheckup.py:2498
 msgid "Detectado"
 msgstr ""
 
-#: mintmachine.py:2499
+#: syscheckup.py:2499
 msgid "Cortafuegos"
 msgstr ""
 
-#: mintmachine.py:2500
+#: syscheckup.py:2500
 msgid "Módulos de seguridad del kernel"
 msgstr ""
 
-#: mintmachine.py:2502
+#: syscheckup.py:2502
 msgid "Aleatorización de memoria (ASLR)"
 msgstr ""
 
-#: mintmachine.py:2503
+#: syscheckup.py:2503
 msgid "Servidor SSH"
 msgstr ""
 
-#: mintmachine.py:2503
+#: syscheckup.py:2503
 msgid "En marcha"
 msgstr ""
 
-#: mintmachine.py:2503
+#: syscheckup.py:2503
 msgid "Parado o no instalado"
 msgstr ""
 
-#: mintmachine.py:2504
+#: syscheckup.py:2504
 msgid "Puertos abiertos a la red"
 msgstr ""
 
-#: mintmachine.py:2505
+#: syscheckup.py:2505
 msgid "Vulnerabilidades de CPU sin mitigar"
 msgstr ""
 
-#: mintmachine.py:2505
+#: syscheckup.py:2505
 msgid "Ninguna"
 msgstr ""
 
-#: mintmachine.py:2513
+#: syscheckup.py:2513
 msgid "Problema"
 msgstr ""
 
-#: mintmachine.py:2513
+#: syscheckup.py:2513
 msgid "Aviso"
 msgstr ""
 
-#: mintmachine.py:2513
+#: syscheckup.py:2513
 msgid "Sugerencia"
 msgstr ""
 
-#: mintmachine.py:2530
+#: syscheckup.py:2530
 msgid "Hay algo que necesita tu atención"
 msgstr ""
 
-#: mintmachine.py:2531
+#: syscheckup.py:2531
 msgid "Hay {nb} cosas que necesitan tu atención"
 msgstr ""
 
-#: mintmachine.py:2533
+#: syscheckup.py:2533
 msgid "Hay un aviso que conviene revisar"
 msgstr ""
 
-#: mintmachine.py:2534
+#: syscheckup.py:2534
 msgid "Hay {nw} avisos que conviene revisar"
 msgstr ""
 
-#: mintmachine.py:2536
+#: syscheckup.py:2536
 msgid "Todo en orden ({ni} sugerencias opcionales)"
 msgstr ""
 
-#: mintmachine.py:2537
+#: syscheckup.py:2537
 msgid "Todo en orden (1 sugerencia opcional)"
 msgstr ""
 
-#: mintmachine.py:2537
+#: syscheckup.py:2537
 msgid "Todo en orden"
 msgstr ""
 
-#: mintmachine.py:2549
+#: syscheckup.py:2549
 msgid "Hardware"
 msgstr ""
 
-#: mintmachine.py:2549
+#: syscheckup.py:2549
 msgid "El procesador ha notificado {mce} errores de hardware en este arranque."
 msgstr ""
 
-#: mintmachine.py:2550
+#: syscheckup.py:2550
 msgid "Pueden deberse a calor, a la memoria o a un ajuste de la BIOS fuera de fábrica. Haz una copia de seguridad y consúltalo con un servicio técnico, sobre todo si el equipo se cuelga o se reinicia solo."
 msgstr ""
 
-#: mintmachine.py:2554
+#: syscheckup.py:2554
 msgid "Hay {io} errores de lectura o escritura de disco en el registro del kernel."
 msgstr ""
 
-#: mintmachine.py:2555
+#: syscheckup.py:2555
 msgid "Haz ya una copia de seguridad de tus archivos importantes. Mira el estado de los discos en la sección Almacenamiento y, si alguno muestra avisos o los errores se repiten, llévalo a un servicio técnico. Si el error es de un pendrive o disco USB, prueba en otro puerto o expúlsalo siempre antes de desconectarlo."
 msgstr ""
 
-#: mintmachine.py:2560
+#: syscheckup.py:2560
 msgid "El sistema se quedó sin memoria y tuvo que cerrar a la fuerza: {programas}."
 msgstr ""
 
-#: mintmachine.py:2562
+#: syscheckup.py:2562
 msgid "Cierra los programas y pestañas que no uses. Si te pasa a menudo, un servicio técnico puede decirte si tu equipo admite más memoria."
 msgstr ""
 
-#: mintmachine.py:2568
+#: syscheckup.py:2568
 msgid "Conviene revisar"
 msgstr ""
 
-#: mintmachine.py:2569
+#: syscheckup.py:2569
 msgid "Sugerencias"
 msgstr ""
 
-#: mintmachine.py:2570
+#: syscheckup.py:2570
 msgid "No son fallos: son mejoras opcionales o cosas que conviene saber."
 msgstr ""
 
-#: mintmachine.py:2573
+#: syscheckup.py:2573
 msgid "No se ha encontrado nada que revisar."
 msgstr ""
 
-#: mintmachine.py:2575
+#: syscheckup.py:2575
 msgid "Errores más repetidos en el registro del sistema desde el arranque"
 msgstr ""
 
-#: mintmachine.py:2576
+#: syscheckup.py:2576
 msgid "Veces"
 msgstr ""
 
-#: mintmachine.py:2576
+#: syscheckup.py:2576
 msgid "Mensaje"
 msgstr ""
 
-#: mintmachine.py:2577
+#: syscheckup.py:2577
 msgid "Es normal que haya mensajes de error en cualquier equipo. Solo importan si coinciden con algo que notes que falla."
 msgstr ""
 
-#: mintmachine.py:2579
+#: syscheckup.py:2579
 msgid "Qué se revisa: espacio y salud de los discos, temperaturas, batería, memoria, servicios, errores del registro del kernel, protección del procesador, drivers y actualizaciones."
 msgstr ""
 
-#: mintmachine.py:2581
+#: syscheckup.py:2581
 msgid "No se ha podido leer el registro del kernel porque tu usuario no pertenece al grupo «adm»; esos avisos no se incluyen."
 msgstr ""
 
-#: mintmachine.py:2585
+#: syscheckup.py:2585
 msgid "Diagnóstico"
 msgstr ""
 
-#: mintmachine.py:2595
+#: syscheckup.py:2595
 msgid "{cpu:.0f} % en uso"
 msgstr ""
 
-#: mintmachine.py:2599
+#: syscheckup.py:2599
 msgid "{n} de {n2} en uso"
 msgstr ""
 
-#: mintmachine.py:2602
+#: syscheckup.py:2602
 msgid "Disco del sistema"
 msgstr ""
 
-#: mintmachine.py:2604
+#: syscheckup.py:2604
 msgid "{temp:.0f} °C en el procesador"
 msgstr ""
 
-#: mintmachine.py:2618
+#: syscheckup.py:2618
 msgid "Inicio"
 msgstr ""
 
-#: mintmachine.py:2621
+#: syscheckup.py:2621
 msgid "Lo más importante"
 msgstr ""
 
-#: mintmachine.py:2626
+#: syscheckup.py:2626
 msgid "Pantalla"
 msgstr ""
 
-#: mintmachine.py:2627
+#: syscheckup.py:2627
 msgid "Salud de los discos"
 msgstr ""
 
-#: mintmachine.py:2633
+#: syscheckup.py:2633
 msgid "Actualizaciones"
 msgstr ""
 
-#: mintmachine.py:2633
+#: syscheckup.py:2633
 msgid "Conexión"
 msgstr ""
 
-#: mintmachine.py:2634
+#: syscheckup.py:2634
 msgid "Protección"
 msgstr ""
 
-#: mintmachine.py:2636
-msgid "MintMachine solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
+#: syscheckup.py:2636
+msgid "SysCheckup solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
 msgstr ""
 
-#: mintmachine.py:2651
+#: syscheckup.py:2651
 msgid "Sistema y software"
 msgstr ""
 
-#: mintmachine.py:2672
+#: syscheckup.py:2672
 msgid "No se ha podido leer esta sección ({__name__}: {e}). Si abres una incidencia, incluye este mensaje."
 msgstr ""
 
-#: mintmachine.py:2695
+#: syscheckup.py:2695
 msgid "{app} {version}: informe del {fecha}"
 msgstr ""
 
-#: mintmachine.py:2696
+#: syscheckup.py:2696
 msgid "(datos personales ocultos)"
 msgstr ""
 
-#: mintmachine.py:2723
+#: syscheckup.py:2723
 msgid "Estado general: {estado}"
 msgstr ""
 
-#: mintmachine.py:2728
+#: syscheckup.py:2728
 msgid "Qué hacer:"
 msgstr ""
 
-#: mintmachine.py:2730
+#: syscheckup.py:2730
 msgid "Herramienta:"
 msgstr ""
 
-#: mintmachine.py:2732
+#: syscheckup.py:2732
 msgid "{serie}: ahora {ahora}, media {media}, máximo {maximo} (últimos {n} s)"
 msgstr ""
 
-#: mintmachine.py:2736
+#: syscheckup.py:2736
 msgid "hilo {n}: {uso} %"
 msgstr ""
 
-#: mintmachine.py:2778
+#: syscheckup.py:2778
 msgid "procesador_%"
 msgstr ""
 
-#: mintmachine.py:2778
+#: syscheckup.py:2778
 msgid "ram_%"
 msgstr ""
 
-#: mintmachine.py:2778
+#: syscheckup.py:2778
 msgid "swap_%"
 msgstr ""
 
-#: mintmachine.py:2780
+#: syscheckup.py:2780
 msgid "grafica_%"
 msgstr ""
 
-#: mintmachine.py:2824
+#: syscheckup.py:2824
 msgid "\n:root{--bg:#f6f7f8;--card:#fff;--fg:#1d2327;--dim:#5f6b73;--line:#dfe3e6;--acc:#2f7d5b}\n@media (prefers-color-scheme:dark){:root{--bg:#1b1e20;--card:#25292c;--fg:#e8eaeb;--dim:#9aa5ac;--line:#363c40;--acc:#6cc39a}}\n*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,\"Noto Sans\",\"DejaVu Sans\",sans-serif}\nnav{position:fixed;top:0;bottom:0;left:0;width:210px;overflow:auto;padding:20px 0;border-right:1px solid var(--line);background:var(--card)}\nnav b{display:block;padding:0 20px 12px;font-size:17px}nav a{display:block;padding:6px 20px;color:var(--fg);text-decoration:none}\nnav a:hover{color:var(--acc)}main{margin-left:210px;padding:28px 36px;max-width:1150px}\nh2{margin:36px 0 6px;font-size:22px;border-bottom:2px solid var(--acc);padding-bottom:6px}h2:first-child{margin-top:0}\nh3{margin:22px 0 8px;font-size:15px;color:var(--dim);font-weight:600}\n.wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:6px}\ntable{border-collapse:collapse;width:100%}td,th{padding:6px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}\ntr:last-child td{border-bottom:0}th{font-weight:600;color:var(--dim);white-space:nowrap}td.k{color:var(--dim);width:32%}\n.bar{height:9px;border-radius:5px;background:var(--line);min-width:160px}.bar i{display:block;height:100%;border-radius:5px;background:var(--acc)}\np.note{color:var(--dim);max-width:75ch}footer{margin:40px 0 10px;color:var(--dim);font-size:13px}\n.st{padding:14px 18px;border-radius:6px;font-size:17px;font-weight:600;border:1px solid var(--line);background:var(--card)}\n.st.bad{border-left:6px solid #c0392b}.st.warn{border-left:6px solid #d68910}.st.ok,.st.info{border-left:6px solid var(--acc)}\n.f{padding:10px 14px;border-bottom:1px solid var(--line)}.f:last-child{border-bottom:0}.f p{margin:4px 0 0;color:var(--dim)}\n.b{display:inline-block;font-size:12px;font-weight:700;padding:1px 8px;border-radius:9px;margin-right:6px;color:#fff;background:#5f6b73}\n.b.bad{background:#c0392b}.b.warn{background:#b9770e}.b.info{background:#2e6da4}\ndetails{margin-top:18px}summary{cursor:pointer;color:var(--dim);font-weight:600}\n@media (max-width:760px){nav{display:none}main{margin:0;padding:18px}}\n"
 msgstr ""
 
-#: mintmachine.py:2857
+#: syscheckup.py:2857
 msgid "Detalles técnicos"
 msgstr ""
 
-#: mintmachine.py:2889
+#: syscheckup.py:2889
 msgid "ahora {ahora}, media {media}, máximo {maximo}"
 msgstr ""
 
-#: mintmachine.py:2894
+#: syscheckup.py:2894
 msgid "Hilo {n}"
 msgstr ""
 
-#: mintmachine.py:2905
+#: syscheckup.py:2905
 msgid "Informe generado con {app} {version} el {fecha}."
 msgstr ""
 
-#: mintmachine.py:2907
+#: syscheckup.py:2907
 msgid "Los datos personales se han ocultado."
 msgstr ""
 
-#: mintmachine.py:2910
+#: syscheckup.py:2910
 msgid "{app}: informe del sistema"
 msgstr ""
 
-#: mintmachine.py:2917
+#: syscheckup.py:2917
 msgid "Texto"
 msgstr ""
 
-#: mintmachine.py:2917
+#: syscheckup.py:2917
 msgid "Para leerlo o adjuntarlo a un correo"
 msgstr ""
 
-#: mintmachine.py:2918
+#: syscheckup.py:2918
 msgid "Página web"
 msgstr ""
 
-#: mintmachine.py:2918
+#: syscheckup.py:2918
 msgid "Se abre en el navegador; cómoda para enviar a un técnico"
 msgstr ""
 
-#: mintmachine.py:2919
+#: syscheckup.py:2919
 msgid "Para un foro"
 msgstr ""
 
-#: mintmachine.py:2919
+#: syscheckup.py:2919
 msgid "Resumen listo para pegar en el foro de Linux Mint"
 msgstr ""
 
-#: mintmachine.py:2920
+#: syscheckup.py:2920
 msgid "Datos estructurados para otros programas"
 msgstr ""
 
-#: mintmachine.py:2921
+#: syscheckup.py:2921
 msgid "Histórico del monitor (CSV)"
 msgstr ""
 
-#: mintmachine.py:2921
+#: syscheckup.py:2921
 msgid "Gráficas de los últimos 2 minutos, para una hoja de cálculo"
 msgstr ""
 
-#: mintmachine.py:2932
+#: syscheckup.py:2932
 msgid "Pequeña actualización interna del procesador que corrige fallos. Llega con las actualizaciones del sistema."
 msgstr ""
 
-#: mintmachine.py:2933
+#: syscheckup.py:2933
 msgid "Cómo decide el sistema la velocidad del procesador en cada momento."
 msgstr ""
 
-#: mintmachine.py:2934
+#: syscheckup.py:2934
 msgid "Permite ejecutar máquinas virtuales (VirtualBox, GNOME Boxes...) con buen rendimiento."
 msgstr ""
 
-#: mintmachine.py:2935
+#: syscheckup.py:2935
 msgid "Veces que el procesador ha bajado su velocidad para no calentarse más."
 msgstr ""
 
-#: mintmachine.py:2936
+#: syscheckup.py:2936
 msgid "Cuántas tareas esperan turno de media. Si supera el número de hilos, el equipo va justo."
 msgstr ""
 
-#: mintmachine.py:2937
+#: syscheckup.py:2937
 msgid "Porcentaje de tiempo que los programas han esperado por el procesador, la memoria o el disco. Cuanto más bajo, mejor."
 msgstr ""
 
-#: mintmachine.py:2939
+#: syscheckup.py:2939
 msgid "Espacio del disco que el sistema usa como memoria de reserva cuando la RAM se llena."
 msgstr ""
 
-#: mintmachine.py:2940
+#: syscheckup.py:2940
 msgid "Cuánto prefiere el sistema usar la memoria de intercambio. 60 es el valor normal."
 msgstr ""
 
-#: mintmachine.py:2941
+#: syscheckup.py:2941
 msgid "Comprueba al arrancar que el sistema no ha sido manipulado. Es compatible con Linux Mint."
 msgstr ""
 
-#: mintmachine.py:2942
+#: syscheckup.py:2942
 msgid "Chip de seguridad del equipo que guarda claves de forma protegida."
 msgstr ""
 
-#: mintmachine.py:2943
+#: syscheckup.py:2943
 msgid "UEFI es el sistema moderno; BIOS clásico (legacy), el antiguo. Los dos funcionan."
 msgstr ""
 
-#: mintmachine.py:2944
+#: syscheckup.py:2944
 msgid "El núcleo del sistema operativo. Incluye casi todos los drivers."
 msgstr ""
 
-#: mintmachine.py:2945
+#: syscheckup.py:2945
 msgid "«No» no significa un problema: aparece, por ejemplo, al usar el driver privativo de NVIDIA."
 msgstr ""
 
-#: mintmachine.py:2946
+#: syscheckup.py:2946
 msgid "Velocidad de la conexión entre el dispositivo y la placa. En reposo baja para ahorrar energía."
 msgstr ""
 
-#: mintmachine.py:2947
+#: syscheckup.py:2947
 msgid "Impide que se modifique el kernel en marcha. Se activa con Secure Boot."
 msgstr ""
 
-#: mintmachine.py:2948
+#: syscheckup.py:2948
 msgid "Protección que dificulta los ataques. Debe estar en «Completa»."
 msgstr ""
 
-#: mintmachine.py:2949
+#: syscheckup.py:2949
 msgid "Protección que limita lo que pueden hacer ciertos programas. Debe estar activado."
 msgstr ""
 
-#: mintmachine.py:2950
+#: syscheckup.py:2950
 msgid "Sistemas de protección activos en el kernel."
 msgstr ""
 
-#: mintmachine.py:2951
+#: syscheckup.py:2951
 msgid "«Yes» significa que la gráfica acelera el 3D."
 msgstr ""
 
-#: mintmachine.py:2952
+#: syscheckup.py:2952
 msgid "Capacidad que conserva la batería frente a cuando era nueva."
 msgstr ""
 
-#: mintmachine.py:2953
+#: syscheckup.py:2953
 msgid "Número de cargas completas que ha hecho la batería."
 msgstr ""
 
-#: mintmachine.py:2954
+#: syscheckup.py:2954
 msgid "La suspensión profunda gasta menos batería con la tapa cerrada."
 msgstr ""
 
-#: mintmachine.py:2955
+#: syscheckup.py:2955
 msgid "Parar la carga antes del 100 % alarga la vida de la batería."
 msgstr ""
 
-#: mintmachine.py:2956
+#: syscheckup.py:2956
 msgid "Lo que dicen los propios discos sobre su estado (SMART)."
 msgstr ""
 
-#: mintmachine.py:2957
+#: syscheckup.py:2957
 msgid "Medidas de seguridad activas en el equipo."
 msgstr ""
 
-#: mintmachine.py:2958
+#: syscheckup.py:2958
 msgid "La placa principal del equipo, donde se conectan todos los componentes."
 msgstr ""
 
-#: mintmachine.py:2959
+#: syscheckup.py:2959
 msgid "El programa de la placa que arranca el equipo. Su versión y fecha ayudan a saber si hay una más nueva."
 msgstr ""
 
-#: mintmachine.py:2990
+#: syscheckup.py:2990
 msgid "rgba(255,255,255,0.07)"
 msgstr ""
 
-#: mintmachine.py:2993
+#: syscheckup.py:2993
 msgid "rgba(15,23,42,0.09)"
 msgstr ""
 
-#: mintmachine.py:2997
+#: syscheckup.py:2997
 msgid "\n@define-color mm_bg {bg}; @define-color mm_side {side}; @define-color mm_card {card}; @define-color mm_card2 {card2};\n@define-color mm_fg {fg}; @define-color mm_dim {dim}; @define-color mm_line {line};\n@define-color mm_a1 {a1}; @define-color mm_a2 {a2}; @define-color mm_ok {ok}; @define-color mm_warn {warn};\n@define-color mm_bad {bad}; @define-color mm_info {info};\n\n.mm-win {{ background-color: @mm_bg; color: @mm_fg; }}\n.mm-win headerbar {{ background-color: @mm_bg; background-image: none; border: none; border-bottom: 1px solid @mm_line;\n    box-shadow: none; color: @mm_fg; padding: 6px 10px; min-height: 44px; }}\n.mm-win headerbar .title {{ font-weight: 700; color: @mm_fg; }}\n.mm-win headerbar .subtitle {{ color: @mm_dim; }}\n.mm-win headerbar button, .mm-win button.mm-ghost {{ background-color: alpha(@mm_fg, 0.06); background-image: none;\n    border: 1px solid @mm_line; border-radius: 10px; color: @mm_fg; box-shadow: none; text-shadow: none;\n    -gtk-icon-shadow: none; padding: 5px 12px; }}\n.mm-win headerbar button:hover, .mm-win button.mm-ghost:hover {{ background-color: alpha(@mm_fg, 0.12); }}\n.mm-win headerbar button.titlebutton {{ background: none; border: none; padding: 4px; }}\n.mm-win headerbar button.titlebutton:hover {{ background-color: alpha(@mm_fg, 0.10); border-radius: 99px; }}\n.mm-win button.mm-accent, .mm-win headerbar button.mm-accent {{\n    background-image: linear-gradient(110deg, @mm_a1, @mm_a2); background-color: @mm_a2; color: #ffffff;\n    border: none; font-weight: 700; border-radius: 10px; padding: 5px 16px; }}\n.mm-win button.mm-accent:hover {{ background-image: linear-gradient(110deg, shade(@mm_a1, 1.12), shade(@mm_a2, 1.12)); }}\n.mm-win button.mm-accent:checked {{ background-image: linear-gradient(110deg, shade(@mm_a1, 0.9), shade(@mm_a2, 0.9)); }}\n.mm-side {{ background-color: @mm_side; border-right: 1px solid @mm_line; }}\n.mm-brand {{ font-size: 17px; font-weight: 800; color: @mm_fg; }}\n.mm-by {{ font-size: 11px; font-weight: 400; color: @mm_dim; }}\n.mm-nav, .mm-nav row {{ background-color: transparent; }}\n.mm-nav row {{ border-radius: 10px; margin: 1px 10px; padding: 6px 10px; color: @mm_dim; }}\n.mm-nav row:hover {{ background-color: alpha(@mm_fg, 0.05); color: @mm_fg; }}\n.mm-nav row:selected {{ background-image: linear-gradient(90deg, alpha(@mm_a1, 0.22), alpha(@mm_a2, 0.16));\n    color: @mm_fg; }}\n.mm-nav row:selected image {{ color: @mm_a1; }}\n.mm-badge {{ background-image: linear-gradient(110deg, @mm_warn, shade(@mm_warn, 0.85)); color: #1a1205;\n    border-radius: 99px; padding: 0 7px; font-size: 11px; font-weight: 800; }}\n.mm-badge-bad {{ background-image: linear-gradient(110deg, @mm_bad, shade(@mm_bad, 0.85)); color: #ffffff; }}\n.mm-group {{ font-size: 10px; font-weight: 800; color: alpha(@mm_dim, 0.8); padding: 16px 22px 6px 22px;\n    letter-spacing: 1.5px; }}\n.mm-win entry {{ background-color: alpha(@mm_fg, 0.05); background-image: none; border: 1px solid @mm_line;\n    border-radius: 10px; color: @mm_fg; box-shadow: none; caret-color: @mm_a1; min-height: 32px; }}\n.mm-win entry:focus {{ border-color: alpha(@mm_a1, 0.7); box-shadow: 0 0 0 3px alpha(@mm_a1, 0.15); }}\n.mm-win entry image {{ color: @mm_dim; }}\n.mm-win scrolledwindow, .mm-win viewport, .mm-win stack {{ background-color: transparent; }}\n.mm-win scrollbar {{ background-color: transparent; border: none; }}\n.mm-win scrollbar slider {{ background-color: alpha(@mm_fg, 0.18); border-radius: 99px; min-width: 6px;\n    min-height: 6px; border: none; }}\n.mm-win scrollbar slider:hover {{ background-color: alpha(@mm_fg, 0.32); }}\n.mm-win separator {{ background-color: @mm_line; min-height: 1px; min-width: 1px; }}\n.mm-heading {{ font-size: 28px; font-weight: 300; color: @mm_fg; }}\n.mm-kicker {{ font-size: 11px; font-weight: 800; letter-spacing: 1.5px; color: @mm_a1; }}\n.mm-title {{ font-size: 11px; font-weight: 800; letter-spacing: 1.3px; color: @mm_dim; }}\n.mm-dim {{ color: @mm_dim; }}\n.mm-key {{ color: @mm_dim; }}\n.mm-val {{ color: @mm_fg; }}\n.mm-card {{ background-color: @mm_card; border: 1px solid @mm_line; border-radius: 16px; }}\n.mm-hero {{ border-radius: 18px; border: 1px solid @mm_line; background-color: @mm_card;\n    background-image: linear-gradient(115deg, alpha(@mm_ok, 0.18), alpha(@mm_a1, 0.06) 55%, alpha(@mm_a2, 0.10)); }}\n.mm-hero.warn {{ background-image: linear-gradient(115deg, alpha(@mm_warn, 0.20), alpha(@mm_a2, 0.06) 60%, alpha(@mm_a2, 0.10)); }}\n.mm-hero.bad {{ background-image: linear-gradient(115deg, alpha(@mm_bad, 0.22), alpha(@mm_a2, 0.06) 60%, alpha(@mm_a2, 0.10)); }}\n.mm-hero-title {{ font-size: 20px; font-weight: 700; color: @mm_fg; }}\n.mm-ring {{ border-radius: 99px; min-width: 52px; min-height: 52px; background-color: alpha(@mm_ok, 0.16); color: @mm_ok; }}\n.mm-ring.warn {{ background-color: alpha(@mm_warn, 0.16); color: @mm_warn; }}\n.mm-ring.bad {{ background-color: alpha(@mm_bad, 0.16); color: @mm_bad; }}\n.mm-ring.info {{ background-color: alpha(@mm_info, 0.16); color: @mm_info; }}\n.mm-ic-bad {{ color: @mm_bad; }} .mm-ic-warn {{ color: @mm_warn; }} .mm-ic-info {{ color: @mm_info; }} .mm-ic-ok {{ color: @mm_ok; }}\n.mm-finding {{ padding: 14px 16px; }}\n.mm-finding-area {{ font-weight: 700; color: @mm_fg; }}\n.mm-info {{ min-width: 18px; min-height: 18px; padding: 0; border-radius: 99px; border: none; font-size: 10px;\n    font-weight: 800; background-image: none; background-color: alpha(@mm_a1, 0.14); color: @mm_a1; box-shadow: none; }}\n.mm-info:hover {{ background-color: alpha(@mm_a1, 0.28); }}\n.mm-win treeview.view {{ background-color: @mm_card; color: @mm_fg; border-color: @mm_line; }}\n.mm-win treeview.view:hover {{ background-color: alpha(@mm_fg, 0.03); }}\n.mm-win treeview.view header button {{ background-color: @mm_card; background-image: none; color: @mm_dim;\n    border: none; border-bottom: 1px solid @mm_line; box-shadow: none; font-weight: 700; padding: 8px 8px; }}\n.mm-win progressbar trough {{ background-color: alpha(@mm_fg, 0.08); background-image: none; border: none;\n    min-height: 6px; border-radius: 99px; }}\n.mm-win progressbar progress {{ background-image: linear-gradient(90deg, @mm_a1, @mm_a2); border: none;\n    border-radius: 99px; min-height: 6px; }}\n.mm-win expander title {{ color: @mm_dim; font-weight: 700; }}\n.mm-win expander title:hover {{ color: @mm_fg; }}\n.mm-toast {{ background-color: @mm_card2; border: 1px solid @mm_line; border-radius: 14px; padding: 10px 14px;\n    color: @mm_fg; box-shadow: 0 8px 30px alpha(black, 0.35); margin: 18px; }}\npopover.mm-pop {{ background-color: @mm_card; border: 1px solid @mm_line; border-radius: 16px; color: @mm_fg;\n    box-shadow: 0 12px 40px alpha(black, 0.35); }}\npopover.mm-pop label {{ color: @mm_fg; }}\npopover.mm-pop .mm-dim {{ color: @mm_dim; }}\npopover.mm-pop button.flat, popover.mm-pop modelbutton {{ color: @mm_fg; border-radius: 8px; }}\npopover.mm-pop combobox button {{ background-color: alpha(@mm_fg, 0.06); background-image: none; color: @mm_fg;\n    border: 1px solid @mm_line; border-radius: 8px; box-shadow: none; }}\npopover.mm-pop button.mm-ghost {{ background-color: alpha(@mm_fg, 0.06); background-image: none;\n    border: 1px solid @mm_line; border-radius: 10px; color: @mm_fg; box-shadow: none; }}\npopover.mm-pop button.mm-accent {{ background-image: linear-gradient(110deg, @mm_a1, @mm_a2); color: #ffffff;\n    border: none; font-weight: 700; border-radius: 10px; }}\npopover.mm-pop button.mm-danger {{ color: @mm_bad; }}\n.mm-chip {{ font-size: 11px; color: @mm_dim; }}\n"
 msgstr ""
 
-#: mintmachine.py:3457
+#: syscheckup.py:3457
 msgid "Volver a leer todo el equipo (F5)"
 msgstr ""
 
-#: mintmachine.py:3458
+#: syscheckup.py:3458
 msgid "Menú"
 msgstr ""
 
-#: mintmachine.py:3459
+#: syscheckup.py:3459
 msgid "Exportar"
 msgstr ""
 
-#: mintmachine.py:3460
+#: syscheckup.py:3460
 msgid "Guardar o copiar el informe: texto, página web, foro, JSON o CSV (Ctrl+E)"
 msgstr ""
 
-#: mintmachine.py:3461
+#: syscheckup.py:3461
 msgid "Buscar en el informe"
 msgstr ""
 
-#: mintmachine.py:3462
+#: syscheckup.py:3462
 msgid "Escribe, por ejemplo, «temperatura», «NVIDIA» o «batería» (Ctrl+F)"
 msgstr ""
 
-#: mintmachine.py:3463
+#: syscheckup.py:3463
 msgid "Sin resultados."
 msgstr ""
 
-#: mintmachine.py:3464
+#: syscheckup.py:3464
 msgid "Abrir"
 msgstr ""
 
-#: mintmachine.py:3479
+#: syscheckup.py:3479
 msgid "Oscuro"
 msgstr ""
 
-#: mintmachine.py:3480
+#: syscheckup.py:3480
 msgid "Claro"
 msgstr ""
 
-#: mintmachine.py:3484
+#: syscheckup.py:3484
 msgid "Aspecto"
 msgstr ""
 
-#: mintmachine.py:3487
+#: syscheckup.py:3487
 msgid "Ocultar datos personales en pantalla"
 msgstr ""
 
-#: mintmachine.py:3488
+#: syscheckup.py:3488
 msgid "Tapa números de serie, MAC, IP, nombre del equipo, red Wi-Fi y usuario. Útil para hacer capturas de pantalla."
 msgstr ""
 
-#: mintmachine.py:3493
+#: syscheckup.py:3493
 msgid "Atajos de teclado"
 msgstr ""
 
-#: mintmachine.py:3493
-msgid "Acerca de MintMachine"
+#: syscheckup.py:3493
+msgid "Acerca de SysCheckup"
 msgstr ""
 
-#: mintmachine.py:3494
-msgid "Desinstalar MintMachine…"
+#: syscheckup.py:3494
+msgid "Desinstalar SysCheckup…"
 msgstr ""
 
-#: mintmachine.py:3546
+#: syscheckup.py:3546
 msgid "Volver a leer el equipo"
 msgstr ""
 
-#: mintmachine.py:3547
+#: syscheckup.py:3547
 msgid "Ir a la sección 1 a 9 de la lista"
 msgstr ""
 
-#: mintmachine.py:3548
+#: syscheckup.py:3548
 msgid "Acerca de"
 msgstr ""
 
-#: mintmachine.py:3548
+#: syscheckup.py:3548
 msgid "Salir"
 msgstr ""
 
-#: mintmachine.py:3567
+#: syscheckup.py:3567
 msgid "Hardware, drivers y software de tu equipo en una sola ventana."
 msgstr ""
 
-#: mintmachine.py:3584
-msgid "¿Desinstalar MintMachine?"
+#: syscheckup.py:3584
+msgid "¿Desinstalar SysCheckup?"
 msgstr ""
 
-#: mintmachine.py:3586
+#: syscheckup.py:3586
 msgid "Se quitarán el programa, su icono del menú y su configuración, sin dejar rastro en el equipo. Los informes que hayas guardado son tuyos y no se tocan."
 msgstr ""
 
-#: mintmachine.py:3588
+#: syscheckup.py:3588
 msgid "El sistema te pedirá tu contraseña para quitar el programa."
 msgstr ""
 
-#: mintmachine.py:3589
+#: syscheckup.py:3589
 msgid "Cancelar"
 msgstr ""
 
-#: mintmachine.py:3590
+#: syscheckup.py:3590
 msgid "Desinstalar"
 msgstr ""
 
-#: mintmachine.py:3598
+#: syscheckup.py:3598
 msgid "Configuración borrada"
 msgstr ""
 
-#: mintmachine.py:3599
-msgid "MintMachine no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
+#: syscheckup.py:3599
+msgid "SysCheckup no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
 msgstr ""
 
-#: mintmachine.py:3620
-msgid "MintMachine se ha desinstalado"
+#: syscheckup.py:3620
+msgid "SysCheckup se ha desinstalado"
 msgstr ""
 
-#: mintmachine.py:3621
+#: syscheckup.py:3621
 msgid "Gracias por usarlo. La ventana se cerrará ahora."
 msgstr ""
 
-#: mintmachine.py:3624
+#: syscheckup.py:3624
 msgid "No se ha desinstalado"
 msgstr ""
 
-#: mintmachine.py:3625
+#: syscheckup.py:3625
 msgid "Se ha cancelado la contraseña. No se ha cambiado nada."
 msgstr ""
 
-#: mintmachine.py:3628
+#: syscheckup.py:3628
 msgid "No se ha podido desinstalar"
 msgstr ""
 
-#: mintmachine.py:3629
+#: syscheckup.py:3629
 msgid "Si el Gestor de actualizaciones u otro instalador está abierto, ciérralo y vuelve a intentarlo."
 msgstr ""
 
-#: mintmachine.py:3660
+#: syscheckup.py:3660
 msgid "No se ha podido abrir «{prog}»: {err}"
 msgstr ""
 
-#: mintmachine.py:3668
+#: syscheckup.py:3668
 msgid "Leyendo el equipo…"
 msgstr ""
 
-#: mintmachine.py:3670
-msgid "Tarda unos segundos. MintMachine solo lee: no cambia nada."
+#: syscheckup.py:3670
+msgid "Tarda unos segundos. SysCheckup solo lee: no cambia nada."
 msgstr ""
 
-#: mintmachine.py:3811
+#: syscheckup.py:3811
 msgid "Información para usuarios avanzados o para pedir ayuda en un foro"
 msgstr ""
 
-#: mintmachine.py:3842
+#: syscheckup.py:3842
 msgid "No se ha detectado ningún problema en la revisión automática."
 msgstr ""
 
-#: mintmachine.py:3843
+#: syscheckup.py:3843
 msgid "Abajo tienes qué pasa y qué puedes hacer."
 msgstr ""
 
-#: mintmachine.py:3847
+#: syscheckup.py:3847
 msgid "Ver diagnóstico completo"
 msgstr ""
 
-#: mintmachine.py:3956
+#: syscheckup.py:3956
 msgid "mm-dim mm-chip"
 msgstr ""
 
-#: mintmachine.py:4042
+#: syscheckup.py:4042
 msgid "máx."
 msgstr ""
 
-#: mintmachine.py:4054
+#: syscheckup.py:4054
 msgid "Últimos 2 minutos, una muestra por segundo"
 msgstr ""
 
-#: mintmachine.py:4059
+#: syscheckup.py:4059
 msgid "Instala python3-gi-cairo para ver la gráfica"
 msgstr ""
 
-#: mintmachine.py:4280
+#: syscheckup.py:4280
 msgid "Exportar informe"
 msgstr ""
 
-#: mintmachine.py:4281
+#: syscheckup.py:4281
 msgid "Qué incluir"
 msgstr ""
 
-#: mintmachine.py:4282
+#: syscheckup.py:4282
 msgid "Todo el informe"
 msgstr ""
 
-#: mintmachine.py:4283
+#: syscheckup.py:4283
 msgid "Solo «{seccion}»"
 msgstr ""
 
-#: mintmachine.py:4295
+#: syscheckup.py:4295
 msgid "Ocultar datos personales"
 msgstr ""
 
-#: mintmachine.py:4296
+#: syscheckup.py:4296
 msgid "Tapa números de serie, MAC, IP, nombre del equipo, red Wi-Fi, usuario y otros datos que te identifican. Recomendado si lo vas a publicar o enviar."
 msgstr ""
 
-#: mintmachine.py:4319
+#: syscheckup.py:4319
 msgid "Copiar"
 msgstr ""
 
-#: mintmachine.py:4320
+#: syscheckup.py:4320
 msgid "Copia el informe al portapapeles para pegarlo donde quieras"
 msgstr ""
 
-#: mintmachine.py:4321
+#: syscheckup.py:4321
 msgid "Guardar…"
 msgstr ""
 
-#: mintmachine.py:4327
+#: syscheckup.py:4327
 msgid "Copiado al portapapeles en formato «{fmt}»."
 msgstr ""
 
-#: mintmachine.py:4329
+#: syscheckup.py:4329
 msgid "Los datos personales están ocultos."
 msgstr ""
 
-#: mintmachine.py:4330
+#: syscheckup.py:4330
 msgid "Pégalo con Ctrl+V."
 msgstr ""
 
-#: mintmachine.py:4332
+#: syscheckup.py:4332
 msgid "En el foro, pégalo tal cual: ya va entre [code] y [/code]."
 msgstr ""
 
-#: mintmachine.py:4349
+#: syscheckup.py:4349
 msgid "Guardar informe"
 msgstr ""
 
-#: mintmachine.py:4351
+#: syscheckup.py:4351
 msgid "Guardar"
 msgstr ""
 
-#: mintmachine.py:4367
+#: syscheckup.py:4367
 msgid "Informe guardado en {ruta}"
 msgstr ""
 
-#: mintmachine.py:4369
+#: syscheckup.py:4369
 msgid "No se ha podido guardar el informe"
 msgstr ""
 
-#: mintmachine.py:4411
+#: syscheckup.py:4411
 msgid "{app}: información de hardware y software del equipo. Solo lee: no cambia nada y no envía datos a internet."
 msgstr ""
 
-#: mintmachine.py:4413
+#: syscheckup.py:4413
 msgid "muestra el informe completo por terminal"
 msgstr ""
 
-#: mintmachine.py:4415
+#: syscheckup.py:4415
 msgid "resumen listo para pegar en un foro (oculta los datos personales)"
 msgstr ""
 
-#: mintmachine.py:4416
+#: syscheckup.py:4416
 msgid "vuelca el informe en JSON"
 msgstr ""
 
-#: mintmachine.py:4417
+#: syscheckup.py:4417
 msgid "ARCHIVO"
 msgstr ""
 
-#: mintmachine.py:4417
+#: syscheckup.py:4417
 msgid "guarda el informe completo en un archivo de texto"
 msgstr ""
 
-#: mintmachine.py:4418
+#: syscheckup.py:4418
 msgid "guarda el informe en un archivo HTML"
 msgstr ""
 
-#: mintmachine.py:4420
+#: syscheckup.py:4420
 msgid "mide durante 2 minutos y guarda el histórico del monitor en CSV"
 msgstr ""
 
-#: mintmachine.py:4421
+#: syscheckup.py:4421
 msgid "oculta números de serie, MAC, IP, nombres y usuario"
 msgstr ""
 
-#: mintmachine.py:4422
+#: syscheckup.py:4422
 msgid "idioma: es, en, fr, ja, zh"
 msgstr ""
 
-#: mintmachine.py:4440
+#: syscheckup.py:4440
 msgid "No se ha podido guardar {ruta}: {error}"
 msgstr ""
 
-#: mintmachine.py:4444
+#: syscheckup.py:4444
 msgid "Midiendo durante 2 minutos (Ctrl+C para guardar antes)..."
 msgstr ""
 
-#: mintmachine.py:4471
+#: syscheckup.py:4471
 msgid "No se puede abrir la interfaz gráfica ({error}). Falta el paquete python3-gi o gir1.2-gtk-3.0. Se muestra el informe en texto."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "(escala {n})"
 msgstr ""
 
-#: mintmachine.py
-msgid "En Wayland, el modo en uso lo da el escritorio: MintMachine lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
+#: syscheckup.py
+msgid "En Wayland, el modo en uso lo da el escritorio: SysCheckup lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{a} guardados en {b}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Activada"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Memoria comprimida"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Linux puede comprimir en la propia RAM lo que menos se usa, en lugar de llevarlo al disco. Es más rápido que una swap normal y alivia a los equipos con poca memoria."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Energía"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El equipo está enchufado, pero tiene activo el perfil de ahorro de energía, que limita el rendimiento."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Si lo notas lento, elige el perfil equilibrado o el de rendimiento en la configuración de energía. Si lo prefieres silencioso y fresco, déjalo así."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Perfil del fabricante"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Gobernador del procesador"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Preferencia entre ahorro y rendimiento"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Nivel {n} de 4"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid " (con avisos)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Seguridad del firmware (HSI)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Nota que el servicio de firmware (fwupd) pone a las protecciones de la placa, de 0 a 4. Depende casi por completo del fabricante: un nivel bajo no significa que hayas hecho algo mal."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Modo de funcionamiento que ofrece el propio equipo (silencioso, equilibrado, rendimiento)."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Regla con la que el sistema sube y baja la velocidad del procesador."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Indicación que se da al procesador: gastar menos o responder más rápido."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Puesta a punto"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Lista de comprobación"
 msgstr ""
 
-#: mintmachine.py
-msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y MintMachine no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
+#: syscheckup.py
+msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y SysCheckup no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{n} de {m} puntos en orden"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No se ha podido comprobar ningún punto en este sistema."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El sistema está al día."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Hay {n} actualizaciones pendientes."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Abre el Gestor de actualizaciones e instálalas: corrigen fallos y problemas de seguridad."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Drivers y firmware"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No hay versiones nuevas de drivers ni de firmware en tus repositorios."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Hay {n} drivers o firmware con versión nueva."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Mira la sección «Actualizaciones de drivers» y usa el Gestor de actualizaciones o el de controladores."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El cortafuegos está activado."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El cortafuegos no está activado."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "En casa, detrás del router, es habitual. Actívalo si conectas el equipo a redes públicas."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Instantáneas del sistema"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Timeshift tiene instantáneas programadas."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Timeshift está instalado, pero no tiene instantáneas programadas."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Abre Timeshift y sigue el asistente: una instantánea permite deshacer una actualización que salga mal. No sustituye a la copia de seguridad de tus archivos."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Discos SSD"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El mantenimiento periódico de los SSD (TRIM) está activado."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El mantenimiento periódico de los SSD (TRIM) no está activado."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Linux Mint lo trae activado de fábrica. Pregunta en el foro de tu distribución cómo volver a activarlo."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Códecs multimedia"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Los códecs multimedia están instalados."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No se han encontrado los códecs multimedia."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Sin ellos, algunos vídeos y canciones no se reproducen. En Linux Mint, busca «Instalar códecs multimedia» en el menú."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Utilidades opcionales que no están instaladas"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Utilidad"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Qué se deja de ver"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Sin ellas el programa funciona igual, pero algunos apartados salen más cortos. Se instalan desde el Gestor de software, buscando el nombre del paquete."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Gráfica y dispositivos PCI"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Discos y particiones"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Desgaste de los SSD"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Direcciones de red"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Señal y banda del Wi-Fi"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Vídeo por hardware"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Firmware de los dispositivos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Modo de pantalla en X11"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Intel (integrada)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Aplicaciones que más consumen"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Aplicación"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Procesos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Suma todos los procesos de cada aplicación; un navegador, por ejemplo, abre muchos. La memoria es aproximada: la parte que comparten se cuenta en cada uno."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Resumen general"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Wi-Fi y red"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Batería, suspensión y temperatura"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Lentitud y arranque"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Problema: {tema}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Pedir ayuda con:"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Elige el problema y el resumen llevará la ficha del equipo y solo las secciones que hacen falta para ayudarte con él."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "con --foro: resumen centrado en un problema (red, sonido, grafica, energia, lentitud)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "muestra qué utilidades se ejecutan y cuánto tardan (no guarda nada)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Batería de un periférico Bluetooth"
 msgstr ""
 
-#: mintmachine.py
-msgid "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+#: syscheckup.py
+msgid "SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Frecuencia media"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{marca} (según la referencia)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Código JEDEC {codigo}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "La placa no lo indica"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Configuración de depuración opcional del Wi-Fi Intel, para los desarrolladores de Intel. No viene en ningún paquete y el Wi-Fi funciona sin ella."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor de software o con las actualizaciones pendientes, y reinicia."
 msgstr ""
 
-#: mintmachine.py
-msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+#: syscheckup.py
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Falta firmware que pidió un driver: {lista}."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Paquete que lo trae"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Nota"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Wi-Fi Intel"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Gráfica AMD (antigua)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Gráfica Intel"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Gráfica NVIDIA (driver libre)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Red por cable Realtek"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Wi-Fi Realtek"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Wi-Fi Qualcomm Atheros"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Wi-Fi MediaTek"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Gráfica Intel (integrada)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Temperatura de la gráfica"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Consumo de la gráfica"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{valor} a las {hora}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Programas que usan la gráfica"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato lo da la utilidad nvidia-smi."
 msgstr ""
 
-#: mintmachine.py
-msgid "Máximos desde que abriste MintMachine"
+#: syscheckup.py
+msgid "Máximos desde que abriste SysCheckup"
 msgstr ""
 
-#: mintmachine.py
-msgid "Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
+#: syscheckup.py
+msgid "Deja SysCheckup abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Protección ante falta de memoria"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Servicio activo"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Sí: {n}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Ninguno: si se acaba la memoria, el equipo puede quedarse congelado un rato antes de que el kernel cierre un programa"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Cuando la memoria se agota, un servicio de este tipo cierra a tiempo el programa que más ocupa, antes de que el equipo deje de responder."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "otros límites"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "en reposo"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "límite de la placa"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "freno de consumo de la placa"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Ninguno: a la velocidad que pide"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Activado: el procesador ve los {n} completos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Desactivado: el procesador ve {a} de {b}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "punto más caliente"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Acceso completo a la memoria de vídeo (Resizable BAR)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Consumo"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "límite {n} W"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Limitada ahora por"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Nada: va a la velocidad que pide"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "NVIDIA (driver privativo): {n}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Desde hoy"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Primera medición: la evolución se verá en los próximos días."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "A este ritmo, unos {n} años hasta el 100 % estimado"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "+{n} nuevos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Sin cambios"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "+{n} errores nuevos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "En el disco {model} han aparecido {n} sectores dañados nuevos desde el {fecha}."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Que el número crezca indica que el disco se está deteriorando. Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El SSD {model} ha registrado {n} errores de datos nuevos desde el {fecha}."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Evolución de la salud"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Desde"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Vida útil usada"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Horas de uso añadidas"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Estimación"
 msgstr ""
 
-#: mintmachine.py
-msgid "MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
+#: syscheckup.py
+msgid "SysCheckup guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Estabilidad del procesador"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Probar la estabilidad…"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Pone a trabajar todos los núcleos al máximo con cálculos variados y comprueba que los resultados son correctos. Sirve para saber si el procesador es estable y si la refrigeración da abasto."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Rendimiento del procesador"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Medir el rendimiento…"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Mide cuánto rinde el procesador comprimiendo y descomprimiendo datos, primero con un solo núcleo y después con todos. Tarda unos dos o tres minutos. La puntuación sirve para comparar tu equipo consigo mismo con el tiempo (por ejemplo, antes y después de limpiarlo o de cambiar el perfil de energía)."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Probar la memoria…"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Escribe y comprueba patrones en la mitad de la memoria libre. Solo revisa la memoria que el sistema le deja usar: para una revisión completa, la prueba de memoria del menú de arranque (paquete memtest86+) es más fiable."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Rendimiento de la gráfica"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Dibuja una serie de escenas 3D en una ventana y da una puntuación. Tarda unos cinco minutos. No toques la ventana de la prueba mientras dura."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Carga sostenida de la gráfica"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Probar la gráfica en carga…"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Mantiene la gráfica trabajando el tiempo que elijas para comprobar que es estable y que su refrigeración da abasto."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Velocidad del disco"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Medir la velocidad…"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la velocidad de escritura y de lectura del disco donde está tu carpeta personal. Escribir 1 GiB no desgasta el disco de forma apreciable."
 msgstr ""
 
-#: mintmachine.py
-msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
+#: syscheckup.py
+msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. SysCheckup la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "La gráfica dedicada NVIDIA"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "La gráfica dedicada"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "un núcleo"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "todos los núcleos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El portátil está funcionando con la batería. Conéctalo a la corriente para hacer la prueba."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "La batería está por debajo del 30 %. Déjala cargar un poco antes de hacer la prueba."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Hace falta tener al menos 3 GiB libres en tu carpeta personal."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Esta prueba necesita el escritorio gráfico."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Superada"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Con errores"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Detenida: el portátil se quedó sin corriente"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Detenida: tardaba demasiado"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Completada"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{a} puntos con un núcleo, {b} con todos ({n} hilos)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{n} puntos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "escritura {w}/s, lectura {r}/s"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{n} errores de cálculo"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{n} errores de hardware en el registro"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "procesador hasta {n} °C"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "gráfica hasta {n} °C"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{n} MHz de media al final"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "se frenó por calor {n} veces"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "prueba ligera (sin el paquete stress-ng)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "igual que tu media anterior"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{n} % más que tu media anterior"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{n} % menos que tu media anterior"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "{n} min"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Prueba"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Resultado"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Solo se hacen si pulsas el botón. Se guardan en tu equipo para poder comparar."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El ayudante no respondió."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No se ha dado la contraseña: no se ha leído nada."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El ayudante no devolvió datos válidos."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "La placa no deja leer los datos del módulo (se leen vacíos)."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Los datos del módulo no superan la comprobación de integridad."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "semana {w} de {y}"
 msgstr ""
 
-#: mintmachine.py
-msgid "Tipo de memoria que MintMachine aún no sabe leer."
+#: syscheckup.py
+msgid "Tipo de memoria que SysCheckup aún no sabe leer."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Frecuencia base (P0)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "multiplicador ×{m}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Estados de rendimiento"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Frecuencia base"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Frecuencia mínima"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Turbo máximo con un núcleo"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Reloj de bus"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "100 MHz (el habitual en los procesadores actuales)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Registros internos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El sistema no deja leerlos ({e})."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "perfil EXPO presente"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Tu placa no publica los datos internos de los módulos de memoria para el sistema."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Datos internos de los módulos (SPD)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Perfiles del fabricante (XMP)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Chips de memoria"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Fabricado"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Leído el {fecha} de los propios módulos. Los tiempos son CL-tRCD-tRP-tRAS en ciclos. Los perfiles del fabricante solo se usan si los activas en la BIOS."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Tu memoria funciona a {a} MT/s, la velocidad estándar. Sus perfiles de fábrica permiten {b} MT/s si los activas en la BIOS (XMP, EXPO o DOCP, según la marca). Es opcional: hazlo solo si sabes moverte por la BIOS."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Leído el {fecha} de los registros internos del procesador."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Pruebas voluntarias"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Solo se hacen si pulsas un botón. Puedes detenerlas cuando quieras."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Leer datos internos… (pide tu contraseña)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Lee, sin cambiar nada, los datos que guardan los propios componentes: tiempos y perfiles de la memoria, multiplicadores y consumo del procesador."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Esperando la contraseña…"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No se han leído los datos internos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Datos internos leídos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Instala el paquete {paquete} con el Gestor de software y vuelve a pulsar el botón."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Sin el paquete stress-ng se hará una prueba ligera, que detecta menos problemas. Para la prueba completa, instala stress-ng con el Gestor de software."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Duración:"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Gráfica que se prueba:"
 msgstr ""
 
-#: mintmachine.py
-msgid "No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la prueba por calor. Vigila el equipo mientras dura."
+#: syscheckup.py
+msgid "No se puede leer la temperatura del procesador, así que SysCheckup no podrá detener la prueba por calor. Vigila el equipo mientras dura."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "He leído el aviso y quiero hacer la prueba"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Empezar"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Prueba en marcha…"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Uso del procesador"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Detener"
 msgstr ""
 
-#: mintmachine.py
-msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
+#: syscheckup.py
+msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y SysCheckup detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "La prueba ha encontrado errores. Guarda tu trabajo y, si el equipo se cuelga o se reinicia solo con frecuencia, consulta con un servicio técnico."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "La utilidad de la prueba no terminó bien."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Cerrar"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "se detiene a {n} °C"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Paso {a} de {b}: {c}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "quedan {n}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "lleva {n}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Temperatura (°C)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Detenida por ti"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Detenida por temperatura alta"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No se pudo completar"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "La que usa el sistema por defecto"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No se puede escribir en tu carpeta personal."
 msgstr ""
 
-#: mintmachine.py
-msgid "Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine."
+#: syscheckup.py
+msgid "Falta el ayudante de SysCheckup o la utilidad pkexec. Reinstala SysCheckup."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Ya hay una prueba en marcha"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Espera a que termine o detenla antes de empezar otra."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Falta una utilidad para esta prueba"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Bus"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "borde"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "memoria"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "consumo"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "corriente"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "temperatura"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "BIOS de la tarjeta"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Pruebas que has hecho"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Consumo del procesador al leerlo"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Velocidad y tiempos de serie"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Datos internos del procesador"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "glmark2-x11 (o glmark2-wayland)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "disco"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Gestor de actualizaciones"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Actualizador de software"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "la aplicación Software"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Centro de aplicaciones"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Gestor de paquetes Synaptic"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Gestor de controladores"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "«Controladores adicionales» de «Software y actualizaciones»"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Gestor de software"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Discos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Gestor de particiones de KDE"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Analizador de uso de disco"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Copias de seguridad"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Cortafuegos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Monitor del sistema"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Gestor de tareas"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el Informe del sistema"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Registros"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "la configuración de energía"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "la herramienta de actualizaciones de tu sistema"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "la herramienta de drivers de tu distribución"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "el instalador de programas de tu sistema"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Abrir {herramienta}"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Consumo del procesador"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Instala las actualizaciones pendientes, incluidas las del kernel y el microcódigo del procesador, con {herramienta}. Después, reinicia."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Abre {herramienta}: si ofrece un driver recomendado para tu gráfica, instálalo y reinicia. Si no ofrece nada, pregunta en el foro de tu distribución."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Abre {herramienta} e instala el driver recomendado para tu gráfica. Después, reinicia."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "El TRIM ayuda a que los SSD mantengan su velocidad. Las distribuciones actuales lo suelen activar por defecto."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Instálala con {herramienta}, como el resto de actualizaciones, y reinicia al terminar."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Si no sabes por qué falta, pregunta en el foro de tu distribución antes de tocar nada."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Abre {herramienta} y busca actualizaciones."
 msgstr ""
 
-#: mintmachine.py
-msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+#: syscheckup.py
+msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Instálalas con {herramienta}."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Conviene tener antes una instantánea de Timeshift, por si algo no va bien."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Conviene tener antes una copia de seguridad de tus archivos."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Abre {herramienta} e instálalas: corrigen fallos y problemas de seguridad."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Mira la sección «Actualizaciones de drivers» e instálalas con {herramienta}."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Normalmente viene activado de fábrica. Pregunta en el foro de tu distribución cómo volver a activarlo."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Sin ellos, algunos vídeos y canciones no se reproducen. Instala el paquete ubuntu-restricted-extras con {herramienta}."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Sin ellos, algunos vídeos y canciones no se reproducen. Instala el paquete libavcodec-extra con {herramienta}."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "También puedes instalar el paquete earlyoom con {herramienta}: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Sin ellas el programa funciona igual, pero algunos apartados salen más cortos. Se instalan con {herramienta}, buscando el nombre del paquete."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Duración: la eliges tú ({lista} minutos)."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Utilidad que usa: {u}."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Está instalada."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No está instalada: el botón te dirá qué paquete instalar."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No pide contraseña ni cambia nada en el sistema."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Se detiene sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente, y puedes pararla cuando quieras."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Lee de los propios módulos de memoria sus tiempos, perfiles XMP, fabricante de los chips y fecha de fabricación. Tu sistema no los publica para tu usuario, así que hace falta la contraseña para cargar por un momento el driver del kernel que los lee."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Lee el consumo del procesador en vatios y, en los procesadores AMD, sus estados de rendimiento. Desde Linux 5.10 estos contadores solo los puede leer el administrador, por seguridad."
 msgstr ""
 
-#: mintmachine.py
-msgid "Lo hace un ayudante de MintMachine que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
+#: syscheckup.py
+msgid "Lo hace un ayudante de SysCheckup que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Frecuencia máxima (turbo)"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "ahora"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Leído de los propios módulos, sin contraseña."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Leído el {fecha} de los propios módulos."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Los tiempos son CL-tRCD-tRP-tRAS en ciclos. Los perfiles del fabricante solo se usan si los activas en la BIOS."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Consumo del procesador ahora"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Frecuencias y datos internos"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Los datos marcados al leerlos se tomaron el {fecha} con tu contraseña."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Los multiplicadores se calculan con el reloj de bus habitual de 100 MHz."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Resumen listo para pegar en el foro de tu distribución"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Si hay otro instalador o gestor de actualizaciones abierto, ciérralo y vuelve a intentarlo."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Qué hace"
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Instala el paquete {paquete} con {herramienta} y vuelve a pulsar el botón."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Sin el paquete stress-ng se hará una prueba ligera, que detecta menos problemas. Para la prueba completa, instala stress-ng con {herramienta}."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "No se ha podido pedir la contraseña o no se ha autorizado: no se ha leído nada. Si no ha aparecido la ventana de la contraseña, tu escritorio no tiene un agente de polkit activo."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con {herramienta} y reinicia."
 msgstr ""
 
-#: mintmachine.py
+#: syscheckup.py
 msgid "Leer datos internos…"
 msgstr ""

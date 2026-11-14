@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # SPDX-License-Identifier: MIT
 #
-# MintMachine: información de hardware, drivers y software para Linux.
+# SysCheckup: información de hardware, drivers y software para Linux.
 #
 # Copyright (c) 2026 José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es>
 # Se concede permiso para usar, copiar, modificar y distribuir este programa
@@ -19,10 +19,10 @@
 #   - Si no hay entorno gráfico, funciona en modo texto.
 #
 # Uso:
-#   python3 mintmachine.py              interfaz gráfica
-#   python3 mintmachine.py --texto      informe por terminal
-#   python3 mintmachine.py --html informe.html [--anon]
-#   python3 mintmachine.py --json | --foro | --csv historico.csv
+#   python3 syscheckup.py              interfaz gráfica
+#   python3 syscheckup.py --texto      informe por terminal
+#   python3 syscheckup.py --html informe.html [--anon]
+#   python3 syscheckup.py --json | --foro | --csv historico.csv
 
 import argparse
 import collections
@@ -45,16 +45,16 @@ import threading
 import time
 import unicodedata
 
-APP = "MintMachine"
+APP = "SysCheckup"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.6.2"
+VERSION = "0.7.0"
 JSON_SCHEMA = 2
 
-READONLY = "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+READONLY = "SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet"
 
-DISCLAIMER = ("MintMachine solo lee información: no cambia nada en tu equipo. Sus recomendaciones son "
+DISCLAIMER = ("SysCheckup solo lee información: no cambia nada en tu equipo. Sus recomendaciones son "
               "orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo "
               "ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de "
               "disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de "
@@ -168,8 +168,20 @@ LANGS = collections.OrderedDict([("es", "Español"), ("en", "English"), ("fr", "
                                  ("ja", "日本語"), ("zh", "中文（简体）")])
 _LANG = ["es"]
 _CAT = {}
-CONFIG = os.path.join(os.environ.get("XDG_CONFIG_HOME") or os.path.expanduser("~/.config"), "mintmachine",
+CONFIG = os.path.join(os.environ.get("XDG_CONFIG_HOME") or os.path.expanduser("~/.config"), "syscheckup",
                       "config.json")
+
+
+def migrate_old_config():
+    """Hasta la 0.6.2 el programa se llamaba MintMachine: su configuración e historial se trasladan
+    una sola vez a la carpeta nueva."""
+    old = os.path.join(os.path.dirname(os.path.dirname(CONFIG)), "mint" + "machine")
+    new = os.path.dirname(CONFIG)
+    if os.path.isdir(old) and not os.path.exists(new):
+        try:
+            os.rename(old, new)
+        except OSError:
+            pass
 
 
 def _(s):
@@ -178,7 +190,7 @@ def _(s):
 
 def po_dirs():
     here = os.path.dirname(os.path.realpath(__file__))
-    return [os.path.join(here, "po"), "/usr/share/mintmachine/po"]
+    return [os.path.join(here, "po"), "/usr/share/syscheckup/po"]
 
 
 def parse_po(path):
@@ -460,7 +472,7 @@ def section(sid, title, blocks):
 
 # Herramientas gráficas del propio sistema a las que puede llevar un aviso del
 # diagnóstico. Se abren como programas normales: si necesitan permisos, son
-# ellas las que piden la contraseña. MintMachine nunca ejecuta nada como root.
+# ellas las que piden la contraseña. SysCheckup nunca ejecuta nada como root.
 @once
 def distro():
     """Familia de la distribución: «mint» (también LMDE), «ubuntu» (y derivadas), «debian» u «otra»."""
@@ -948,8 +960,8 @@ def sec_monitor(ctx):
               [(a, f"{u:.0f} %", human(vb) if vb else "") for a, (u, vb) in gpu_apps],
               help="Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato "
                    "lo da la utilidad nvidia-smi."),
-        kv("Máximos desde que abriste MintMachine", peak_rows,
-           help="Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."),
+        kv("Máximos desde que abriste SysCheckup", peak_rows,
+           help="Deja SysCheckup abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."),
         table("Procesos que más procesador usan", ["Proceso", "PID", "CPU", "Memoria"],
               [(n, pid, f"{num(c)} %", human(rss)) for c, rss, pid, n in by_cpu]),
         table("Procesos que más memoria ocupan", ["Proceso", "PID", "Memoria", "CPU"],
@@ -1964,7 +1976,7 @@ def sec_gpu(ctx):
                 actual.append((out, x["mode"], x.get("hz", "")))
         blocks.append(table("Modo en uso", ["Salida", "Resolución", "Refresco"], actual))
     if is_wayland() and not actual:
-        blocks.append(note("En Wayland, el modo en uso lo da el escritorio: MintMachine lo lee en GNOME, "
+        blocks.append(note("En Wayland, el modo en uso lo da el escritorio: SysCheckup lo lee en GNOME, "
                            "Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la "
                            "utilidad wlr-randr. Los datos de cada monitor sí están completos."))
 
@@ -2311,7 +2323,7 @@ def sec_storage(ctx):
                    "fabricante para los SSD."),
         table("Evolución de la salud", ["Unidad", "Desde", "Vida útil usada", "Sectores dañados / errores",
                                         "Horas de uso añadidas", "Estimación"], disk_history(ctx, ctx.data.get("smart_raw", [])),
-              help="MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la "
+              help="SysCheckup guarda en tu equipo una medición al día cada vez que lo abres y la compara con la "
                    "primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."),
         table("Unidades", ["Dispositivo", "Modelo", "Capacidad", "Tipo", "Interfaz", "Enlace", "Firmware",
                            "Número de serie", "Planificador E/S"], disks),
@@ -2763,7 +2775,7 @@ def sec_power(ctx):
         blocks.append(note("Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al "
                            "equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las "
                            "fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) "
-                           "envían sus datos, y MintMachine los muestra aquí cuando las detecta. Para saber la "
+                           "envían sus datos, y SysCheckup los muestra aquí cuando las detecta. Para saber la "
                            "tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."))
     return section("energia", "Batería y energía", blocks)
 
@@ -2864,9 +2876,9 @@ TAINT_TODO = {
     "B": "Puede ser un fallo de la memoria. Haz una copia de seguridad y consúltalo con un servicio técnico "
          "si se repite.",
     "D": "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y "
-         "pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos).",
+         "pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos).",
     "L": "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución "
-         "adjuntando el informe de MintMachine.",
+         "adjuntando el informe de SysCheckup.",
     "F": "Alguien forzó la carga de un driver. Si no lo hiciste tú a propósito, pregunta en el foro de tu "
          "distribución.",
 }
@@ -3107,7 +3119,7 @@ def sec_updates(ctx):
             if cid[:2] in IMPORTANT_PCI:
                 ctx.flag("warn", "Drivers", _("El dispositivo de {n} «{dname}» no tiene driver cargado.").format(n=IMPORTANT_PCI[cid[:2]], dname=dname),
                          _("Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución "
-                           "con el informe de MintMachine (con los datos personales ocultos).").format(
+                           "con el informe de SysCheckup (con los datos personales ocultos).").format(
                              herramienta=tool_name("drivers")), "drivers")
     log = kernel_log()
     fwrows = firmware_rows(log, pk)
@@ -3123,7 +3135,7 @@ def sec_updates(ctx):
                  "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias "
                  "versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, "
                  "reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de "
-                 "MintMachine (con los datos personales ocultos).", "updates")
+                 "SysCheckup (con los datos personales ocultos).", "updates")
 
     blocks = [
         resumen,
@@ -3438,7 +3450,7 @@ def sec_setup(ctx):
                        "adv": False})
         blocks.append(findings_block("Lista de comprobación", items,
                                      help="Lo que conviene dejar hecho después de instalar el sistema. Nada de "
-                                          "esto es urgente y MintMachine no cambia nada: cada punto te lleva a "
+                                          "esto es urgente y SysCheckup no cambia nada: cada punto te lleva a "
                                           "la herramienta del sistema que lo hace."))
     else:
         blocks.append(note("No se ha podido comprobar ningún punto en este sistema."))
@@ -3583,7 +3595,7 @@ TESTS = collections.OrderedDict([
 ])
 TEST_TABS = {t["tab"] for t in TESTS.values()}
 TEST_WARNING = ("Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la "
-                "temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube "
+                "temperatura y el ruido de los ventiladores. SysCheckup la detendrá sola si la temperatura sube "
                 "demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. "
                 "Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no "
                 "la repitas y consulta con un servicio técnico.")
@@ -3697,7 +3709,7 @@ def test_phases(tid, minutes=None):
 
 def disk_test_file():
     base = os.environ.get("XDG_CACHE_HOME") or os.path.expanduser("~/.cache")
-    return os.path.join(base, "mintmachine", "prueba-de-disco.bin")
+    return os.path.join(base, "syscheckup", "prueba-de-disco.bin")
 
 
 # ── lectura de resultados ──
@@ -3818,7 +3830,7 @@ def probe_info(what):
     else:
         txt = _("Lee el consumo del procesador en vatios y, en los procesadores AMD, sus estados de rendimiento. "
                 "Desde Linux 5.10 estos contadores solo los puede leer el administrador, por seguridad.")
-    return txt + "\n\n" + _("Lo hace un ayudante de MintMachine que solo lee: no cambia nada en el equipo. "
+    return txt + "\n\n" + _("Lo hace un ayudante de SysCheckup que solo lee: no cambia nada en el equipo. "
                               "Si tiene que cargar un módulo del kernel, lo descarga al terminar.")
 
 
@@ -4125,8 +4137,8 @@ def tests_block(tab):
 # ───────────── datos avanzados (con contraseña, mediante el ayudante de solo lectura) ─────────────
 
 def probe_path():
-    for p in ("/usr/libexec/mintmachine/mintmachine-probe",
-              os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "mintmachine-probe")):
+    for p in ("/usr/libexec/syscheckup/syscheckup-probe",
+              os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "syscheckup-probe")):
         if os.path.isfile(p) and os.access(p, os.X_OK):
             return p
     return None
@@ -4136,7 +4148,7 @@ def run_probe(what):
     """Lanza el ayudante con pkexec (pide la contraseña). Devuelve (datos, mensaje de error)."""
     helper = probe_path()
     if not helper or not have("pkexec"):
-        return None, _("Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine.")
+        return None, _("Falta el ayudante de SysCheckup o la utilidad pkexec. Reinstala SysCheckup.")
     try:
         p = subprocess.run(["pkexec", helper, what], capture_output=True, text=True, timeout=120)
     except (OSError, subprocess.TimeoutExpired):
@@ -4244,7 +4256,7 @@ def decode_spd(raw):
         if b"EXPO" in b[640:1024]:
             out["expo"] = True
         return out
-    return {"error": _("Tipo de memoria que MintMachine aún no sabe leer.")}
+    return {"error": _("Tipo de memoria que SysCheckup aún no sabe leer.")}
 
 
 def ddr_rate(mhz2):
@@ -5096,7 +5108,7 @@ def draw_icon(cr, sid, color):
 
 
 def draw_logo(cr, size, c1, c2):
-    """Marca de MintMachine: chip con un pulso, en degradado."""
+    """Marca de SysCheckup: chip con un pulso, en degradado."""
     import math
     import cairo
     s = size / 28.0
@@ -5123,14 +5135,14 @@ def draw_logo(cr, size, c1, c2):
 
 
 def uninstall_cmd():
-    """Orden para quitar el paquete, o None si MintMachine no está instalado con apt/dpkg."""
-    if "install ok installed" not in run(["dpkg-query", "-W", "-f", "${Status}", "mintmachine"], timeout=5):
+    """Orden para quitar el paquete, o None si SysCheckup no está instalado con apt/dpkg."""
+    if "install ok installed" not in run(["dpkg-query", "-W", "-f", "${Status}", "syscheckup"], timeout=5):
         return None
-    return ["pkexec", "apt-get", "purge", "-y", "mintmachine"]
+    return ["pkexec", "apt-get", "purge", "-y", "syscheckup"]
 
 
 def remove_user_data():
-    """Lo único que MintMachine guarda en la carpeta personal: su configuración, su historial y, si una
+    """Lo único que SysCheckup guarda en la carpeta personal: su configuración, su historial y, si una
     prueba de disco se cortó de golpe, su archivo temporal."""
     shutil.rmtree(os.path.dirname(CONFIG), ignore_errors=True)
     shutil.rmtree(os.path.dirname(disk_test_file()), ignore_errors=True)
@@ -5197,7 +5209,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             super().__init__(title=APP)
             styled(self, "mm-win")
             self.set_default_size(1180, 760)
-            self.set_icon_name("mintmachine" if theme.has_icon("mintmachine") else "computer")
+            self.set_icon_name("syscheckup" if theme.has_icon("syscheckup") else "computer")
             self.anon, self.sections, self.refs, self.busy = anon, [], {}, False
             self.index, self.first, self._building = {}, True, None
 
@@ -5332,8 +5344,8 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             anon_cb.set_active(self.anon)
             box.pack_start(anon_cb, False, False, 6)
             box.pack_start(Gtk.Separator(), False, False, 2)
-            items = [(_("Atajos de teclado"), self.on_shortcuts, ""), (_("Acerca de MintMachine"), self.on_about, ""),
-                     (_("Desinstalar MintMachine…"), self.on_uninstall, "mm-danger")]
+            items = [(_("Atajos de teclado"), self.on_shortcuts, ""), (_("Acerca de SysCheckup"), self.on_about, ""),
+                     (_("Desinstalar SysCheckup…"), self.on_uninstall, "mm-danger")]
             for text, cb, cls in items:
                 b = Gtk.ModelButton(text=text)
                 if cls:
@@ -5391,7 +5403,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             xml = ('<interface><object class="GtkShortcutsWindow" id="w"><property name="modal">1</property>'
                    '<child><object class="GtkShortcutsSection"><property name="visible">1</property>'
                    '<child><object class="GtkShortcutsGroup"><property name="visible">1</property>'
-                   '<property name="title">MintMachine</property>')
+                   '<property name="title">SysCheckup</property>')
             for title, accel in items:
                 xml += ('<child><object class="GtkShortcutsShortcut"><property name="visible">1</property>'
                         f'<property name="title">{html.escape(title)}</property>'
@@ -5405,7 +5417,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             d = Gtk.AboutDialog(transient_for=self, modal=True)
             d.set_program_name(APP)
             d.set_version(VERSION)
-            d.set_logo_icon_name("mintmachine" if theme.has_icon("mintmachine") else "computer")
+            d.set_logo_icon_name("syscheckup" if theme.has_icon("syscheckup") else "computer")
             d.set_comments(_("Hardware, drivers y software de tu equipo en una sola ventana.") + "\n\n" + _(DISCLAIMER))
             d.set_authors([f"{AUTHOR_FULL} <{EMAIL}>"])
             d.set_copyright(f"© 2026 {AUTHOR_FULL}")
@@ -5423,7 +5435,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
         def on_uninstall(self, *_a):
             cmd = uninstall_cmd()
             d = Gtk.MessageDialog(transient_for=self, modal=True, message_type=Gtk.MessageType.QUESTION,
-                                  buttons=Gtk.ButtonsType.NONE, text=_("¿Desinstalar MintMachine?"))
+                                  buttons=Gtk.ButtonsType.NONE, text=_("¿Desinstalar SysCheckup?"))
             d.format_secondary_text(
                 _("Se quitarán el programa, su icono del menú y su configuración, sin dejar rastro en el equipo. "
                   "Los informes que hayas guardado son tuyos y no se tocan.")
@@ -5438,7 +5450,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             if not cmd:
                 remove_user_data()
                 self.message(Gtk.MessageType.INFO, _("Configuración borrada"),
-                             _("MintMachine no está instalado como paquete: lo estás ejecutando desde su carpeta. "
+                             _("SysCheckup no está instalado como paquete: lo estás ejecutando desde su carpeta. "
                                "Se ha borrado su configuración; para terminar, borra esa carpeta."))
                 return
             self.spinner.start()
@@ -5459,7 +5471,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 code, out = res
                 if code == 0:
                     remove_user_data()
-                    self.message(Gtk.MessageType.INFO, _("MintMachine se ha desinstalado"),
+                    self.message(Gtk.MessageType.INFO, _("SysCheckup se ha desinstalado"),
                                  _("Gracias por usarlo. La ventana se cerrará ahora."))
                     self.destroy()
                 elif code in (126, 127):
@@ -5510,7 +5522,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             box.pack_start(sp, False, False, 0)
             self.loading_label = label(_("Leyendo el equipo…"), "mm-hero-title", xalign=0.5)
             box.pack_start(self.loading_label, False, False, 0)
-            box.pack_start(label(_("Tarda unos segundos. MintMachine solo lee: no cambia nada."), "mm-dim", xalign=0.5),
+            box.pack_start(label(_("Tarda unos segundos. SysCheckup solo lee: no cambia nada."), "mm-dim", xalign=0.5),
                            False, False, 0)
             return box
 
@@ -6128,7 +6140,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 area.pack_start(hb, False, False, 0)
             limit = ""
             if t["watch"] == "cpu" and cpu_temp_now() is None:
-                limit = _("No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la "
+                limit = _("No se puede leer la temperatura del procesador, así que SysCheckup no podrá detener la "
                           "prueba por calor. Vigila el equipo mientras dura.")
             if t["watch"]:
                 warn = label(_(TEST_WARNING), wrap=True)
@@ -6205,7 +6217,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 ctx_.add_class({"ok": "mm-ic-ok", "fallo": "mm-ic-bad", "error": "mm-ic-warn"}.get(verdict, "mm-ic-warn"))
                 bar.set_fraction(1.0 if verdict == "ok" else bar.get_fraction())
                 text = result_text(r, compare_previous(r, history_load().get("pruebas", [])))
-                extra = {"temperatura": _("La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine "
+                extra = {"temperatura": _("La temperatura llegó a {n} °C, cerca del máximo seguro, y SysCheckup "
                                           "detuvo la prueba. Comprueba que las rejillas de ventilación no estén "
                                           "tapadas y deja espacio libre alrededor del equipo. Si se repite con el "
                                           "equipo bien ventilado, que un servicio técnico revise la "
@@ -6520,7 +6532,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             folder = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOCUMENTS) or os.path.expanduser("~")
             if os.path.isdir(folder):
                 dlg.set_current_folder(folder)
-            parts = ["mintmachine", {"foro": "foro", "csv": "monitor"}.get(fmt, ""), sid,
+            parts = ["syscheckup", {"foro": "foro", "csv": "monitor"}.get(fmt, ""), sid,
                      f"{datetime.datetime.now():%Y%m%d-%H%M}"]
             dlg.set_current_name("-".join(p for p in parts if p) + "." + ext)
             if dlg.run() == Gtk.ResponseType.OK:
@@ -6567,7 +6579,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             if m3:
                 GLib.idle_add(lambda: win.on_test(m3.group(1)) and False)
             if start and "+aviso" in start:
-                win.notify(_("Informe guardado en {ruta}").format(ruta="/home/neo/Documentos/mintmachine.txt"), "/tmp")
+                win.notify(_("Informe guardado en {ruta}").format(ruta="/home/neo/Documentos/syscheckup.txt"), "/tmp")
             return False
 
         def shot():
@@ -6592,6 +6604,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
 # ───────────────────────────────── entrada ─────────────────────────────────
 
 def main():
+    migrate_old_config()
     set_language(next((sys.argv[i + 1] for i, x in enumerate(sys.argv[:-1]) if x in ("--idioma", "--lang")), None))
     ap = argparse.ArgumentParser(description=_("{app}: información de hardware y software del equipo. "
                                                "Solo lee: no cambia nada y no envía datos a internet.").format(app=APP))

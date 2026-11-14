@@ -1,16 +1,16 @@
-# Traducción de MintMachine: Français
+# Traducción de SysCheckup: Français
 # Copyright (c) 2026 José Antonio Ramos Miralles «Sombra»
-# Este archivo se distribuye con la misma licencia que MintMachine (MIT).
+# Este archivo se distribuye con la misma licencia que SysCheckup (MIT).
 msgid ""
 msgstr ""
-"Project-Id-Version: MintMachine\n"
+"Project-Id-Version: SysCheckup\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "MintMachine solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
-msgstr "MintMachine se contente de lire des informations : il ne modifie rien sur votre ordinateur. Ses recommandations sont indicatives et se limitent à des actions sûres depuis le système lui-même. N’ouvrez pas l’ordinateur et ne manipulez pas ses composants : toute intervention physique (nettoyage interne, remplacement d’un disque, de la mémoire ou de la batterie) doit être confiée à un réparateur ou au fabricant. Avant toute modification importante, sauvegardez vos fichiers."
+msgid "SysCheckup solo lee información: no cambia nada en tu equipo. Sus recomendaciones son orientativas y se limitan a acciones seguras desde el propio sistema. No abras el equipo ni manipules sus componentes: cualquier revisión física (limpieza interna, cambio de disco, memoria o batería) debe hacerla un servicio técnico o el fabricante. Antes de cualquier cambio importante, haz una copia de seguridad de tus archivos."
+msgstr "SysCheckup se contente de lire des informations : il ne modifie rien sur votre ordinateur. Ses recommandations sont indicatives et se limitent à des actions sûres depuis le système lui-même. N’ouvrez pas l’ordinateur et ne manipulez pas ses composants : toute intervention physique (nettoyage interne, remplacement d’un disque, de la mémoire ou de la batterie) doit être confiée à un réparateur ou au fabricant. Avant toute modification importante, sauvegardez vos fichiers."
 
 msgid "(oculto)"
 msgstr "(masqué)"
@@ -1218,8 +1218,8 @@ msgstr "Limite de charge de la batterie"
 msgid "Este equipo no tiene batería (o el sistema no la expone)."
 msgstr "Cet ordinateur n’a pas de batterie (ou le système ne l’expose pas)."
 
-msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y MintMachine los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
-msgstr "Alimentation : les alimentations des ordinateurs de bureau ne communiquent pas leur marque, leur modèle ni leur puissance à l’ordinateur, donc aucun programme ne peut les lire. Seules les alimentations « intelligentes » dotées d’un câble USB interne (par exemple Corsair HXi, RMi et AXi) envoient leurs données, et MintMachine les affiche ici lorsqu’il les détecte. Pour connaître la vôtre, consultez la facture ou la boîte de l’ordinateur ; n’ouvrez pas l’ordinateur pour lire l’étiquette."
+msgid "Fuente de alimentación: las fuentes de un ordenador de sobremesa no comunican al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Solo las fuentes «inteligentes» con cable USB interno (por ejemplo, Corsair HXi, RMi y AXi) envían sus datos, y SysCheckup los muestra aquí cuando las detecta. Para saber la tuya, mira la factura o la caja del equipo; no abras el equipo para mirar la etiqueta."
+msgstr "Alimentation : les alimentations des ordinateurs de bureau ne communiquent pas leur marque, leur modèle ni leur puissance à l’ordinateur, donc aucun programme ne peut les lire. Seules les alimentations « intelligentes » dotées d’un câble USB interne (par exemple Corsair HXi, RMi et AXi) envoient leurs données, et SysCheckup les affiche ici lorsqu’il les détecte. Pour connaître la vôtre, consultez la facture ou la boîte de l’ordinateur ; n’ouvrez pas l’ordinateur pour lire l’étiquette."
 
 msgid "Batería y energía"
 msgstr "Batterie et énergie"
@@ -1332,11 +1332,11 @@ msgstr "C’est généralement dû à la chaleur, à la mémoire ou à un régla
 msgid "Puede ser un fallo de la memoria. Haz una copia de seguridad y consúltalo con un servicio técnico si se repite."
 msgstr "Il peut s’agir d’une panne de mémoire. Faites une sauvegarde et consultez un réparateur si cela se répète."
 
-msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "Redémarrez l’ordinateur. Si cela se reproduit, cherchez le message dans « Diagnostic → erreurs du journal » et demandez sur le forum de votre distribution avec le rapport MintMachine (données personnelles masquées)."
+msgid "Reinicia el equipo. Si vuelve a pasar, busca el mensaje en «Diagnóstico → errores del registro» y pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "Redémarrez l’ordinateur. Si cela se reproduit, cherchez le message dans « Diagnostic → erreurs du journal » et demandez sur le forum de votre distribution avec le rapport SysCheckup (données personnelles masquées)."
 
-msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de MintMachine."
-msgstr "C’est peut-être ponctuel. Si l’ordinateur se bloque souvent, demandez sur le forum de votre distribution en joignant le rapport MintMachine."
+msgid "Puede ser puntual. Si el equipo se queda congelado a menudo, pregunta en el foro de tu distribución adjuntando el informe de SysCheckup."
+msgstr "C’est peut-être ponctuel. Si l’ordinateur se bloque souvent, demandez sur le forum de votre distribution en joignant le rapport SysCheckup."
 
 msgid "Alguien forzó la carga de un driver. Si no lo hiciste tú a propósito, pregunta en el foro de tu distribución."
 msgstr "Quelqu’un a forcé le chargement d’un pilote. Si vous ne l’avez pas fait exprès, demandez sur le forum de votre distribution."
@@ -1509,8 +1509,8 @@ msgstr "Aucun connu"
 msgid "El dispositivo de {n} «{dname}» no tiene driver cargado."
 msgstr "Le périphérique de type {n} « {dname} » n’a aucun pilote chargé."
 
-msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "Ouvrez le Gestionnaire de pilotes au cas où il en propose un. Sinon, demandez sur le forum de votre distribution avec le rapport MintMachine (données personnelles masquées)."
+msgid "Abre el Gestor de controladores por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "Ouvrez le Gestionnaire de pilotes au cas où il en propose un. Sinon, demandez sur le forum de votre distribution avec le rapport SysCheckup (données personnelles masquées)."
 
 msgid "Un driver pidió {n} archivos de firmware que no están instalados."
 msgstr "Un pilote a demandé {n} fichiers de firmware qui ne sont pas installés."
@@ -1920,8 +1920,8 @@ msgstr "Connexion"
 msgid "Protección"
 msgstr "Protection"
 
-msgid "MintMachine solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
-msgstr "MintMachine se contente de lire des informations : il ne modifie rien sur votre ordinateur et n’envoie aucune donnée sur internet. La barre latérale donne le détail de chaque composant."
+msgid "SysCheckup solo lee información: no cambia nada en tu equipo y no envía datos a internet. En la barra lateral tienes el detalle de cada componente."
+msgstr "SysCheckup se contente de lire des informations : il ne modifie rien sur votre ordinateur et n’envoie aucune donnée sur internet. La barre latérale donne le détail de chaque composant."
 
 msgid "Sistema y software"
 msgstr "Système et logiciels"
@@ -2118,11 +2118,11 @@ msgstr "Masque les numéros de série, MAC, IP, nom de l’ordinateur, réseau W
 msgid "Atajos de teclado"
 msgstr "Raccourcis clavier"
 
-msgid "Acerca de MintMachine"
-msgstr "À propos de MintMachine"
+msgid "Acerca de SysCheckup"
+msgstr "À propos de SysCheckup"
 
-msgid "Desinstalar MintMachine…"
-msgstr "Désinstaller MintMachine…"
+msgid "Desinstalar SysCheckup…"
+msgstr "Désinstaller SysCheckup…"
 
 msgid "Volver a leer el equipo"
 msgstr "Relire l’ordinateur"
@@ -2139,8 +2139,8 @@ msgstr "Quitter"
 msgid "Hardware, drivers y software de tu equipo en una sola ventana."
 msgstr "Le matériel, les pilotes et les logiciels de votre ordinateur dans une seule fenêtre."
 
-msgid "¿Desinstalar MintMachine?"
-msgstr "Désinstaller MintMachine ?"
+msgid "¿Desinstalar SysCheckup?"
+msgstr "Désinstaller SysCheckup ?"
 
 msgid "Se quitarán el programa, su icono del menú y su configuración, sin dejar rastro en el equipo. Los informes que hayas guardado son tuyos y no se tocan."
 msgstr "Le programme, son icône du menu et sa configuration seront supprimés, sans laisser de trace sur l’ordinateur. Les rapports que vous avez enregistrés vous appartiennent et ne seront pas touchés."
@@ -2157,11 +2157,11 @@ msgstr "Désinstaller"
 msgid "Configuración borrada"
 msgstr "Configuration supprimée"
 
-msgid "MintMachine no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
-msgstr "MintMachine n’est pas installé en tant que paquet : vous l’exécutez depuis son dossier. Sa configuration a été supprimée ; pour terminer, supprimez ce dossier."
+msgid "SysCheckup no está instalado como paquete: lo estás ejecutando desde su carpeta. Se ha borrado su configuración; para terminar, borra esa carpeta."
+msgstr "SysCheckup n’est pas installé en tant que paquet : vous l’exécutez depuis son dossier. Sa configuration a été supprimée ; pour terminer, supprimez ce dossier."
 
-msgid "MintMachine se ha desinstalado"
-msgstr "MintMachine a été désinstallé"
+msgid "SysCheckup se ha desinstalado"
+msgstr "SysCheckup a été désinstallé"
 
 msgid "Gracias por usarlo. La ventana se cerrará ahora."
 msgstr "Merci de l’avoir utilisé. La fenêtre va se fermer."
@@ -2184,8 +2184,8 @@ msgstr "Impossible d’ouvrir « {prog} » : {err}"
 msgid "Leyendo el equipo…"
 msgstr "Lecture de l’ordinateur…"
 
-msgid "Tarda unos segundos. MintMachine solo lee: no cambia nada."
-msgstr "Cela prend quelques secondes. MintMachine se contente de lire : il ne modifie rien."
+msgid "Tarda unos segundos. SysCheckup solo lee: no cambia nada."
+msgstr "Cela prend quelques secondes. SysCheckup se contente de lire : il ne modifie rien."
 
 msgid "Información para usuarios avanzados o para pedir ayuda en un foro"
 msgstr "Informations pour les utilisateurs avancés ou pour demander de l’aide sur un forum"
@@ -2325,8 +2325,8 @@ msgstr "mesure en cours"
 msgid "(escala {n})"
 msgstr "(échelle {n})"
 
-msgid "En Wayland, el modo en uso lo da el escritorio: MintMachine lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
-msgstr "Sous Wayland, le mode utilisé est fourni par le bureau : MintMachine le lit sous GNOME, Cinnamon et KDE Plasma, ainsi que sous Sway, Hyprland et similaires si l'utilitaire wlr-randr est installé. Les données de chaque écran sont, elles, complètes."
+msgid "En Wayland, el modo en uso lo da el escritorio: SysCheckup lo lee en GNOME, Cinnamon y KDE Plasma, y en Sway, Hyprland y similares si está instalada la utilidad wlr-randr. Los datos de cada monitor sí están completos."
+msgstr "Sous Wayland, le mode utilisé est fourni par le bureau : SysCheckup le lit sous GNOME, Cinnamon et KDE Plasma, ainsi que sous Sway, Hyprland et similaires si l'utilitaire wlr-randr est installé. Les données de chaque écran sont, elles, complètes."
 
 msgid "{a} guardados en {b}"
 msgstr "{a} stockés dans {b}"
@@ -2385,8 +2385,8 @@ msgstr "Mise au point"
 msgid "Lista de comprobación"
 msgstr "Liste de vérification"
 
-msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y MintMachine no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
-msgstr "Ce qu'il est conseillé de régler après l'installation du système. Rien de tout cela n'est urgent et MintMachine ne modifie rien : chaque point vous mène à l'outil du système qui s'en charge."
+msgid "Lo que conviene dejar hecho después de instalar el sistema. Nada de esto es urgente y SysCheckup no cambia nada: cada punto te lleva a la herramienta del sistema que lo hace."
+msgstr "Ce qu'il est conseillé de régler après l'installation du système. Rien de tout cela n'est urgent et SysCheckup ne modifie rien : chaque point vous mène à l'outil du système qui s'en charge."
 
 msgid "{n} de {m} puntos en orden"
 msgstr "{n} points sur {m} en ordre"
@@ -2541,8 +2541,8 @@ msgstr "affiche les utilitaires exécutés et leur durée (rien n'est enregistr�
 msgid "Batería de un periférico Bluetooth"
 msgstr "Batterie d'un périphérique Bluetooth"
 
-msgid "MintMachine solo lee información. No cambia nada en tu equipo y no envía datos a internet"
-msgstr "MintMachine ne fait que lire des informations. Il ne modifie rien sur votre ordinateur et n'envoie aucune donnée sur internet"
+msgid "SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet"
+msgstr "SysCheckup ne fait que lire des informations. Il ne modifie rien sur votre ordinateur et n'envoie aucune donnée sur internet"
 
 msgid "Frecuencia media"
 msgstr "Fréquence moyenne"
@@ -2562,8 +2562,8 @@ msgstr "Configuration de débogage facultative du Wi-Fi Intel, destinée aux dé
 msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala el paquete {paquete} con el Gestor de software o con las actualizaciones pendientes, y reinicia."
 msgstr "Si ce périphérique fonctionne bien, il n'y a rien à faire : beaucoup de pilotes essaient plusieurs versions jusqu'à trouver celle qui est installée. S'il ne fonctionne pas, installez le paquet {paquete} avec le Gestionnaire de logiciels ou avec les mises à jour en attente, puis redémarrez."
 
-msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "Si ce périphérique fonctionne bien, il n'y a rien à faire : beaucoup de pilotes essaient plusieurs versions jusqu'à trouver celle qui est installée. S'il ne fonctionne pas, installez les mises à jour en attente, redémarrez et, si le problème persiste, demandez de l'aide sur le forum de votre distribution avec le rapport de MintMachine (données personnelles masquées)."
+msgid "Si ese dispositivo funciona bien, no hace falta hacer nada: muchos drivers prueban varias versiones hasta dar con la instalada. Si falla, instala las actualizaciones pendientes, reinicia y, si sigue igual, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "Si ce périphérique fonctionne bien, il n'y a rien à faire : beaucoup de pilotes essaient plusieurs versions jusqu'à trouver celle qui est installée. S'il ne fonctionne pas, installez les mises à jour en attente, redémarrez et, si le problème persiste, demandez de l'aide sur le forum de votre distribution avec le rapport de SysCheckup (données personnelles masquées)."
 
 msgid "Falta firmware que pidió un driver: {lista}."
 msgstr "Micrologiciel demandé par un pilote et manquant : {lista}."
@@ -2616,11 +2616,11 @@ msgstr "Programmes qui utilisent la carte graphique"
 msgid "Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato lo da la utilidad nvidia-smi."
 msgstr "Seuls vos propres programmes apparaissent. Sur les cartes NVIDIA avec le pilote propriétaire, la donnée provient de l'utilitaire nvidia-smi."
 
-msgid "Máximos desde que abriste MintMachine"
-msgstr "Maximums depuis l'ouverture de MintMachine"
+msgid "Máximos desde que abriste SysCheckup"
+msgstr "Maximums depuis l'ouverture de SysCheckup"
 
-msgid "Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
-msgstr "Laissez MintMachine ouvert pendant que vous jouez ou travaillez, puis regardez ici les valeurs les plus élevées atteintes."
+msgid "Deja SysCheckup abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
+msgstr "Laissez SysCheckup ouvert pendant que vous jouez ou travaillez, puis regardez ici les valeurs les plus élevées atteintes."
 
 msgid "Protección ante falta de memoria"
 msgstr "Protection contre le manque de mémoire"
@@ -2724,8 +2724,8 @@ msgstr "Heures d'utilisation ajoutées"
 msgid "Estimación"
 msgstr "Estimation"
 
-msgid "MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
-msgstr "MintMachine enregistre sur votre ordinateur une mesure par jour à chaque ouverture et la compare à la première. On voit ainsi si un disque commence à se détériorer. Elle ne quitte jamais votre ordinateur."
+msgid "SysCheckup guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
+msgstr "SysCheckup enregistre sur votre ordinateur une mesure par jour à chaque ouverture et la compare à la première. On voit ainsi si un disque commence à se détériorer. Elle ne quitte jamais votre ordinateur."
 
 msgid "También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
 msgstr "Vous pouvez aussi installer le paquet earlyoom avec le Gestionnaire de logiciels : il ferme à temps le programme qui utilise le plus de mémoire et évite que l'ordinateur se fige."
@@ -2778,8 +2778,8 @@ msgstr "Mesurer la vitesse…"
 msgid "Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la velocidad de escritura y de lectura del disco donde está tu carpeta personal. Escribir 1 GiB no desgasta el disco de forma apreciable."
 msgstr "Écrit un fichier de test de 1 Gio dans votre dossier personnel, le lit puis le supprime. Mesure la vitesse d'écriture et de lecture du disque qui contient votre dossier personnel. Écrire 1 Gio n'use pas le disque de façon notable."
 
-msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
-msgstr "Ce test fera travailler l'ordinateur au maximum pendant la durée choisie. Il est normal que la température et le bruit des ventilateurs augmentent. MintMachine l'arrêtera tout seul si la température monte trop ou si le portable est débranché. Enregistrez votre travail avant de commencer. Vous pouvez l'arrêter à tout moment. Si l'ordinateur s'éteint ou redémarre pendant le test, ne le refaites pas et consultez un service technique."
+msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. SysCheckup la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
+msgstr "Ce test fera travailler l'ordinateur au maximum pendant la durée choisie. Il est normal que la température et le bruit des ventilateurs augmentent. SysCheckup l'arrêtera tout seul si la température monte trop ou si le portable est débranché. Enregistrez votre travail avant de commencer. Vous pouvez l'arrêter à tout moment. Si l'ordinateur s'éteint ou redémarre pendant le test, ne le refaites pas et consultez un service technique."
 
 msgid "La gráfica dedicada NVIDIA"
 msgstr "La carte graphique dédiée NVIDIA"
@@ -2889,8 +2889,8 @@ msgstr "Les données de la barrette ne passent pas le contrôle d'intégrité."
 msgid "semana {w} de {y}"
 msgstr "semaine {w} de {y}"
 
-msgid "Tipo de memoria que MintMachine aún no sabe leer."
-msgstr "Type de mémoire que MintMachine ne sait pas encore lire."
+msgid "Tipo de memoria que SysCheckup aún no sabe leer."
+msgstr "Type de mémoire que SysCheckup ne sait pas encore lire."
 
 msgid "Frecuencia base (P0)"
 msgstr "Fréquence de base (P0)"
@@ -2982,8 +2982,8 @@ msgstr "Durée :"
 msgid "Gráfica que se prueba:"
 msgstr "Carte graphique à tester :"
 
-msgid "No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la prueba por calor. Vigila el equipo mientras dura."
-msgstr "La température du processeur ne peut pas être lue, MintMachine ne pourra donc pas arrêter le test à cause de la chaleur. Surveillez l'ordinateur pendant le test."
+msgid "No se puede leer la temperatura del procesador, así que SysCheckup no podrá detener la prueba por calor. Vigila el equipo mientras dura."
+msgstr "La température du processeur ne peut pas être lue, SysCheckup ne pourra donc pas arrêter le test à cause de la chaleur. Surveillez l'ordinateur pendant le test."
 
 msgid "He leído el aviso y quiero hacer la prueba"
 msgstr "J'ai lu l'avertissement et je veux faire le test"
@@ -3000,8 +3000,8 @@ msgstr "Utilisation du processeur"
 msgid "Detener"
 msgstr "Arrêter"
 
-msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
-msgstr "La température a atteint {n} °C, près du maximum sûr, et MintMachine a arrêté le test. Vérifiez que les grilles d'aération ne sont pas obstruées et laissez de l'espace libre autour de l'ordinateur. Si cela se reproduit avec un ordinateur bien ventilé, faites vérifier le refroidissement par un service technique."
+msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y SysCheckup detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
+msgstr "La température a atteint {n} °C, près du maximum sûr, et SysCheckup a arrêté le test. Vérifiez que les grilles d'aération ne sont pas obstruées et laissez de l'espace libre autour de l'ordinateur. Si cela se reproduit avec un ordinateur bien ventilé, faites vérifier le refroidissement par un service technique."
 
 msgid "La prueba ha encontrado errores. Guarda tu trabajo y, si el equipo se cuelga o se reinicia solo con frecuencia, consulta con un servicio técnico."
 msgstr "Le test a trouvé des erreurs. Enregistrez votre travail et, si l'ordinateur se bloque ou redémarre souvent tout seul, consultez un service technique."
@@ -3042,8 +3042,8 @@ msgstr "Celle que le système utilise par défaut"
 msgid "No se puede escribir en tu carpeta personal."
 msgstr "Impossible d'écrire dans votre dossier personnel."
 
-msgid "Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine."
-msgstr "L'assistant de MintMachine ou l'utilitaire pkexec est absent. Réinstallez MintMachine."
+msgid "Falta el ayudante de SysCheckup o la utilidad pkexec. Reinstala SysCheckup."
+msgstr "L'assistant de SysCheckup ou l'utilitaire pkexec est absent. Réinstallez SysCheckup."
 
 msgid "Ya hay una prueba en marcha"
 msgstr "Un test est déjà en cours"
@@ -3183,8 +3183,8 @@ msgstr "Si vous ne savez pas pourquoi il manque, demandez sur le forum de votre 
 msgid "Abre {herramienta} y busca actualizaciones."
 msgstr "Ouvrez {herramienta} et recherchez les mises à jour."
 
-msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
-msgstr "Ouvrez {herramienta} au cas où il en propose un. Sinon, demandez sur le forum de votre distribution avec le rapport de MintMachine (données personnelles masquées)."
+msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de SysCheckup (con los datos personales ocultos)."
+msgstr "Ouvrez {herramienta} au cas où il en propose un. Sinon, demandez sur le forum de votre distribution avec le rapport de SysCheckup (données personnelles masquées)."
 
 msgid "Instálalas con {herramienta}."
 msgstr "Installez-les avec {herramienta}."
@@ -3240,8 +3240,8 @@ msgstr "Lit dans les barrettes de mémoire elles-mêmes leurs timings, profils X
 msgid "Lee el consumo del procesador en vatios y, en los procesadores AMD, sus estados de rendimiento. Desde Linux 5.10 estos contadores solo los puede leer el administrador, por seguridad."
 msgstr "Lit la consommation du processeur en watts et, sur les processeurs AMD, ses états de performance. Depuis Linux 5.10, ces compteurs ne peuvent être lus que par l'administrateur, pour des raisons de sécurité."
 
-msgid "Lo hace un ayudante de MintMachine que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
-msgstr "Un assistant de MintMachine qui ne fait que lire s'en charge : il ne modifie rien sur l'ordinateur. S'il doit charger un module du noyau, il le décharge à la fin."
+msgid "Lo hace un ayudante de SysCheckup que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
+msgstr "Un assistant de SysCheckup qui ne fait que lire s'en charge : il ne modifie rien sur l'ordinateur. S'il doit charger un module du noyau, il le décharge à la fin."
 
 msgid "Frecuencia máxima (turbo)"
 msgstr "Fréquence maximale (turbo)"

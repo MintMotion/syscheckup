@@ -1,5 +1,5 @@
 #!/bin/sh
-# Ejecuta MintMachine contra un portátil simulado. Los montajes viven en un
+# Ejecuta SysCheckup contra un portátil simulado. Los montajes viven en un
 # espacio privado (unshare -m): el /sys real del equipo no se toca.
 HERE=$(cd "$(dirname "$0")" && pwd)
 exec unshare -m sh -c '

@@ -1,4 +1,4 @@
-# MintMachine
+# SysCheckup
 
 Hardware, drivers y software de tu equipo Linux en una sola ventana, con gráficas de uso en vivo, revisión de drivers y firmware, un diagnóstico que te señala lo que conviene mirar y pruebas voluntarias de estabilidad y rendimiento.
 
@@ -12,7 +12,7 @@ Las capturas de `docs/` salen del banco de pruebas, que simula un portátil. Los
 
 ## Distribuciones y escritorios
 
-MintMachine solo necesita Python 3 y GTK 3, que traen todas las distribuciones basadas en Debian, y reconoce dónde se está ejecutando:
+SysCheckup solo necesita Python 3 y GTK 3, que traen todas las distribuciones basadas en Debian, y reconoce dónde se está ejecutando:
 
 - **Herramientas del sistema.** Los botones del diagnóstico abren la que esté instalada: en Linux Mint, el Gestor de actualizaciones, el Gestor de controladores y el Gestor de software; en Ubuntu, el Actualizador de software, «Controladores adicionales» y el Centro de aplicaciones; en GNOME, la aplicación Software; en KDE Plasma, Discover; si no hay ninguna, Synaptic. Lo mismo con el monitor del sistema, la configuración de energía, Discos o el analizador de uso de disco de cada escritorio. Si no hay ninguna herramienta gráfica de ese tipo, el consejo lo dice con palabras y no sale botón.
 - **Textos.** Los consejos nombran la herramienta que tienes. Los que solo valen para una distribución (los códecs multimedia, el menú de kernels de Linux Mint) cambian según la distribución.
@@ -34,15 +34,15 @@ Se ha comprobado con el banco de pruebas haciéndose pasar por LMDE con Cinnamon
 
 ![Aspecto claro](docs/captura-claro.png)
 
-El programa detecta el idioma del sistema y se abre en él. Se fija solo en el idioma, no en el país: `es_ES`, `es_MX` o `es_AR` → español; `en_US` o `en_GB` → inglés; `fr_FR` o `fr_CA` → francés; `ja_JP` → japonés; `zh_CN` o `zh_TW` → chino (simplificado). Si el sistema está en un idioma que MintMachine aún no tiene, sale en inglés.
+El programa detecta el idioma del sistema y se abre en él. Se fija solo en el idioma, no en el país: `es_ES`, `es_MX` o `es_AR` → español; `en_US` o `en_GB` → inglés; `fr_FR` o `fr_CA` → francés; `ja_JP` → japonés; `zh_CN` o `zh_TW` → chino (simplificado). Si el sistema está en un idioma que SysCheckup aún no tiene, sale en inglés.
 
-En el menú (☰) se puede elegir otro idioma y el aspecto, oscuro (el de serie) o claro. La elección se guarda en `~/.config/mintmachine/config.json`, el único archivo que el programa crea en tu carpeta personal. Desde la terminal: `mintmachine --idioma en`.
+En el menú (☰) se puede elegir otro idioma y el aspecto, oscuro (el de serie) o claro. La elección se guarda en `~/.config/syscheckup/config.json`, el único archivo que el programa crea en tu carpeta personal. Desde la terminal: `syscheckup --idioma en`.
 
 Las traducciones son archivos `.po` normales en la carpeta `po/`; se pueden revisar con Poedit o Weblate. Las ha hecho una IA: conviene que las revise alguien nativo, sobre todo las de japonés y chino. Para ver bien el japonés y el chino hacen falta fuentes con esos caracteres (paquete `fonts-noto-cjk`, que Linux Mint instala al añadir esos idiomas).
 
 ## Recomendaciones seguras
 
-MintMachine solo lee información: no cambia nada en el equipo. El diagnóstico explica qué pasa y qué hacer, y solo propone acciones seguras desde el propio sistema: instalar actualizaciones, abrir el Gestor de controladores, hacer una copia de seguridad, liberar espacio… Cuando un aviso tiene una herramienta del sistema asociada, aparece un botón para abrirla.
+SysCheckup solo lee información: no cambia nada en el equipo. El diagnóstico explica qué pasa y qué hacer, y solo propone acciones seguras desde el propio sistema: instalar actualizaciones, abrir el Gestor de controladores, hacer una copia de seguridad, liberar espacio… Cuando un aviso tiene una herramienta del sistema asociada, aparece un botón para abrirla.
 
 Nunca pide abrir el equipo ni tocar componentes. Si algo requiere una revisión física (limpieza interna, cambiar un disco, la memoria o la batería), la recomendación es acudir a un servicio técnico o al fabricante. Este aviso aparece también en el Diagnóstico, en «Acerca de» y en los informes exportados.
 
@@ -95,11 +95,11 @@ Mientras dura, una ventana muestra el tiempo que queda, la temperatura y su grá
 
 - la temperatura del procesador llega a 5 °C del máximo que declara (90 °C en AMD y 95 °C en Intel si no lo declara), o la de la gráfica a 10 °C de su máximo (87 °C si no lo declara);
 - el portátil se desconecta de la corriente (con batería no deja empezar, ni con menos del 30 % de carga);
-- se cierra MintMachine.
+- se cierra SysCheckup.
 
-Cada prueba va en su propio grupo de procesos y lleva además su propio límite de tiempo, para que nunca se quede funcionando sola. Al terminar se ve el resultado: superada, con errores (fallos de cálculo o errores de hardware nuevos en el registro del kernel), detenida por temperatura… con la temperatura máxima, la frecuencia sostenida y las veces que el procesador se frenó por calor. Las puntuaciones se comparan con tus mediciones anteriores; MintMachine no envía nada a internet, así que no hay comparación con otros equipos.
+Cada prueba va en su propio grupo de procesos y lleva además su propio límite de tiempo, para que nunca se quede funcionando sola. Al terminar se ve el resultado: superada, con errores (fallos de cálculo o errores de hardware nuevos en el registro del kernel), detenida por temperatura… con la temperatura máxima, la frecuencia sostenida y las veces que el procesador se frenó por calor. Las puntuaciones se comparan con tus mediciones anteriores; SysCheckup no envía nada a internet, así que no hay comparación con otros equipos.
 
-Los resultados se guardan en `~/.config/mintmachine/historial.json` y aparecen en la tabla «Pruebas que has hecho» de cada pestaña y en los informes exportados.
+Los resultados se guardan en `~/.config/syscheckup/historial.json` y aparecen en la tabla «Pruebas que has hecho» de cada pestaña y en los informes exportados.
 
 ## Datos internos de la memoria y del procesador
 
@@ -115,7 +115,7 @@ El botón **Leer datos internos…** (al pulsarlo, el sistema te pide la contras
 - **Memoria (SPD):** fabricante del módulo y de sus chips, referencia, fecha de fabricación, velocidad y tiempos de serie (CL-tRCD-tRP-tRAS) y los perfiles del fabricante (XMP). Si la memoria funciona a la velocidad estándar y sus perfiles permiten más, lo indica. Funciona con DDR4 y DDR5 cuando la placa publica estos datos al sistema (drivers `ee1004` y `spd5118` del kernel; en Ubuntu 24.04 la DDR5 necesita el kernel HWE).
 - **Procesador:** frecuencia base y multiplicadores, estados de rendimiento (AMD) y turbo máximo (Intel), y el consumo del procesador en vatios medido durante un segundo.
 
-Lo hace un ayudante aparte, `/usr/libexec/mintmachine/mintmachine-probe`, que se lanza con `pkexec` solo cuando pulsas el botón. Solo lee: copia los datos que publican los drivers del kernel, sin usar `/dev/i2c-*` ni escribir en el bus de la memoria, lee una lista cerrada de registros del procesador y no admite otros argumentos. Si tiene que cargar un módulo del kernel (`ee1004`, `spd5118` o `msr`), lo descarga al terminar. Los datos de la memoria solo se muestran si superan su suma de control.
+Lo hace un ayudante aparte, `/usr/libexec/syscheckup/syscheckup-probe`, que se lanza con `pkexec` solo cuando pulsas el botón. Solo lee: copia los datos que publican los drivers del kernel, sin usar `/dev/i2c-*` ni escribir en el bus de la memoria, lee una lista cerrada de registros del procesador y no admite otros argumentos. Si tiene que cargar un módulo del kernel (`ee1004`, `spd5118` o `msr`), lo descarga al terminar. Los datos de la memoria solo se muestran si superan su suma de control.
 
 Las posiciones de cada dato en el chip SPD siguen las normas JEDEC y se han contrastado con `decode-dimms` (DDR4) y con memtest86+ (DDR4 y DDR5, perfiles XMP). La DDR5 y los perfiles XMP no se han podido probar todavía con módulos reales.
 
@@ -153,7 +153,7 @@ Los informes incluyen siempre todo, también lo que en la ventana está plegado 
 
 ![Monitor en vivo](docs/captura-monitor.png)
 
-MintMachine toma una muestra por segundo desde que arranca y guarda los últimos dos minutos. Las gráficas se dibujan con datos reales del kernel:
+SysCheckup toma una muestra por segundo desde que arranca y guarda los últimos dos minutos. Las gráficas se dibujan con datos reales del kernel:
 
 - **Procesador:** uso total y una barra por hilo, calculados con `/proc/stat`.
 - **Memoria:** RAM ocupada de verdad (total menos disponible) y swap.
@@ -162,7 +162,7 @@ MintMachine toma una muestra por segundo desde que arranca y guarda los últimos
 - **Temperatura del procesador:** el sensor más caliente de la CPU.
 - **Gráfica:** uso de la GPU en tarjetas AMD, NVIDIA e Intel. Intel no publica un porcentaje, así que se calcula con el tiempo que la gráfica pasa dormida (RC6); en los portátiles con dos gráficas salen las dos líneas.
 - **Programas que usan la gráfica:** el kernel publica en `/proc/<pid>/fdinfo` el tiempo de gráfica de cada programa (AMD, Intel y el driver libre de NVIDIA); con el driver privativo de NVIDIA lo da `nvidia-smi pmon`. Solo salen tus propios programas.
-- **Máximos de la sesión:** lo más alto que han llegado el uso y la temperatura del procesador, la memoria y la gráfica desde que abriste MintMachine, con la hora.
+- **Máximos de la sesión:** lo más alto que han llegado el uso y la temperatura del procesador, la memoria y la gráfica desde que abriste SysCheckup, con la hora.
 
 Cada gráfica muestra el valor actual y el máximo de los dos últimos minutos. Debajo van dos tablas con los procesos que más procesador y más memoria gastan, y la presión del sistema (PSI): el porcentaje de tiempo que los programas pasan esperando CPU, memoria o disco.
 
@@ -170,13 +170,13 @@ Cada gráfica muestra el valor actual y el máximo de los dos últimos minutos. 
 
 ![Periféricos con los monitores](docs/captura-perifericos.png)
 
-Los datos del monitor salen de su EDID, la ficha que el propio monitor envía por el cable. El kernel la publica en `/sys/class/drm`; con el driver privativo de NVIDIA no siempre lo hace, y entonces MintMachine la lee de `xrandr --verbose`.
+Los datos del monitor salen de su EDID, la ficha que el propio monitor envía por el cable. El kernel la publica en `/sys/class/drm`; con el driver privativo de NVIDIA no siempre lo hace, y entonces SysCheckup la lee de `xrandr --verbose`.
 
-La fuente de alimentación de un sobremesa no comunica al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Las únicas que lo hacen son las fuentes «inteligentes» con cable USB interno; de ellas, Linux tiene driver para las Corsair HXi, RMi y AXi (`corsair-psu`), y MintMachine muestra su modelo, la potencia que entregan, la temperatura y el ventilador. Para saber cuál es la tuya, mira la factura o la caja; no abras el equipo para leer la etiqueta.
+La fuente de alimentación de un sobremesa no comunica al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Las únicas que lo hacen son las fuentes «inteligentes» con cable USB interno; de ellas, Linux tiene driver para las Corsair HXi, RMi y AXi (`corsair-psu`), y SysCheckup muestra su modelo, la potencia que entregan, la temperatura y el ventilador. Para saber cuál es la tuya, mira la factura o la caja; no abras el equipo para leer la etiqueta.
 
 ## Ventiladores y curvas
 
-Esto es lo que Linux permite saber de un ventilador, y MintMachine lo enseña todo:
+Esto es lo que Linux permite saber de un ventilador, y SysCheckup lo enseña todo:
 
 | Dato | De dónde sale | Disponibilidad |
 |---|---|---|
@@ -186,13 +186,13 @@ Esto es lo que Linux permite saber de un ventilador, y MintMachine lo enseña to
 | Curva temperatura → potencia | `pwmN_auto_pointM_temp` y `_pwm` | Solo si el chip la publica |
 | Umbrales del firmware | Zonas térmicas ACPI | Casi todos los portátiles |
 
-La curva que configuras en la BIOS se guarda en el chip controlador de la placa y la mayoría de drivers no deja leerla. MintMachine la muestra cuando existe: algunas placas con chips Nuvoton o ITE, los portátiles ASUS ROG con curvas personalizadas y las gráficas AMD. En el resto de equipos verás los umbrales ACPI, que dicen a qué temperatura el firmware acelera el ventilador, frena el procesador o apaga el equipo.
+La curva que configuras en la BIOS se guarda en el chip controlador de la placa y la mayoría de drivers no deja leerla. SysCheckup la muestra cuando existe: algunas placas con chips Nuvoton o ITE, los portátiles ASUS ROG con curvas personalizadas y las gráficas AMD. En el resto de equipos verás los umbrales ACPI, que dicen a qué temperatura el firmware acelera el ventilador, frena el procesador o apaga el equipo.
 
-MintMachine solo lee. Para cambiar curvas desde Linux están CoolerControl, con interfaz gráfica, y `fancontrol`, del paquete `lm-sensors`.
+SysCheckup solo lee. Para cambiar curvas desde Linux están CoolerControl, con interfaz gráfica, y `fancontrol`, del paquete `lm-sensors`.
 
 ## Cómo se comprueba si los drivers están al día
 
-En Windows cada driver se instala y se actualiza por separado. En Linux casi todos viajan dentro del kernel, así que la pregunta útil es otra: si tienes el kernel más reciente que ofrece tu distribución. MintMachine revisa cuatro cosas.
+En Windows cada driver se instala y se actualiza por separado. En Linux casi todos viajan dentro del kernel, así que la pregunta útil es otra: si tienes el kernel más reciente que ofrece tu distribución. SysCheckup revisa cuatro cosas.
 
 1. **Paquetes.** Compara la versión instalada con la que ofrecen tus repositorios para el kernel, el driver de NVIDIA, Mesa, los paquetes de firmware, el microcódigo del procesador y los módulos DKMS.
 2. **Firmware de dispositivos.** Si está `fwupd`, lista BIOS, SSD, docks y periféricos con su versión y avisa cuando el fabricante ha publicado una nueva.
@@ -201,7 +201,7 @@ En Windows cada driver se instala y se actualiza por separado. En Linux casi tod
 
 También avisa si ya tienes un kernel más nuevo instalado y falta reiniciar, y si la lista de paquetes lleva más de diez días sin refrescarse.
 
-La comparación se hace con los repositorios de tu sistema y sin conectar a internet. Si NVIDIA publica hoy un driver que Debian aún no ha empaquetado, MintMachine no lo sabrá.
+La comparación se hace con los repositorios de tu sistema y sin conectar a internet. Si NVIDIA publica hoy un driver que Debian aún no ha empaquetado, SysCheckup no lo sabrá.
 
 ## Diagnóstico
 
@@ -218,23 +218,23 @@ Además de leer, interpreta. Avisa de:
 - Señal Wi-Fi débil.
 - Versiones nuevas de drivers y firmware, actualizaciones pendientes y reinicios sin hacer.
 
-Cada aviso dice qué hacer y, si existe, ofrece un botón para abrir la herramienta del sistema: Gestor de actualizaciones, Gestor de controladores, Copias de seguridad, Timeshift, Analizador de uso de disco, Discos, Cortafuegos, Firmware, Monitor del sistema o Informes del sistema. El botón solo aparece si la herramienta está instalada. MintMachine nunca ejecuta nada como administrador: si la herramienta necesita permisos, es ella la que pide la contraseña.
+Cada aviso dice qué hacer y, si existe, ofrece un botón para abrir la herramienta del sistema: Gestor de actualizaciones, Gestor de controladores, Copias de seguridad, Timeshift, Analizador de uso de disco, Discos, Cortafuegos, Firmware, Monitor del sistema o Informes del sistema. El botón solo aparece si la herramienta está instalada. SysCheckup nunca ejecuta nada como administrador: si la herramienta necesita permisos, es ella la que pide la contraseña.
 
 ## Desinstalar
 
-Menú (☰) → **Desinstalar MintMachine…**. Quita el programa, su icono del menú, su configuración y su historial, sin dejar rastro. El sistema pide tu contraseña, como en cualquier desinstalación. Los informes que hayas guardado son tuyos y no se tocan.
+Menú (☰) → **Desinstalar SysCheckup…**. Quita el programa, su icono del menú, su configuración y su historial, sin dejar rastro. El sistema pide tu contraseña, como en cualquier desinstalación. Los informes que hayas guardado son tuyos y no se tocan.
 
-Desde la terminal hace lo mismo: `sudo apt purge mintmachine` y después `rm -rf ~/.config/mintmachine ~/.cache/mintmachine`.
+Desde la terminal hace lo mismo: `sudo apt purge syscheckup` y después `rm -rf ~/.config/syscheckup ~/.cache/syscheckup`.
 
 ## Instalación
 
 Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
 
 ```
-sudo apt install ./mintmachine_0.6.2_all.deb
+sudo apt install ./syscheckup_0.7.0_all.deb
 ```
 
-`apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre MintMachine. Si tenías una versión anterior, este paquete la actualiza; si tenías la primera, que se llamaba Radiografía, la sustituye.
+`apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre SysCheckup. Si tenías una versión anterior, este paquete la actualiza; si tenías una de las versiones de prueba que se llamaban MintMachine, o la primera, que se llamaba Radiografía, la sustituye. La configuración y el historial de MintMachine se trasladan solos a la carpeta nueva.
 
 Para quitarlo, mira la sección «Desinstalar».
 
@@ -243,7 +243,7 @@ Para quitarlo, mira la sección «Desinstalar».
 El programa es un único archivo de Python:
 
 ```
-python3 mintmachine.py
+python3 syscheckup.py
 ```
 
 Necesita `python3-gi`, `python3-gi-cairo` y `gir1.2-gtk-3.0`, que Mint y LMDE traen de serie.
@@ -251,31 +251,31 @@ Necesita `python3-gi`, `python3-gi-cairo` y `gir1.2-gtk-3.0`, que Mint y LMDE tr
 ## Uso desde la terminal
 
 ```
-mintmachine                       abre la ventana
-mintmachine --texto               informe completo por terminal
-mintmachine --foro                resumen para pegar en un foro, con los datos personales ocultos
-mintmachine --foro --problema red resumen centrado en un problema: red, sonido, grafica, energia o lentitud
-mintmachine --txt informe.txt     guarda el informe completo en texto
-mintmachine --html informe.html   guarda el informe en HTML
-mintmachine --json                vuelca los datos en JSON
-mintmachine --csv monitor.csv     mide dos minutos y guarda el histórico del monitor
-mintmachine --texto --anon        cualquiera de las anteriores con --anon oculta los datos personales
-mintmachine --idioma en           cualquiera de las anteriores en otro idioma (es, en, fr, ja, zh)
-mintmachine --texto --debug       muestra además qué utilidades se ejecutan y cuánto tarda cada una
+syscheckup                       abre la ventana
+syscheckup --texto               informe completo por terminal
+syscheckup --foro                resumen para pegar en un foro, con los datos personales ocultos
+syscheckup --foro --problema red resumen centrado en un problema: red, sonido, grafica, energia o lentitud
+syscheckup --txt informe.txt     guarda el informe completo en texto
+syscheckup --html informe.html   guarda el informe en HTML
+syscheckup --json                vuelca los datos en JSON
+syscheckup --csv monitor.csv     mide dos minutos y guarda el histórico del monitor
+syscheckup --texto --anon        cualquiera de las anteriores con --anon oculta los datos personales
+syscheckup --idioma en           cualquiera de las anteriores en otro idioma (es, en, fr, ja, zh)
+syscheckup --texto --debug       muestra además qué utilidades se ejecutan y cuánto tarda cada una
 ```
 
 Sin entorno gráfico, por ejemplo por SSH, el programa pasa solo al modo texto.
 
 ## Privacidad
 
-MintMachine no abre ninguna conexión a internet. Lee archivos de `/proc` y `/sys` y ejecuta utilidades que ya están en tu sistema. Solo pide la contraseña de administrador si eliges «Leer datos internos» o «Desinstalar». Los informes se quedan donde tú los guardes.
+SysCheckup no abre ninguna conexión a internet. Lee archivos de `/proc` y `/sys` y ejecuta utilidades que ya están en tu sistema. Solo pide la contraseña de administrador si eliges «Leer datos internos» o «Desinstalar». Los informes se quedan donde tú los guardes.
 
 Al exportar, «Ocultar datos personales» viene marcado. Revisa igualmente el informe antes de publicarlo: la ocultación busca los datos que el programa conoce y los formatos habituales (MAC, IP, UUID), pero no puede adivinar cualquier dato personal que aparezca en un nombre de archivo o de dispositivo.
 
 Lo que garantiza el código, y comprueban las pruebas automáticas en cada cambio:
 
 - No importa ningún módulo de red. La única función de red que usa es la que devuelve el nombre del equipo.
-- En tu carpeta personal solo escribe dentro de `~/.config/mintmachine/`: `config.json` (idioma y tema) e `historial.json` (una medición diaria de la salud de cada disco, los resultados de las pruebas que hagas y los datos internos que leas). Los discos se identifican con una huella, no con su número de serie. La prueba de velocidad del disco crea un archivo temporal en `~/.cache/mintmachine/` y lo borra al terminar.
+- En tu carpeta personal solo escribe dentro de `~/.config/syscheckup/`: `config.json` (idioma y tema) e `historial.json` (una medición diaria de la salud de cada disco, los resultados de las pruebas que hagas y los datos internos que leas). Los discos se identifican con una huella, no con su número de serie. La prueba de velocidad del disco crea un archivo temporal en `~/.cache/syscheckup/` y lo borra al terminar.
 - Solo pide la contraseña si tú eliges «Leer datos internos» o «Desinstalar». El ayudante que usa para los datos internos solo lee.
 - `--debug` escribe en la terminal el nombre de cada utilidad y sus opciones, nunca sus argumentos ni su salida, y no crea ningún archivo.
 - De la configuración de Timeshift solo mira si hay instantáneas programadas; del escritorio en Wayland, solo el conector y el modo de cada pantalla.
@@ -322,11 +322,11 @@ Si falta alguna utilidad, la sección correspondiente sale más corta y el resto
 
 ## Estado del proyecto
 
-Versión 0.6.2. Conviene saber cómo se ha probado.
+Versión 0.7.0. Conviene saber cómo se ha probado.
 
 El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
 
-Lo que falta es rodaje en hardware real. Los formatos del banco de pruebas están escritos a mano a partir de la documentación de cada herramienta, y un equipo de verdad siempre trae alguna rareza. Si una sección sale vacía o con datos raros en tu máquina, abre una incidencia y pega el resultado de `mintmachine --texto --anon`.
+Lo que falta es rodaje en hardware real. Los formatos del banco de pruebas están escritos a mano a partir de la documentación de cada herramienta, y un equipo de verdad siempre trae alguna rareza. Si una sección sale vacía o con datos raros en tu máquina, abre una incidencia y pega el resultado de `syscheckup --texto --anon`.
 
 ### Límites conocidos
 
@@ -340,7 +340,7 @@ Lo que falta es rodaje en hardware real. Los formatos del banco de pruebas está
 - **Uso de la GPU en Intel.** Es una estimación a partir del tiempo de reposo de la gráfica, sin probar todavía en hardware real.
 - **Datos internos de la memoria.** Dependen de que la placa publique el SPD al sistema; muchas sí, algunas no. La lectura de DDR4 está contrastada con `decode-dimms`; la de DDR5 y los perfiles XMP siguen las posiciones de memtest86+ y aún no se han probado con módulos reales. Los perfiles EXPO se detectan, pero sus tiempos no se leen.
 - **Multiplicadores del procesador.** Se leen en AMD Ryzen (Zen 1 a Zen 5) e Intel. No se muestra el voltaje que pide el procesador: su codificación cambia según la generación y no está verificada.
-- **Motivos de límite de la gráfica.** En AMD solo para las versiones de `gpu_metrics` que MintMachine conoce (las de las gráficas Radeon de consumo y las integradas recientes); en las demás no sale la fila.
+- **Motivos de límite de la gráfica.** En AMD solo para las versiones de `gpu_metrics` que SysCheckup conoce (las de las gráficas Radeon de consumo y las integradas recientes); en las demás no sale la fila.
 - **Pruebas.** Las de estrés y rendimiento se han probado en una máquina virtual sin sensores de temperatura y con la gráfica por software; el corte por temperatura y el de batería se han probado con datos simulados.
 - **Wayland.** El modo de pantalla en uso se pide al escritorio: GNOME y Cinnamon por D-Bus, KDE Plasma con `kscreen-doctor` y Sway, Hyprland y similares con `wlr-randr`. Está comprobado con respuestas de ejemplo, no en cada escritorio real; en otros compositores sale la ficha del monitor sin el modo en uso.
 - **Aplicaciones del Monitor.** GNOME, KDE, Flatpak y Snap dan el nombre exacto de cada aplicación; en Cinnamon se agrupa por ejecutable, así que varios programas hechos en Python salen juntos como `python3`.
@@ -348,7 +348,7 @@ Lo que falta es rodaje en hardware real. Los formatos del banco de pruebas está
 
 ## Cómo está hecho
 
-Un archivo, `mintmachine.py`, con cinco partes:
+Un archivo, `syscheckup.py`, con cinco partes:
 
 1. **Utilidades.** `read()` lee un archivo y devuelve cadena vacía si falla. `run()` ejecuta una orden con tiempo límite e idioma fijo, y también devuelve cadena vacía si la orden no existe.
 2. **Muestreador.** La clase `Sampler` toma una muestra por segundo y guarda el histórico que pintan las gráficas.
@@ -356,7 +356,7 @@ Un archivo, `mintmachine.py`, con cinco partes:
 4. **Exportadores.** `to_text`, `to_html`, `to_json`, `to_forum` y `to_csv`, registrados en `EXPORTERS`.
 5. **Interfaz GTK 3.** Pinta los mismos bloques; las gráficas se dibujan con cairo. La lectura inicial va en un hilo aparte para que la ventana no se congele.
 
-Los textos se escriben en español dentro de `_()`; los que llevan datos, como plantilla: `_("Quedan {n} libres").format(n=...)`. Los títulos, claves, cabeceras, notas y valores fijos que se pasan a `kv`, `table`, `bars`, `note` y `section` se traducen solos. Para añadir o cambiar textos: se edita el código, se regenera `po/mintmachine.pot` y se completan los `.po` (`msgmerge` sirve para eso).
+Los textos se escriben en español dentro de `_()`; los que llevan datos, como plantilla: `_("Quedan {n} libres").format(n=...)`. Los títulos, claves, cabeceras, notas y valores fijos que se pasan a `kv`, `table`, `bars`, `note` y `section` se traducen solos. Para añadir o cambiar textos: se edita el código, se regenera `po/syscheckup.pot` y se completan los `.po` (`msgmerge` sirve para eso).
 
 Los recopiladores comparten un objeto `Ctx`. Con `ctx.flag(nivel, área, texto, qué_hacer, acción)` cualquiera de ellos deja un aviso que después recoge el Diagnóstico. `acción` es una clave de `ACTIONS`, la lista de herramientas del sistema que se pueden abrir. **Norma para los avisos:** «qué hacer» solo puede proponer acciones seguras desde el sistema; cualquier revisión física se deriva a un servicio técnico o al fabricante.
 
@@ -382,9 +382,9 @@ Después se registra en `COLLECTORS`, `ORDER` y `TITLES`. Con eso aparece en la 
 packaging/build-deb.sh
 ```
 
-El paquete queda en `dist/`. Solo hace falta `dpkg-deb`. La versión se toma de la variable `VERSION` de `mintmachine.py`. El campo «Maintainer» del paquete lleva solo «MintMachine», sin datos personales: dpkg lo exige y, si falta, apt muestra un aviso cada vez que se usa.
+El paquete queda en `dist/`. Solo hace falta `dpkg-deb`. La versión se toma de la variable `VERSION` de `syscheckup.py`. El campo «Maintainer» del paquete lleva solo «SysCheckup», sin datos personales: dpkg lo exige y, si falta, apt muestra un aviso cada vez que se usa.
 
-En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.6.2`, adjunta el `.deb` a esa versión.
+En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.7.0`, adjunta el `.deb` a esa versión.
 
 ## Pruebas
 
@@ -414,22 +414,22 @@ Para probar un caso nuevo, por ejemplo un ventilador parado o un disco con fallo
 ```
 git init
 git add .
-git commit -m "MintMachine 0.6.2"
+git commit -m "SysCheckup 0.7.0"
 git branch -M main
-git remote add origin https://github.com/TU-USUARIO/mintmachine.git
+git remote add origin https://github.com/TU-USUARIO/syscheckup.git
 git push -u origin main
-git tag v0.6.2
-git push origin v0.6.2
+git tag v0.7.0
+git push origin v0.7.0
 ```
 
-3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.6.2`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.6.2` y adjunta `mintmachine_0.6.2_all.deb`.
-4. Cuando tengas la dirección del repositorio, añádela a `data/mintmachine.metainfo.xml` con `<url type="homepage">…</url>`.
+3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.7.0`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.7.0` y adjunta `syscheckup_0.7.0_all.deb`.
+4. Cuando tengas la dirección del repositorio, añádela a `data/syscheckup.metainfo.xml` con `<url type="homepage">…</url>`.
 
 Las incidencias usan las plantillas de `.github/ISSUE_TEMPLATE`, que piden el informe para foros con los datos personales ocultos.
 
 Las carpetas `build/` y `dist/` están en `.gitignore`. El `.deb` se sube como archivo de la versión publicada y se queda fuera del historial.
 
-Un aviso sobre el nombre: «Linux Mint» es una marca de su proyecto. Deja claro en la descripción del repositorio que MintMachine es un programa independiente.
+Un aviso sobre el nombre: «Linux Mint» es una marca de su proyecto. Deja claro en la descripción del repositorio que SysCheckup es un programa independiente.
 
 ## Ideas para las siguientes versiones
 

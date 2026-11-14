@@ -1,4 +1,4 @@
-"""Pruebas unitarias de MintMachine. No necesitan root ni tocan el sistema.
+"""Pruebas unitarias de SysCheckup. No necesitan root ni tocan el sistema.
 
     python3 -m pytest tests/test_unidad.py        (o, sin pytest:  python3 tests/test_unidad.py)
 
@@ -17,10 +17,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, ROOT)
 
-import mintmachine as mm  # noqa: E402
+import syscheckup as mm  # noqa: E402
 
 mm.set_language("es")
-SRC = open(os.path.join(ROOT, "mintmachine.py"), encoding="utf-8").read()
+SRC = open(os.path.join(ROOT, "syscheckup.py"), encoding="utf-8").read()
 
 
 # ───────────────────────────── privacidad ─────────────────────────────
@@ -40,7 +40,7 @@ def test_no_se_ejecuta_nada_como_root_salvo_desinstalar():
 
 
 def test_ayudante_solo_lee():
-    ayu = open(os.path.join(os.path.dirname(__file__), "..", "data", "mintmachine-probe"), encoding="utf-8").read()
+    ayu = open(os.path.join(os.path.dirname(__file__), "..", "data", "syscheckup-probe"), encoding="utf-8").read()
     ayu = "\n".join(l for l in ayu.splitlines() if not l.lstrip().startswith("#"))      # sin comentarios
     assert "/dev/i2c" not in ayu and "i2cset" not in ayu and "i2cget" not in ayu and "new_device" not in ayu
     assert "O_RDONLY" in ayu and "O_WRONLY" not in ayu and "O_RDWR" not in ayu and "pwrite" not in ayu

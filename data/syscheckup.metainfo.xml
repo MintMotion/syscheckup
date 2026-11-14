@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2026 José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es> -->
 <component type="desktop-application">
-  <id>mintmachine</id>
+  <id>syscheckup</id>
   <metadata_license>MIT</metadata_license>
   <project_license>MIT</project_license>
-  <name>MintMachine</name>
+  <name>SysCheckup</name>
   <summary>Hardware, drivers y software del equipo de un vistazo</summary>
   <summary xml:lang="en">Hardware, drivers and software of this computer at a glance</summary>
   <developer id="es.joseantonioramos">
@@ -12,7 +12,7 @@
   </developer>
   <description>
     <p>
-      MintMachine reúne en una sola ventana toda la información de tu equipo:
+      SysCheckup reúne en una sola ventana toda la información de tu equipo:
       procesador, memoria, gráfica, discos, red, sensores, ventiladores, batería, drivers y software,
       con gráficas de uso en vivo.
     </p>
@@ -27,9 +27,9 @@
       Solo lee: no cambia nada y no envía datos a internet. Solo pide la contraseña si eliges leer datos internos que el sistema reserva al administrador.
     </p>
   </description>
-  <launchable type="desktop-id">mintmachine.desktop</launchable>
+  <launchable type="desktop-id">syscheckup.desktop</launchable>
   <provides>
-    <binary>mintmachine</binary>
+    <binary>syscheckup</binary>
   </provides>
   <categories>
     <category>System</category>
@@ -37,6 +37,11 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.7.0" date="2026-11-14">
+      <description>
+        <p>Nuevo nombre: SysCheckup (antes MintMachine).</p>
+      </description>
+    </release>
     <release version="0.6.2" date="2026-11-14">
       <description>
         <p>Texto del botón de datos internos más corto.</p>

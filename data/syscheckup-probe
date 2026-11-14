@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-# MintMachine — ayudante de solo lectura que necesita permisos de administrador.
+# SysCheckup — ayudante de solo lectura que necesita permisos de administrador.
 # Copyright (c) 2026 José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es> — Licencia MIT.
 #
-# Lo lanza MintMachine con pkexec solo cuando el usuario pulsa «Leer datos detallados». Hace tres
+# Lo lanza SysCheckup con pkexec solo cuando el usuario pulsa «Leer datos detallados». Hace tres
 # cosas y nada más, siempre leyendo, y devuelve JSON por la salida estándar:
 #   spd  — copia los datos de los chips SPD de los módulos de memoria tal como los publican los
 #          drivers del kernel ee1004 (DDR4) y spd5118 (DDR5). No usa /dev/i2c-* ni escribe en el bus.
@@ -124,7 +124,7 @@ def cpu():
 
 def main():
     if os.geteuid() != 0 or len(sys.argv) != 2 or sys.argv[1] not in ("spd", "cpu", "todo"):
-        print(json.dumps({"error": "uso: mintmachine-probe spd|cpu|todo (como administrador)"}))
+        print(json.dumps({"error": "uso: syscheckup-probe spd|cpu|todo (como administrador)"}))
         return 2
     what = sys.argv[1]
     out = {}
