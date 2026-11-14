@@ -4184,10 +4184,10 @@ def spd_blocks():
             continue
         dec = decode_spd(m["data"])
         if dec.get("error"):
-            rows.append((m.get("bus", ""), dec["error"], "", "", "", "", ""))
+            rows.append((dec["error"], "", "", "", "", ""))
             continue
         prof = dec.get("xmp") or []
-        rows.append((m.get("bus", ""), " ".join(x for x in (dec["fabricante"], dec["referencia"]) if x),
+        rows.append((" ".join(x for x in (dec["fabricante"], dec["referencia"]) if x),
                      f"{dec['tipo']}" + (f" · {human(dec['tamano'])}" if dec.get("tamano") else ""),
                      (f"{dec['jedec']['velocidad']} MT/s · {dec['jedec']['tiempos']}" if dec.get("jedec") else ""),
                      " / ".join(f"{p['velocidad']} MT/s · {p['tiempos']}" for p in prof) +
@@ -4195,7 +4195,7 @@ def spd_blocks():
                      dec.get("chips", ""), dec.get("fecha", "")))
     if not rows and not notes:
         notes.append(_("Tu placa no publica los datos internos de los módulos de memoria para el sistema."))
-    blocks = [table("Datos internos de los módulos (SPD)", ["Bus", "Módulo", "Tipo", "Velocidad y tiempos de serie",
+    blocks = [table("Datos internos de los módulos (SPD)", ["Módulo", "Tipo", "Velocidad y tiempos de serie",
                                                              "Perfiles del fabricante (XMP)", "Chips de memoria",
                                                              "Fabricado"], rows,
                     help=_("Leído el {fecha} de los propios módulos. Los tiempos son CL-tRCD-tRP-tRAS en ciclos. "
