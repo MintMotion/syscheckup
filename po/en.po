@@ -3092,3 +3092,198 @@ msgstr "glmark2-x11 (or glmark2-wayland)"
 
 msgid "disco"
 msgstr "disk"
+
+msgid "el Gestor de actualizaciones"
+msgstr "the Update Manager"
+
+msgid "el Actualizador de software"
+msgstr "Software Updater"
+
+msgid "la aplicación Software"
+msgstr "the Software app"
+
+msgid "el Centro de aplicaciones"
+msgstr "the App Center"
+
+msgid "el Gestor de paquetes Synaptic"
+msgstr "the Synaptic Package Manager"
+
+msgid "el Gestor de controladores"
+msgstr "the Driver Manager"
+
+msgid "«Controladores adicionales» de «Software y actualizaciones»"
+msgstr "«Additional Drivers» in «Software & Updates»"
+
+msgid "el Gestor de software"
+msgstr "the Software Manager"
+
+msgid "Discos"
+msgstr "Disks"
+
+msgid "el Gestor de particiones de KDE"
+msgstr "the KDE Partition Manager"
+
+msgid "el Analizador de uso de disco"
+msgstr "the Disk Usage Analyzer"
+
+msgid "Copias de seguridad"
+msgstr "the Backup Tool"
+
+msgid "el Cortafuegos"
+msgstr "the Firewall"
+
+msgid "el Monitor del sistema"
+msgstr "the System Monitor"
+
+msgid "el Gestor de tareas"
+msgstr "the Task Manager"
+
+msgid "el Informe del sistema"
+msgstr "the System Reports"
+
+msgid "Registros"
+msgstr "Logs"
+
+msgid "la configuración de energía"
+msgstr "the power settings"
+
+msgid "la herramienta de actualizaciones de tu sistema"
+msgstr "your system's update tool"
+
+msgid "la herramienta de drivers de tu distribución"
+msgstr "your distribution's driver tool"
+
+msgid "el instalador de programas de tu sistema"
+msgstr "your system's software installer"
+
+msgid "Abrir {herramienta}"
+msgstr "Open {herramienta}"
+
+msgid "Consumo del procesador"
+msgstr "Processor power draw"
+
+msgid "Instala las actualizaciones pendientes, incluidas las del kernel y el microcódigo del procesador, con {herramienta}. Después, reinicia."
+msgstr "Install the pending updates, including the kernel and processor microcode ones, with {herramienta}. Then restart."
+
+msgid "Abre {herramienta}: si ofrece un driver recomendado para tu gráfica, instálalo y reinicia. Si no ofrece nada, pregunta en el foro de tu distribución."
+msgstr "Open {herramienta}: if it offers a recommended driver for your graphics card, install it and restart. If it offers nothing, ask in your distribution's forum."
+
+msgid "Abre {herramienta} e instala el driver recomendado para tu gráfica. Después, reinicia."
+msgstr "Open {herramienta} and install the recommended driver for your graphics card. Then restart."
+
+msgid "El TRIM ayuda a que los SSD mantengan su velocidad. Las distribuciones actuales lo suelen activar por defecto."
+msgstr "TRIM helps SSDs keep their speed. Current distributions usually enable it by default."
+
+msgid "Instálala con {herramienta}, como el resto de actualizaciones, y reinicia al terminar."
+msgstr "Install it with {herramienta}, like the rest of the updates, and restart when done."
+
+msgid "Si no sabes por qué falta, pregunta en el foro de tu distribución antes de tocar nada."
+msgstr "If you don't know why it is missing, ask in your distribution's forum before touching anything."
+
+msgid "Abre {herramienta} y busca actualizaciones."
+msgstr "Open {herramienta} and check for updates."
+
+msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "Open {herramienta} in case it offers one. If not, ask in your distribution's forum with the MintMachine report (with personal data hidden)."
+
+msgid "Instálalas con {herramienta}."
+msgstr "Install them with {herramienta}."
+
+msgid "Conviene tener antes una instantánea de Timeshift, por si algo no va bien."
+msgstr "It is a good idea to take a Timeshift snapshot first, in case something goes wrong."
+
+msgid "Conviene tener antes una copia de seguridad de tus archivos."
+msgstr "It is a good idea to back up your files first."
+
+msgid "Abre {herramienta} e instálalas: corrigen fallos y problemas de seguridad."
+msgstr "Open {herramienta} and install them: they fix bugs and security problems."
+
+msgid "Mira la sección «Actualizaciones de drivers» e instálalas con {herramienta}."
+msgstr "See the «Driver updates» section and install them with {herramienta}."
+
+msgid "Normalmente viene activado de fábrica. Pregunta en el foro de tu distribución cómo volver a activarlo."
+msgstr "It usually comes enabled out of the box. Ask in your distribution's forum how to enable it again."
+
+msgid "Sin ellos, algunos vídeos y canciones no se reproducen. Instala el paquete ubuntu-restricted-extras con {herramienta}."
+msgstr "Without them, some videos and songs won't play. Install the ubuntu-restricted-extras package with {herramienta}."
+
+msgid "Sin ellos, algunos vídeos y canciones no se reproducen. Instala el paquete libavcodec-extra con {herramienta}."
+msgstr "Without them, some videos and songs won't play. Install the libavcodec-extra package with {herramienta}."
+
+msgid "También puedes instalar el paquete earlyoom con {herramienta}: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
+msgstr "You can also install the earlyoom package with {herramienta}: it closes the program using the most memory in time and keeps the computer from freezing."
+
+msgid "Sin ellas el programa funciona igual, pero algunos apartados salen más cortos. Se instalan con {herramienta}, buscando el nombre del paquete."
+msgstr "The program works the same without them, but some sections are shorter. Install them with {herramienta}, searching for the package name."
+
+msgid "Duración: la eliges tú ({lista} minutos)."
+msgstr "Duration: you choose it ({lista} minutes)."
+
+msgid "Utilidad que usa: {u}."
+msgstr "Utility it uses: {u}."
+
+msgid "Está instalada."
+msgstr "It is installed."
+
+msgid "No está instalada: el botón te dirá qué paquete instalar."
+msgstr "It is not installed: the button will tell you which package to install."
+
+msgid "No pide contraseña ni cambia nada en el sistema."
+msgstr "It does not ask for a password or change anything in the system."
+
+msgid "Se detiene sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente, y puedes pararla cuando quieras."
+msgstr "It stops by itself if the temperature gets too high or if the laptop is unplugged, and you can stop it whenever you want."
+
+msgid "Lee de los propios módulos de memoria sus tiempos, perfiles XMP, fabricante de los chips y fecha de fabricación. Tu sistema no los publica para tu usuario, así que hace falta la contraseña para cargar por un momento el driver del kernel que los lee."
+msgstr "Reads from the memory modules themselves their timings, XMP profiles, chip manufacturer and manufacturing date. Your system does not publish them for your user, so the password is needed to briefly load the kernel driver that reads them."
+
+msgid "Lee el consumo del procesador en vatios y, en los procesadores AMD, sus estados de rendimiento. Desde Linux 5.10 estos contadores solo los puede leer el administrador, por seguridad."
+msgstr "Reads the processor's power draw in watts and, on AMD processors, its performance states. Since Linux 5.10 these counters can only be read by the administrator, for security reasons."
+
+msgid "Lo hace un ayudante de MintMachine que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
+msgstr "A MintMachine helper that only reads does it: it changes nothing on the computer. If it has to load a kernel module, it unloads it when done."
+
+msgid "Frecuencia máxima (turbo)"
+msgstr "Maximum frequency (turbo)"
+
+msgid "ahora"
+msgstr "now"
+
+msgid "Leído de los propios módulos, sin contraseña."
+msgstr "Read from the modules themselves, without a password."
+
+msgid "Leído el {fecha} de los propios módulos."
+msgstr "Read on {fecha} from the modules themselves."
+
+msgid "Los tiempos son CL-tRCD-tRP-tRAS en ciclos. Los perfiles del fabricante solo se usan si los activas en la BIOS."
+msgstr "Timings are CL-tRCD-tRP-tRAS in cycles. Manufacturer profiles are only used if you enable them in the BIOS."
+
+msgid "Consumo del procesador ahora"
+msgstr "Processor power draw now"
+
+msgid "Frecuencias y datos internos"
+msgstr "Frequencies and internal data"
+
+msgid "Los datos marcados al leerlos se tomaron el {fecha} con tu contraseña."
+msgstr "The data marked «when read» was taken on {fecha} with your password."
+
+msgid "Los multiplicadores se calculan con el reloj de bus habitual de 100 MHz."
+msgstr "Multipliers are calculated with the usual 100 MHz bus clock."
+
+msgid "Resumen listo para pegar en el foro de tu distribución"
+msgstr "Summary ready to paste in your distribution's forum"
+
+msgid "Si hay otro instalador o gestor de actualizaciones abierto, ciérralo y vuelve a intentarlo."
+msgstr "If another installer or update manager is open, close it and try again."
+
+msgid "Qué hace"
+msgstr "What it does"
+
+msgid "Instala el paquete {paquete} con {herramienta} y vuelve a pulsar el botón."
+msgstr "Install the {paquete} package with {herramienta} and press the button again."
+
+msgid "Sin el paquete stress-ng se hará una prueba ligera, que detecta menos problemas. Para la prueba completa, instala stress-ng con {herramienta}."
+msgstr "Without the stress-ng package a light test will be run, which detects fewer problems. For the full test, install stress-ng with {herramienta}."
+
+msgid "No se ha podido pedir la contraseña o no se ha autorizado: no se ha leído nada. Si no ha aparecido la ventana de la contraseña, tu escritorio no tiene un agente de polkit activo."
+msgstr "The password could not be requested or was not authorized: nothing has been read. If the password window did not appear, your desktop has no active polkit agent."

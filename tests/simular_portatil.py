@@ -31,6 +31,19 @@ def build():
          bios_vendor="LENOVO", bios_version="R1XET54W (1.36 )", bios_date="03/14/2025", bios_release="1.36",
          chassis_type="10", product_serial="PF3ABC12"))
     w("/sys/class/tpm/tpm0/tpm_version_major", "2")
+    # SPD del módulo (driver ee1004), legible sin root como en un kernel real: DDR4-3200 de 8 GiB, Samsung
+    spd = bytearray(512)
+    head = bytes.fromhex("2311 0c03 4521 0008 0000 0000 0103 0000 0000 0500 0000 0000 6e6e 6e11 006e".replace(" ", ""))
+    spd[0:len(head)] = head
+    spd[320:322], spd[350:352], spd[323:325] = b"\x80\xce", b"\x80\xce", b"\x22\x10"
+    spd[329:349] = b"M471A1K43EB1-CWE    "
+    crc = 0
+    for x in spd[:126]:
+        crc ^= x << 8
+        for _ in range(8):
+            crc = ((crc << 1) ^ 0x1021) if crc & 0x8000 else crc << 1
+    spd[126], spd[127] = crc & 0xFF, (crc >> 8) & 0xFF
+    w("/sys/bus/i2c/drivers/ee1004/0-0050/eeprom", bytes(spd))
     w("/sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c", bytes([6,0,0,0,1]))
     tree("/sys/class/hwmon/hwmon0", dict(name="acpitz", temp1_input=45000))
     tree("/sys/class/hwmon/hwmon1", dict(name="nvme", temp1_input=38850, temp1_label="Composite", temp1_max=81850, temp1_crit=84850))
@@ -344,6 +357,9 @@ FAKE = {
  "/sys/power/state": "freeze mem disk",
  "/sys/power/mem_sleep": "s2idle [deep]",
  "/sys/devices/system/cpu/cpu0/thermal_throttle/package_throttle_count": "37",
+ "/sys/devices/system/cpu/cpu0/cpufreq/base_frequency": "1300000",
+ "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq": "4400000",
+ "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq": "400000",
  "/proc/bus/input/devices": 'I: Bus=0011 Vendor=0001 Product=0001 Version=ab54\nN: Name="AT Translated Set 2 keyboard"\nH: Handlers=sysrq kbd leds event3\n\nI: Bus=0018\nN: Name="ELAN0676:00 04F3:3195 Touchpad"\nH: Handlers=mouse1 event7\n\nI: Bus=0003\nN: Name="Logitech MX Master 3"\nH: Handlers=sysrq kbd leds event9 mouse2\n\nI: Bus=0019\nN: Name="Power Button"\nH: Handlers=kbd event1\n',
  "/etc/ufw/ufw.conf": "ENABLED=no\nLOGLEVEL=low",
  "/etc/timeshift/timeshift.json": '{"backup_device_uuid": "9f0c2b6e-1d5a-4c7b-8e21-aa00bb11cc22", "schedule_monthly": "false", "schedule_weekly": "false", "schedule_daily": "false", "do_first_run": "true"}',

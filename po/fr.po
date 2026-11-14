@@ -3092,3 +3092,198 @@ msgstr "glmark2-x11 (ou glmark2-wayland)"
 
 msgid "disco"
 msgstr "disque"
+
+msgid "el Gestor de actualizaciones"
+msgstr "le Gestionnaire de mises à jour"
+
+msgid "el Actualizador de software"
+msgstr "le Gestionnaire de mises à jour (Software Updater)"
+
+msgid "la aplicación Software"
+msgstr "l'application Logiciels"
+
+msgid "el Centro de aplicaciones"
+msgstr "le Centre d'applications (App Center)"
+
+msgid "el Gestor de paquetes Synaptic"
+msgstr "le Gestionnaire de paquets Synaptic"
+
+msgid "el Gestor de controladores"
+msgstr "le Gestionnaire de pilotes"
+
+msgid "«Controladores adicionales» de «Software y actualizaciones»"
+msgstr "« Pilotes additionnels » dans « Logiciels et mises à jour »"
+
+msgid "el Gestor de software"
+msgstr "le Gestionnaire de logiciels"
+
+msgid "Discos"
+msgstr "Disques"
+
+msgid "el Gestor de particiones de KDE"
+msgstr "le Gestionnaire de partitions de KDE"
+
+msgid "el Analizador de uso de disco"
+msgstr "l'Analyseur d'utilisation des disques"
+
+msgid "Copias de seguridad"
+msgstr "l'outil de sauvegarde"
+
+msgid "el Cortafuegos"
+msgstr "le pare-feu"
+
+msgid "el Monitor del sistema"
+msgstr "le Moniteur système"
+
+msgid "el Gestor de tareas"
+msgstr "le Gestionnaire de tâches"
+
+msgid "el Informe del sistema"
+msgstr "les Rapports système"
+
+msgid "Registros"
+msgstr "Journaux"
+
+msgid "la configuración de energía"
+msgstr "les réglages d'énergie"
+
+msgid "la herramienta de actualizaciones de tu sistema"
+msgstr "l'outil de mises à jour de votre système"
+
+msgid "la herramienta de drivers de tu distribución"
+msgstr "l'outil de pilotes de votre distribution"
+
+msgid "el instalador de programas de tu sistema"
+msgstr "l'installateur de logiciels de votre système"
+
+msgid "Abrir {herramienta}"
+msgstr "Ouvrir {herramienta}"
+
+msgid "Consumo del procesador"
+msgstr "Consommation du processeur"
+
+msgid "Instala las actualizaciones pendientes, incluidas las del kernel y el microcódigo del procesador, con {herramienta}. Después, reinicia."
+msgstr "Installez les mises à jour en attente, y compris celles du noyau et du microcode du processeur, avec {herramienta}. Ensuite, redémarrez."
+
+msgid "Abre {herramienta}: si ofrece un driver recomendado para tu gráfica, instálalo y reinicia. Si no ofrece nada, pregunta en el foro de tu distribución."
+msgstr "Ouvrez {herramienta} : s'il propose un pilote recommandé pour votre carte graphique, installez-le et redémarrez. S'il ne propose rien, demandez sur le forum de votre distribution."
+
+msgid "Abre {herramienta} e instala el driver recomendado para tu gráfica. Después, reinicia."
+msgstr "Ouvrez {herramienta} et installez le pilote recommandé pour votre carte graphique. Ensuite, redémarrez."
+
+msgid "El TRIM ayuda a que los SSD mantengan su velocidad. Las distribuciones actuales lo suelen activar por defecto."
+msgstr "Le TRIM aide les SSD à garder leur vitesse. Les distributions actuelles l'activent généralement par défaut."
+
+msgid "Instálala con {herramienta}, como el resto de actualizaciones, y reinicia al terminar."
+msgstr "Installez-la avec {herramienta}, comme les autres mises à jour, et redémarrez à la fin."
+
+msgid "Si no sabes por qué falta, pregunta en el foro de tu distribución antes de tocar nada."
+msgstr "Si vous ne savez pas pourquoi il manque, demandez sur le forum de votre distribution avant de toucher à quoi que ce soit."
+
+msgid "Abre {herramienta} y busca actualizaciones."
+msgstr "Ouvrez {herramienta} et recherchez les mises à jour."
+
+msgid "Abre {herramienta} por si ofrece uno. Si no, pregunta en el foro de tu distribución con el informe de MintMachine (con los datos personales ocultos)."
+msgstr "Ouvrez {herramienta} au cas où il en propose un. Sinon, demandez sur le forum de votre distribution avec le rapport de MintMachine (données personnelles masquées)."
+
+msgid "Instálalas con {herramienta}."
+msgstr "Installez-les avec {herramienta}."
+
+msgid "Conviene tener antes una instantánea de Timeshift, por si algo no va bien."
+msgstr "Il est conseillé de faire d'abord un instantané Timeshift, au cas où quelque chose tournerait mal."
+
+msgid "Conviene tener antes una copia de seguridad de tus archivos."
+msgstr "Il est conseillé de sauvegarder d'abord vos fichiers."
+
+msgid "Abre {herramienta} e instálalas: corrigen fallos y problemas de seguridad."
+msgstr "Ouvrez {herramienta} et installez-les : elles corrigent des bogues et des problèmes de sécurité."
+
+msgid "Mira la sección «Actualizaciones de drivers» e instálalas con {herramienta}."
+msgstr "Consultez la section « Mises à jour des pilotes » et installez-les avec {herramienta}."
+
+msgid "Normalmente viene activado de fábrica. Pregunta en el foro de tu distribución cómo volver a activarlo."
+msgstr "Il est normalement activé d'origine. Demandez sur le forum de votre distribution comment le réactiver."
+
+msgid "Sin ellos, algunos vídeos y canciones no se reproducen. Instala el paquete ubuntu-restricted-extras con {herramienta}."
+msgstr "Sans eux, certaines vidéos et chansons ne se lisent pas. Installez le paquet ubuntu-restricted-extras avec {herramienta}."
+
+msgid "Sin ellos, algunos vídeos y canciones no se reproducen. Instala el paquete libavcodec-extra con {herramienta}."
+msgstr "Sans eux, certaines vidéos et chansons ne se lisent pas. Installez le paquet libavcodec-extra avec {herramienta}."
+
+msgid "También puedes instalar el paquete earlyoom con {herramienta}: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
+msgstr "Vous pouvez aussi installer le paquet earlyoom avec {herramienta} : il ferme à temps le programme qui utilise le plus de mémoire et évite que l'ordinateur se fige."
+
+msgid "Sin ellas el programa funciona igual, pero algunos apartados salen más cortos. Se instalan con {herramienta}, buscando el nombre del paquete."
+msgstr "Le programme fonctionne de la même façon sans eux, mais certaines sections sont plus courtes. Installez-les avec {herramienta} en cherchant le nom du paquet."
+
+msgid "Duración: la eliges tú ({lista} minutos)."
+msgstr "Durée : vous la choisissez ({lista} minutes)."
+
+msgid "Utilidad que usa: {u}."
+msgstr "Utilitaire utilisé : {u}."
+
+msgid "Está instalada."
+msgstr "Il est installé."
+
+msgid "No está instalada: el botón te dirá qué paquete instalar."
+msgstr "Il n'est pas installé : le bouton vous indiquera quel paquet installer."
+
+msgid "No pide contraseña ni cambia nada en el sistema."
+msgstr "Il ne demande pas de mot de passe et ne modifie rien dans le système."
+
+msgid "Se detiene sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente, y puedes pararla cuando quieras."
+msgstr "Il s'arrête tout seul si la température monte trop ou si le portable est débranché, et vous pouvez l'arrêter quand vous voulez."
+
+msgid "Lee de los propios módulos de memoria sus tiempos, perfiles XMP, fabricante de los chips y fecha de fabricación. Tu sistema no los publica para tu usuario, así que hace falta la contraseña para cargar por un momento el driver del kernel que los lee."
+msgstr "Lit dans les barrettes de mémoire elles-mêmes leurs timings, profils XMP, fabricant des puces et date de fabrication. Votre système ne les publie pas pour votre utilisateur : le mot de passe est donc nécessaire pour charger un instant le pilote du noyau qui les lit."
+
+msgid "Lee el consumo del procesador en vatios y, en los procesadores AMD, sus estados de rendimiento. Desde Linux 5.10 estos contadores solo los puede leer el administrador, por seguridad."
+msgstr "Lit la consommation du processeur en watts et, sur les processeurs AMD, ses états de performance. Depuis Linux 5.10, ces compteurs ne peuvent être lus que par l'administrateur, pour des raisons de sécurité."
+
+msgid "Lo hace un ayudante de MintMachine que solo lee: no cambia nada en el equipo. Si tiene que cargar un módulo del kernel, lo descarga al terminar."
+msgstr "Un assistant de MintMachine qui ne fait que lire s'en charge : il ne modifie rien sur l'ordinateur. S'il doit charger un module du noyau, il le décharge à la fin."
+
+msgid "Frecuencia máxima (turbo)"
+msgstr "Fréquence maximale (turbo)"
+
+msgid "ahora"
+msgstr "maintenant"
+
+msgid "Leído de los propios módulos, sin contraseña."
+msgstr "Lu dans les barrettes elles-mêmes, sans mot de passe."
+
+msgid "Leído el {fecha} de los propios módulos."
+msgstr "Lu le {fecha} dans les barrettes elles-mêmes."
+
+msgid "Los tiempos son CL-tRCD-tRP-tRAS en ciclos. Los perfiles del fabricante solo se usan si los activas en la BIOS."
+msgstr "Les timings sont CL-tRCD-tRP-tRAS en cycles. Les profils du fabricant ne sont utilisés que si vous les activez dans le BIOS."
+
+msgid "Consumo del procesador ahora"
+msgstr "Consommation du processeur maintenant"
+
+msgid "Frecuencias y datos internos"
+msgstr "Fréquences et données internes"
+
+msgid "Los datos marcados al leerlos se tomaron el {fecha} con tu contraseña."
+msgstr "Les données marquées « au moment de la lecture » ont été prises le {fecha} avec votre mot de passe."
+
+msgid "Los multiplicadores se calculan con el reloj de bus habitual de 100 MHz."
+msgstr "Les multiplicateurs sont calculés avec l'horloge de bus habituelle de 100 MHz."
+
+msgid "Resumen listo para pegar en el foro de tu distribución"
+msgstr "Résumé prêt à coller sur le forum de votre distribution"
+
+msgid "Si hay otro instalador o gestor de actualizaciones abierto, ciérralo y vuelve a intentarlo."
+msgstr "Si un autre installateur ou gestionnaire de mises à jour est ouvert, fermez-le et réessayez."
+
+msgid "Qué hace"
+msgstr "Ce qu'il fait"
+
+msgid "Instala el paquete {paquete} con {herramienta} y vuelve a pulsar el botón."
+msgstr "Installez le paquet {paquete} avec {herramienta} et appuyez de nouveau sur le bouton."
+
+msgid "Sin el paquete stress-ng se hará una prueba ligera, que detecta menos problemas. Para la prueba completa, instala stress-ng con {herramienta}."
+msgstr "Sans le paquet stress-ng, un test léger sera effectué, qui détecte moins de problèmes. Pour le test complet, installez stress-ng avec {herramienta}."
+
+msgid "No se ha podido pedir la contraseña o no se ha autorizado: no se ha leído nada. Si no ha aparecido la ventana de la contraseña, tu escritorio no tiene un agente de polkit activo."
+msgstr "Le mot de passe n'a pas pu être demandé ou n'a pas été autorisé : rien n'a été lu. Si la fenêtre du mot de passe n'est pas apparue, votre bureau n'a pas d'agent polkit actif."

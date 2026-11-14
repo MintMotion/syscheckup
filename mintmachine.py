@@ -29,6 +29,7 @@ import collections
 import csv
 import datetime
 import getpass
+import functools
 import glob
 import html
 import io
@@ -63,7 +64,7 @@ DISCLAIMER = ("MintMachine solo lee información: no cambia nada en tu equipo. S
 
 # En Debian el usuario normal no tiene /usr/sbin en el PATH, y ahí viven
 # utilidades como iw o dkms.
-_PATH = os.environ.get("PATH", "/usr/bin:/bin") + ":/usr/sbin:/sbin"
+_PATH = os.environ.get("PATH", "/usr/bin:/bin") + ":/usr/sbin:/sbin:/snap/bin"     # /snap/bin: Ubuntu
 _ENV = dict(os.environ, LC_ALL="C", LANG="C", PATH=_PATH)
 
 
@@ -576,13 +577,14 @@ class Sampler:
         self.gpu_procs = {}  # pid → (uso de la gráfica %, memoria de vídeo en bytes)
         self._drm_prev, self._nvp_busy = {}, False
         self.peaks = {}      # serie → (valor máximo, hora): lo más alto desde que se abrió el programa
+        self._rapl, self._rapl_prev = None, None
 
     def tick(self):
         with self.lock:
             now = time.monotonic()
             dt = now - self._t if self._t else 0
             self._t = now
-            for step in (self._cpu, self._mem, lambda: self._net_disk(dt), self._temp, self._gpu):
+            for step in (self._cpu, self._mem, lambda: self._net_disk(dt), self._temp, self._gpu, self._power):
                 try:
                     step()
                 except Exception:
@@ -593,7 +595,7 @@ class Sampler:
                         step()
                     except Exception:
                         pass
-            for k in ("cpu", "temp", "gpu", "igpu", "ram", "gpu_temp", "gpu_power"):
+            for k in ("cpu", "temp", "gpu", "igpu", "ram", "gpu_temp", "gpu_power", "cpu_power"):
                 if self.h[k]:
                     v = self.h[k][-1]
                     if k not in self.peaks or v > self.peaks[k][0]:
@@ -717,6 +719,18 @@ class Sampler:
         if prev and now - prev[1] > 0.2 and ms >= prev[0]:            # el contador puede dar la vuelta
             idle = (ms - prev[0]) / ((now - prev[1]) * 1000)
             self.h["igpu"].append(max(0.0, min(100.0, 100.0 * (1 - idle))))
+
+    def _power(self):
+        """Consumo del procesador con RAPL, solo si el sistema deja leerlo sin contraseña."""
+        if self._rapl is None:
+            self._rapl = rapl_zones()
+        if not self._rapl:
+            return
+        e = sum(read_int(z, 0) or 0 for z in self._rapl)
+        now = time.monotonic()
+        if self._rapl_prev and e >= self._rapl_prev[0] and now > self._rapl_prev[1]:
+            self.h["cpu_power"].append((e - self._rapl_prev[0]) / (now - self._rapl_prev[1]) / 1e6)
+        self._rapl_prev = (e, now)
 
     def _gpu_procs(self, now):
         """Qué programas usan la gráfica. El kernel publica en /proc/PID/fdinfo el tiempo de gráfica
@@ -891,7 +905,8 @@ def sec_monitor(ctx):
     peak_rows = []
     for k, label, unit in (("cpu", "Procesador", "%"), ("temp", "Temperatura del procesador", "°C"),
                            ("ram", "Memoria", "%"), ("gpu", "Gráfica", "%"), ("igpu", "Gráfica Intel (integrada)", "%"),
-                           ("gpu_temp", "Temperatura de la gráfica", "°C"), ("gpu_power", "Consumo de la gráfica", "W")):
+                           ("gpu_temp", "Temperatura de la gráfica", "°C"), ("gpu_power", "Consumo de la gráfica", "W"),
+                           ("cpu_power", "Consumo del procesador", "W")):
         if k in peaks:
             v, t = peaks[k]
             peak_rows.append((label, _("{valor} a las {hora}").format(valor=f"{num(v, 0)} {unit}" if unit != "%" else f"{v:.0f} %", hora=t)))
@@ -1053,6 +1068,11 @@ def cpu_live():
                       f"{cur:.0f} MHz" + (" · " + _("máxima {mx} MHz").format(mx=f"{top:.0f}") if top else "")))
     if temp is not None:
         items.append(("Temperatura", temp / 100, _("{temp:.0f} °C en el procesador").format(temp=temp)))
+    with SAMPLER.lock:
+        watts = SAMPLER.h["cpu_power"][-1] if SAMPLER.h["cpu_power"] else None
+    if watts is not None:
+        tdp = 250.0
+        items.append(("Consumo", min(watts / tdp, 1), f"{num(watts)} W"))
     cores = sorted((int(k[3:]), v) for k, v in usage.items() if k != "cpu")
     blocks = [bars("Ahora mismo", items, gauge=True)] if items else []
     if cores:
@@ -3537,7 +3557,7 @@ TESTS = collections.OrderedDict([
              "núcleo y después con todos. Tarda unos dos o tres minutos. La puntuación sirve para "
              "comparar tu equipo consigo mismo con el tiempo (por ejemplo, antes y después de limpiarlo "
              "o de cambiar el perfil de energía).",
-        durations=(), tool="7z", pkg="7zip", watch="cpu")),
+        durations=(), tool="7z", pkg=("7zip", "p7zip-full"), watch="cpu")),
     ("mem_estabilidad", dict(
         tab="memoria", short="Memoria", button="Probar la memoria…",
         desc="Escribe y comprueba patrones en la mitad de la memoria libre. Solo revisa la memoria que el "
@@ -3548,12 +3568,12 @@ TESTS = collections.OrderedDict([
         tab="grafica", short="Rendimiento de la gráfica", button="Medir el rendimiento…",
         desc="Dibuja una serie de escenas 3D en una ventana y da una puntuación. Tarda unos cinco minutos. "
              "No toques la ventana de la prueba mientras dura.",
-        durations=(), tool="glmark2", pkg="glmark2-x11", watch="gpu")),
+        durations=(), tool="glmark2", pkg=("glmark2-x11", "glmark2", "glmark2-wayland"), watch="gpu")),
     ("gpu_carga", dict(
         tab="grafica", short="Carga sostenida de la gráfica", button="Probar la gráfica en carga…",
         desc="Mantiene la gráfica trabajando el tiempo que elijas para comprobar que es estable y que su "
              "refrigeración da abasto.",
-        durations=(1, 10, 30), tool="glmark2", pkg="glmark2-x11", watch="gpu")),
+        durations=(1, 10, 30), tool="glmark2", pkg=("glmark2-x11", "glmark2", "glmark2-wayland"), watch="gpu")),
     ("disco_velocidad", dict(
         tab="discos", short="Velocidad del disco", button="Medir la velocidad…",
         desc="Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la "
@@ -3607,10 +3627,25 @@ def test_tool(tid):
     """Programa que hace la prueba, o None si no está instalado."""
     t = TESTS[tid]["tool"]
     if t == "7z":
-        return next((b for b in ("7z", "7zz") if have(b)), None)
+        return next((b for b in ("7z", "7zz", "7za") if have(b)), None)
     if t == "glmark2":
         return glmark_bin()
     return t if have(t) else None
+
+
+@functools.lru_cache(maxsize=None)
+def test_package(tid):
+    """Paquete que hay que instalar para una prueba, el primero que exista en los repositorios."""
+    pk = TESTS[tid]["pkg"]
+    names = list(pk) if isinstance(pk, tuple) else [pk]
+    if os.environ.get("XDG_SESSION_TYPE") == "wayland" and "glmark2-wayland" in names:
+        names.insert(0, names.pop(names.index("glmark2-wayland")))
+    for n in names:
+        out = run(["apt-cache", "policy", n], timeout=10) if have("apt-cache") else ""
+        m = re.search(r"Candidate:\s*(\S+)", out) or re.search(r"Candidato:\s*(\S+)", out)
+        if m and m.group(1) != "(none)" and m.group(1) != "(ninguno)":
+            return n
+    return names[0]
 
 
 def gpu_choices():
@@ -3754,6 +3789,37 @@ def hw_errors():
 
 def throttle_count():
     return sum(read_int(f, 0) or 0 for f in glob.glob("/sys/devices/system/cpu/cpu*/thermal_throttle/*_throttle_count"))
+
+
+def test_info(tid):
+    """Resumen de una prueba para su botón «i»."""
+    t = TESTS[tid]
+    parts = [_(t["desc"])]
+    if t["durations"]:
+        parts.append(_("Duración: la eliges tú ({lista} minutos).").format(
+            lista=", ".join(str(m) for m in t["durations"])))
+    tool = test_tool(tid)
+    parts.append(_("Utilidad que usa: {u}.").format(u=tool or test_package(tid)) + " " +
+                 (_("Está instalada.") if tool or t["tool"] == "dd" else
+                  _("No está instalada: el botón te dirá qué paquete instalar.")))
+    parts.append(_("No pide contraseña ni cambia nada en el sistema."))
+    if t["watch"]:
+        parts.append(_("Se detiene sola si la temperatura sube demasiado o si el portátil se desconecta de la "
+                       "corriente, y puedes pararla cuando quieras."))
+    return "\n\n".join(parts)
+
+
+def probe_info(what):
+    """Resumen del botón de datos internos: qué se lee y por qué pide la contraseña."""
+    if what == "spd":
+        txt = _("Lee de los propios módulos de memoria sus tiempos, perfiles XMP, fabricante de los chips y fecha "
+                "de fabricación. Tu sistema no los publica para tu usuario, así que hace falta la contraseña para "
+                "cargar por un momento el driver del kernel que los lee.")
+    else:
+        txt = _("Lee el consumo del procesador en vatios y, en los procesadores AMD, sus estados de rendimiento. "
+                "Desde Linux 5.10 estos contadores solo los puede leer el administrador, por seguridad.")
+    return txt + "\n\n" + _("Lo hace un ayudante de MintMachine que solo lee: no cambia nada en el equipo. "
+                              "Si tiene que cargar un módulo del kernel, lo descarga al terminar.")
 
 
 def preflight(tid):
@@ -4075,8 +4141,11 @@ def run_probe(what):
         p = subprocess.run(["pkexec", helper, what], capture_output=True, text=True, timeout=120)
     except (OSError, subprocess.TimeoutExpired):
         return None, _("El ayudante no respondió.")
-    if p.returncode in (126, 127):
+    if p.returncode == 126:
         return None, _("No se ha dado la contraseña: no se ha leído nada.")
+    if p.returncode == 127:
+        return None, _("No se ha podido pedir la contraseña o no se ha autorizado: no se ha leído nada. Si no ha "
+                       "aparecido la ventana de la contraseña, tu escritorio no tiene un agente de polkit activo.")
     try:
         return json.loads(p.stdout), ""
     except ValueError:
@@ -4232,6 +4301,55 @@ def decode_cpu(d):
     return rows
 
 
+def spd_sysfs():
+    """Datos SPD que el kernel ya publica para cualquier usuario (drivers ee1004 y spd5118 cargados
+    por el sistema): así no hace falta la contraseña."""
+    mods = []
+    for drv in ("ee1004", "spd5118"):
+        for dev in sorted(glob.glob(f"/sys/bus/i2c/drivers/{drv}/*-005[0-7]")):
+            try:
+                with open(dev + "/eeprom", "rb") as f:
+                    data = f.read(1024)
+            except OSError:
+                continue
+            if data:
+                mods.append({"driver": drv, "bus": os.path.basename(dev), "data": data.hex()})
+    return mods
+
+
+def rapl_zones():
+    """Contadores de energía del procesador (RAPL) que este usuario puede leer. Desde Linux 5.10
+    normalmente solo los lee el administrador."""
+    zones = []
+    for z in glob.glob("/sys/class/powercap/intel-rapl:*"):
+        if z.count(":") == 1 and (read(z + "/name") or "").startswith("package") and \
+                os.access(z + "/energy_uj", os.R_OK) and read(z + "/energy_uj").isdigit():
+            zones.append(z + "/energy_uj")
+    return zones
+
+
+def cpu_freq_rows():
+    """Frecuencias de referencia y sus multiplicadores, sin contraseña, desde cpufreq."""
+    base = "/sys/devices/system/cpu/cpu0/cpufreq/"
+    nominal = read_int(base + "base_frequency") or read_int(base + "amd_pstate_nominal_freq")
+    top = read_int(base + "amd_pstate_max_freq") or read_int(base + "cpuinfo_max_freq")
+    low = read_int(base + "cpuinfo_min_freq")
+    rows = []
+    for key, khz in (("Frecuencia base", nominal), ("Frecuencia máxima (turbo)", top), ("Frecuencia mínima", low)):
+        if khz:
+            rows.append((key, f"{khz / 1000:.0f} MHz · " + _("multiplicador ×{m}").format(
+                m=num(khz / 100000, 2).rstrip("0").rstrip(",.") or "0")))
+    if rows:
+        rows.append(("Reloj de bus", _("100 MHz (el habitual en los procesadores actuales)")))
+    return rows
+
+
+def cpu_needs_password():
+    """¿Queda algo del procesador que solo se pueda leer con la contraseña?"""
+    amd = "AuthenticAMD" in read("/proc/cpuinfo")
+    return not rapl_zones() or amd
+
+
 def adv_store(key, value):
     d = history_load()
     d[key] = dict(value, t=time.strftime("%Y-%m-%d %H:%M"))
@@ -4239,7 +4357,8 @@ def adv_store(key, value):
 
 
 def spd_blocks():
-    saved = history_load().get("spd")
+    live = spd_sysfs()
+    saved = {"modules": live, "t": _("ahora")} if live else history_load().get("spd")
     if not saved:
         return []
     rows, notes = [], []
@@ -4263,9 +4382,10 @@ def spd_blocks():
     blocks = [table("Datos internos de los módulos (SPD)", ["Módulo", "Tipo", "Velocidad y tiempos de serie",
                                                              "Perfiles del fabricante (XMP)", "Chips de memoria",
                                                              "Fabricado"], rows,
-                    help=_("Leído el {fecha} de los propios módulos. Los tiempos son CL-tRCD-tRP-tRAS en ciclos. "
-                           "Los perfiles del fabricante solo se usan si los activas en la BIOS.").format(
-                        fecha=saved.get("t", "")))] if rows else []
+                    help=(_("Leído de los propios módulos, sin contraseña.") if live else
+                          _("Leído el {fecha} de los propios módulos.").format(fecha=saved.get("t", ""))) + " " +
+                    _("Los tiempos son CL-tRCD-tRP-tRAS en ciclos. Los perfiles del fabricante solo se usan si los "
+                      "activas en la BIOS."))] if rows else []
     if rows:
         speed = configured_speed()
         jedecs = [decode_spd(m["data"]).get("jedec", {}).get("velocidad") for m in saved.get("modules", []) if m.get("data")]
@@ -4288,12 +4408,20 @@ def configured_speed():
 
 
 def cpu_adv_block():
+    rows = cpu_freq_rows()
     saved = history_load().get("cpu_avanzado")
-    if not saved:
-        return None
-    rows = decode_cpu(saved)
-    return kv("Datos internos del procesador", rows,
-              help=_("Leído el {fecha} de los registros internos del procesador.").format(fecha=saved.get("t", ""))) if rows else None
+    have_keys = {k for k, _v in rows}
+    if saved:
+        rows += [r for r in decode_cpu(saved) if r[0] not in have_keys and
+                 not (r[0] == "Reloj de bus" and "Reloj de bus" in have_keys)]
+    with SAMPLER.lock:
+        w = SAMPLER.h["cpu_power"][-1] if SAMPLER.h["cpu_power"] else None
+    if w is not None:
+        rows = [r for r in rows if r[0] != "Consumo del procesador al leerlo"] + [("Consumo del procesador ahora", f"{num(w)} W")]
+    return kv("Frecuencias y datos internos", rows,
+              help=(_("Los datos marcados al leerlos se tomaron el {fecha} con tu contraseña.").format(
+                  fecha=saved.get("t", "")) + " " if saved else "") +
+              _("Los multiplicadores se calculan con el reloj de bus habitual de 100 MHz.")) if rows else None
 
 
 def live_now():
@@ -4739,6 +4867,10 @@ CSS = """
 .mm-win entry image {{ color: @mm_dim; }}
 .mm-win scrolledwindow, .mm-win viewport, .mm-win stack {{ background-color: transparent; }}
 .mm-win scrollbar {{ background-color: transparent; border: none; }}
+.mm-win button.mm-info {{ min-width: 22px; min-height: 22px; padding: 0; border-radius: 99px; border: none;
+    font-size: 11px; font-weight: 800; background-image: none; background-color: alpha(@mm_a1, 0.14);
+    color: @mm_a1; box-shadow: none; }}
+.mm-win button.mm-info:hover, .mm-win button.mm-info:checked {{ background-color: alpha(@mm_a1, 0.28); }}
 .mm-win scrolledwindow undershoot.top, .mm-win scrolledwindow undershoot.bottom,
 .mm-win scrolledwindow undershoot.left, .mm-win scrolledwindow undershoot.right,
 .mm-win scrolledwindow overshoot.top, .mm-win scrolledwindow overshoot.bottom,
@@ -5364,6 +5496,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
 
         def launch(self, cmd):
             try:
+                cmd = [have(cmd[0]) or cmd[0]] + list(cmd[1:])
                 subprocess.Popen(cmd, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
                                  stderr=subprocess.DEVNULL, start_new_session=True)
             except OSError as e:
@@ -5662,7 +5795,9 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
 
         @staticmethod
         def gauge_center(frac, text):
-            m = re.search(r"(-?[\d.,]+)\s*(°C|%|MHz)", text)
+            m = re.search(r"(-?[\d.,]+)\s*(°C|%|MHz|W\b)", text)
+            if m and m.group(2) == "W":
+                return m.group(1) + " W"
             if m and m.group(2) == "MHz":
                 return num(float(m.group(1).replace(",", ".")) / 1000) + " GHz"
             return f"{m.group(1)}{' °C' if m.group(2) == '°C' else '%'}" if m else f"{frac * 100:.0f}%"
@@ -5886,27 +6021,46 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                                  "mm-dim", wrap=True), False, False, 0)
             row = Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, column_spacing=10, row_spacing=10,
                               max_children_per_line=4, homogeneous=False)
-            if sid in ("cpu", "memoria"):
+            if (sid == "memoria" and not spd_sysfs()) or (sid == "cpu" and cpu_needs_password()):
+                what = "spd" if sid == "memoria" else "cpu"
                 b = styled(Gtk.Button(label=_("Leer datos internos… (pide tu contraseña)")), "mm-ghost")
-                b.set_tooltip_text(_("Lee, sin cambiar nada, los datos que guardan los propios componentes: "
-                                     "tiempos y perfiles de la memoria, multiplicadores y consumo del procesador."))
-                b.connect("clicked", lambda _b: self.on_probe())
-                row.add(b)
+                b.connect("clicked", lambda _b, w=what: self.on_probe(w))
+                row.add(self.with_info(b, probe_info(what)))
             for tid, t in TESTS.items():
                 if t["tab"] != sid:
                     continue
                 b = styled(Gtk.Button(label=_(t["button"])), "mm-ghost")
-                b.set_tooltip_text(_(t["desc"]))
                 b.connect("clicked", lambda _b, x=tid: self.on_test(x))
-                row.add(b)
+                row.add(self.with_info(b, test_info(tid)))
             box.pack_start(row, False, False, 0)
             return self.card(box)
 
-        def on_probe(self):
+        def with_info(self, button, text):
+            """Botón con su «i» al lado: al pulsarla se abre un resumen de lo que hace."""
+            box = Gtk.Box(spacing=6)
+            box.pack_start(button, False, False, 0)
+            info = styled(Gtk.MenuButton(label="i"), "mm-info")
+            info.set_valign(Gtk.Align.CENTER)
+            info.set_tooltip_text(_("Qué hace"))
+            pop = styled(Gtk.Popover(), "mm-pop")
+            lab = label(text, wrap=True)
+            lab.set_max_width_chars(60)
+            lab.set_margin_start(16)
+            lab.set_margin_end(16)
+            lab.set_margin_top(14)
+            lab.set_margin_bottom(14)
+            pop.add(lab)
+            lab.show()
+            info.set_popover(pop)
+            box.pack_start(info, False, False, 0)
+            self.info_buttons = getattr(self, "info_buttons", []) + [info]
+            return box
+
+        def on_probe(self, what="todo"):
             self.notify(_("Esperando la contraseña…"))
 
             def work():
-                data, err = run_probe("todo")
+                data, err = run_probe(what)
                 GLib.idle_add(done, data, err)
 
             def done(data, err):
@@ -5931,7 +6085,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             t = TESTS[tid]
             tool = test_tool(tid)
             if not tool and tid != "cpu_estabilidad":
-                pkg = "glmark2-x11 (o glmark2-wayland)" if t["tool"] == "glmark2" else t["pkg"]
+                pkg = test_package(tid)
                 self.message(Gtk.MessageType.INFO, _("Falta una utilidad para esta prueba"),
                              _("Instala el paquete {paquete} con {herramienta} y vuelve a pulsar el "
                                "botón.").format(paquete=pkg, herramienta=tool_name("store")))
@@ -6404,6 +6558,11 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             if start and "+bajar" in start:
                 adj = win.stack.get_visible_child().get_vadjustment()
                 adj.set_value(adj.get_upper())
+            m4 = re.search(r"\+info=(\d+)", start or "")
+            if m4:
+                btns = [b for b in getattr(win, "info_buttons", []) if b.get_mapped()]
+                if len(btns) > int(m4.group(1)):
+                    btns[int(m4.group(1))].set_active(True)
             m3 = re.search(r"\+prueba=(\w+)", start or "")
             if m3:
                 GLib.idle_add(lambda: win.on_test(m3.group(1)) and False)

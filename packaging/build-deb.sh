@@ -43,7 +43,7 @@ Section: utils
 Priority: optional
 Architecture: all
 Depends: python3 (>= 3.8), python3-gi, python3-gi-cairo, gir1.2-gtk-3.0
-Recommends: pciutils, iproute2, udisks2, libglib2.0-bin, fwupd, mesa-utils, x11-xserver-utils, iw, pkexec | policykit-1, stress-ng, 7zip, glmark2-x11 | glmark2-wayland
+Recommends: pciutils, iproute2, udisks2, libglib2.0-bin, fwupd, mesa-utils, x11-xserver-utils, iw, pkexec | policykit-1, stress-ng, 7zip | p7zip-full, glmark2-x11 | glmark2 | glmark2-wayland
 Suggests: vainfo, vulkan-tools, lm-sensors, fonts-noto-cjk, memtest86+, earlyoom
 Conflicts: radiografia
 Replaces: radiografia
