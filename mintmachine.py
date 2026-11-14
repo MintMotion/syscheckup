@@ -234,6 +234,43 @@ def save_config(**kw):
         pass
 
 
+# ── historial local: salud de los discos, pruebas y mediciones. Vive junto a la configuración,
+# no sale nunca del equipo y se borra con «Desinstalar». MM_SIN_HISTORIAL=1 lo desactiva (pruebas).
+HISTORY = os.path.join(os.path.dirname(CONFIG), "historial.json")
+
+
+def history_load():
+    try:
+        with open(HISTORY, encoding="utf-8") as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {}
+
+
+def history_save(d):
+    if os.environ.get("MM_SIN_HISTORIAL"):
+        return
+    try:
+        os.makedirs(os.path.dirname(HISTORY), exist_ok=True)
+        tmp = HISTORY + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(d, f, ensure_ascii=False, indent=0)
+        os.replace(tmp, HISTORY)
+    except OSError:
+        pass
+
+
+def history_add(kind, entry, keep=300):
+    """Añade una entrada fechada a la lista «kind» del historial y la devuelve entera."""
+    d = history_load()
+    lst = d.setdefault(kind, [])
+    lst.append(dict(entry, t=time.strftime("%Y-%m-%d %H:%M")))
+    d[kind] = lst[-keep:]
+    history_save(d)
+    return d[kind]
+
+
 def system_language():
     for var in ("LANGUAGE", "LC_ALL", "LC_MESSAGES", "LANG"):
         for v in os.environ.get(var, "").split(":"):
@@ -1695,6 +1732,76 @@ def wear_text(used):
     return _("{used} % usada (queda un {n} % estimado)").format(used=used, n=max(0, 100 - used))
 
 
+def disk_key(model, serial):
+    """Identificador estable de un disco para el historial, sin guardar su número de serie."""
+    import hashlib
+    return hashlib.sha1(f"{model}|{serial}".encode()).hexdigest()[:16]
+
+
+def _delta(a, b):
+    return b - a if isinstance(a, (int, float)) and isinstance(b, (int, float)) else None
+
+
+def disk_history(ctx, raw, record=True):
+    """Guarda (una vez al día) el estado SMART de cada disco y lo compara con la medición más antigua."""
+    d = history_load()
+    hist = d.setdefault("discos", {})
+    today = time.strftime("%Y-%m-%d")
+    rows = []
+    for m in raw:
+        h = hist.setdefault(m["id"], [])
+        now = {k: m.get(k) for k in ("wear", "bad", "hours", "errors")}
+        if record and (not h or h[-1].get("t", "")[:10] != today):
+            h.append(dict(now, t=time.strftime("%Y-%m-%d %H:%M")))
+            del h[:-400]
+        first = h[0] if h else None
+        if not first or first.get("t", "")[:10] == today:
+            rows.append((m["model"], _("Desde hoy"), wear_text(m.get("wear")) or "", "", "",
+                         _("Primera medición: la evolución se verá en los próximos días.")))
+            continue
+        since = first["t"][:10]
+        dw, db, de = _delta(first.get("wear"), now["wear"]), _delta(first.get("bad"), now["bad"]), \
+            _delta(first.get("errors"), now["errors"])
+        try:
+            days = max(1, (datetime.date.today() - datetime.date.fromisoformat(since)).days)
+        except ValueError:
+            days = 0
+        estimate = ""
+        if dw and dw > 0 and days >= 30 and now["wear"] is not None and now["wear"] < 100:
+            years = (100 - now["wear"]) / (dw / days * 365.25)
+            estimate = _("A este ritmo, unos {n} años hasta el 100 % estimado").format(n=num(years, 0) if years >= 2 else num(years))
+        rows.append((m["model"], when_date(since),
+                     _("{a} % → {b} %").format(a=first.get("wear"), b=now["wear"]) if dw is not None else "",
+                     (_("+{n} nuevos").format(n=db) if db and db > 0 else _("Sin cambios")) if db is not None else
+                     ((_("+{n} errores nuevos").format(n=de) if de and de > 0 else _("Sin cambios")) if de is not None else ""),
+                     _("+{n} h").format(n=_delta(first.get("hours"), now["hours"])) if _delta(first.get("hours"), now["hours"]) else "",
+                     estimate))
+        if db and db > 0:
+            ctx.flag("warn", "Almacenamiento", _("En el disco {model} han aparecido {n} sectores dañados nuevos desde el {fecha}.").format(
+                model=m["model"], n=db, fecha=when_date(since)),
+                "Que el número crezca indica que el disco se está deteriorando. Haz ya una copia de seguridad de "
+                "tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el "
+                "fabricante (si está en garantía).", "backup")
+        if de and de > 0:
+            ctx.flag("warn", "Almacenamiento", _("El SSD {model} ha registrado {n} errores de datos nuevos desde el {fecha}.").format(
+                model=m["model"], n=de, fecha=when_date(since)),
+                "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta "
+                "con un servicio técnico o con el fabricante (si está en garantía).", "backup")
+    if record and raw:
+        history_save(d)
+    return rows
+
+
+def when_date(iso):
+    """«2026-11-14» → fecha corta en el formato del idioma."""
+    try:
+        dt = datetime.date.fromisoformat(iso[:10])
+    except ValueError:
+        return iso
+    return dt.strftime("%m/%d/%Y") if _LANG[0] == "en" else (dt.strftime("%Y/%m/%d") if _LANG[0] in ("ja", "zh")
+                                                              else dt.strftime("%d/%m/%Y"))
+
+
 def smart_rows(ctx):
     rows = []
     backup = ("Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube. "
@@ -1712,6 +1819,9 @@ def smart_rows(ctx):
             temp = float(d.get("Drive.Ata.SmartTemperature", "0") or 0)
             hours = int(d.get("Drive.Ata.SmartPowerOnSeconds", "0") or 0) // 3600
             wear = None if rotating else ssd_wear_sata(d["_path"])
+            ctx.data.setdefault("smart_raw", []).append(dict(
+                id=disk_key(model, d.get("Drive.Serial", "")), model=model, wear=wear, bad=max(bad, 0),
+                hours=hours or None, errors=None))
             state = "FALLO INMINENTE" if failing else ("Con sectores dañados" if bad > 0 else "Correcto")
             rows.append((model, state, wear_text(wear), f"{temp - 273.15:.0f} °C" if temp > 0 else "",
                          _("{hours} h ({n} años)").format(hours=hours, n=num(hours / 8766)) if hours else "",
@@ -1733,6 +1843,9 @@ def smart_rows(ctx):
             hours = int(d.get("NVMe.Controller.SmartPowerOnHours", "0") or 0)
             h = nvme_health(d["_path"])
             used = h.get("percent_used")
+            ctx.data.setdefault("smart_raw", []).append(dict(
+                id=disk_key(model, d.get("Drive.Serial", "")), model=model, wear=used, bad=None,
+                hours=hours or None, errors=h.get("media_errors")))
             rows.append((model, _("AVISO: {warn}").format(warn=warn) if warn else "Correcto", wear_text(used),
                          f"{temp - 273.15:.0f} °C" if temp > 0 else "",
                          _("{hours} h ({n} años)").format(hours=hours, n=num(hours / 8766)) if hours else "",
@@ -1855,6 +1968,10 @@ def sec_storage(ctx):
                                               "Sectores dañados / errores", "Última autoprueba"], smart,
               help="El propio disco vigila su estado (SMART). «Vida útil» es la estimación de desgaste del "
                    "fabricante para los SSD."),
+        table("Evolución de la salud", ["Unidad", "Desde", "Vida útil usada", "Sectores dañados / errores",
+                                        "Horas de uso añadidas", "Estimación"], disk_history(ctx, ctx.data.get("smart_raw", [])),
+              help="MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la "
+                   "primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."),
         table("Unidades", ["Dispositivo", "Modelo", "Capacidad", "Tipo", "Interfaz", "Enlace", "Firmware",
                            "Número de serie", "Planificador E/S"], disks),
         kv("Mantenimiento", [("TRIM periódico de los SSD", {"enabled": "Activado (fstrim.timer)",
