@@ -451,6 +451,8 @@ def fmt_unit(v, unit):
 
 
 def section(sid, title, blocks):
+    if sid in TEST_TABS:
+        blocks = list(blocks) + [tests_block(sid)]
     blocks = [b for b in blocks if b and (b["type"] == "note" or b["rows"])]   # sin bloques vacíos
     return {"id": sid, "title": _(title), "blocks": blocks}
 
@@ -3451,6 +3453,543 @@ def sec_diagnosis(ctx):
     return section("diagnostico", "Diagnóstico", blocks)
 
 
+# ─────────────────────────── pruebas voluntarias ───────────────────────────
+# Solo se hacen si el usuario pulsa el botón y acepta el aviso. Cada prueba va en su propio grupo
+# de procesos para poder detenerla entera, lleva su propio límite de tiempo y un vigilante que la
+# para si la temperatura sube demasiado o si el portátil se queda sin corriente.
+
+TESTS = collections.OrderedDict([
+    ("cpu_estabilidad", dict(
+        tab="cpu", short="Estabilidad del procesador", button="Probar la estabilidad…",
+        desc="Pone a trabajar todos los núcleos al máximo con cálculos variados y comprueba que los "
+             "resultados son correctos. Sirve para saber si el procesador es estable y si la refrigeración "
+             "da abasto.",
+        durations=(1, 10, 60), tool="stress-ng", pkg="stress-ng", watch="cpu")),
+    ("cpu_rendimiento", dict(
+        tab="cpu", short="Rendimiento del procesador", button="Medir el rendimiento…",
+        desc="Mide cuánto rinde el procesador comprimiendo y descomprimiendo datos, primero con un solo "
+             "núcleo y después con todos. Tarda unos dos o tres minutos. La puntuación sirve para "
+             "comparar tu equipo consigo mismo con el tiempo (por ejemplo, antes y después de limpiarlo "
+             "o de cambiar el perfil de energía).",
+        durations=(), tool="7z", pkg="7zip", watch="cpu")),
+    ("mem_estabilidad", dict(
+        tab="memoria", short="Memoria", button="Probar la memoria…",
+        desc="Escribe y comprueba patrones en la mitad de la memoria libre. Solo revisa la memoria que el "
+             "sistema le deja usar: para una revisión completa, la prueba de memoria del menú de arranque "
+             "(paquete memtest86+) es más fiable.",
+        durations=(1, 10, 30), tool="stress-ng", pkg="stress-ng", watch="cpu")),
+    ("gpu_rendimiento", dict(
+        tab="grafica", short="Rendimiento de la gráfica", button="Medir el rendimiento…",
+        desc="Dibuja una serie de escenas 3D en una ventana y da una puntuación. Tarda unos cinco minutos. "
+             "No toques la ventana de la prueba mientras dura.",
+        durations=(), tool="glmark2", pkg="glmark2-x11", watch="gpu")),
+    ("gpu_carga", dict(
+        tab="grafica", short="Carga sostenida de la gráfica", button="Probar la gráfica en carga…",
+        desc="Mantiene la gráfica trabajando el tiempo que elijas para comprobar que es estable y que su "
+             "refrigeración da abasto.",
+        durations=(1, 10, 30), tool="glmark2", pkg="glmark2-x11", watch="gpu")),
+    ("disco_velocidad", dict(
+        tab="discos", short="Velocidad del disco", button="Medir la velocidad…",
+        desc="Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la "
+             "velocidad de escritura y de lectura del disco donde está tu carpeta personal. Escribir 1 GiB "
+             "no desgasta el disco de forma apreciable.",
+        durations=(), tool="dd", pkg="coreutils", watch="")),
+])
+TEST_TABS = {t["tab"] for t in TESTS.values()}
+TEST_WARNING = ("Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la "
+                "temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube "
+                "demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. "
+                "Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no "
+                "la repitas y consulta con un servicio técnico.")
+STRESS_PY = r'''
+import hashlib, multiprocessing as mp, os, sys, time
+def work(end, q):
+    ref = None
+    while time.time() < end:
+        h = hashlib.sha256()
+        for i in range(20000):
+            h.update(str(i * i).encode())
+        d = h.hexdigest()
+        if ref is None:
+            ref = d
+        elif d != ref:
+            q.put(1)
+            return
+    q.put(0)
+if __name__ == "__main__":
+    end = time.time() + float(sys.argv[1])
+    q = mp.Queue()
+    ps = [mp.Process(target=work, args=(end, q)) for _ in range(os.cpu_count() or 1)]
+    [p.start() for p in ps]
+    bad = sum(q.get() for _ in ps)
+    [p.join() for p in ps]
+    print("failed: %d" % bad)
+    sys.exit(2 if bad else 0)
+'''
+
+
+def glmark_bin():
+    if os.environ.get("XDG_SESSION_TYPE") == "wayland" and have("glmark2-wayland"):
+        return "glmark2-wayland"
+    for b in ("glmark2", "glmark2-es2", "glmark2-wayland", "glmark2-es2-wayland"):
+        if have(b):
+            return b
+    return None
+
+
+def test_tool(tid):
+    """Programa que hace la prueba, o None si no está instalado."""
+    t = TESTS[tid]["tool"]
+    if t == "7z":
+        return next((b for b in ("7z", "7zz") if have(b)), None)
+    if t == "glmark2":
+        return glmark_bin()
+    return t if have(t) else None
+
+
+def gpu_choices():
+    """Gráficas entre las que elegir en los portátiles híbridos: [(etiqueta, variables de entorno)]."""
+    cards = []
+    for c in sorted(glob.glob("/sys/class/drm/card[0-9]*")):
+        if "-" in os.path.basename(c) or not os.path.exists(c + "/device/driver"):
+            continue
+        drv = os.path.basename(os.path.realpath(c + "/device/driver"))
+        if drv not in [d for d, _n in cards]:
+            cards.append((drv, split_id(next((d.get("Device", "") for d in pci_devices()
+                                                if os.path.realpath(c + "/device").endswith(d["Slot"])), ""))[0]))
+    if len(cards) < 2:
+        return []
+    out = [(_("La que usa el sistema por defecto"), {})]
+    if any(d == "nvidia" for d, _n in cards):
+        out.append((_("La gráfica dedicada NVIDIA"), {"__NV_PRIME_RENDER_OFFLOAD": "1",
+                                                     "__GLX_VENDOR_LIBRARY_NAME": "nvidia",
+                                                     "__VK_LAYER_NV_optimus": "NVIDIA_only"}))
+    else:
+        out.append((_("La gráfica dedicada"), {"DRI_PRIME": "1"}))
+    return out
+
+
+def test_phases(tid, minutes=None):
+    """Lista de pasos [(etiqueta, argv, segundos previstos)] de una prueba."""
+    tool, secs = test_tool(tid), int((minutes or 0) * 60)
+    if tid == "cpu_estabilidad":
+        if tool:
+            return [("", ["stress-ng", "--cpu", "0", "--cpu-method", "all", "--verify", "--timeout", f"{secs}s",
+                          "--metrics-brief"], secs)]
+        return [("", [sys.executable, "-c", STRESS_PY, str(secs)], secs)]
+    if tid == "mem_estabilidad":
+        return [("", ["stress-ng", "--vm", "1", "--vm-bytes", "50%", "--vm-method", "all", "--verify",
+                      "--timeout", f"{secs}s", "--metrics-brief"], secs)]
+    if tid == "cpu_rendimiento":
+        return [("un núcleo", [tool, "b", "-mmt1"], 45), ("todos los núcleos", [tool, "b"], 45)]
+    if tid == "gpu_rendimiento":
+        return [("", [tool, "--size", "1280x720"], 300)]
+    if tid == "gpu_carga":
+        return [("", [tool, "--size", "1280x720", "--run-forever"], secs)]
+    if tid == "disco_velocidad":
+        f = disk_test_file()
+        return [("escritura", ["dd", "if=/dev/zero", "of=" + f, "bs=1M", "count=1024", "oflag=direct",
+                               "conv=fsync"], 20),
+                ("lectura", ["dd", "if=" + f, "of=/dev/null", "bs=1M", "iflag=direct"], 15)]
+    return []
+
+
+def disk_test_file():
+    base = os.environ.get("XDG_CACHE_HOME") or os.path.expanduser("~/.cache")
+    return os.path.join(base, "mintmachine", "prueba-de-disco.bin")
+
+
+# ── lectura de resultados ──
+
+def parse_7z(out):
+    """Puntuación total (MIPS) de «7z b»: último número de la última línea «Tot:»."""
+    tots = [l for l in out.splitlines() if l.startswith("Tot:")]
+    nums = re.findall(r"\d+", tots[-1]) if tots else []
+    return int(nums[-1]) if nums else None
+
+
+def parse_stressng(out):
+    m = re.search(r"failed:\s*(\d+)", out)
+    return int(m.group(1)) if m else None
+
+
+def parse_glmark(out):
+    m = re.search(r"glmark2 Score:\s*(\d+)", out)
+    r = re.search(r"GL_RENDERER:\s*(.+)", out)
+    return (int(m.group(1)) if m else None), (r.group(1).strip() if r else "")
+
+
+def parse_dd(out):
+    """Bytes por segundo de la línea final de dd («… bytes … copied, 0.5 s, 2.1 GB/s»)."""
+    m = re.search(r"(\d+) bytes .*copied, ([\d.]+) s", out)
+    if not m or float(m.group(2)) <= 0:
+        return None
+    return int(m.group(1)) / float(m.group(2))
+
+
+# ── vigilancia ──
+
+def cpu_temp_now():
+    vals = []
+    for hw in glob.glob("/sys/class/hwmon/hwmon*"):
+        if read(hw + "/name") in CPU_CHIPS:
+            vals += [v / 1000 for v in (read_int(f) for f in glob.glob(hw + "/temp*_input")) if v]
+    return max(vals) if vals else None
+
+
+def cpu_temp_limit():
+    """Temperatura a la que se detiene una prueba: 5 °C por debajo del máximo que declara el
+    procesador; si no lo declara, un valor prudente (90 °C en AMD, 95 °C en Intel)."""
+    crit = []
+    for hw in glob.glob("/sys/class/hwmon/hwmon*"):
+        if read(hw + "/name") in CPU_CHIPS:
+            crit += [v / 1000 for v in (read_int(f) for f in glob.glob(hw + "/temp*_crit")) if v and v > 50000]
+    if crit:
+        return min(crit) - 5
+    return 95.0 if "GenuineIntel" in read("/proc/cpuinfo") else 90.0
+
+
+def gpu_temp_now():
+    vals, limit = [], []
+    for hw in glob.glob("/sys/class/drm/card[0-9]*/device/hwmon/hwmon*"):
+        vals += [v / 1000 for v in (read_int(f) for f in glob.glob(hw + "/temp*_input")) if v]
+        limit += [v / 1000 - 10 for v in (read_int(f) for f in glob.glob(hw + "/temp*_crit")) if v and v > 50000]
+    if not vals and SAMPLER.h["gpu_temp"]:
+        vals = [SAMPLER.h["gpu_temp"][-1]]
+    return (max(vals) if vals else None), (min(limit) if limit else 87.0)
+
+
+def power_state():
+    """(funcionando con batería, carga %): (False, None) en un sobremesa."""
+    bats, mains = [], []
+    for p in glob.glob("/sys/class/power_supply/*"):
+        t = read(p + "/type")
+        if t == "Battery" and read(p + "/scope") != "Device":
+            bats.append(read_int(p + "/capacity"))
+        elif t == "Mains":
+            mains.append(read(p + "/online") == "1")
+    if not bats:
+        return False, None
+    if mains:
+        on_bat = not any(mains)
+    else:
+        on_bat = any(read(f) == "Discharging" for f in glob.glob("/sys/class/power_supply/BAT*/status"))
+    return on_bat, min((b for b in bats if b is not None), default=None)
+
+
+def hw_errors():
+    """Errores de hardware del arranque actual (MCE y EDAC), para comparar antes y después."""
+    out = run(["journalctl", "-k", "-b", "-q", "--no-pager", "-o", "cat"], timeout=10) or run(["dmesg"], timeout=5)
+    n = len(re.findall(r"mce: \[Hardware Error\]|Machine check events logged", out))
+    for f in glob.glob("/sys/devices/system/edac/mc/mc*/[cu]e_count"):
+        n += read_int(f, 0) or 0
+    return n
+
+
+def throttle_count():
+    return sum(read_int(f, 0) or 0 for f in glob.glob("/sys/devices/system/cpu/cpu*/thermal_throttle/*_throttle_count"))
+
+
+def preflight(tid):
+    """Motivo por el que no se puede empezar ahora, o ''."""
+    t = TESTS[tid]
+    if t["watch"]:
+        bat, cap = power_state()
+        if bat:
+            return _("El portátil está funcionando con la batería. Conéctalo a la corriente para hacer la prueba.")
+        if cap is not None and cap < 30:
+            return _("La batería está por debajo del 30 %. Déjala cargar un poco antes de hacer la prueba.")
+    if tid == "disco_velocidad":
+        d = os.path.dirname(disk_test_file())
+        try:
+            os.makedirs(d, exist_ok=True)
+            st = os.statvfs(d)
+            if st.f_bavail * st.f_frsize < 3 * 1024 ** 3:
+                return _("Hace falta tener al menos 3 GiB libres en tu carpeta personal.")
+        except OSError:
+            return _("No se puede escribir en tu carpeta personal.")
+    if tid.startswith("gpu") and not (os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY")):
+        return _("Esta prueba necesita el escritorio gráfico.")
+    return ""
+
+
+class TestRun:
+    """Una prueba en marcha. No depende de la ventana: la interfaz llama a tick() cada segundo."""
+
+    def __init__(self, tid, minutes=None, env=None):
+        self.tid, self.minutes, self.t = tid, minutes, TESTS[tid]
+        self.phases = test_phases(tid, minutes)
+        self.env = dict(os.environ, LC_ALL="C", LANG="C", **(env or {}))
+        self.proc, self.phase, self.out, self.outs = None, -1, [], []
+        self.lock = threading.Lock()
+        self.start = self.phase_start = time.monotonic()
+        self.total = sum(p[2] for p in self.phases) or 1
+        self.samples = []          # (segundos, temperatura CPU, temperatura gráfica, frecuencia MHz)
+        self.stopped, self.done, self.result = "", False, None
+        self.err0, self.thr0 = hw_errors(), throttle_count()
+        self.limit_cpu = cpu_temp_limit()
+        self.limit_gpu = gpu_temp_now()[1]
+        self.hot = 0
+        self._next()
+
+    def _next(self):
+        if self.phase >= 0:
+            with self.lock:
+                self.outs.append("\n".join(self.out))
+                self.out = []
+        self.phase += 1
+        if self.phase >= len(self.phases):
+            self._finish()
+            return
+        _lab, argv, _secs = self.phases[self.phase]
+        self.phase_start = time.monotonic()
+        try:
+            self.proc = subprocess.Popen(argv, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
+                                         env=self.env, start_new_session=True, text=True, errors="replace")
+        except OSError as e:
+            self.stopped = "error"
+            with self.lock:
+                self.out.append(str(e))
+            self._finish()
+            return
+        threading.Thread(target=self._reader, args=(self.proc,), daemon=True).start()
+
+    def _reader(self, proc):
+        for line in proc.stdout:
+            with self.lock:
+                self.out.append(line.rstrip("\n"))
+                del self.out[:-400]
+
+    def kill(self):
+        if self.proc and self.proc.poll() is None:
+            try:
+                os.killpg(self.proc.pid, 15)
+                self.proc.wait(3)
+            except Exception:
+                try:
+                    os.killpg(self.proc.pid, 9)
+                except Exception:
+                    pass
+
+    def stop(self, why="usuario"):
+        if not self.done:
+            self.stopped = why
+            self.kill()
+            self._finish()
+
+    def elapsed(self):
+        return time.monotonic() - self.start
+
+    def progress(self):
+        if self.tid == "gpu_rendimiento":            # glmark2 escribe una línea por escena (unas 30)
+            with self.lock:
+                n = sum(1 for l in self.out if l.startswith("["))
+            return min(0.99, n / 32)
+        return min(0.99, self.elapsed() / self.total)
+
+    def tick(self):
+        """Vigila temperatura, corriente y el propio proceso. Devuelve True mientras siga."""
+        if self.done:
+            return False
+        ct, gt = cpu_temp_now(), gpu_temp_now()[0]
+        f = [x["cur"] for x in cpu_freqs() if x["cur"]] or \
+            [float(b["cpu MHz"]) * 1000 for b in cpuinfo() if b.get("cpu MHz")]
+        self.samples.append((round(self.elapsed()), ct, gt, sum(f) / len(f) / 1000 if f else None))
+        w = self.t["watch"]
+        hot = (w in ("cpu", "gpu") and ct is not None and ct >= self.limit_cpu) or \
+              (w == "gpu" and gt is not None and gt >= self.limit_gpu)
+        self.hot = self.hot + 1 if hot else 0
+        if self.hot >= 2:                            # dos lecturas seguidas: no se para por un pico suelto
+            self.stop("temperatura")
+            return False
+        if w and power_state()[0]:
+            self.stop("bateria")
+            return False
+        lim = self.phases[self.phase][2] if 0 <= self.phase < len(self.phases) else 0
+        if self.minutes and time.monotonic() - self.phase_start > lim + 20:      # segundo seguro de tiempo
+            self.kill()
+        if self.tid == "gpu_carga" and time.monotonic() - self.phase_start >= lim:
+            self.kill()
+            self.proc.wait(5)
+            self._next()
+            return not self.done
+        if self.tid != "gpu_carga" and not self.minutes and \
+                time.monotonic() - self.phase_start > max(lim * 4, 300):
+            self.stop("tiempo")
+            return False
+        if self.proc and self.proc.poll() is not None:
+            time.sleep(0.1)                          # que el lector recoja las últimas líneas
+            self._next()
+        return not self.done
+
+    def _finish(self):
+        if self.done:
+            return
+        self.done = True
+        if self.tid == "disco_velocidad":
+            try:
+                os.unlink(disk_test_file())
+            except OSError:
+                pass
+        with self.lock:
+            if self.out:
+                self.outs.append("\n".join(self.out))
+        self.result = evaluate(self)
+        history_add("pruebas", self.result, keep=200)
+
+
+def evaluate(run_):
+    """Resultado de una prueba terminada: lo que se guarda en el historial."""
+    t, outs, rc = run_.tid, run_.outs, (run_.proc.returncode if run_.proc else None)
+    temps = [s[1] for s in run_.samples if s[1] is not None]
+    gtemps = [s[2] for s in run_.samples if s[2] is not None]
+    freqs = [s[3] for s in run_.samples[-60:] if s[3]]
+    watch = TESTS[t]["watch"]
+    data = {"temp_max": round(max(temps)) if temps and watch else None,
+            "gpu_temp_max": round(max(gtemps)) if gtemps and watch == "gpu" else None,
+            "freq_media": round(statistics_median(freqs)) if freqs and watch == "cpu" else None,
+            "segundos": round(run_.elapsed())}
+    res = dict(test=t, minutos=run_.minutes, version=VERSION, kernel=platform.release(), datos=data)
+    if run_.stopped in ("usuario", "temperatura", "bateria", "tiempo", "error"):
+        res["veredicto"] = {"usuario": "detenida", "error": "error"}.get(run_.stopped, run_.stopped)
+        return res
+    new_err = hw_errors() - run_.err0
+    thr = throttle_count() - run_.thr0
+    data["frenazos"] = thr or None
+    if t in ("cpu_estabilidad", "mem_estabilidad"):
+        failed = parse_stressng(outs[0] if outs else "")
+        data["errores_calculo"], data["errores_hardware"] = failed, new_err or None
+        data["ligera"] = not test_tool(t) or None
+        res["veredicto"] = "fallo" if (failed or new_err or rc not in (0, None)) else "ok"
+        if rc not in (0, 2, None) and not failed:
+            res["veredicto"] = "error"
+    elif t == "cpu_rendimiento":
+        one, allc = (parse_7z(outs[0]) if outs else None), (parse_7z(outs[1]) if len(outs) > 1 else None)
+        data.update(un_nucleo=one, todos=allc, nucleos=os.cpu_count())
+        res["veredicto"] = "ok" if one and allc else "error"
+    elif t == "gpu_rendimiento":
+        score, renderer = parse_glmark(outs[0] if outs else "")
+        data.update(puntuacion=score, renderizador=renderer)
+        res["veredicto"] = "ok" if score else "error"
+    elif t == "gpu_carga":
+        data["renderizador"] = parse_glmark(outs[0] if outs else "")[1]
+        data["errores_hardware"] = new_err or None
+        res["veredicto"] = "fallo" if new_err else ("ok" if data["renderizador"] else "error")
+    elif t == "disco_velocidad":
+        w, r = (parse_dd(outs[0]) if outs else None), (parse_dd(outs[1]) if len(outs) > 1 else None)
+        data.update(escritura=round(w) if w else None, lectura=round(r) if r else None,
+                    disco=disk_of(os.path.dirname(disk_test_file())))
+        res["veredicto"] = "ok" if w or r else "error"
+    if res.get("veredicto") == "error":
+        res["salida"] = "\n".join(outs)[-600:]
+    return res
+
+
+def fmt_clock(secs):
+    m, sec = divmod(int(secs), 60)
+    return f"{m // 60}:{m % 60:02d}:{sec:02d}" if m >= 60 else f"{m}:{sec:02d}"
+
+
+def statistics_median(xs):
+    xs = sorted(xs)
+    n = len(xs)
+    return (xs[n // 2] if n % 2 else (xs[n // 2 - 1] + xs[n // 2]) / 2) if n else 0
+
+
+def disk_of(path):
+    """Modelo del disco donde está una carpeta."""
+    src = run(["findmnt", "-no", "SOURCE", "-T", path], timeout=4).strip()
+    if not src:
+        return ""
+    pk = run(["lsblk", "-sno", "NAME,TYPE,MODEL", src], timeout=4).splitlines()
+    for line in pk:
+        p = line.split(None, 2)
+        if len(p) == 3 and p[1] == "disk":
+            return p[2].strip()
+    return ""
+
+
+VERDICTS = {"ok": "Superada", "fallo": "Con errores", "detenida": "Detenida por ti",
+            "temperatura": "Detenida por temperatura alta", "bateria": "Detenida: el portátil se quedó sin corriente",
+            "tiempo": "Detenida: tardaba demasiado", "error": "No se pudo completar"}
+
+
+MEASURES = ("cpu_rendimiento", "gpu_rendimiento", "disco_velocidad")
+
+
+def verdict_text(r):
+    v = r.get("veredicto", "error")
+    if v == "ok" and r.get("test") in MEASURES:
+        return _("Completada")
+    return _(VERDICTS.get(v, v))
+
+
+def result_text(r, prev=None):
+    """Resumen de un resultado guardado, en el idioma actual."""
+    d, t = r.get("datos", {}), r.get("test")
+    parts = []
+    if t == "cpu_rendimiento" and d.get("un_nucleo"):
+        parts.append(_("{a} puntos con un núcleo, {b} con todos ({n} hilos)").format(
+            a=d["un_nucleo"], b=d["todos"], n=d.get("nucleos")))
+    if t == "gpu_rendimiento" and d.get("puntuacion"):
+        parts.append(_("{n} puntos").format(n=d["puntuacion"]))
+    if t.startswith("gpu") and d.get("renderizador"):
+        parts.append(d["renderizador"])
+    if t == "disco_velocidad" and (d.get("escritura") or d.get("lectura")):
+        parts.append(_("escritura {w}/s, lectura {r}/s").format(w=human(d.get("escritura") or 0),
+                                                               r=human(d.get("lectura") or 0)))
+        if d.get("disco"):
+            parts.append(d["disco"])
+    if d.get("errores_calculo"):
+        parts.append(_("{n} errores de cálculo").format(n=d["errores_calculo"]))
+    if d.get("errores_hardware"):
+        parts.append(_("{n} errores de hardware en el registro").format(n=d["errores_hardware"]))
+    if d.get("temp_max") is not None:
+        parts.append(_("procesador hasta {n} °C").format(n=d["temp_max"]))
+    if d.get("gpu_temp_max") is not None:
+        parts.append(_("gráfica hasta {n} °C").format(n=d["gpu_temp_max"]))
+    if d.get("freq_media"):
+        parts.append(_("{n} MHz de media al final").format(n=d["freq_media"]))
+    if d.get("frenazos"):
+        parts.append(_("se frenó por calor {n} veces").format(n=d["frenazos"]))
+    if d.get("ligera"):
+        parts.append(_("prueba ligera (sin el paquete stress-ng)"))
+    if prev:
+        parts.append(prev)
+    return "; ".join(str(p) for p in parts)
+
+
+def compare_previous(r, history):
+    """Diferencia con la media de las mediciones anteriores de la misma prueba."""
+    key = {"cpu_rendimiento": "todos", "gpu_rendimiento": "puntuacion", "disco_velocidad": "lectura"}.get(r.get("test"))
+    if not key or not r.get("datos", {}).get(key):
+        return ""
+    old = [h["datos"].get(key) for h in history if h is not r and h.get("test") == r["test"] and h.get("veredicto") == "ok"
+           and h.get("datos", {}).get(key) and h.get("t", "") < r.get("t", "")]
+    if not old:
+        return ""
+    avg = sum(old) / len(old)
+    diff = (r["datos"][key] - avg) / avg * 100
+    if abs(diff) < 3:
+        return _("igual que tu media anterior")
+    return (_("{n} % más que tu media anterior") if diff > 0 else _("{n} % menos que tu media anterior")).format(n=f"{abs(diff):.0f}")
+
+
+def tests_block(tab):
+    """Tabla con las pruebas hechas en esta pestaña (las más recientes primero)."""
+    hist = history_load().get("pruebas", [])
+    mine = [r for r in hist if TESTS.get(r.get("test"), {}).get("tab") == tab]
+    rows = []
+    for r in reversed(mine[-8:]):
+        rows.append((r.get("t", ""), _(TESTS[r["test"]]["short"]) + (
+            " · " + _("{n} min").format(n=r["minutos"]) if r.get("minutos") else ""),
+            verdict_text(r), result_text(r, compare_previous(r, hist))))
+    if not rows:
+        return None
+    return table("Pruebas que has hecho", ["Fecha", "Prueba", "Resultado", "Detalle"], rows,
+                 help="Solo se hacen si pulsas el botón. Se guardan en tu equipo para poder comparar.")
+
+
 def live_now():
     """Barras de «Ahora mismo» del Inicio: se recalculan cada pocos segundos."""
     items = []
@@ -3872,6 +4411,7 @@ CSS = """
     background-image: linear-gradient(110deg, @mm_a1, @mm_a2); background-color: @mm_a2; color: #ffffff;
     border: none; font-weight: 700; border-radius: 10px; padding: 5px 16px; }}
 .mm-win button.mm-accent:hover {{ background-image: linear-gradient(110deg, shade(@mm_a1, 1.12), shade(@mm_a2, 1.12)); }}
+.mm-win button.mm-accent:disabled {{ background-image: none; background-color: alpha(@mm_fg, 0.10); color: alpha(@mm_fg, 0.4); }}
 .mm-win button.mm-accent:checked {{ background-image: linear-gradient(110deg, shade(@mm_a1, 0.9), shade(@mm_a2, 0.9)); }}
 .mm-side {{ background-color: @mm_side; border-right: 1px solid @mm_line; }}
 .mm-brand {{ font-size: 17px; font-weight: 800; color: @mm_fg; }}
@@ -4306,7 +4846,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             box.pack_start(side, False, False, 0)
             box.pack_start(overlay, True, True, 0)
             self.add(box)
-            self.connect("destroy", Gtk.main_quit)
+            self.connect("destroy", self.on_destroy)
             self.setup_keys()
             self.translate_chrome()
             self.ticks = 0
@@ -4667,6 +5207,11 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 widget, ref = getattr(self, "w_" + kind)(b)
                 target.pack_start(widget, False, False, 0)
                 refs.append((kind, ref))
+            if s["id"] in TEST_TABS:
+                t = label(_("Pruebas voluntarias").upper(), "mm-title")
+                t.set_margin_top(18)
+                page.pack_start(t, False, False, 0)
+                page.pack_start(self.w_tests(s["id"]), False, False, 0)
             if adv_box.get_children():
                 exp = Gtk.Expander(label=_("Detalles técnicos"), margin_top=22)
                 exp.set_tooltip_text(_("Información para usuarios avanzados o para pedir ayuda en un foro"))
@@ -5019,6 +5564,265 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             lab.set_margin_top(8)
             return lab, None
 
+        def on_destroy(self, *_a):
+            run_ = getattr(self, "test_run", None)
+            if run_ and not run_.done:          # una prueba no sigue sola si se cierra el programa
+                run_.stop()
+            Gtk.main_quit()
+
+        # ── pruebas voluntarias ──
+        def w_tests(self, sid):
+            box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+            box.set_border_width(18)
+            box.pack_start(label(_("Solo se hacen si pulsas un botón. Puedes detenerlas cuando quieras."),
+                                 "mm-dim", wrap=True), False, False, 0)
+            row = Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, column_spacing=10, row_spacing=10,
+                              max_children_per_line=4, homogeneous=False)
+            for tid, t in TESTS.items():
+                if t["tab"] != sid:
+                    continue
+                b = styled(Gtk.Button(label=_(t["button"])), "mm-ghost")
+                b.set_tooltip_text(_(t["desc"]))
+                b.connect("clicked", lambda _b, x=tid: self.on_test(x))
+                row.add(b)
+            box.pack_start(row, False, False, 0)
+            return self.card(box)
+
+        def on_test(self, tid):
+            if getattr(self, "test_run", None) and not self.test_run.done:
+                self.message(Gtk.MessageType.INFO, _("Ya hay una prueba en marcha"),
+                             _("Espera a que termine o detenla antes de empezar otra."))
+                return
+            t = TESTS[tid]
+            tool = test_tool(tid)
+            if not tool and tid != "cpu_estabilidad":
+                pkg = "glmark2-x11 (o glmark2-wayland)" if t["tool"] == "glmark2" else t["pkg"]
+                self.message(Gtk.MessageType.INFO, _("Falta una utilidad para esta prueba"),
+                             _("Instala el paquete {paquete} con el Gestor de software y vuelve a pulsar el "
+                               "botón.").format(paquete=pkg))
+                return
+            d = styled(Gtk.Dialog(title=_(t["short"]), transient_for=self, modal=True), "mm-win")
+            d.set_default_size(560, -1)
+            d.set_resizable(False)
+            area = d.get_content_area()
+            area.set_spacing(12)
+            area.set_border_width(18)
+            area.pack_start(label(_(t["short"]), "mm-hero-title", wrap=True), False, False, 0)
+            area.pack_start(label(_(t["desc"]), wrap=True), False, False, 0)
+            if not tool:
+                area.pack_start(label(_("Sin el paquete stress-ng se hará una prueba ligera, que detecta menos "
+                                        "problemas. Para la prueba completa, instala stress-ng con el Gestor de "
+                                        "software."), "mm-dim", wrap=True), False, False, 0)
+            dur = None
+            if t["durations"]:
+                hb = Gtk.Box(spacing=12)
+                hb.pack_start(label(_("Duración:")), False, False, 0)
+                dur, first = [], None
+                for m in t["durations"]:
+                    rb = Gtk.RadioButton.new_with_label_from_widget(first, _("{n} min").format(n=m))
+                    first = first or rb
+                    if m == t["durations"][1 if len(t["durations"]) > 1 else 0]:
+                        rb.set_active(True)
+                    dur.append((rb, m))
+                    hb.pack_start(rb, False, False, 0)
+                area.pack_start(hb, False, False, 0)
+            gpus = gpu_choices() if tid.startswith("gpu") else []
+            combo = None
+            if gpus:
+                hb = Gtk.Box(spacing=12)
+                hb.pack_start(label(_("Gráfica que se prueba:")), False, False, 0)
+                combo = Gtk.ComboBoxText()
+                for name, _env in gpus:
+                    combo.append_text(name)
+                combo.set_active(0)
+                hb.pack_start(combo, False, False, 0)
+                area.pack_start(hb, False, False, 0)
+            limit = ""
+            if t["watch"] == "cpu" and cpu_temp_now() is None:
+                limit = _("No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la "
+                          "prueba por calor. Vigila el equipo mientras dura.")
+            if t["watch"]:
+                warn = label(_(TEST_WARNING), wrap=True)
+                area.pack_start(self.card(warn), False, False, 0)
+                warn.set_margin_start(14)
+                warn.set_margin_end(14)
+                warn.set_margin_top(12)
+                warn.set_margin_bottom(12)
+            if limit:
+                area.pack_start(label(limit, "mm-ic-warn", wrap=True), False, False, 0)
+            why = preflight(tid)
+            if why:
+                area.pack_start(label(why, "mm-ic-bad", wrap=True), False, False, 0)
+            check = Gtk.CheckButton(label=_("He leído el aviso y quiero hacer la prueba"))
+            area.pack_start(check, False, False, 0)
+            d.add_button(_("Cancelar"), Gtk.ResponseType.CANCEL)
+            ok = d.add_button(_("Empezar"), Gtk.ResponseType.OK)
+            ok.get_style_context().add_class("mm-accent")
+            ok.set_sensitive(False)
+            check.connect("toggled", lambda c: ok.set_sensitive(c.get_active() and not why))
+            d.show_all()
+            r = d.run()
+            minutes = next((m for rb, m in dur if rb.get_active()), None) if dur else None
+            env = gpus[combo.get_active()][1] if combo else {}
+            d.destroy()
+            if r == Gtk.ResponseType.OK:
+                self.run_test(tid, minutes, env)
+
+        def run_test(self, tid, minutes, env):
+            t = TESTS[tid]
+            self.test_run = run_ = TestRun(tid, minutes, env)
+            w = styled(Gtk.Window(title=_(t["short"]), transient_for=self, modal=False), "mm-win")
+            w.set_default_size(560, -1)
+            box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+            box.set_border_width(22)
+            w.add(box)
+            head = label(_("Prueba en marcha…"), "mm-hero-title", wrap=True)
+            box.pack_start(head, False, False, 0)
+            bar = Gtk.ProgressBar()
+            box.pack_start(bar, False, False, 0)
+            status = label("", "mm-dim", wrap=True)
+            box.pack_start(status, False, False, 0)
+            grid = Gtk.Grid(column_spacing=24, row_spacing=8)
+            vals = {}
+            rows_ = {"cpu": (("temp", "Temperatura del procesador"), ("freq", "Frecuencia media"),
+                             ("cpu", "Uso del procesador")),
+                     "gpu": (("gtemp", "Temperatura de la gráfica"), ("temp", "Temperatura del procesador"),
+                             ("cpu", "Uso del procesador"))}.get(t["watch"], ())
+            for k in ("temp", "gtemp", "freq", "cpu"):
+                vals[k] = Gtk.Label()
+            for i, (k, lab) in enumerate(rows_):
+                grid.attach(label(_(lab), "mm-key"), 0, i, 1, 1)
+                vals[k] = label("—", "mm-val")
+                grid.attach(vals[k], 1, i, 1, 1)
+            grid.set_border_width(14)
+            area = Gtk.DrawingArea()
+            area.set_size_request(-1, 110)
+            if rows_:
+                box.pack_start(self.card(grid), False, False, 0)
+                if can_draw:
+                    area.connect("draw", self.draw_test, run_)
+                box.pack_start(self.card(area), False, False, 0)
+            result = label("", "mm-val", wrap=True, selectable=True)
+            box.pack_start(result, False, False, 0)
+            btn = styled(Gtk.Button(label=_("Detener")), "mm-accent")
+            btn.set_halign(Gtk.Align.END)
+            box.pack_start(btn, False, False, 0)
+
+            def finish():
+                r = run_.result or {}
+                verdict = r.get("veredicto", "error")
+                head.set_text(verdict_text(r))
+                ctx_ = head.get_style_context()
+                ctx_.add_class({"ok": "mm-ic-ok", "fallo": "mm-ic-bad", "error": "mm-ic-warn"}.get(verdict, "mm-ic-warn"))
+                bar.set_fraction(1.0 if verdict == "ok" else bar.get_fraction())
+                text = result_text(r, compare_previous(r, history_load().get("pruebas", [])))
+                extra = {"temperatura": _("La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine "
+                                          "detuvo la prueba. Comprueba que las rejillas de ventilación no estén "
+                                          "tapadas y deja espacio libre alrededor del equipo. Si se repite con el "
+                                          "equipo bien ventilado, que un servicio técnico revise la "
+                                          "refrigeración.").format(n=r.get("datos", {}).get("temp_max") or "?"),
+                         "fallo": _("La prueba ha encontrado errores. Guarda tu trabajo y, si el equipo se "
+                                    "cuelga o se reinicia solo con frecuencia, consulta con un servicio técnico."),
+                         "error": _("La utilidad de la prueba no terminó bien.") + (
+                             "\n" + r.get("salida", "").strip().splitlines()[-1] if r.get("salida", "").strip() else "")}
+                result.set_text("\n".join(x for x in (text, extra.get(verdict, "")) if x))
+                status.set_text("")
+                btn.set_label(_("Cerrar"))
+                btn.get_style_context().remove_class("mm-accent")
+                styled(btn, "mm-ghost")
+                self.refresh_section(t["tab"])
+
+            def tick():
+                alive = run_.tick()
+                with SAMPLER.lock:
+                    cpu = SAMPLER.h["cpu"][-1] if SAMPLER.h["cpu"] else None
+                s_ = run_.samples[-1] if run_.samples else (0, None, None, None)
+                vals["temp"].set_text(f"{s_[1]:.0f} °C" + (" · " + _("se detiene a {n} °C").format(n=f"{run_.limit_cpu:.0f}")
+                                                           if t["watch"] else "") if s_[1] is not None else "—")
+                vals["gtemp"].set_text(f"{s_[2]:.0f} °C" if s_[2] is not None else "—")
+                vals["freq"].set_text(f"{s_[3]:.0f} MHz" if s_[3] else "—")
+                vals["cpu"].set_text(f"{cpu:.0f} %" if cpu is not None else "—")
+                area.queue_draw()
+                if not alive:
+                    finish()
+                    return False
+                bar.set_fraction(run_.progress())
+                lab = run_.phases[run_.phase][0] if 0 <= run_.phase < len(run_.phases) else ""
+                left = max(0, run_.total - run_.elapsed()) if minutes else None
+                status.set_text(" · ".join(x for x in (
+                    _("Paso {a} de {b}: {c}").format(a=run_.phase + 1, b=len(run_.phases), c=_(lab)) if lab else "",
+                    _("quedan {n}").format(n=fmt_clock(left)) if left is not None else
+                    _("lleva {n}").format(n=fmt_clock(run_.elapsed()))) if x))
+                return True
+
+            def on_btn(*_a):
+                if run_.done:
+                    w.destroy()
+                else:
+                    run_.stop()
+
+            def on_close(*_a):
+                if not run_.done:
+                    run_.stop()
+                return False
+            btn.connect("clicked", on_btn)
+            w.connect("delete-event", on_close)
+            w.show_all()
+            GLib.timeout_add(1000, tick)
+
+        def draw_test(self, area, cr, run_):
+            w, h = area.get_allocated_width(), area.get_allocated_height()
+            pts = [(s_[0], s_[1]) for s_ in run_.samples if s_[1] is not None]
+            gpts = [(s_[0], s_[2]) for s_ in run_.samples if s_[2] is not None]
+            fg = rgb("fg")
+            cr.set_source_rgba(*fg, 0.5)
+            cr.set_font_size(10)
+            cr.move_to(12, 14)
+            cr.show_text(_("Temperatura (°C)"))
+            span = max(60, max((p[0] for p in pts + gpts), default=0))
+            lo, hi = 20.0, max(100.0, run_.limit_cpu + 5)
+            # línea del límite
+            y = h - 8 - (run_.limit_cpu - lo) / (hi - lo) * (h - 24)
+            cr.set_source_rgba(*rgb("bad"), 0.6)
+            cr.set_dash([4, 4])
+            cr.move_to(10, y)
+            cr.line_to(w - 10, y)
+            cr.stroke()
+            cr.set_dash([])
+            for series, col in ((pts, "a1"), (gpts, "a2")):
+                if len(series) < 2:
+                    continue
+                cr.set_source_rgb(*rgb(col))
+                cr.set_line_width(2)
+                for i, (x, v) in enumerate(series):
+                    px = 10 + x / span * (w - 20)
+                    py = h - 8 - (min(max(v, lo), hi) - lo) / (hi - lo) * (h - 24)
+                    (cr.move_to if i == 0 else cr.line_to)(px, py)
+                cr.stroke()
+            return False
+
+        def refresh_section(self, sid):
+            """Vuelve a leer una sección y rehace su página (por ejemplo, tras una prueba)."""
+            idx = next((i for i, s in enumerate(self.sections) if s["id"] == sid), None)
+            if idx is None or self.busy:
+                return
+            new = safe(sid, COLLECTORS[sid], Ctx())
+            self.sections[idx] = new
+            old = self.stack.get_child_by_name(sid)
+            expanded = [e.get_expanded() for e in self.expanders(old)] if old else []
+            page = self.build_page(new)
+            for e, x in zip(self.expanders(page), expanded):
+                e.set_expanded(x)
+            visible = self.stack.get_visible_child_name() == sid
+            if old:
+                self.stack.remove(old)
+                old.destroy()
+            self.stack.add_named(page, sid)
+            page.show_all()
+            if visible:
+                self.stack.set_visible_child_name(sid)
+            self.index[sid] = fold(to_text([new], self.anon, header=False))
+
         # ── refresco en vivo de la sección visible ──
         def on_tick(self):
             SAMPLER.tick()
@@ -5265,17 +6069,28 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             if start and "+bajar" in start:
                 adj = win.stack.get_visible_child().get_vadjustment()
                 adj.set_value(adj.get_upper())
+            m3 = re.search(r"\+prueba=(\w+)", start or "")
+            if m3:
+                GLib.idle_add(lambda: win.on_test(m3.group(1)) and False)
             if start and "+aviso" in start:
                 win.notify(_("Informe guardado en {ruta}").format(ruta="/home/neo/Documentos/mintmachine.txt"), "/tmp")
             return False
 
         def shot():
+            root = Gdk.get_default_root_window()
             ext = win.get_window().get_frame_extents()     # desde la raíz, para que salgan los menús
-            pb = Gdk.pixbuf_get_from_window(Gdk.get_default_root_window(), ext.x, ext.y, ext.width, ext.height)
+            if start and "+pantalla" in start:             # también las ventanas de las pruebas
+                pb = Gdk.pixbuf_get_from_window(root, 0, 0, root.get_width(), root.get_height())
+            else:
+                pb = Gdk.pixbuf_get_from_window(root, ext.x, ext.y, ext.width, ext.height)
             pb.savev(screenshot, "png", [], [])
-            Gtk.main_quit()
-            return False
+            if getattr(win, "test_run", None):
+                win.test_run.stop()
+            os._exit(0)
         GLib.timeout_add(max(500, delay - 1200), prepare)
+        m2 = re.search(r"\+ejecutar=(\w+)(?::([\d.]+))?", start or "")
+        if m2:
+            GLib.timeout_add(1500, lambda: win.run_test(m2.group(1), float(m2.group(2)) if m2.group(2) else None, {}) and False)
         GLib.timeout_add(delay, shot)
     Gtk.main()
 
