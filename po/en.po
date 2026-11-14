@@ -2597,3 +2597,477 @@ msgstr "Qualcomm Atheros Wi-Fi"
 
 msgid "Wi-Fi MediaTek"
 msgstr "MediaTek Wi-Fi"
+
+msgid "Gráfica Intel (integrada)"
+msgstr "Intel graphics (integrated)"
+
+msgid "Temperatura de la gráfica"
+msgstr "Graphics temperature"
+
+msgid "Consumo de la gráfica"
+msgstr "Graphics power draw"
+
+msgid "{valor} a las {hora}"
+msgstr "{valor} at {hora}"
+
+msgid "Programas que usan la gráfica"
+msgstr "Programs using the graphics card"
+
+msgid "Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato lo da la utilidad nvidia-smi."
+msgstr "Only your own programs are shown. On NVIDIA cards with the proprietary driver, the data comes from the nvidia-smi utility."
+
+msgid "Máximos desde que abriste MintMachine"
+msgstr "Peaks since you opened MintMachine"
+
+msgid "Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
+msgstr "Leave MintMachine open while you play or work and check here afterwards for the highest values reached."
+
+msgid "Protección ante falta de memoria"
+msgstr "Protection against running out of memory"
+
+msgid "Servicio activo"
+msgstr "Active service"
+
+msgid "Sí: {n}"
+msgstr "Yes: {n}"
+
+msgid "Ninguno: si se acaba la memoria, el equipo puede quedarse congelado un rato antes de que el kernel cierre un programa"
+msgstr "None: if memory runs out, the computer may freeze for a while before the kernel closes a program"
+
+msgid "Cuando la memoria se agota, un servicio de este tipo cierra a tiempo el programa que más ocupa, antes de que el equipo deje de responder."
+msgstr "When memory runs out, a service of this kind closes the program using the most in time, before the computer stops responding."
+
+msgid "otros límites"
+msgstr "other limits"
+
+msgid "en reposo"
+msgstr "idle"
+
+msgid "límite de la placa"
+msgstr "board limit"
+
+msgid "freno de consumo de la placa"
+msgstr "board power brake"
+
+msgid "Ninguno: a la velocidad que pide"
+msgstr "None: running at the requested speed"
+
+msgid "Activado: el procesador ve los {n} completos"
+msgstr "Enabled: the processor sees the full {n}"
+
+msgid "Desactivado: el procesador ve {a} de {b}"
+msgstr "Disabled: the processor sees {a} of {b}"
+
+msgid "punto más caliente"
+msgstr "hotspot"
+
+msgid "Acceso completo a la memoria de vídeo (Resizable BAR)"
+msgstr "Full access to video memory (Resizable BAR)"
+
+msgid "Consumo"
+msgstr "Power draw"
+
+msgid "límite {n} W"
+msgstr "limit {n} W"
+
+msgid "Limitada ahora por"
+msgstr "Currently limited by"
+
+msgid "Nada: va a la velocidad que pide"
+msgstr "Nothing: running at the requested speed"
+
+msgid "NVIDIA (driver privativo): {n}"
+msgstr "NVIDIA (proprietary driver): {n}"
+
+msgid "Desde hoy"
+msgstr "Since today"
+
+msgid "Primera medición: la evolución se verá en los próximos días."
+msgstr "First measurement: the trend will show over the next few days."
+
+msgid "A este ritmo, unos {n} años hasta el 100 % estimado"
+msgstr "At this rate, about {n} years until 100 % (estimate)"
+
+msgid "+{n} nuevos"
+msgstr "+{n} new"
+
+msgid "Sin cambios"
+msgstr "No change"
+
+msgid "+{n} errores nuevos"
+msgstr "+{n} new errors"
+
+msgid "En el disco {model} han aparecido {n} sectores dañados nuevos desde el {fecha}."
+msgstr "{n} new bad sectors have appeared on the {model} disk since {fecha}."
+
+msgid "Que el número crezca indica que el disco se está deteriorando. Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
+msgstr "A growing number means the disk is deteriorating. Back up your important files now to another disk or to the cloud and consult a repair service or the manufacturer (if it is under warranty)."
+
+msgid "El SSD {model} ha registrado {n} errores de datos nuevos desde el {fecha}."
+msgstr "The {model} SSD has logged {n} new data errors since {fecha}."
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
+msgstr "Back up your important files now to another disk or to the cloud and consult a repair service or the manufacturer (if it is under warranty)."
+
+msgid "Evolución de la salud"
+msgstr "Health over time"
+
+msgid "Desde"
+msgstr "Since"
+
+msgid "Vida útil usada"
+msgstr "Life used"
+
+msgid "Horas de uso añadidas"
+msgstr "Hours of use added"
+
+msgid "Estimación"
+msgstr "Estimate"
+
+msgid "MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
+msgstr "MintMachine stores one measurement per day on your computer each time you open it and compares it with the first one. This shows whether a disk is starting to deteriorate. It never leaves your computer."
+
+msgid "También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
+msgstr "You can also install the earlyoom package with the Software Manager: it closes the program using the most memory in time and keeps the computer from freezing."
+
+msgid "Estabilidad del procesador"
+msgstr "Processor stability"
+
+msgid "Probar la estabilidad…"
+msgstr "Test stability…"
+
+msgid "Pone a trabajar todos los núcleos al máximo con cálculos variados y comprueba que los resultados son correctos. Sirve para saber si el procesador es estable y si la refrigeración da abasto."
+msgstr "Puts every core to work at full load with varied calculations and checks that the results are correct. It tells you whether the processor is stable and whether the cooling keeps up."
+
+msgid "Rendimiento del procesador"
+msgstr "Processor performance"
+
+msgid "Medir el rendimiento…"
+msgstr "Measure performance…"
+
+msgid "Mide cuánto rinde el procesador comprimiendo y descomprimiendo datos, primero con un solo núcleo y después con todos. Tarda unos dos o tres minutos. La puntuación sirve para comparar tu equipo consigo mismo con el tiempo (por ejemplo, antes y después de limpiarlo o de cambiar el perfil de energía)."
+msgstr "Measures how fast the processor compresses and decompresses data, first with one core and then with all of them. It takes about two or three minutes. The score lets you compare your computer with itself over time (for example, before and after cleaning it or changing the power profile)."
+
+msgid "Probar la memoria…"
+msgstr "Test memory…"
+
+msgid "Escribe y comprueba patrones en la mitad de la memoria libre. Solo revisa la memoria que el sistema le deja usar: para una revisión completa, la prueba de memoria del menú de arranque (paquete memtest86+) es más fiable."
+msgstr "Writes and checks patterns in half of the free memory. It only checks the memory the system lets it use: for a complete check, the memory test in the boot menu (memtest86+ package) is more reliable."
+
+msgid "Rendimiento de la gráfica"
+msgstr "Graphics performance"
+
+msgid "Dibuja una serie de escenas 3D en una ventana y da una puntuación. Tarda unos cinco minutos. No toques la ventana de la prueba mientras dura."
+msgstr "Draws a series of 3D scenes in a window and gives a score. It takes about five minutes. Do not touch the test window while it runs."
+
+msgid "Carga sostenida de la gráfica"
+msgstr "Sustained graphics load"
+
+msgid "Probar la gráfica en carga…"
+msgstr "Test graphics under load…"
+
+msgid "Mantiene la gráfica trabajando el tiempo que elijas para comprobar que es estable y que su refrigeración da abasto."
+msgstr "Keeps the graphics card working for the time you choose to check that it is stable and that its cooling keeps up."
+
+msgid "Velocidad del disco"
+msgstr "Disk speed"
+
+msgid "Medir la velocidad…"
+msgstr "Measure speed…"
+
+msgid "Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la velocidad de escritura y de lectura del disco donde está tu carpeta personal. Escribir 1 GiB no desgasta el disco de forma apreciable."
+msgstr "Writes a 1 GiB test file in your home folder, reads it and deletes it. It measures the write and read speed of the disk holding your home folder. Writing 1 GiB does not wear the disk noticeably."
+
+msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
+msgstr "This test will run the computer at full load for the time you choose. It is normal for the temperature and fan noise to rise. MintMachine will stop it by itself if the temperature gets too high or if the laptop is unplugged. Save your work before starting. You can stop it at any time. If the computer shuts down or restarts during the test, do not repeat it and consult a repair service."
+
+msgid "La gráfica dedicada NVIDIA"
+msgstr "The dedicated NVIDIA graphics card"
+
+msgid "La gráfica dedicada"
+msgstr "The dedicated graphics card"
+
+msgid "un núcleo"
+msgstr "one core"
+
+msgid "todos los núcleos"
+msgstr "all cores"
+
+msgid "El portátil está funcionando con la batería. Conéctalo a la corriente para hacer la prueba."
+msgstr "The laptop is running on battery. Plug it in to run the test."
+
+msgid "La batería está por debajo del 30 %. Déjala cargar un poco antes de hacer la prueba."
+msgstr "The battery is below 30 %. Let it charge a little before running the test."
+
+msgid "Hace falta tener al menos 3 GiB libres en tu carpeta personal."
+msgstr "You need at least 3 GiB free in your home folder."
+
+msgid "Esta prueba necesita el escritorio gráfico."
+msgstr "This test needs the graphical desktop."
+
+msgid "Superada"
+msgstr "Passed"
+
+msgid "Con errores"
+msgstr "With errors"
+
+msgid "Detenida: el portátil se quedó sin corriente"
+msgstr "Stopped: the laptop lost power"
+
+msgid "Detenida: tardaba demasiado"
+msgstr "Stopped: it was taking too long"
+
+msgid "Completada"
+msgstr "Completed"
+
+msgid "{a} puntos con un núcleo, {b} con todos ({n} hilos)"
+msgstr "{a} points with one core, {b} with all ({n} threads)"
+
+msgid "{n} puntos"
+msgstr "{n} points"
+
+msgid "escritura {w}/s, lectura {r}/s"
+msgstr "write {w}/s, read {r}/s"
+
+msgid "{n} errores de cálculo"
+msgstr "{n} calculation errors"
+
+msgid "{n} errores de hardware en el registro"
+msgstr "{n} hardware errors in the log"
+
+msgid "procesador hasta {n} °C"
+msgstr "processor up to {n} °C"
+
+msgid "gráfica hasta {n} °C"
+msgstr "graphics up to {n} °C"
+
+msgid "{n} MHz de media al final"
+msgstr "{n} MHz on average at the end"
+
+msgid "se frenó por calor {n} veces"
+msgstr "slowed down by heat {n} times"
+
+msgid "prueba ligera (sin el paquete stress-ng)"
+msgstr "light test (without the stress-ng package)"
+
+msgid "igual que tu media anterior"
+msgstr "same as your previous average"
+
+msgid "{n} % más que tu media anterior"
+msgstr "{n} % more than your previous average"
+
+msgid "{n} % menos que tu media anterior"
+msgstr "{n} % less than your previous average"
+
+msgid "{n} min"
+msgstr "{n} min"
+
+msgid "Prueba"
+msgstr "Test"
+
+msgid "Resultado"
+msgstr "Result"
+
+msgid "Solo se hacen si pulsas el botón. Se guardan en tu equipo para poder comparar."
+msgstr "They only run if you press the button. They are saved on your computer so you can compare."
+
+msgid "El ayudante no respondió."
+msgstr "The helper did not respond."
+
+msgid "No se ha dado la contraseña: no se ha leído nada."
+msgstr "No password was given: nothing has been read."
+
+msgid "El ayudante no devolvió datos válidos."
+msgstr "The helper did not return valid data."
+
+msgid "La placa no deja leer los datos del módulo (se leen vacíos)."
+msgstr "The motherboard does not allow reading the module data (it reads as empty)."
+
+msgid "Los datos del módulo no superan la comprobación de integridad."
+msgstr "The module data fails the integrity check."
+
+msgid "semana {w} de {y}"
+msgstr "week {w} of {y}"
+
+msgid "Tipo de memoria que MintMachine aún no sabe leer."
+msgstr "Memory type MintMachine cannot read yet."
+
+msgid "Frecuencia base (P0)"
+msgstr "Base frequency (P0)"
+
+msgid "multiplicador ×{m}"
+msgstr "multiplier ×{m}"
+
+msgid "Estados de rendimiento"
+msgstr "Performance states"
+
+msgid "Frecuencia base"
+msgstr "Base frequency"
+
+msgid "Frecuencia mínima"
+msgstr "Minimum frequency"
+
+msgid "Turbo máximo con un núcleo"
+msgstr "Maximum single-core turbo"
+
+msgid "Reloj de bus"
+msgstr "Bus clock"
+
+msgid "100 MHz (el habitual en los procesadores actuales)"
+msgstr "100 MHz (the usual one in current processors)"
+
+msgid "Registros internos"
+msgstr "Internal registers"
+
+msgid "El sistema no deja leerlos ({e})."
+msgstr "The system does not allow reading them ({e})."
+
+msgid "perfil EXPO presente"
+msgstr "EXPO profile present"
+
+msgid "Tu placa no publica los datos internos de los módulos de memoria para el sistema."
+msgstr "Your motherboard does not publish the internal data of the memory modules to the system."
+
+msgid "Datos internos de los módulos (SPD)"
+msgstr "Internal module data (SPD)"
+
+msgid "Perfiles del fabricante (XMP)"
+msgstr "Manufacturer profiles (XMP)"
+
+msgid "Chips de memoria"
+msgstr "Memory chips"
+
+msgid "Fabricado"
+msgstr "Manufactured"
+
+msgid "Leído el {fecha} de los propios módulos. Los tiempos son CL-tRCD-tRP-tRAS en ciclos. Los perfiles del fabricante solo se usan si los activas en la BIOS."
+msgstr "Read on {fecha} from the modules themselves. Timings are CL-tRCD-tRP-tRAS in cycles. Manufacturer profiles are only used if you enable them in the BIOS."
+
+msgid "Tu memoria funciona a {a} MT/s, la velocidad estándar. Sus perfiles de fábrica permiten {b} MT/s si los activas en la BIOS (XMP, EXPO o DOCP, según la marca). Es opcional: hazlo solo si sabes moverte por la BIOS."
+msgstr "Your memory runs at {a} MT/s, the standard speed. Its factory profiles allow {b} MT/s if you enable them in the BIOS (XMP, EXPO or DOCP, depending on the brand). It is optional: only do it if you know your way around the BIOS."
+
+msgid "Leído el {fecha} de los registros internos del procesador."
+msgstr "Read on {fecha} from the processor's internal registers."
+
+msgid "Pruebas voluntarias"
+msgstr "Voluntary tests"
+
+msgid "Solo se hacen si pulsas un botón. Puedes detenerlas cuando quieras."
+msgstr "They only run if you press a button. You can stop them whenever you want."
+
+msgid "Leer datos internos… (pide tu contraseña)"
+msgstr "Read internal data… (asks for your password)"
+
+msgid "Lee, sin cambiar nada, los datos que guardan los propios componentes: tiempos y perfiles de la memoria, multiplicadores y consumo del procesador."
+msgstr "Reads, without changing anything, the data stored in the components themselves: memory timings and profiles, processor multipliers and power draw."
+
+msgid "Esperando la contraseña…"
+msgstr "Waiting for the password…"
+
+msgid "No se han leído los datos internos"
+msgstr "The internal data has not been read"
+
+msgid "Datos internos leídos"
+msgstr "Internal data read"
+
+msgid "Instala el paquete {paquete} con el Gestor de software y vuelve a pulsar el botón."
+msgstr "Install the {paquete} package with the Software Manager and press the button again."
+
+msgid "Sin el paquete stress-ng se hará una prueba ligera, que detecta menos problemas. Para la prueba completa, instala stress-ng con el Gestor de software."
+msgstr "Without the stress-ng package a light test will be run, which detects fewer problems. For the full test, install stress-ng with the Software Manager."
+
+msgid "Duración:"
+msgstr "Duration:"
+
+msgid "Gráfica que se prueba:"
+msgstr "Graphics card to test:"
+
+msgid "No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la prueba por calor. Vigila el equipo mientras dura."
+msgstr "The processor temperature cannot be read, so MintMachine will not be able to stop the test because of heat. Keep an eye on the computer while it runs."
+
+msgid "He leído el aviso y quiero hacer la prueba"
+msgstr "I have read the warning and want to run the test"
+
+msgid "Empezar"
+msgstr "Start"
+
+msgid "Prueba en marcha…"
+msgstr "Test running…"
+
+msgid "Uso del procesador"
+msgstr "Processor usage"
+
+msgid "Detener"
+msgstr "Stop"
+
+msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
+msgstr "The temperature reached {n} °C, close to the safe maximum, and MintMachine stopped the test. Check that the ventilation grilles are not blocked and leave free space around the computer. If it happens again with the computer well ventilated, have a repair service check the cooling."
+
+msgid "La prueba ha encontrado errores. Guarda tu trabajo y, si el equipo se cuelga o se reinicia solo con frecuencia, consulta con un servicio técnico."
+msgstr "The test found errors. Save your work and, if the computer often freezes or restarts on its own, consult a repair service."
+
+msgid "La utilidad de la prueba no terminó bien."
+msgstr "The test utility did not finish properly."
+
+msgid "Cerrar"
+msgstr "Close"
+
+msgid "se detiene a {n} °C"
+msgstr "stops at {n} °C"
+
+msgid "Paso {a} de {b}: {c}"
+msgstr "Step {a} of {b}: {c}"
+
+msgid "quedan {n}"
+msgstr "{n} left"
+
+msgid "lleva {n}"
+msgstr "running for {n}"
+
+msgid "Temperatura (°C)"
+msgstr "Temperature (°C)"
+
+msgid "Detenida por ti"
+msgstr "Stopped by you"
+
+msgid "Detenida por temperatura alta"
+msgstr "Stopped because of high temperature"
+
+msgid "No se pudo completar"
+msgstr "Could not be completed"
+
+msgid "La que usa el sistema por defecto"
+msgstr "The one the system uses by default"
+
+msgid "No se puede escribir en tu carpeta personal."
+msgstr "Cannot write to your home folder."
+
+msgid "Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine."
+msgstr "The MintMachine helper or the pkexec utility is missing. Reinstall MintMachine."
+
+msgid "Ya hay una prueba en marcha"
+msgstr "A test is already running"
+
+msgid "Espera a que termine o detenla antes de empezar otra."
+msgstr "Wait for it to finish or stop it before starting another."
+
+msgid "Falta una utilidad para esta prueba"
+msgstr "A utility is missing for this test"
+
+msgid "Bus"
+msgstr "Bus"
+
+msgid "borde"
+msgstr "edge"
+
+msgid "memoria"
+msgstr "memory"
+
+msgid "consumo"
+msgstr "power"
+
+msgid "corriente"
+msgstr "current"
+
+msgid "temperatura"
+msgstr "temperature"

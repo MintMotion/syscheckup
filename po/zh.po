@@ -2597,3 +2597,477 @@ msgstr "Qualcomm Atheros Wi-Fi"
 
 msgid "Wi-Fi MediaTek"
 msgstr "MediaTek Wi-Fi"
+
+msgid "Gráfica Intel (integrada)"
+msgstr "Intel 显卡（集成）"
+
+msgid "Temperatura de la gráfica"
+msgstr "显卡温度"
+
+msgid "Consumo de la gráfica"
+msgstr "显卡功耗"
+
+msgid "{valor} a las {hora}"
+msgstr "{hora} 时 {valor}"
+
+msgid "Programas que usan la gráfica"
+msgstr "正在使用显卡的程序"
+
+msgid "Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato lo da la utilidad nvidia-smi."
+msgstr "仅显示您自己的程序。对于使用专有驱动的 NVIDIA 显卡，数据来自 nvidia-smi 工具。"
+
+msgid "Máximos desde que abriste MintMachine"
+msgstr "自打开 MintMachine 以来的峰值"
+
+msgid "Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
+msgstr "在玩游戏或工作时保持 MintMachine 打开，之后在这里查看达到的最高值。"
+
+msgid "Protección ante falta de memoria"
+msgstr "内存耗尽保护"
+
+msgid "Servicio activo"
+msgstr "运行中的服务"
+
+msgid "Sí: {n}"
+msgstr "是：{n}"
+
+msgid "Ninguno: si se acaba la memoria, el equipo puede quedarse congelado un rato antes de que el kernel cierre un programa"
+msgstr "无：内存耗尽时，在内核关闭某个程序之前，电脑可能会卡住一段时间"
+
+msgid "Cuando la memoria se agota, un servicio de este tipo cierra a tiempo el programa que más ocupa, antes de que el equipo deje de responder."
+msgstr "内存耗尽时，这类服务会在电脑停止响应之前及时关闭占用最多的程序。"
+
+msgid "otros límites"
+msgstr "其他限制"
+
+msgid "en reposo"
+msgstr "空闲"
+
+msgid "límite de la placa"
+msgstr "板卡限制"
+
+msgid "freno de consumo de la placa"
+msgstr "板卡功耗制动"
+
+msgid "Ninguno: a la velocidad que pide"
+msgstr "无：按请求的速度运行"
+
+msgid "Activado: el procesador ve los {n} completos"
+msgstr "已启用：处理器可访问全部 {n}"
+
+msgid "Desactivado: el procesador ve {a} de {b}"
+msgstr "已禁用：处理器仅可访问 {b} 中的 {a}"
+
+msgid "punto más caliente"
+msgstr "热点"
+
+msgid "Acceso completo a la memoria de vídeo (Resizable BAR)"
+msgstr "完整访问显存（Resizable BAR）"
+
+msgid "Consumo"
+msgstr "功耗"
+
+msgid "límite {n} W"
+msgstr "上限 {n} W"
+
+msgid "Limitada ahora por"
+msgstr "当前限制因素"
+
+msgid "Nada: va a la velocidad que pide"
+msgstr "无：按请求的速度运行"
+
+msgid "NVIDIA (driver privativo): {n}"
+msgstr "NVIDIA（专有驱动）：{n}"
+
+msgid "Desde hoy"
+msgstr "从今天开始"
+
+msgid "Primera medición: la evolución se verá en los próximos días."
+msgstr "首次测量：变化趋势将在接下来几天显示。"
+
+msgid "A este ritmo, unos {n} años hasta el 100 % estimado"
+msgstr "按此速度，约 {n} 年达到 100 %（估计）"
+
+msgid "+{n} nuevos"
+msgstr "新增 {n} 个"
+
+msgid "Sin cambios"
+msgstr "无变化"
+
+msgid "+{n} errores nuevos"
+msgstr "新增 {n} 个错误"
+
+msgid "En el disco {model} han aparecido {n} sectores dañados nuevos desde el {fecha}."
+msgstr "自 {fecha} 以来，磁盘 {model} 新出现了 {n} 个坏扇区。"
+
+msgid "Que el número crezca indica que el disco se está deteriorando. Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
+msgstr "数量增加说明磁盘正在劣化。请立即将重要文件备份到另一块磁盘或云端，并咨询维修服务或制造商（如在保修期内）。"
+
+msgid "El SSD {model} ha registrado {n} errores de datos nuevos desde el {fecha}."
+msgstr "自 {fecha} 以来，SSD {model} 记录了 {n} 个新的数据错误。"
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
+msgstr "请立即将重要文件备份到另一块磁盘或云端，并咨询维修服务或制造商（如在保修期内）。"
+
+msgid "Evolución de la salud"
+msgstr "健康状况变化"
+
+msgid "Desde"
+msgstr "起始"
+
+msgid "Vida útil usada"
+msgstr "已用寿命"
+
+msgid "Horas de uso añadidas"
+msgstr "新增使用时间"
+
+msgid "Estimación"
+msgstr "估计"
+
+msgid "MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
+msgstr "MintMachine 每次打开时会在您的电脑上保存每天一次的测量值，并与第一次进行比较，从而看出磁盘是否开始劣化。数据不会离开您的电脑。"
+
+msgid "También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
+msgstr "您也可以通过软件管理器安装 earlyoom 软件包：它会及时关闭占用内存最多的程序，避免电脑卡死。"
+
+msgid "Estabilidad del procesador"
+msgstr "处理器稳定性"
+
+msgid "Probar la estabilidad…"
+msgstr "测试稳定性…"
+
+msgid "Pone a trabajar todos los núcleos al máximo con cálculos variados y comprueba que los resultados son correctos. Sirve para saber si el procesador es estable y si la refrigeración da abasto."
+msgstr "用各种计算让所有核心满负荷运行，并检查结果是否正确。可以了解处理器是否稳定、散热是否跟得上。"
+
+msgid "Rendimiento del procesador"
+msgstr "处理器性能"
+
+msgid "Medir el rendimiento…"
+msgstr "测量性能…"
+
+msgid "Mide cuánto rinde el procesador comprimiendo y descomprimiendo datos, primero con un solo núcleo y después con todos. Tarda unos dos o tres minutos. La puntuación sirve para comparar tu equipo consigo mismo con el tiempo (por ejemplo, antes y después de limpiarlo o de cambiar el perfil de energía)."
+msgstr "通过压缩和解压数据来测量处理器性能，先用一个核心，再用全部核心。大约需要两到三分钟。分数可用于将您的电脑与其自身随时间进行比较（例如清洁前后或更改电源配置前后）。"
+
+msgid "Probar la memoria…"
+msgstr "测试内存…"
+
+msgid "Escribe y comprueba patrones en la mitad de la memoria libre. Solo revisa la memoria que el sistema le deja usar: para una revisión completa, la prueba de memoria del menú de arranque (paquete memtest86+) es más fiable."
+msgstr "在一半空闲内存中写入并校验数据模式。它只能检查系统允许使用的内存：要进行完整检查，启动菜单中的内存测试（memtest86+ 软件包）更可靠。"
+
+msgid "Rendimiento de la gráfica"
+msgstr "显卡性能"
+
+msgid "Dibuja una serie de escenas 3D en una ventana y da una puntuación. Tarda unos cinco minutos. No toques la ventana de la prueba mientras dura."
+msgstr "在窗口中绘制一系列 3D 场景并给出分数。大约需要五分钟。测试期间请不要操作测试窗口。"
+
+msgid "Carga sostenida de la gráfica"
+msgstr "显卡持续负载"
+
+msgid "Probar la gráfica en carga…"
+msgstr "负载下测试显卡…"
+
+msgid "Mantiene la gráfica trabajando el tiempo que elijas para comprobar que es estable y que su refrigeración da abasto."
+msgstr "让显卡在您选择的时间内持续工作，以检查其是否稳定、散热是否跟得上。"
+
+msgid "Velocidad del disco"
+msgstr "磁盘速度"
+
+msgid "Medir la velocidad…"
+msgstr "测量速度…"
+
+msgid "Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la velocidad de escritura y de lectura del disco donde está tu carpeta personal. Escribir 1 GiB no desgasta el disco de forma apreciable."
+msgstr "在主文件夹中写入一个 1 GiB 的测试文件，读取后删除。测量主文件夹所在磁盘的写入和读取速度。写入 1 GiB 不会明显磨损磁盘。"
+
+msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
+msgstr "此测试将在您选择的时间内让电脑满负荷运行。温度和风扇噪音升高是正常的。如果温度过高或笔记本断开电源，MintMachine 会自动停止测试。开始前请保存您的工作。您可以随时停止。如果测试期间电脑关机或重启，请不要重复测试，并咨询维修服务。"
+
+msgid "La gráfica dedicada NVIDIA"
+msgstr "独立 NVIDIA 显卡"
+
+msgid "La gráfica dedicada"
+msgstr "独立显卡"
+
+msgid "un núcleo"
+msgstr "单核"
+
+msgid "todos los núcleos"
+msgstr "全部核心"
+
+msgid "El portátil está funcionando con la batería. Conéctalo a la corriente para hacer la prueba."
+msgstr "笔记本正在使用电池供电。请接通电源后再进行测试。"
+
+msgid "La batería está por debajo del 30 %. Déjala cargar un poco antes de hacer la prueba."
+msgstr "电池电量低于 30 %。请先充一会儿电再进行测试。"
+
+msgid "Hace falta tener al menos 3 GiB libres en tu carpeta personal."
+msgstr "主文件夹中至少需要 3 GiB 可用空间。"
+
+msgid "Esta prueba necesita el escritorio gráfico."
+msgstr "此测试需要图形桌面。"
+
+msgid "Superada"
+msgstr "通过"
+
+msgid "Con errores"
+msgstr "有错误"
+
+msgid "Detenida: el portátil se quedó sin corriente"
+msgstr "已停止：笔记本断开了电源"
+
+msgid "Detenida: tardaba demasiado"
+msgstr "已停止：耗时过长"
+
+msgid "Completada"
+msgstr "已完成"
+
+msgid "{a} puntos con un núcleo, {b} con todos ({n} hilos)"
+msgstr "单核 {a} 分，全部核心（{n} 线程）{b} 分"
+
+msgid "{n} puntos"
+msgstr "{n} 分"
+
+msgid "escritura {w}/s, lectura {r}/s"
+msgstr "写入 {w}/s，读取 {r}/s"
+
+msgid "{n} errores de cálculo"
+msgstr "{n} 个计算错误"
+
+msgid "{n} errores de hardware en el registro"
+msgstr "日志中有 {n} 个硬件错误"
+
+msgid "procesador hasta {n} °C"
+msgstr "处理器最高 {n} °C"
+
+msgid "gráfica hasta {n} °C"
+msgstr "显卡最高 {n} °C"
+
+msgid "{n} MHz de media al final"
+msgstr "结束时平均 {n} MHz"
+
+msgid "se frenó por calor {n} veces"
+msgstr "因过热降频 {n} 次"
+
+msgid "prueba ligera (sin el paquete stress-ng)"
+msgstr "轻量测试（未安装 stress-ng 软件包）"
+
+msgid "igual que tu media anterior"
+msgstr "与您之前的平均值相同"
+
+msgid "{n} % más que tu media anterior"
+msgstr "比您之前的平均值高 {n} %"
+
+msgid "{n} % menos que tu media anterior"
+msgstr "比您之前的平均值低 {n} %"
+
+msgid "{n} min"
+msgstr "{n} 分钟"
+
+msgid "Prueba"
+msgstr "测试"
+
+msgid "Resultado"
+msgstr "结果"
+
+msgid "Solo se hacen si pulsas el botón. Se guardan en tu equipo para poder comparar."
+msgstr "仅在您按下按钮时进行。结果保存在您的电脑上以便比较。"
+
+msgid "El ayudante no respondió."
+msgstr "辅助程序没有响应。"
+
+msgid "No se ha dado la contraseña: no se ha leído nada."
+msgstr "未输入密码：没有读取任何内容。"
+
+msgid "El ayudante no devolvió datos válidos."
+msgstr "辅助程序没有返回有效数据。"
+
+msgid "La placa no deja leer los datos del módulo (se leen vacíos)."
+msgstr "主板不允许读取内存条数据（读到的是空数据）。"
+
+msgid "Los datos del módulo no superan la comprobación de integridad."
+msgstr "内存条数据未通过完整性校验。"
+
+msgid "semana {w} de {y}"
+msgstr "{y} 年第 {w} 周"
+
+msgid "Tipo de memoria que MintMachine aún no sabe leer."
+msgstr "MintMachine 暂时无法读取的内存类型。"
+
+msgid "Frecuencia base (P0)"
+msgstr "基础频率（P0）"
+
+msgid "multiplicador ×{m}"
+msgstr "倍频 ×{m}"
+
+msgid "Estados de rendimiento"
+msgstr "性能状态"
+
+msgid "Frecuencia base"
+msgstr "基础频率"
+
+msgid "Frecuencia mínima"
+msgstr "最低频率"
+
+msgid "Turbo máximo con un núcleo"
+msgstr "单核最高睿频"
+
+msgid "Reloj de bus"
+msgstr "总线频率"
+
+msgid "100 MHz (el habitual en los procesadores actuales)"
+msgstr "100 MHz（当前处理器的常见值）"
+
+msgid "Registros internos"
+msgstr "内部寄存器"
+
+msgid "El sistema no deja leerlos ({e})."
+msgstr "系统不允许读取它们（{e}）。"
+
+msgid "perfil EXPO presente"
+msgstr "存在 EXPO 配置文件"
+
+msgid "Tu placa no publica los datos internos de los módulos de memoria para el sistema."
+msgstr "您的主板没有向系统提供内存条的内部数据。"
+
+msgid "Datos internos de los módulos (SPD)"
+msgstr "内存条内部数据（SPD）"
+
+msgid "Perfiles del fabricante (XMP)"
+msgstr "制造商配置文件（XMP）"
+
+msgid "Chips de memoria"
+msgstr "内存颗粒"
+
+msgid "Fabricado"
+msgstr "生产日期"
+
+msgid "Leído el {fecha} de los propios módulos. Los tiempos son CL-tRCD-tRP-tRAS en ciclos. Los perfiles del fabricante solo se usan si los activas en la BIOS."
+msgstr "于 {fecha} 从内存条本身读取。时序为 CL-tRCD-tRP-tRAS（周期）。制造商配置文件只有在 BIOS 中启用后才会使用。"
+
+msgid "Tu memoria funciona a {a} MT/s, la velocidad estándar. Sus perfiles de fábrica permiten {b} MT/s si los activas en la BIOS (XMP, EXPO o DOCP, según la marca). Es opcional: hazlo solo si sabes moverte por la BIOS."
+msgstr "您的内存以标准速度 {a} MT/s 运行。如果在 BIOS 中启用出厂配置文件（视品牌为 XMP、EXPO 或 DOCP），可以达到 {b} MT/s。这是可选的：只有在熟悉 BIOS 操作时才这样做。"
+
+msgid "Leído el {fecha} de los registros internos del procesador."
+msgstr "于 {fecha} 从处理器内部寄存器读取。"
+
+msgid "Pruebas voluntarias"
+msgstr "自愿测试"
+
+msgid "Solo se hacen si pulsas un botón. Puedes detenerlas cuando quieras."
+msgstr "仅在您按下按钮时进行。您可以随时停止。"
+
+msgid "Leer datos internos… (pide tu contraseña)"
+msgstr "读取内部数据…（需要密码）"
+
+msgid "Lee, sin cambiar nada, los datos que guardan los propios componentes: tiempos y perfiles de la memoria, multiplicadores y consumo del procesador."
+msgstr "在不做任何更改的情况下读取组件本身保存的数据：内存时序和配置文件、处理器倍频和功耗。"
+
+msgid "Esperando la contraseña…"
+msgstr "正在等待密码…"
+
+msgid "No se han leído los datos internos"
+msgstr "未读取内部数据"
+
+msgid "Datos internos leídos"
+msgstr "已读取内部数据"
+
+msgid "Instala el paquete {paquete} con el Gestor de software y vuelve a pulsar el botón."
+msgstr "请通过软件管理器安装 {paquete} 软件包，然后再次按下按钮。"
+
+msgid "Sin el paquete stress-ng se hará una prueba ligera, que detecta menos problemas. Para la prueba completa, instala stress-ng con el Gestor de software."
+msgstr "未安装 stress-ng 软件包时将进行轻量测试，能发现的问题较少。如需完整测试，请通过软件管理器安装 stress-ng。"
+
+msgid "Duración:"
+msgstr "时长："
+
+msgid "Gráfica que se prueba:"
+msgstr "要测试的显卡："
+
+msgid "No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la prueba por calor. Vigila el equipo mientras dura."
+msgstr "无法读取处理器温度，因此 MintMachine 无法因过热而停止测试。测试期间请留意电脑状况。"
+
+msgid "He leído el aviso y quiero hacer la prueba"
+msgstr "我已阅读警告并希望进行测试"
+
+msgid "Empezar"
+msgstr "开始"
+
+msgid "Prueba en marcha…"
+msgstr "测试进行中…"
+
+msgid "Uso del procesador"
+msgstr "处理器使用率"
+
+msgid "Detener"
+msgstr "停止"
+
+msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
+msgstr "温度达到 {n} °C，接近安全上限，MintMachine 已停止测试。请检查通风口是否被堵住，并在电脑周围留出空间。如果在通风良好的情况下仍然出现，请让维修服务检查散热。"
+
+msgid "La prueba ha encontrado errores. Guarda tu trabajo y, si el equipo se cuelga o se reinicia solo con frecuencia, consulta con un servicio técnico."
+msgstr "测试发现了错误。请保存您的工作；如果电脑经常卡死或自行重启，请咨询维修服务。"
+
+msgid "La utilidad de la prueba no terminó bien."
+msgstr "测试工具未能正常结束。"
+
+msgid "Cerrar"
+msgstr "关闭"
+
+msgid "se detiene a {n} °C"
+msgstr "{n} °C 时停止"
+
+msgid "Paso {a} de {b}: {c}"
+msgstr "第 {a} 步，共 {b} 步：{c}"
+
+msgid "quedan {n}"
+msgstr "剩余 {n}"
+
+msgid "lleva {n}"
+msgstr "已进行 {n}"
+
+msgid "Temperatura (°C)"
+msgstr "温度（°C）"
+
+msgid "Detenida por ti"
+msgstr "已由您停止"
+
+msgid "Detenida por temperatura alta"
+msgstr "因温度过高而停止"
+
+msgid "No se pudo completar"
+msgstr "无法完成"
+
+msgid "La que usa el sistema por defecto"
+msgstr "系统默认使用的显卡"
+
+msgid "No se puede escribir en tu carpeta personal."
+msgstr "无法写入您的主文件夹。"
+
+msgid "Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine."
+msgstr "缺少 MintMachine 辅助程序或 pkexec 工具。请重新安装 MintMachine。"
+
+msgid "Ya hay una prueba en marcha"
+msgstr "已有测试在进行"
+
+msgid "Espera a que termine o detenla antes de empezar otra."
+msgstr "请等待其完成或停止后再开始另一个。"
+
+msgid "Falta una utilidad para esta prueba"
+msgstr "此测试缺少一个工具"
+
+msgid "Bus"
+msgstr "总线"
+
+msgid "borde"
+msgstr "边缘"
+
+msgid "memoria"
+msgstr "显存"
+
+msgid "consumo"
+msgstr "功耗"
+
+msgid "corriente"
+msgstr "电流"
+
+msgid "temperatura"
+msgstr "温度"

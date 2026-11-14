@@ -4933,8 +4933,10 @@ def uninstall_cmd():
 
 
 def remove_user_data():
-    """Lo único que MintMachine guarda en la carpeta personal: su configuración."""
+    """Lo único que MintMachine guarda en la carpeta personal: su configuración, su historial y, si una
+    prueba de disco se cortó de golpe, su archivo temporal."""
     shutil.rmtree(os.path.dirname(CONFIG), ignore_errors=True)
+    shutil.rmtree(os.path.dirname(disk_test_file()), ignore_errors=True)
 
 
 def run_gui(anon=False, screenshot=None, start=None, delay=3500):

@@ -2597,3 +2597,477 @@ msgstr "Wi-Fi Qualcomm Atheros"
 
 msgid "Wi-Fi MediaTek"
 msgstr "Wi-Fi MediaTek"
+
+msgid "Gráfica Intel (integrada)"
+msgstr "Carte graphique Intel (intégrée)"
+
+msgid "Temperatura de la gráfica"
+msgstr "Température de la carte graphique"
+
+msgid "Consumo de la gráfica"
+msgstr "Consommation de la carte graphique"
+
+msgid "{valor} a las {hora}"
+msgstr "{valor} à {hora}"
+
+msgid "Programas que usan la gráfica"
+msgstr "Programmes qui utilisent la carte graphique"
+
+msgid "Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato lo da la utilidad nvidia-smi."
+msgstr "Seuls vos propres programmes apparaissent. Sur les cartes NVIDIA avec le pilote propriétaire, la donnée provient de l'utilitaire nvidia-smi."
+
+msgid "Máximos desde que abriste MintMachine"
+msgstr "Maximums depuis l'ouverture de MintMachine"
+
+msgid "Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
+msgstr "Laissez MintMachine ouvert pendant que vous jouez ou travaillez, puis regardez ici les valeurs les plus élevées atteintes."
+
+msgid "Protección ante falta de memoria"
+msgstr "Protection contre le manque de mémoire"
+
+msgid "Servicio activo"
+msgstr "Service actif"
+
+msgid "Sí: {n}"
+msgstr "Oui : {n}"
+
+msgid "Ninguno: si se acaba la memoria, el equipo puede quedarse congelado un rato antes de que el kernel cierre un programa"
+msgstr "Aucun : si la mémoire vient à manquer, l'ordinateur peut rester figé un moment avant que le noyau ne ferme un programme"
+
+msgid "Cuando la memoria se agota, un servicio de este tipo cierra a tiempo el programa que más ocupa, antes de que el equipo deje de responder."
+msgstr "Lorsque la mémoire est épuisée, un service de ce type ferme à temps le programme qui en utilise le plus, avant que l'ordinateur ne cesse de répondre."
+
+msgid "otros límites"
+msgstr "autres limites"
+
+msgid "en reposo"
+msgstr "au repos"
+
+msgid "límite de la placa"
+msgstr "limite de la carte"
+
+msgid "freno de consumo de la placa"
+msgstr "frein de consommation de la carte"
+
+msgid "Ninguno: a la velocidad que pide"
+msgstr "Aucun : à la vitesse demandée"
+
+msgid "Activado: el procesador ve los {n} completos"
+msgstr "Activé : le processeur voit les {n} entiers"
+
+msgid "Desactivado: el procesador ve {a} de {b}"
+msgstr "Désactivé : le processeur voit {a} sur {b}"
+
+msgid "punto más caliente"
+msgstr "point le plus chaud"
+
+msgid "Acceso completo a la memoria de vídeo (Resizable BAR)"
+msgstr "Accès complet à la mémoire vidéo (Resizable BAR)"
+
+msgid "Consumo"
+msgstr "Consommation"
+
+msgid "límite {n} W"
+msgstr "limite {n} W"
+
+msgid "Limitada ahora por"
+msgstr "Actuellement limitée par"
+
+msgid "Nada: va a la velocidad que pide"
+msgstr "Rien : elle tourne à la vitesse demandée"
+
+msgid "NVIDIA (driver privativo): {n}"
+msgstr "NVIDIA (pilote propriétaire) : {n}"
+
+msgid "Desde hoy"
+msgstr "Depuis aujourd'hui"
+
+msgid "Primera medición: la evolución se verá en los próximos días."
+msgstr "Première mesure : l'évolution apparaîtra dans les prochains jours."
+
+msgid "A este ritmo, unos {n} años hasta el 100 % estimado"
+msgstr "À ce rythme, environ {n} ans avant 100 % (estimation)"
+
+msgid "+{n} nuevos"
+msgstr "+{n} nouveaux"
+
+msgid "Sin cambios"
+msgstr "Aucun changement"
+
+msgid "+{n} errores nuevos"
+msgstr "+{n} nouvelles erreurs"
+
+msgid "En el disco {model} han aparecido {n} sectores dañados nuevos desde el {fecha}."
+msgstr "{n} nouveaux secteurs défectueux sont apparus sur le disque {model} depuis le {fecha}."
+
+msgid "Que el número crezca indica que el disco se está deteriorando. Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
+msgstr "Un nombre qui augmente indique que le disque se détériore. Sauvegardez dès maintenant vos fichiers importants sur un autre disque ou dans le cloud et consultez un service technique ou le fabricant (s'il est sous garantie)."
+
+msgid "El SSD {model} ha registrado {n} errores de datos nuevos desde el {fecha}."
+msgstr "Le SSD {model} a enregistré {n} nouvelles erreurs de données depuis le {fecha}."
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
+msgstr "Sauvegardez dès maintenant vos fichiers importants sur un autre disque ou dans le cloud et consultez un service technique ou le fabricant (s'il est sous garantie)."
+
+msgid "Evolución de la salud"
+msgstr "Évolution de la santé"
+
+msgid "Desde"
+msgstr "Depuis"
+
+msgid "Vida útil usada"
+msgstr "Durée de vie utilisée"
+
+msgid "Horas de uso añadidas"
+msgstr "Heures d'utilisation ajoutées"
+
+msgid "Estimación"
+msgstr "Estimation"
+
+msgid "MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
+msgstr "MintMachine enregistre sur votre ordinateur une mesure par jour à chaque ouverture et la compare à la première. On voit ainsi si un disque commence à se détériorer. Elle ne quitte jamais votre ordinateur."
+
+msgid "También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
+msgstr "Vous pouvez aussi installer le paquet earlyoom avec le Gestionnaire de logiciels : il ferme à temps le programme qui utilise le plus de mémoire et évite que l'ordinateur se fige."
+
+msgid "Estabilidad del procesador"
+msgstr "Stabilité du processeur"
+
+msgid "Probar la estabilidad…"
+msgstr "Tester la stabilité…"
+
+msgid "Pone a trabajar todos los núcleos al máximo con cálculos variados y comprueba que los resultados son correctos. Sirve para saber si el procesador es estable y si la refrigeración da abasto."
+msgstr "Fait travailler tous les cœurs au maximum avec des calculs variés et vérifie que les résultats sont corrects. Cela permet de savoir si le processeur est stable et si le refroidissement suit."
+
+msgid "Rendimiento del procesador"
+msgstr "Performances du processeur"
+
+msgid "Medir el rendimiento…"
+msgstr "Mesurer les performances…"
+
+msgid "Mide cuánto rinde el procesador comprimiendo y descomprimiendo datos, primero con un solo núcleo y después con todos. Tarda unos dos o tres minutos. La puntuación sirve para comparar tu equipo consigo mismo con el tiempo (por ejemplo, antes y después de limpiarlo o de cambiar el perfil de energía)."
+msgstr "Mesure la vitesse du processeur pour compresser et décompresser des données, d'abord avec un seul cœur puis avec tous. Cela prend environ deux ou trois minutes. Le score permet de comparer votre ordinateur avec lui-même dans le temps (par exemple avant et après un nettoyage ou un changement de profil d'énergie)."
+
+msgid "Probar la memoria…"
+msgstr "Tester la mémoire…"
+
+msgid "Escribe y comprueba patrones en la mitad de la memoria libre. Solo revisa la memoria que el sistema le deja usar: para una revisión completa, la prueba de memoria del menú de arranque (paquete memtest86+) es más fiable."
+msgstr "Écrit et vérifie des motifs dans la moitié de la mémoire libre. Il ne vérifie que la mémoire que le système lui laisse utiliser : pour une vérification complète, le test de mémoire du menu de démarrage (paquet memtest86+) est plus fiable."
+
+msgid "Rendimiento de la gráfica"
+msgstr "Performances graphiques"
+
+msgid "Dibuja una serie de escenas 3D en una ventana y da una puntuación. Tarda unos cinco minutos. No toques la ventana de la prueba mientras dura."
+msgstr "Dessine une série de scènes 3D dans une fenêtre et donne un score. Cela prend environ cinq minutes. Ne touchez pas à la fenêtre du test pendant qu'il tourne."
+
+msgid "Carga sostenida de la gráfica"
+msgstr "Charge graphique prolongée"
+
+msgid "Probar la gráfica en carga…"
+msgstr "Tester la carte graphique en charge…"
+
+msgid "Mantiene la gráfica trabajando el tiempo que elijas para comprobar que es estable y que su refrigeración da abasto."
+msgstr "Fait travailler la carte graphique pendant la durée choisie pour vérifier qu'elle est stable et que son refroidissement suit."
+
+msgid "Velocidad del disco"
+msgstr "Vitesse du disque"
+
+msgid "Medir la velocidad…"
+msgstr "Mesurer la vitesse…"
+
+msgid "Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la velocidad de escritura y de lectura del disco donde está tu carpeta personal. Escribir 1 GiB no desgasta el disco de forma apreciable."
+msgstr "Écrit un fichier de test de 1 Gio dans votre dossier personnel, le lit puis le supprime. Mesure la vitesse d'écriture et de lecture du disque qui contient votre dossier personnel. Écrire 1 Gio n'use pas le disque de façon notable."
+
+msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
+msgstr "Ce test fera travailler l'ordinateur au maximum pendant la durée choisie. Il est normal que la température et le bruit des ventilateurs augmentent. MintMachine l'arrêtera tout seul si la température monte trop ou si le portable est débranché. Enregistrez votre travail avant de commencer. Vous pouvez l'arrêter à tout moment. Si l'ordinateur s'éteint ou redémarre pendant le test, ne le refaites pas et consultez un service technique."
+
+msgid "La gráfica dedicada NVIDIA"
+msgstr "La carte graphique dédiée NVIDIA"
+
+msgid "La gráfica dedicada"
+msgstr "La carte graphique dédiée"
+
+msgid "un núcleo"
+msgstr "un cœur"
+
+msgid "todos los núcleos"
+msgstr "tous les cœurs"
+
+msgid "El portátil está funcionando con la batería. Conéctalo a la corriente para hacer la prueba."
+msgstr "Le portable fonctionne sur batterie. Branchez-le pour faire le test."
+
+msgid "La batería está por debajo del 30 %. Déjala cargar un poco antes de hacer la prueba."
+msgstr "La batterie est en dessous de 30 %. Laissez-la charger un peu avant de faire le test."
+
+msgid "Hace falta tener al menos 3 GiB libres en tu carpeta personal."
+msgstr "Il faut au moins 3 Gio libres dans votre dossier personnel."
+
+msgid "Esta prueba necesita el escritorio gráfico."
+msgstr "Ce test a besoin du bureau graphique."
+
+msgid "Superada"
+msgstr "Réussi"
+
+msgid "Con errores"
+msgstr "Avec des erreurs"
+
+msgid "Detenida: el portátil se quedó sin corriente"
+msgstr "Arrêté : le portable a été débranché"
+
+msgid "Detenida: tardaba demasiado"
+msgstr "Arrêté : il prenait trop de temps"
+
+msgid "Completada"
+msgstr "Terminé"
+
+msgid "{a} puntos con un núcleo, {b} con todos ({n} hilos)"
+msgstr "{a} points avec un cœur, {b} avec tous ({n} threads)"
+
+msgid "{n} puntos"
+msgstr "{n} points"
+
+msgid "escritura {w}/s, lectura {r}/s"
+msgstr "écriture {w}/s, lecture {r}/s"
+
+msgid "{n} errores de cálculo"
+msgstr "{n} erreurs de calcul"
+
+msgid "{n} errores de hardware en el registro"
+msgstr "{n} erreurs matérielles dans le journal"
+
+msgid "procesador hasta {n} °C"
+msgstr "processeur jusqu'à {n} °C"
+
+msgid "gráfica hasta {n} °C"
+msgstr "carte graphique jusqu'à {n} °C"
+
+msgid "{n} MHz de media al final"
+msgstr "{n} MHz en moyenne à la fin"
+
+msgid "se frenó por calor {n} veces"
+msgstr "ralenti par la chaleur {n} fois"
+
+msgid "prueba ligera (sin el paquete stress-ng)"
+msgstr "test léger (sans le paquet stress-ng)"
+
+msgid "igual que tu media anterior"
+msgstr "comme votre moyenne précédente"
+
+msgid "{n} % más que tu media anterior"
+msgstr "{n} % de plus que votre moyenne précédente"
+
+msgid "{n} % menos que tu media anterior"
+msgstr "{n} % de moins que votre moyenne précédente"
+
+msgid "{n} min"
+msgstr "{n} min"
+
+msgid "Prueba"
+msgstr "Test"
+
+msgid "Resultado"
+msgstr "Résultat"
+
+msgid "Solo se hacen si pulsas el botón. Se guardan en tu equipo para poder comparar."
+msgstr "Ils ne se font que si vous appuyez sur le bouton. Ils sont enregistrés sur votre ordinateur pour pouvoir comparer."
+
+msgid "El ayudante no respondió."
+msgstr "L'assistant n'a pas répondu."
+
+msgid "No se ha dado la contraseña: no se ha leído nada."
+msgstr "Aucun mot de passe n'a été donné : rien n'a été lu."
+
+msgid "El ayudante no devolvió datos válidos."
+msgstr "L'assistant n'a pas renvoyé de données valides."
+
+msgid "La placa no deja leer los datos del módulo (se leen vacíos)."
+msgstr "La carte mère ne permet pas de lire les données de la barrette (elles sont vides)."
+
+msgid "Los datos del módulo no superan la comprobación de integridad."
+msgstr "Les données de la barrette ne passent pas le contrôle d'intégrité."
+
+msgid "semana {w} de {y}"
+msgstr "semaine {w} de {y}"
+
+msgid "Tipo de memoria que MintMachine aún no sabe leer."
+msgstr "Type de mémoire que MintMachine ne sait pas encore lire."
+
+msgid "Frecuencia base (P0)"
+msgstr "Fréquence de base (P0)"
+
+msgid "multiplicador ×{m}"
+msgstr "multiplicateur ×{m}"
+
+msgid "Estados de rendimiento"
+msgstr "États de performance"
+
+msgid "Frecuencia base"
+msgstr "Fréquence de base"
+
+msgid "Frecuencia mínima"
+msgstr "Fréquence minimale"
+
+msgid "Turbo máximo con un núcleo"
+msgstr "Turbo maximal sur un cœur"
+
+msgid "Reloj de bus"
+msgstr "Horloge du bus"
+
+msgid "100 MHz (el habitual en los procesadores actuales)"
+msgstr "100 MHz (l'habituelle sur les processeurs actuels)"
+
+msgid "Registros internos"
+msgstr "Registres internes"
+
+msgid "El sistema no deja leerlos ({e})."
+msgstr "Le système ne permet pas de les lire ({e})."
+
+msgid "perfil EXPO presente"
+msgstr "profil EXPO présent"
+
+msgid "Tu placa no publica los datos internos de los módulos de memoria para el sistema."
+msgstr "Votre carte mère ne publie pas les données internes des barrettes de mémoire pour le système."
+
+msgid "Datos internos de los módulos (SPD)"
+msgstr "Données internes des barrettes (SPD)"
+
+msgid "Perfiles del fabricante (XMP)"
+msgstr "Profils du fabricant (XMP)"
+
+msgid "Chips de memoria"
+msgstr "Puces de mémoire"
+
+msgid "Fabricado"
+msgstr "Fabriqué"
+
+msgid "Leído el {fecha} de los propios módulos. Los tiempos son CL-tRCD-tRP-tRAS en ciclos. Los perfiles del fabricante solo se usan si los activas en la BIOS."
+msgstr "Lu le {fecha} dans les barrettes elles-mêmes. Les timings sont CL-tRCD-tRP-tRAS en cycles. Les profils du fabricant ne sont utilisés que si vous les activez dans le BIOS."
+
+msgid "Tu memoria funciona a {a} MT/s, la velocidad estándar. Sus perfiles de fábrica permiten {b} MT/s si los activas en la BIOS (XMP, EXPO o DOCP, según la marca). Es opcional: hazlo solo si sabes moverte por la BIOS."
+msgstr "Votre mémoire fonctionne à {a} MT/s, la vitesse standard. Ses profils d'usine permettent {b} MT/s si vous les activez dans le BIOS (XMP, EXPO ou DOCP, selon la marque). C'est facultatif : ne le faites que si vous savez vous servir du BIOS."
+
+msgid "Leído el {fecha} de los registros internos del procesador."
+msgstr "Lu le {fecha} dans les registres internes du processeur."
+
+msgid "Pruebas voluntarias"
+msgstr "Tests volontaires"
+
+msgid "Solo se hacen si pulsas un botón. Puedes detenerlas cuando quieras."
+msgstr "Ils ne se font que si vous appuyez sur un bouton. Vous pouvez les arrêter quand vous voulez."
+
+msgid "Leer datos internos… (pide tu contraseña)"
+msgstr "Lire les données internes… (demande votre mot de passe)"
+
+msgid "Lee, sin cambiar nada, los datos que guardan los propios componentes: tiempos y perfiles de la memoria, multiplicadores y consumo del procesador."
+msgstr "Lit, sans rien modifier, les données enregistrées dans les composants eux-mêmes : timings et profils de la mémoire, multiplicateurs et consommation du processeur."
+
+msgid "Esperando la contraseña…"
+msgstr "En attente du mot de passe…"
+
+msgid "No se han leído los datos internos"
+msgstr "Les données internes n'ont pas été lues"
+
+msgid "Datos internos leídos"
+msgstr "Données internes lues"
+
+msgid "Instala el paquete {paquete} con el Gestor de software y vuelve a pulsar el botón."
+msgstr "Installez le paquet {paquete} avec le Gestionnaire de logiciels et appuyez de nouveau sur le bouton."
+
+msgid "Sin el paquete stress-ng se hará una prueba ligera, que detecta menos problemas. Para la prueba completa, instala stress-ng con el Gestor de software."
+msgstr "Sans le paquet stress-ng, un test léger sera effectué, qui détecte moins de problèmes. Pour le test complet, installez stress-ng avec le Gestionnaire de logiciels."
+
+msgid "Duración:"
+msgstr "Durée :"
+
+msgid "Gráfica que se prueba:"
+msgstr "Carte graphique à tester :"
+
+msgid "No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la prueba por calor. Vigila el equipo mientras dura."
+msgstr "La température du processeur ne peut pas être lue, MintMachine ne pourra donc pas arrêter le test à cause de la chaleur. Surveillez l'ordinateur pendant le test."
+
+msgid "He leído el aviso y quiero hacer la prueba"
+msgstr "J'ai lu l'avertissement et je veux faire le test"
+
+msgid "Empezar"
+msgstr "Démarrer"
+
+msgid "Prueba en marcha…"
+msgstr "Test en cours…"
+
+msgid "Uso del procesador"
+msgstr "Utilisation du processeur"
+
+msgid "Detener"
+msgstr "Arrêter"
+
+msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
+msgstr "La température a atteint {n} °C, près du maximum sûr, et MintMachine a arrêté le test. Vérifiez que les grilles d'aération ne sont pas obstruées et laissez de l'espace libre autour de l'ordinateur. Si cela se reproduit avec un ordinateur bien ventilé, faites vérifier le refroidissement par un service technique."
+
+msgid "La prueba ha encontrado errores. Guarda tu trabajo y, si el equipo se cuelga o se reinicia solo con frecuencia, consulta con un servicio técnico."
+msgstr "Le test a trouvé des erreurs. Enregistrez votre travail et, si l'ordinateur se bloque ou redémarre souvent tout seul, consultez un service technique."
+
+msgid "La utilidad de la prueba no terminó bien."
+msgstr "L'utilitaire du test ne s'est pas terminé correctement."
+
+msgid "Cerrar"
+msgstr "Fermer"
+
+msgid "se detiene a {n} °C"
+msgstr "s'arrête à {n} °C"
+
+msgid "Paso {a} de {b}: {c}"
+msgstr "Étape {a} sur {b} : {c}"
+
+msgid "quedan {n}"
+msgstr "reste {n}"
+
+msgid "lleva {n}"
+msgstr "depuis {n}"
+
+msgid "Temperatura (°C)"
+msgstr "Température (°C)"
+
+msgid "Detenida por ti"
+msgstr "Arrêté par vous"
+
+msgid "Detenida por temperatura alta"
+msgstr "Arrêté à cause d'une température élevée"
+
+msgid "No se pudo completar"
+msgstr "N'a pas pu être terminé"
+
+msgid "La que usa el sistema por defecto"
+msgstr "Celle que le système utilise par défaut"
+
+msgid "No se puede escribir en tu carpeta personal."
+msgstr "Impossible d'écrire dans votre dossier personnel."
+
+msgid "Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine."
+msgstr "L'assistant de MintMachine ou l'utilitaire pkexec est absent. Réinstallez MintMachine."
+
+msgid "Ya hay una prueba en marcha"
+msgstr "Un test est déjà en cours"
+
+msgid "Espera a que termine o detenla antes de empezar otra."
+msgstr "Attendez qu'il se termine ou arrêtez-le avant d'en commencer un autre."
+
+msgid "Falta una utilidad para esta prueba"
+msgstr "Il manque un utilitaire pour ce test"
+
+msgid "Bus"
+msgstr "Bus"
+
+msgid "borde"
+msgstr "bord"
+
+msgid "memoria"
+msgstr "mémoire"
+
+msgid "consumo"
+msgstr "consommation"
+
+msgid "corriente"
+msgstr "courant"
+
+msgid "temperatura"
+msgstr "température"

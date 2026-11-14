@@ -2597,3 +2597,477 @@ msgstr "Qualcomm Atheros Wi-Fi"
 
 msgid "Wi-Fi MediaTek"
 msgstr "MediaTek Wi-Fi"
+
+msgid "Gráfica Intel (integrada)"
+msgstr "Intel グラフィックス（内蔵）"
+
+msgid "Temperatura de la gráfica"
+msgstr "グラフィックスの温度"
+
+msgid "Consumo de la gráfica"
+msgstr "グラフィックスの消費電力"
+
+msgid "{valor} a las {hora}"
+msgstr "{hora} に {valor}"
+
+msgid "Programas que usan la gráfica"
+msgstr "グラフィックスを使用しているプログラム"
+
+msgid "Solo aparecen tus propios programas. En las gráficas NVIDIA con el driver privativo, el dato lo da la utilidad nvidia-smi."
+msgstr "表示されるのは自分のプログラムだけです。プロプライエタリドライバーを使う NVIDIA グラフィックスでは、データは nvidia-smi ユーティリティから取得します。"
+
+msgid "Máximos desde que abriste MintMachine"
+msgstr "MintMachine を開いてからの最大値"
+
+msgid "Deja MintMachine abierto mientras juegas o trabajas y mira aquí después lo más alto que se ha alcanzado."
+msgstr "ゲームや作業の間 MintMachine を開いたままにしておき、後でここで到達した最大値を確認してください。"
+
+msgid "Protección ante falta de memoria"
+msgstr "メモリ不足に対する保護"
+
+msgid "Servicio activo"
+msgstr "動作中のサービス"
+
+msgid "Sí: {n}"
+msgstr "はい: {n}"
+
+msgid "Ninguno: si se acaba la memoria, el equipo puede quedarse congelado un rato antes de que el kernel cierre un programa"
+msgstr "なし: メモリが不足すると、カーネルがプログラムを終了するまでしばらくコンピューターが固まることがあります"
+
+msgid "Cuando la memoria se agota, un servicio de este tipo cierra a tiempo el programa que más ocupa, antes de que el equipo deje de responder."
+msgstr "メモリが不足したとき、この種のサービスはコンピューターが応答しなくなる前に、最も多く使っているプログラムを早めに終了します。"
+
+msgid "otros límites"
+msgstr "その他の制限"
+
+msgid "en reposo"
+msgstr "アイドル"
+
+msgid "límite de la placa"
+msgstr "ボードの制限"
+
+msgid "freno de consumo de la placa"
+msgstr "ボードの電力ブレーキ"
+
+msgid "Ninguno: a la velocidad que pide"
+msgstr "なし: 要求どおりの速度"
+
+msgid "Activado: el procesador ve los {n} completos"
+msgstr "有効: プロセッサーは {n} すべてにアクセスできます"
+
+msgid "Desactivado: el procesador ve {a} de {b}"
+msgstr "無効: プロセッサーが見えるのは {b} のうち {a}"
+
+msgid "punto más caliente"
+msgstr "ホットスポット"
+
+msgid "Acceso completo a la memoria de vídeo (Resizable BAR)"
+msgstr "ビデオメモリへのフルアクセス（Resizable BAR）"
+
+msgid "Consumo"
+msgstr "消費電力"
+
+msgid "límite {n} W"
+msgstr "上限 {n} W"
+
+msgid "Limitada ahora por"
+msgstr "現在の制限要因"
+
+msgid "Nada: va a la velocidad que pide"
+msgstr "なし: 要求どおりの速度で動作しています"
+
+msgid "NVIDIA (driver privativo): {n}"
+msgstr "NVIDIA（プロプライエタリドライバー）: {n}"
+
+msgid "Desde hoy"
+msgstr "今日から"
+
+msgid "Primera medición: la evolución se verá en los próximos días."
+msgstr "初回の測定です。推移は数日後から表示されます。"
+
+msgid "A este ritmo, unos {n} años hasta el 100 % estimado"
+msgstr "このペースでは 100 % まで約 {n} 年（推定）"
+
+msgid "+{n} nuevos"
+msgstr "+{n} 件増加"
+
+msgid "Sin cambios"
+msgstr "変化なし"
+
+msgid "+{n} errores nuevos"
+msgstr "+{n} 件の新しいエラー"
+
+msgid "En el disco {model} han aparecido {n} sectores dañados nuevos desde el {fecha}."
+msgstr "{fecha} 以降、ディスク {model} に新しい不良セクターが {n} 個発生しました。"
+
+msgid "Que el número crezca indica que el disco se está deteriorando. Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
+msgstr "数が増えているのはディスクが劣化しているしるしです。今すぐ大切なファイルを別のディスクかクラウドにバックアップし、修理サービスまたはメーカー（保証期間内の場合）に相談してください。"
+
+msgid "El SSD {model} ha registrado {n} errores de datos nuevos desde el {fecha}."
+msgstr "{fecha} 以降、SSD {model} に新しいデータエラーが {n} 件記録されました。"
+
+msgid "Haz ya una copia de seguridad de tus archivos importantes en otro disco o en la nube y consulta con un servicio técnico o con el fabricante (si está en garantía)."
+msgstr "今すぐ大切なファイルを別のディスクかクラウドにバックアップし、修理サービスまたはメーカー（保証期間内の場合）に相談してください。"
+
+msgid "Evolución de la salud"
+msgstr "健康状態の推移"
+
+msgid "Desde"
+msgstr "開始日"
+
+msgid "Vida útil usada"
+msgstr "使用済み寿命"
+
+msgid "Horas de uso añadidas"
+msgstr "追加された使用時間"
+
+msgid "Estimación"
+msgstr "推定"
+
+msgid "MintMachine guarda en tu equipo una medición al día cada vez que lo abres y la compara con la primera. Así se ve si un disco empieza a deteriorarse. No sale de tu equipo."
+msgstr "MintMachine は開くたびに 1 日 1 回の測定値をコンピューターに保存し、最初の値と比較します。これでディスクが劣化し始めているかどうかがわかります。データがコンピューターの外に出ることはありません。"
+
+msgid "También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el programa que más memoria usa y evita que el equipo se quede congelado."
+msgstr "ソフトウェアマネージャーで earlyoom パッケージをインストールすることもできます。最もメモリを使っているプログラムを早めに終了し、コンピューターが固まるのを防ぎます。"
+
+msgid "Estabilidad del procesador"
+msgstr "プロセッサーの安定性"
+
+msgid "Probar la estabilidad…"
+msgstr "安定性をテスト…"
+
+msgid "Pone a trabajar todos los núcleos al máximo con cálculos variados y comprueba que los resultados son correctos. Sirve para saber si el procesador es estable y si la refrigeración da abasto."
+msgstr "さまざまな計算ですべてのコアを最大負荷で動かし、結果が正しいかを確認します。プロセッサーが安定しているか、冷却が十分かがわかります。"
+
+msgid "Rendimiento del procesador"
+msgstr "プロセッサーの性能"
+
+msgid "Medir el rendimiento…"
+msgstr "性能を測定…"
+
+msgid "Mide cuánto rinde el procesador comprimiendo y descomprimiendo datos, primero con un solo núcleo y después con todos. Tarda unos dos o tres minutos. La puntuación sirve para comparar tu equipo consigo mismo con el tiempo (por ejemplo, antes y después de limpiarlo o de cambiar el perfil de energía)."
+msgstr "データの圧縮と展開でプロセッサーの性能を測定します。最初は 1 コア、次にすべてのコアで行います。所要時間は 2〜3 分です。スコアは、同じコンピューターの経時比較に使えます（たとえば清掃や電源プロファイル変更の前後）。"
+
+msgid "Probar la memoria…"
+msgstr "メモリをテスト…"
+
+msgid "Escribe y comprueba patrones en la mitad de la memoria libre. Solo revisa la memoria que el sistema le deja usar: para una revisión completa, la prueba de memoria del menú de arranque (paquete memtest86+) es más fiable."
+msgstr "空きメモリの半分にパターンを書き込んで確認します。システムが使わせてくれるメモリしか確認できません。完全に確認するには、起動メニューのメモリテスト（memtest86+ パッケージ）のほうが確実です。"
+
+msgid "Rendimiento de la gráfica"
+msgstr "グラフィックスの性能"
+
+msgid "Dibuja una serie de escenas 3D en una ventana y da una puntuación. Tarda unos cinco minutos. No toques la ventana de la prueba mientras dura."
+msgstr "ウィンドウ内で一連の 3D シーンを描画し、スコアを出します。所要時間は約 5 分です。実行中はテストのウィンドウに触れないでください。"
+
+msgid "Carga sostenida de la gráfica"
+msgstr "グラフィックスの持続負荷"
+
+msgid "Probar la gráfica en carga…"
+msgstr "負荷をかけてテスト…"
+
+msgid "Mantiene la gráfica trabajando el tiempo que elijas para comprobar que es estable y que su refrigeración da abasto."
+msgstr "選んだ時間だけグラフィックスを動かし続け、安定しているか、冷却が十分かを確認します。"
+
+msgid "Velocidad del disco"
+msgstr "ディスクの速度"
+
+msgid "Medir la velocidad…"
+msgstr "速度を測定…"
+
+msgid "Escribe un archivo de prueba de 1 GiB en tu carpeta personal, lo lee y lo borra. Mide la velocidad de escritura y de lectura del disco donde está tu carpeta personal. Escribir 1 GiB no desgasta el disco de forma apreciable."
+msgstr "ホームフォルダーに 1 GiB のテストファイルを書き込み、読み取ってから削除します。ホームフォルダーがあるディスクの書き込み速度と読み取り速度を測定します。1 GiB の書き込みでディスクが目に見えて消耗することはありません。"
+
+msgid "Esta prueba hará trabajar el equipo al máximo durante el tiempo elegido. Es normal que suba la temperatura y el ruido de los ventiladores. MintMachine la detendrá sola si la temperatura sube demasiado o si el portátil se desconecta de la corriente. Guarda tu trabajo antes de empezar. Puedes detenerla en cualquier momento. Si el equipo se apaga o se reinicia durante la prueba, no la repitas y consulta con un servicio técnico."
+msgstr "このテストは選んだ時間のあいだ、コンピューターを最大負荷で動かします。温度やファンの音が上がるのは正常です。温度が高くなりすぎたり、ノートパソコンの電源が外れたりすると、MintMachine が自動的に停止します。開始前に作業を保存してください。いつでも停止できます。テスト中にコンピューターの電源が切れたり再起動したりした場合は、繰り返さずに修理サービスに相談してください。"
+
+msgid "La gráfica dedicada NVIDIA"
+msgstr "専用の NVIDIA グラフィックス"
+
+msgid "La gráfica dedicada"
+msgstr "専用グラフィックス"
+
+msgid "un núcleo"
+msgstr "1 コア"
+
+msgid "todos los núcleos"
+msgstr "全コア"
+
+msgid "El portátil está funcionando con la batería. Conéctalo a la corriente para hacer la prueba."
+msgstr "ノートパソコンがバッテリーで動作しています。テストするには電源につないでください。"
+
+msgid "La batería está por debajo del 30 %. Déjala cargar un poco antes de hacer la prueba."
+msgstr "バッテリー残量が 30 % 未満です。テストの前に少し充電してください。"
+
+msgid "Hace falta tener al menos 3 GiB libres en tu carpeta personal."
+msgstr "ホームフォルダーに 3 GiB 以上の空きが必要です。"
+
+msgid "Esta prueba necesita el escritorio gráfico."
+msgstr "このテストにはグラフィカルなデスクトップが必要です。"
+
+msgid "Superada"
+msgstr "合格"
+
+msgid "Con errores"
+msgstr "エラーあり"
+
+msgid "Detenida: el portátil se quedó sin corriente"
+msgstr "停止: ノートパソコンの電源が外れました"
+
+msgid "Detenida: tardaba demasiado"
+msgstr "停止: 時間がかかりすぎました"
+
+msgid "Completada"
+msgstr "完了"
+
+msgid "{a} puntos con un núcleo, {b} con todos ({n} hilos)"
+msgstr "1 コアで {a} ポイント、全コア（{n} スレッド）で {b}"
+
+msgid "{n} puntos"
+msgstr "{n} ポイント"
+
+msgid "escritura {w}/s, lectura {r}/s"
+msgstr "書き込み {w}/s、読み取り {r}/s"
+
+msgid "{n} errores de cálculo"
+msgstr "計算エラー {n} 件"
+
+msgid "{n} errores de hardware en el registro"
+msgstr "ログにハードウェアエラー {n} 件"
+
+msgid "procesador hasta {n} °C"
+msgstr "プロセッサー最高 {n} °C"
+
+msgid "gráfica hasta {n} °C"
+msgstr "グラフィックス最高 {n} °C"
+
+msgid "{n} MHz de media al final"
+msgstr "終盤の平均 {n} MHz"
+
+msgid "se frenó por calor {n} veces"
+msgstr "熱による減速 {n} 回"
+
+msgid "prueba ligera (sin el paquete stress-ng)"
+msgstr "簡易テスト（stress-ng パッケージなし）"
+
+msgid "igual que tu media anterior"
+msgstr "以前の平均と同じ"
+
+msgid "{n} % más que tu media anterior"
+msgstr "以前の平均より {n} % 高い"
+
+msgid "{n} % menos que tu media anterior"
+msgstr "以前の平均より {n} % 低い"
+
+msgid "{n} min"
+msgstr "{n} 分"
+
+msgid "Prueba"
+msgstr "テスト"
+
+msgid "Resultado"
+msgstr "結果"
+
+msgid "Solo se hacen si pulsas el botón. Se guardan en tu equipo para poder comparar."
+msgstr "ボタンを押したときだけ実行されます。比較できるようにコンピューターに保存されます。"
+
+msgid "El ayudante no respondió."
+msgstr "ヘルパーが応答しませんでした。"
+
+msgid "No se ha dado la contraseña: no se ha leído nada."
+msgstr "パスワードが入力されなかったため、何も読み取っていません。"
+
+msgid "El ayudante no devolvió datos válidos."
+msgstr "ヘルパーが有効なデータを返しませんでした。"
+
+msgid "La placa no deja leer los datos del módulo (se leen vacíos)."
+msgstr "マザーボードがモジュールのデータの読み取りを許可していません（空として読み取られます）。"
+
+msgid "Los datos del módulo no superan la comprobación de integridad."
+msgstr "モジュールのデータが整合性チェックに合格しません。"
+
+msgid "semana {w} de {y}"
+msgstr "{y} 年第 {w} 週"
+
+msgid "Tipo de memoria que MintMachine aún no sabe leer."
+msgstr "MintMachine がまだ読み取れないメモリの種類です。"
+
+msgid "Frecuencia base (P0)"
+msgstr "ベース周波数（P0）"
+
+msgid "multiplicador ×{m}"
+msgstr "倍率 ×{m}"
+
+msgid "Estados de rendimiento"
+msgstr "パフォーマンスステート"
+
+msgid "Frecuencia base"
+msgstr "ベース周波数"
+
+msgid "Frecuencia mínima"
+msgstr "最小周波数"
+
+msgid "Turbo máximo con un núcleo"
+msgstr "1 コア時の最大ターボ"
+
+msgid "Reloj de bus"
+msgstr "バスクロック"
+
+msgid "100 MHz (el habitual en los procesadores actuales)"
+msgstr "100 MHz（現在のプロセッサーで一般的な値）"
+
+msgid "Registros internos"
+msgstr "内部レジスター"
+
+msgid "El sistema no deja leerlos ({e})."
+msgstr "システムが読み取りを許可していません（{e}）。"
+
+msgid "perfil EXPO presente"
+msgstr "EXPO プロファイルあり"
+
+msgid "Tu placa no publica los datos internos de los módulos de memoria para el sistema."
+msgstr "お使いのマザーボードは、メモリモジュールの内部データをシステムに公開していません。"
+
+msgid "Datos internos de los módulos (SPD)"
+msgstr "モジュールの内部データ（SPD）"
+
+msgid "Perfiles del fabricante (XMP)"
+msgstr "メーカープロファイル（XMP）"
+
+msgid "Chips de memoria"
+msgstr "メモリチップ"
+
+msgid "Fabricado"
+msgstr "製造"
+
+msgid "Leído el {fecha} de los propios módulos. Los tiempos son CL-tRCD-tRP-tRAS en ciclos. Los perfiles del fabricante solo se usan si los activas en la BIOS."
+msgstr "{fecha} にモジュール自体から読み取りました。タイミングは CL-tRCD-tRP-tRAS（サイクル）です。メーカープロファイルは BIOS で有効にした場合にのみ使われます。"
+
+msgid "Tu memoria funciona a {a} MT/s, la velocidad estándar. Sus perfiles de fábrica permiten {b} MT/s si los activas en la BIOS (XMP, EXPO o DOCP, según la marca). Es opcional: hazlo solo si sabes moverte por la BIOS."
+msgstr "メモリは標準速度の {a} MT/s で動作しています。BIOS で工場出荷時のプロファイルを有効にすると {b} MT/s で動作できます（メーカーにより XMP、EXPO、DOCP）。任意の設定です。BIOS の操作に慣れている場合だけ行ってください。"
+
+msgid "Leído el {fecha} de los registros internos del procesador."
+msgstr "{fecha} にプロセッサーの内部レジスターから読み取りました。"
+
+msgid "Pruebas voluntarias"
+msgstr "任意のテスト"
+
+msgid "Solo se hacen si pulsas un botón. Puedes detenerlas cuando quieras."
+msgstr "ボタンを押したときだけ実行されます。いつでも停止できます。"
+
+msgid "Leer datos internos… (pide tu contraseña)"
+msgstr "内部データを読み取る…（パスワードが必要）"
+
+msgid "Lee, sin cambiar nada, los datos que guardan los propios componentes: tiempos y perfiles de la memoria, multiplicadores y consumo del procesador."
+msgstr "何も変更せずに、部品自体に保存されているデータを読み取ります: メモリのタイミングとプロファイル、プロセッサーの倍率と消費電力。"
+
+msgid "Esperando la contraseña…"
+msgstr "パスワードを待っています…"
+
+msgid "No se han leído los datos internos"
+msgstr "内部データは読み取られていません"
+
+msgid "Datos internos leídos"
+msgstr "内部データを読み取りました"
+
+msgid "Instala el paquete {paquete} con el Gestor de software y vuelve a pulsar el botón."
+msgstr "ソフトウェアマネージャーで {paquete} パッケージをインストールし、もう一度ボタンを押してください。"
+
+msgid "Sin el paquete stress-ng se hará una prueba ligera, que detecta menos problemas. Para la prueba completa, instala stress-ng con el Gestor de software."
+msgstr "stress-ng パッケージがないため、検出できる問題が少ない簡易テストを行います。完全なテストを行うには、ソフトウェアマネージャーで stress-ng をインストールしてください。"
+
+msgid "Duración:"
+msgstr "時間:"
+
+msgid "Gráfica que se prueba:"
+msgstr "テストするグラフィックス:"
+
+msgid "No se puede leer la temperatura del procesador, así que MintMachine no podrá detener la prueba por calor. Vigila el equipo mientras dura."
+msgstr "プロセッサーの温度を読み取れないため、MintMachine は熱による停止ができません。実行中はコンピューターから目を離さないでください。"
+
+msgid "He leído el aviso y quiero hacer la prueba"
+msgstr "注意事項を読み、テストを実行します"
+
+msgid "Empezar"
+msgstr "開始"
+
+msgid "Prueba en marcha…"
+msgstr "テスト実行中…"
+
+msgid "Uso del procesador"
+msgstr "プロセッサー使用率"
+
+msgid "Detener"
+msgstr "停止"
+
+msgid "La temperatura llegó a {n} °C, cerca del máximo seguro, y MintMachine detuvo la prueba. Comprueba que las rejillas de ventilación no estén tapadas y deja espacio libre alrededor del equipo. Si se repite con el equipo bien ventilado, que un servicio técnico revise la refrigeración."
+msgstr "温度が安全な上限に近い {n} °C に達したため、MintMachine がテストを停止しました。通気口がふさがれていないか確認し、コンピューターの周りに空間をあけてください。十分に換気された状態でも繰り返す場合は、修理サービスに冷却の点検を依頼してください。"
+
+msgid "La prueba ha encontrado errores. Guarda tu trabajo y, si el equipo se cuelga o se reinicia solo con frecuencia, consulta con un servicio técnico."
+msgstr "テストでエラーが見つかりました。作業を保存し、コンピューターが頻繁に固まったり勝手に再起動したりする場合は、修理サービスに相談してください。"
+
+msgid "La utilidad de la prueba no terminó bien."
+msgstr "テストのユーティリティが正常に終了しませんでした。"
+
+msgid "Cerrar"
+msgstr "閉じる"
+
+msgid "se detiene a {n} °C"
+msgstr "{n} °C で停止"
+
+msgid "Paso {a} de {b}: {c}"
+msgstr "ステップ {a}/{b}: {c}"
+
+msgid "quedan {n}"
+msgstr "残り {n}"
+
+msgid "lleva {n}"
+msgstr "経過 {n}"
+
+msgid "Temperatura (°C)"
+msgstr "温度（°C）"
+
+msgid "Detenida por ti"
+msgstr "ユーザーが停止"
+
+msgid "Detenida por temperatura alta"
+msgstr "高温のため停止"
+
+msgid "No se pudo completar"
+msgstr "完了できませんでした"
+
+msgid "La que usa el sistema por defecto"
+msgstr "システムが標準で使うもの"
+
+msgid "No se puede escribir en tu carpeta personal."
+msgstr "ホームフォルダーに書き込めません。"
+
+msgid "Falta el ayudante de MintMachine o la utilidad pkexec. Reinstala MintMachine."
+msgstr "MintMachine のヘルパーまたは pkexec ユーティリティがありません。MintMachine を再インストールしてください。"
+
+msgid "Ya hay una prueba en marcha"
+msgstr "すでにテストが実行中です"
+
+msgid "Espera a que termine o detenla antes de empezar otra."
+msgstr "終了するのを待つか、停止してから別のテストを開始してください。"
+
+msgid "Falta una utilidad para esta prueba"
+msgstr "このテストに必要なユーティリティがありません"
+
+msgid "Bus"
+msgstr "バス"
+
+msgid "borde"
+msgstr "エッジ"
+
+msgid "memoria"
+msgstr "メモリ"
+
+msgid "consumo"
+msgstr "電力"
+
+msgid "corriente"
+msgstr "電流"
+
+msgid "temperatura"
+msgstr "温度"

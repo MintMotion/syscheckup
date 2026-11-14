@@ -34,8 +34,59 @@ def test_no_hay_codigo_de_red():
 
 
 def test_no_se_ejecuta_nada_como_root_salvo_desinstalar():
-    assert SRC.count('"pkexec"') == 1              # solo en uninstall_cmd, que el usuario pide a mano
+    # pkexec solo en uninstall_cmd y en run_probe (el ayudante de solo lectura), y siempre a petición
+    assert SRC.count('"pkexec"') == 3, SRC.count('"pkexec"')   # incluye have("pkexec")
     assert '"sudo"' not in SRC
+
+
+def test_ayudante_solo_lee():
+    ayu = open(os.path.join(os.path.dirname(__file__), "..", "data", "mintmachine-probe"), encoding="utf-8").read()
+    ayu = "\n".join(l for l in ayu.splitlines() if not l.lstrip().startswith("#"))      # sin comentarios
+    assert "/dev/i2c" not in ayu and "i2cset" not in ayu and "i2cget" not in ayu and "new_device" not in ayu
+    assert "O_RDONLY" in ayu and "O_WRONLY" not in ayu and "O_RDWR" not in ayu and "pwrite" not in ayu
+    aperturas = re.findall(r"open\(([^)]*)\)", ayu)  # solo lectura: «rb», texto por defecto u O_RDONLY
+    assert all(a.strip() in ('f, "rb"', "path", '"/dev/cpu/0/msr", os.O_RDONLY') for a in aperturas), aperturas
+    assert 'MODULES = {"ee1004", "spd5118", "msr"}' in ayu
+
+
+def _spd_g_skill():
+    b = bytearray(512)
+    b[2], b[4], b[12], b[13], b[17], b[18] = 0x0C, 0x45, 0x01, 0x03, 0x00, 5      # DDR4 8 GiB, 3200
+    b[24] = b[25] = b[26] = 0x6E
+    b[27], b[28] = 0x11, 0x00
+    b[123] = b[122] = b[121] = 0x00
+    b[125] = 0x00
+    b[320], b[321], b[350], b[351], b[323], b[324] = 0x04, 0xCD, 0x80, 0xCE, 0x21, 0x15
+    b[329:349] = b"F4-3600C16-8GVKC".ljust(20, b" ")
+    c = mm.spd_crc(b, 126)
+    b[126], b[127] = c & 0xFF, c >> 8
+    return bytes(b)
+
+
+def test_spd_ddr4():
+    d = mm.decode_spd(_spd_g_skill().hex())
+    assert d["tipo"] == "DDR4" and d["fabricante"] == "G.Skill" and d["chips"] == "Samsung"
+    assert d["referencia"] == "F4-3600C16-8GVKC" and d["jedec"]["velocidad"] == 3200
+    assert d["tamano"] == 8 << 30
+    roto = bytearray(_spd_g_skill())
+    roto[30] ^= 1
+    assert "error" in mm.decode_spd(bytes(roto).hex())        # sin suma de control válida no se muestra nada
+    assert "error" in mm.decode_spd("00" * 512)
+
+
+def test_cpu_avanzado():
+    v = (1 << 63) | 0x8C | (8 << 8)
+    filas = dict(mm.decode_cpu({"vendor": "AMD", "family": 25, "msr": {hex(0xC0010064): v}}))
+    assert filas["Frecuencia base (P0)"].startswith("3500 MHz")
+    filas = dict(mm.decode_cpu({"vendor": "Intel", "msr": {hex(0xCE): (8 << 40) | (36 << 8), hex(0x1AD): 50}}))
+    assert filas["Frecuencia base"].startswith("3600 MHz") and filas["Turbo máximo con un núcleo"].startswith("5000")
+
+
+def test_lectura_de_pruebas():
+    assert mm.parse_7z("Tot:              99   4144   4116") == 4116
+    assert mm.parse_stressng("stress-ng: info:  [1] failed: 0") == 0
+    assert mm.parse_glmark("    GL_RENDERER:   llvmpipe\n glmark2 Score: 321 ") == (321, "llvmpipe")
+    assert int(mm.parse_dd("1073741824 bytes (1.1 GB, 1.0 GiB) copied, 0.5 s, 2.1 GB/s")) == 2147483648
 
 
 def test_scrub_tapa_mac_ip_uuid():
