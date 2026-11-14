@@ -49,7 +49,7 @@ APP = "SysCheckup"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.7.0"
+VERSION = "0.7.1"
 JSON_SCHEMA = 2
 
 READONLY = "SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet"
@@ -6431,8 +6431,12 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
 
         def on_anon(self, btn):
             self.anon = btn.get_active()
-            if self.sections and not self.busy:
-                self.populate(self.sections)
+            # El menú se cierra al marcar o desmarcar: así se ve al momento el cambio en la ventana
+            # y un segundo clic (o un doble clic) no vuelve a cambiar la casilla sin querer.
+            self.menu_pop.popdown()
+            if not self.sections or self.busy:
+                return              # si está leyendo el equipo, se aplica al terminar
+            GLib.timeout_add(60, lambda: self.populate(self.sections) and False)
 
         # ── exportar ──
         def fill_export(self, pop):

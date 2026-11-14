@@ -37,6 +37,11 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.7.1" date="2026-11-14">
+      <description>
+        <p>La casilla «Ocultar datos personales en pantalla» ya no se desmarca sola.</p>
+      </description>
+    </release>
     <release version="0.7.0" date="2026-11-14">
       <description>
         <p>Nuevo nombre: SysCheckup (antes MintMachine).</p>

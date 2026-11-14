@@ -2,6 +2,10 @@
 
 [Versión en español](CHANGELOG.es.md)
 
+## 0.7.1 (2026-11-14)
+
+- **"Hide personal data on screen"** no longer unticks itself. Ticking or unticking it now closes the menu and the window updates right away; before, a double click or a second click made while the window was redrawing could remove the tick again.
+
 ## 0.7.0 (2026-11-14)
 
 - **New name: SysCheckup** (formerly MintMachine), because it works on any Debian-based distribution, not just Linux Mint. Package and command `syscheckup`. The package replaces `mintmachine` if it was installed, and the settings and history in `~/.config/mintmachine` move to `~/.config/syscheckup` automatically.

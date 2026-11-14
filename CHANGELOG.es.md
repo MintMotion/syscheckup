@@ -2,6 +2,10 @@
 
 [English version](CHANGELOG.md)
 
+## 0.7.1 (14/11/2026)
+
+- **«Ocultar datos personales en pantalla»** ya no se desmarca sola. Al marcarla o desmarcarla, el menú se cierra y la ventana se actualiza al momento; antes, un doble clic o un segundo clic dado mientras la ventana se redibujaba podía volver a quitar la marca.
+
 ## 0.7.0 (14/11/2026)
 
 - **Nuevo nombre: SysCheckup** (antes MintMachine), porque funciona en cualquier distribución basada en Debian y no solo en Linux Mint. Paquete y comando `syscheckup`. El paquete sustituye a `mintmachine` si estaba instalado, y la configuración y el historial de `~/.config/mintmachine` se trasladan solos a `~/.config/syscheckup`.
