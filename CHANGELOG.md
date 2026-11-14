@@ -2,6 +2,10 @@
 
 [Versión en español](CHANGELOG.es.md)
 
+## 0.7.2 (2026-11-14)
+
+- **New "System" appearance** (menu ☰ → Appearance), besides Dark (the default) and Light. It takes the theme's background and text, the light or dark preference and the accent color from the desktop, and updates right away if you change the theme or switch between light and dark. Only those colors change: the design and the status colors stay the same, and they are adjusted where needed so text is readable. Tested with Mint-Y (light, dark and its color variants), Adwaita, Yaru, Breeze, Greybird and HighContrast, simulating Linux Mint, Ubuntu and Debian with GNOME, KDE Plasma and Xfce.
+
 ## 0.7.1 (2026-11-14)
 
 - **"Hide personal data on screen"** no longer unticks itself. Ticking or unticking it now closes the menu and the window updates right away; before, a double click or a second click made while the window was redrawing could remove the tick again.

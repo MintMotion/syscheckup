@@ -38,7 +38,9 @@ Se ha comprobado con el banco de pruebas haciéndose pasar por LMDE con Cinnamon
 
 El programa detecta el idioma del sistema y se abre en él. Se fija solo en el idioma, no en el país: `es_ES`, `es_MX` o `es_AR` → español; `en_US` o `en_GB` → inglés; `fr_FR` o `fr_CA` → francés; `ja_JP` → japonés; `zh_CN` o `zh_TW` → chino (simplificado). Si el sistema está en un idioma que SysCheckup aún no tiene, sale en inglés.
 
-En el menú (☰) se puede elegir otro idioma y el aspecto, oscuro (el de serie) o claro. La elección se guarda en `~/.config/syscheckup/config.json`, el único archivo que el programa crea en tu carpeta personal. Desde la terminal: `syscheckup --idioma en`.
+En el menú (☰) se puede elegir otro idioma y el aspecto: oscuro (el de serie), claro o **Sistema**. La elección se guarda en `~/.config/syscheckup/config.json`, el único archivo que el programa crea en tu carpeta personal. Desde la terminal: `syscheckup --idioma en`.
+
+Con **Sistema**, SysCheckup toma los colores de tu escritorio: el fondo y el texto de tu tema (Mint-Y, Adwaita, Yaru, Breeze, Greybird…), tu preferencia de modo claro u oscuro y tu color de acento (el que eliges en Linux Mint con las variantes Aqua, Azul, Naranja… o en GNOME y KDE Plasma en su configuración). Si cambias el tema o pasas de claro a oscuro con el programa abierto, se actualiza al momento. El diseño y los colores que indican estado (bien, aviso, problema) no cambian, y los colores se ajustan si hace falta para que el texto se lea bien. Si tu tema no tiene variante oscura y pides modo oscuro, se usa el oscuro de SysCheckup con tu color de acento.
 
 Las traducciones son archivos `.po` normales en la carpeta `po/`; se pueden revisar con Poedit o Weblate. Las ha hecho una IA: conviene que las revise alguien nativo, sobre todo las de japonés y chino. Para ver bien el japonés y el chino hacen falta fuentes con esos caracteres (paquete `fonts-noto-cjk`, que Linux Mint instala al añadir esos idiomas).
 
@@ -147,7 +149,7 @@ Los informes incluyen siempre todo, también lo que en la ventana está plegado 
 | Ctrl+F | Buscar en todo el informe |
 | Ctrl+E | Exportar |
 | Alt+1 … Alt+9 | Ir a una de las primeras nueve secciones de la lista |
-| Menú (☰) | Idioma, aspecto (oscuro o claro), ocultar datos personales en pantalla (para hacer capturas), atajos de teclado, Acerca de y Desinstalar |
+| Menú (☰) | Idioma, aspecto (oscuro, claro o Sistema), ocultar datos personales en pantalla (para hacer capturas), atajos de teclado, Acerca de y Desinstalar |
 | F1 | Acerca de |
 | Ctrl+Q | Salir |
 
@@ -233,7 +235,7 @@ Desde la terminal hace lo mismo: `sudo apt purge syscheckup` y después `rm -rf 
 Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
 
 ```
-sudo apt install ./syscheckup_0.7.1_all.deb
+sudo apt install ./syscheckup_0.7.2_all.deb
 ```
 
 `apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre SysCheckup. Si tenías una versión anterior, este paquete la actualiza; si tenías una de las versiones de prueba que se llamaban MintMachine, o la primera, que se llamaba Radiografía, la sustituye. La configuración y el historial de MintMachine se trasladan solos a la carpeta nueva.
@@ -324,7 +326,7 @@ Si falta alguna utilidad, la sección correspondiente sale más corta y el resto
 
 ## Estado del proyecto
 
-Versión 0.7.1. Conviene saber cómo se ha probado.
+Versión 0.7.2. Conviene saber cómo se ha probado.
 
 El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
 

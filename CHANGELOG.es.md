@@ -2,6 +2,10 @@
 
 [English version](CHANGELOG.md)
 
+## 0.7.2 (14/11/2026)
+
+- **Nuevo aspecto «Sistema»** (menú ☰ → Aspecto), además de Oscuro (el de serie) y Claro. Toma del escritorio el fondo y el texto del tema, la preferencia de modo claro u oscuro y el color de acento, y se actualiza al momento si cambias el tema o pasas de claro a oscuro. Solo cambian esos colores: el diseño y los colores de estado son los de siempre, y se ajustan si hace falta para que el texto se lea bien. Probado con Mint-Y (claro, oscuro y sus variantes de color), Adwaita, Yaru, Breeze, Greybird y HighContrast, simulando Linux Mint, Ubuntu y Debian con GNOME, KDE Plasma y Xfce.
+
 ## 0.7.1 (14/11/2026)
 
 - **«Ocultar datos personales en pantalla»** ya no se desmarca sola. Al marcarla o desmarcarla, el menú se cierra y la ventana se actualiza al momento; antes, un doble clic o un segundo clic dado mientras la ventana se redibujaba podía volver a quitar la marca.

@@ -49,7 +49,7 @@ APP = "SysCheckup"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.7.1"
+VERSION = "0.7.2"
 JSON_SCHEMA = 2
 
 READONLY = "SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet"
@@ -4835,6 +4835,113 @@ PALETTES = {
                   bad="#dc2626", info="#2563eb"),
 }
 
+# ── aspecto «Sistema»: colores del tema y de la preferencia claro/oscuro del usuario ──
+# Solo se toman del sistema los colores base (fondo, tarjetas, texto) y el de acento. El diseño
+# (degradados, tarjetas, indicadores) y los colores con significado (bien, aviso, problema) son
+# los del aspecto claro u oscuro de SysCheckup. Todo se ajusta para que el texto se lea bien.
+
+def _hex_rgb(h):
+    h = h.strip().lstrip("#")
+    return tuple(int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+
+
+def _rgb_hex(c):
+    return "#%02x%02x%02x" % tuple(max(0, min(255, round(v * 255))) for v in c)
+
+
+def _mix(a, b, t):
+    """Mezcla dos colores (tuplas 0-1): t=0 da a, t=1 da b."""
+    return tuple(x + (y - x) * t for x, y in zip(a, b))
+
+
+def _luminance(c):
+    def lin(v):
+        return v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4
+    r, g, b = (lin(v) for v in c)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def _contrast(a, b):
+    la, lb = sorted((_luminance(a), _luminance(b)), reverse=True)
+    return (la + 0.05) / (lb + 0.05)
+
+
+def _readable(c, bg, ratio):
+    """El color más parecido a c (mismo tono) que tenga al menos ese contraste con bg."""
+    import colorsys
+    if _contrast(c, bg) >= ratio:
+        return c
+    h, l, s = colorsys.rgb_to_hls(*c)
+    step = 0.02 if _luminance(bg) < 0.4 else -0.02          # fondo oscuro: aclarar; claro: oscurecer
+    while 0 <= l <= 1:
+        l += step
+        cand = colorsys.hls_to_rgb(h, max(0.0, min(1.0, l)), s)
+        if _contrast(cand, bg) >= ratio:
+            return cand
+    return (1.0, 1.0, 1.0) if step > 0 else (0.0, 0.0, 0.0)
+
+
+def _hue_shift(c, deg):
+    import colorsys
+    h, l, s = colorsys.rgb_to_hls(*c)
+    return colorsys.hls_to_rgb((h + deg / 360) % 1, l, s)
+
+
+def system_palette(theme, dark, accent=None):
+    """Paleta del aspecto «Sistema».
+    theme: colores del tema GTK (bg, fg, sel, base) en hexadecimal; puede faltar alguno.
+    dark: True si el usuario prefiere oscuro, False si claro, None si no lo dice.
+    accent: color de acento elegido en el escritorio (r, g, b de 0 a 1), si lo publica.
+    Devuelve el diccionario de PALETTES más «oscuro»: si es una paleta oscura."""
+    try:
+        bg, fg = _hex_rgb(theme["bg"]), _hex_rgb(theme["fg"])
+    except (KeyError, TypeError, ValueError):
+        bg = fg = None
+    theme_dark = _luminance(bg) < 0.25 if bg else None
+    if dark is None:
+        dark = theme_dark if theme_dark is not None else True
+    base = PALETTES["oscuro" if dark else "claro"]
+    pal = dict(base)
+    # Fondo y texto del tema, si el tema tiene la variante que el usuario prefiere y se lee bien
+    if bg and theme_dark == dark and _contrast(fg, bg) >= 4.5:
+        black, white = (0.0, 0.0, 0.0), (1.0, 1.0, 1.0)
+        if dark:
+            side = _mix(bg, black, 0.18)
+            card = _mix(bg, fg, 0.05)
+            card2 = _mix(bg, fg, 0.08)
+            line = "rgba(%d,%d,%d,0.08)" % tuple(round(v * 255) for v in fg)
+        else:
+            try:
+                light = _hex_rgb(theme.get("base") or "#ffffff")
+            except ValueError:
+                light = white
+            if _luminance(light) < _luminance(bg):
+                light = white
+            side = _mix(bg, fg, 0.04)
+            card = _mix(bg, light, 0.7)
+            card2 = _mix(card, fg, 0.03)
+            line = "rgba(%d,%d,%d,0.12)" % tuple(round(v * 255) for v in fg)
+        fg = _readable(fg, card2, 7.0)
+        dim = _mix(fg, card2, 0.45)
+        dim = _readable(dim, card2, 4.5)
+        pal.update(bg=_rgb_hex(bg), side=_rgb_hex(side), card=_rgb_hex(card), card2=_rgb_hex(card2),
+                   fg=_rgb_hex(fg), dim=_rgb_hex(dim), line=line)
+    # Acento: el que publica el escritorio; si no, el color de selección del tema
+    acc = accent
+    if acc is None and theme and theme.get("sel"):
+        try:
+            acc = _hex_rgb(theme["sel"])
+        except ValueError:
+            acc = None
+    if acc is not None:
+        card = _hex_rgb(pal["card"])
+        a1 = _readable(acc, card, 3.0)
+        a2 = _readable(_hue_shift(a1, 40), card, 3.0)
+        pal.update(a1=_rgb_hex(a1), a2=_rgb_hex(a2))
+    pal["oscuro"] = dark
+    return pal
+
+
 CSS = """
 @define-color mm_bg {bg}; @define-color mm_side {side}; @define-color mm_card {card}; @define-color mm_card2 {card2};
 @define-color mm_fg {fg}; @define-color mm_dim {dim}; @define-color mm_line {line};
@@ -5163,16 +5270,116 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
     theme = Gtk.IconTheme.get_default()
     css_provider = Gtk.CssProvider()
     Gtk.StyleContext.add_provider_for_screen(screen, css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-    state = {"tema": load_config().get("tema", "oscuro")}
+    gsettings = Gtk.Settings.get_default()
+    state = {"tema": load_config().get("tema", "oscuro"), "pal": PALETTES["oscuro"],
+             # lo que el usuario tiene puesto antes de que SysCheckup lo toque
+             "prefer_dark": bool(gsettings.get_property("gtk-application-prefer-dark-theme")),
+             "esquema": None, "acento": None, "aplicando": False}
+    if state["tema"] not in ("oscuro", "claro", "sistema"):
+        state["tema"] = "oscuro"
+    probe = Gtk.Label()          # solo para preguntar al tema por sus colores; nunca se muestra
 
-    def apply_theme():
-        pal = PALETTES.get(state["tema"], PALETTES["oscuro"])
-        css_provider.load_from_data(CSS.format(**pal).encode())
-        Gtk.Settings.get_default().set_property("gtk-application-prefer-dark-theme", state["tema"] == "oscuro")
+    def theme_colors():
+        out = {}
+        ctx = probe.get_style_context()
+        for key, name in (("bg", "theme_bg_color"), ("fg", "theme_fg_color"),
+                          ("sel", "theme_selected_bg_color"), ("base", "theme_base_color")):
+            ok, c = ctx.lookup_color(name)
+            if ok:
+                out[key] = "#%02x%02x%02x" % (round(c.red * 255), round(c.green * 255), round(c.blue * 255))
+        return out
+
+    # Preferencia claro/oscuro y color de acento del escritorio, a través del portal estándar
+    # (org.freedesktop.appearance), que publican GNOME, KDE Plasma, Cinnamon y otros. Solo lectura.
+    portal = {"proxy": None}
+
+    def portal_read(key):
+        px = portal["proxy"]
+        if px is None:
+            return None
+        from gi.repository import GLib as _GLib, Gio as _Gio
+        for method in ("ReadOne", "Read"):
+            try:
+                # NO_AUTO_START: si el portal no está en marcha no se arranca, para no retrasar la ventana
+                v = px.call_sync(method, _GLib.Variant("(ss)", ("org.freedesktop.appearance", key)),
+                                 _Gio.DBusCallFlags.NO_AUTO_START, 800, None).unpack()[0]
+                while isinstance(v, _GLib.Variant):
+                    v = v.unpack()
+                return v
+            except Exception:
+                continue
+        return None
+
+    def parse_scheme(v):
+        return {1: True, 2: False}.get(v) if isinstance(v, int) else None
+
+    def parse_accent(v):
+        if isinstance(v, (tuple, list)) and len(v) == 3 and all(isinstance(x, float) and 0 <= x <= 1 for x in v):
+            return tuple(v)
+        return None
+
+    def portal_start():
+        try:
+            from gi.repository import Gio
+            portal["proxy"] = Gio.DBusProxy.new_for_bus_sync(
+                Gio.BusType.SESSION, Gio.DBusProxyFlags.DO_NOT_LOAD_PROPERTIES, None,
+                "org.freedesktop.portal.Desktop", "/org/freedesktop/portal/desktop",
+                "org.freedesktop.portal.Settings", None)
+        except Exception:
+            portal["proxy"] = None
+            return
+        state["esquema"] = parse_scheme(portal_read("color-scheme"))
+        state["acento"] = parse_accent(portal_read("accent-color"))
+
+        def on_signal(_px, _sender, signal, params):
+            if signal != "SettingChanged":
+                return
+            ns, key, value = params.unpack()
+            if ns != "org.freedesktop.appearance":
+                return
+            while hasattr(value, "unpack"):
+                value = value.unpack()
+            if key == "color-scheme":
+                state["esquema"] = parse_scheme(value)
+            elif key == "accent-color":
+                state["acento"] = parse_accent(value)
+            else:
+                return
+            if state["tema"] == "sistema":
+                apply_theme(redraw=True)
+        portal["proxy"].connect("g-signal", on_signal)
+
+    def apply_theme(redraw=False):
+        if state["aplicando"]:
+            return
+        state["aplicando"] = True
+        try:
+            if state["tema"] == "sistema":
+                esquema = state["esquema"]
+                prefer = state["prefer_dark"] if esquema is None else esquema
+                gsettings.set_property("gtk-application-prefer-dark-theme", prefer)
+                pal = system_palette(theme_colors(), esquema, state["acento"])
+            else:
+                pal = PALETTES.get(state["tema"], PALETTES["oscuro"])
+                gsettings.set_property("gtk-application-prefer-dark-theme", state["tema"] == "oscuro")
+            state["pal"] = pal
+            css_provider.load_from_data(CSS.format(**pal).encode())
+        finally:
+            state["aplicando"] = False
+        if redraw:
+            for w in Gtk.Window.list_toplevels():
+                w.queue_draw()
+
+    def on_theme_name(*_a):
+        # El usuario ha cambiado el tema del escritorio (Cinnamon, Xfce, MATE… lo hacen en caliente)
+        if state["tema"] == "sistema" and not state["aplicando"]:
+            GLib.idle_add(lambda: apply_theme(redraw=True) and False)
+    gsettings.connect("notify::gtk-theme-name", on_theme_name)
+    portal_start()
     apply_theme()
 
     def rgb(name):
-        h = PALETTES.get(state["tema"], PALETTES["oscuro"])[name].lstrip("#")
+        h = state["pal"][name].lstrip("#")
         return tuple(int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
 
     def icon(names, size=Gtk.IconSize.BUTTON):
@@ -5332,6 +5539,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             tema = Gtk.ComboBoxText()
             tema.append("oscuro", _("Oscuro"))
             tema.append("claro", _("Claro"))
+            tema.append("sistema", _("Sistema"))
             tema.set_active_id(state["tema"])
             grid.attach(label(_("Idioma"), "mm-dim"), 0, 0, 1, 1)
             grid.attach(lang, 1, 0, 1, 1)
@@ -5367,8 +5575,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 if t and t != state["tema"]:
                     state["tema"] = t
                     save_config(tema=t)
-                    apply_theme()
-                    self.queue_draw()
+                    apply_theme(redraw=True)
             lang.connect("changed", on_lang)
             tema.connect("changed", on_tema)
             anon_cb.connect("toggled", self.on_anon)
@@ -5882,7 +6089,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
         def legend(self, b):
             esc = GLib.markup_escape_text
             parts = []
-            cols = [PALETTES[state["tema"]]["a1"], PALETTES[state["tema"]]["a2"]]
+            cols = [state["pal"]["a1"], state["pal"]["a2"]]
             for i, (lab, v) in enumerate(b["rows"]):
                 parts.append(f'<span foreground="{cols[i % 2]}">●</span> {esc(lab)} '
                              f'<b>{esc(fmt_unit(v[-1], b["unit"]))}</b> '
@@ -6562,7 +6769,13 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 win.resize(1180, 1450)
             if start and "+claro" in start:
                 state["tema"] = "claro"
-                apply_theme()
+                apply_theme(redraw=True)
+            if start and "+sistema" in start:
+                state["tema"] = "sistema"
+                apply_theme(redraw=True)
+            m = re.search(r"\+temagtk=([^+]+)", start or "")
+            if m:                   # pruebas: simula que el usuario cambia el tema del escritorio
+                Gtk.Settings.get_default().set_property("gtk-theme-name", m.group(1))
             if start and "+menu" in start:
                 win.menu_btn.set_active(True)
             m = re.search(r"\+buscar=([^+]+)", start or "")

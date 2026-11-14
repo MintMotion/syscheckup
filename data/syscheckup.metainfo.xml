@@ -37,6 +37,11 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.7.2" date="2026-11-14">
+      <description>
+        <p>Nuevo aspecto «Sistema»: toma el fondo, el texto, el modo claro u oscuro y el color de acento del escritorio.</p>
+      </description>
+    </release>
     <release version="0.7.1" date="2026-11-14">
       <description>
         <p>La casilla «Ocultar datos personales en pantalla» ya no se desmarca sola.</p>

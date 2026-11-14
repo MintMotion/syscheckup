@@ -327,6 +327,37 @@ def test_textos_nuevos_traducidos():
                 assert cat.get(t), (lang, t)
 
 
+def test_aspecto_sistema():
+    # Colores reales que publican estos temas (leídos con GTK 3)
+    temas = {
+        "Mint-Y-Aqua": ({"bg": "#f8f8f9", "fg": "#000000", "sel": "#1f9ede", "base": "#ffffff"}, None, None, False),
+        "Mint-Y-Dark-Orange": ({"bg": "#2e2e33", "fg": "#ffffff", "sel": "#ff7139", "base": "#333339"}, None, None, True),
+        "Yaru oscuro con acento de GNOME": ({"bg": "#2c2c2c", "fg": "#f7f7f7", "sel": "#e95420", "base": "#272727"},
+                                            True, (0.47, 0.39, 0.85), True),
+        "Greybird": ({"bg": "#cecece", "fg": "#3c3c3c", "sel": "#398ee7", "base": "#fcfcfc"}, None, None, False),
+        "HighContrast con preferencia oscura": ({"bg": "#fdfdfc", "fg": "#272c2e", "sel": "#1b6acb", "base": "#ffffff"},
+                                                True, None, True),
+        "sin tema": ({}, None, None, True),
+    }
+    c = lambda p, a, b: mm._contrast(mm._hex_rgb(p[a]), mm._hex_rgb(p[b]))
+    for nombre, (tema, oscuro, acento, esperado) in temas.items():
+        p = mm.system_palette(tema, oscuro, acento)
+        assert p["oscuro"] is esperado, nombre
+        assert c(p, "fg", "card2") >= 7, nombre
+        assert c(p, "dim", "card2") >= 4.5, nombre
+        assert c(p, "a1", "card") >= 3 and c(p, "a2", "card") >= 3, nombre
+        for k in mm.PALETTES["oscuro"]:
+            assert k in p, (nombre, k)
+    # se respeta el fondo del tema y el acento elegido en el escritorio
+    p = mm.system_palette(temas["Mint-Y-Dark-Orange"][0], None)
+    assert p["bg"] == "#2e2e33" and p["a1"] == "#ff7139"
+    p = mm.system_palette(temas["Yaru oscuro con acento de GNOME"][0], True, (0.47, 0.39, 0.85))
+    assert p["bg"] == "#2c2c2c" and abs(mm._hex_rgb(p["a1"])[2] - 0.85) < 0.1
+    # si el tema no tiene la variante que pide el usuario, se usa la paleta propia con su acento
+    p = mm.system_palette(temas["HighContrast con preferencia oscura"][0], True)
+    assert p["bg"] == mm.PALETTES["oscuro"]["bg"]
+
+
 if __name__ == "__main__":
     fallos = 0
     for nombre, fn in sorted(globals().items()):

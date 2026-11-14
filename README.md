@@ -14,7 +14,7 @@ The screenshots in `docs/` come from the test bench, which simulates a laptop. T
 
 ## Distributions and desktops
 
-SysCheckup only needs Python 3 and GTK 3, which every Debian-based distribution ships, and it recognises where it is running:
+SysCheckup only needs Python 3 and GTK 3, which every Debian-based distribution ships, and it recognizes where it is running:
 
 - **System tools.** The diagnosis buttons open whichever tool is installed: on Linux Mint, Update Manager, Driver Manager and Software Manager; on Ubuntu, Software Updater, "Additional Drivers" and App Center; on GNOME, the Software app; on KDE Plasma, Discover; if there is none of these, Synaptic. The same goes for each desktop's system monitor, power settings, Disks or disk usage analyzer. If there is no graphical tool of that kind, the advice says it in words and no button is shown.
 - **Texts.** The advice names the tool you have. Advice that only applies to one distribution (multimedia codecs, Linux Mint's kernel menu) changes with the distribution.
@@ -38,7 +38,9 @@ It has been checked with the test bench posing as LMDE with Cinnamon, Ubuntu wit
 
 The program detects the system language and opens in it. It only looks at the language, not the country: `es_ES`, `es_MX` or `es_AR` → Spanish; `en_US` or `en_GB` → English; `fr_FR` or `fr_CA` → French; `ja_JP` → Japanese; `zh_CN` or `zh_TW` → Chinese (Simplified). If the system uses a language SysCheckup doesn't have yet, it opens in English.
 
-In the menu (☰) you can pick another language and the appearance, dark (the default) or light. The choice is saved in `~/.config/syscheckup/config.json`, the only file the program creates in your home folder. From a terminal: `syscheckup --idioma en`.
+In the menu (☰) you can pick another language and the appearance: dark (the default), light or **System**. The choice is saved in `~/.config/syscheckup/config.json`, the only file the program creates in your home folder. From a terminal: `syscheckup --idioma en`.
+
+With **System**, SysCheckup takes its colors from your desktop: the background and text of your theme (Mint-Y, Adwaita, Yaru, Breeze, Greybird…), your light or dark preference and your accent color (the one you choose in Linux Mint with the Aqua, Blue, Orange… variants, or in the GNOME and KDE Plasma settings). If you change the theme or switch between light and dark while the program is open, it updates right away. The design and the status colors (fine, warning, problem) stay the same, and colors are adjusted where needed so text is always readable. If your theme has no dark variant and you ask for dark mode, SysCheckup's own dark look is used with your accent color.
 
 The translations are ordinary `.po` files in the `po/` folder; they can be reviewed with Poedit or Weblate. They were made by an AI: they should be reviewed by native speakers, especially Japanese and Chinese. To display Japanese and Chinese properly you need fonts with those characters (package `fonts-noto-cjk`, which Linux Mint installs when you add those languages).
 
@@ -147,7 +149,7 @@ Reports always include everything, including what is folded under "Technical det
 | Ctrl+F | Search the whole report |
 | Ctrl+E | Export |
 | Alt+1 … Alt+9 | Go to one of the first nine sections in the list |
-| Menu (☰) | Language, appearance (dark or light), hide personal data on screen (for screenshots), keyboard shortcuts, About and Uninstall |
+| Menu (☰) | Language, appearance (dark, light or System), hide personal data on screen (for screenshots), keyboard shortcuts, About and Uninstall |
 | F1 | About |
 | Ctrl+Q | Quit |
 
@@ -233,7 +235,7 @@ From a terminal it does the same: `sudo apt purge syscheckup` and then `rm -rf ~
 Download the `.deb` and, from the folder where you saved it:
 
 ```
-sudo apt install ./syscheckup_0.7.1_all.deb
+sudo apt install ./syscheckup_0.7.2_all.deb
 ```
 
 `apt` installs any missing dependencies. You'll then find it in the menu as SysCheckup. If you had an earlier version, this package updates it; if you had one of the test versions called MintMachine, or the first one, called Radiografía, it replaces it. MintMachine's settings and history move to the new folder automatically.
@@ -326,7 +328,7 @@ If a tool is missing, the corresponding section comes out shorter and everything
 
 ## Project status
 
-Version 0.7.1. It's worth knowing how it has been tested.
+Version 0.7.2. It's worth knowing how it has been tested.
 
 The code has been run in a virtual machine with Ubuntu 24.04, in a container with the LMDE 7 packages and against a simulated laptop: a fake `/sys` with board, battery, sensors, fans with PWM and a curve, monitor, Wi-Fi and USB, plus fake versions of `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` and friends. With that, all the parsers, the graphs under real CPU and disk load, the live refresh, search, buttons, personal-data masking and the five export formats have been checked.
 
