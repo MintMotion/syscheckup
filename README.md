@@ -1,6 +1,6 @@
 # SysCheckup
 
-[Versión en español](README.es.md) · [Changelog](CHANGELOG.md)
+[Versión en español](README.es.md) · [Changelog](CHANGELOG.md) · [▶ Video](https://youtu.be/QK0TvLTFIl4)
 
 Your Linux computer's hardware, drivers and software in a single window, with live usage graphs, a driver and firmware check, a diagnosis that points out what's worth looking at, and voluntary stability and performance tests.
 
