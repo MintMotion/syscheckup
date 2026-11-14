@@ -1,5 +1,5 @@
-name: Algo no funciona
-description: El programa se cierra, da un error o una sección sale vacía
+name: Algo no funciona / Something doesn't work
+description: El programa se cierra, da un error o una sección sale vacía / The program closes, shows an error or a section is empty
 labels: [fallo]
 body:
   - type: markdown
@@ -8,46 +8,54 @@ body:
         Gracias por avisar. Para poder ayudarte necesitamos el informe del equipo **con los datos personales ocultos**.
         En SysCheckup: botón **Exportar** → formato **Para un foro** → deja marcada **Ocultar datos personales** → **Copiar**, y pégalo abajo.
         Desde la terminal también vale: `syscheckup --foro`
+
+        Thanks for reporting. To help you we need the computer report **with personal data hidden**.
+        In SysCheckup: **Export** button → **For a forum** format → leave **Hide personal data** ticked → **Copy**, and paste it below.
+        From a terminal works too: `syscheckup --foro`
+
+        Puedes escribir en español o en inglés. / You can write in Spanish or English.
   - type: textarea
     id: que
     attributes:
-      label: Qué ha pasado
-      description: Qué esperabas ver y qué has visto. Si hay un mensaje de error, cópialo.
+      label: Qué ha pasado / What happened
+      description: Qué esperabas ver y qué has visto. Si hay un mensaje de error, cópialo. / What you expected and what you saw. If there is an error message, copy it.
     validations:
       required: true
   - type: dropdown
     id: sistema
     attributes:
-      label: Sistema
+      label: Sistema / System
       options:
         - Linux Mint 22.x
         - LMDE 7
         - LMDE 6
         - Ubuntu
         - Debian
-        - Otro
+        - Otro / Other
     validations:
       required: true
   - type: dropdown
     id: escritorio
     attributes:
-      label: Escritorio
+      label: Escritorio / Desktop
       options:
         - Cinnamon
+        - GNOME
+        - KDE Plasma
         - MATE
         - Xfce
-        - Otro
+        - Otro / Other
   - type: textarea
     id: informe
     attributes:
-      label: Informe de SysCheckup (con los datos personales ocultos)
+      label: Informe de SysCheckup (con los datos personales ocultos) / SysCheckup report (with personal data hidden)
       render: text
     validations:
       required: true
   - type: checkboxes
     id: privacidad
     attributes:
-      label: Privacidad
+      label: Privacidad / Privacy
       options:
-        - label: He revisado el informe y no contiene datos personales que no quiera publicar.
+        - label: He revisado el informe y no contiene datos personales que no quiera publicar. / I have reviewed the report and it contains no personal data I don't want to publish.
           required: true

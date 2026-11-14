@@ -1,368 +1,372 @@
 # SysCheckup
 
-Hardware, drivers y software de tu equipo Linux en una sola ventana, con gráficas de uso en vivo, revisión de drivers y firmware, un diagnóstico que te señala lo que conviene mirar y pruebas voluntarias de estabilidad y rendimiento.
+[Versión en español](README.es.md) · [Changelog](CHANGELOG.md)
 
-Funciona en Linux Mint, LMDE, Ubuntu, Debian y cualquier distribución basada en ellas, con cualquier escritorio (Cinnamon, GNOME, KDE Plasma, Xfce, MATE, LXQt…), en X11 y en Wayland. Disponible en español, inglés, francés, japonés y chino.
+Your Linux computer's hardware, drivers and software in a single window, with live usage graphs, a driver and firmware check, a diagnosis that points out what's worth looking at, and voluntary stability and performance tests.
 
-Autor: José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es>. Licencia MIT.
+Works on Linux Mint, LMDE, Ubuntu, Debian and any distribution based on them, with any desktop (Cinnamon, GNOME, KDE Plasma, Xfce, MATE, LXQt…), on X11 and Wayland. Available in Spanish, English, French, Japanese and Chinese.
 
-![Pantalla de inicio](docs/captura-inicio.png)
+Author: José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es>. MIT license.
 
-Las capturas de `docs/` salen del banco de pruebas, que simula un portátil. Los datos que aparecen en ellas son inventados.
+![Home screen](docs/captura-inicio.png)
 
-## Distribuciones y escritorios
+The screenshots in `docs/` come from the test bench, which simulates a laptop. The data shown in them is made up. They show the program in Spanish; it opens in your system's language.
 
-SysCheckup solo necesita Python 3 y GTK 3, que traen todas las distribuciones basadas en Debian, y reconoce dónde se está ejecutando:
+## Distributions and desktops
 
-- **Herramientas del sistema.** Los botones del diagnóstico abren la que esté instalada: en Linux Mint, el Gestor de actualizaciones, el Gestor de controladores y el Gestor de software; en Ubuntu, el Actualizador de software, «Controladores adicionales» y el Centro de aplicaciones; en GNOME, la aplicación Software; en KDE Plasma, Discover; si no hay ninguna, Synaptic. Lo mismo con el monitor del sistema, la configuración de energía, Discos o el analizador de uso de disco de cada escritorio. Si no hay ninguna herramienta gráfica de ese tipo, el consejo lo dice con palabras y no sale botón.
-- **Textos.** Los consejos nombran la herramienta que tienes. Los que solo valen para una distribución (los códecs multimedia, el menú de kernels de Linux Mint) cambian según la distribución.
-- **Paquetes.** Las pruebas proponen el paquete que exista en tus repositorios (`7zip` o `p7zip-full`; `glmark2-x11`, `glmark2` o `glmark2-wayland`).
-- **Pantallas en Wayland.** El modo en uso se pide a GNOME, Cinnamon, KDE Plasma o a los compositores wlroots, como se explica más abajo.
+SysCheckup only needs Python 3 and GTK 3, which every Debian-based distribution ships, and it recognises where it is running:
 
-Se ha comprobado con el banco de pruebas haciéndose pasar por LMDE con Cinnamon, Ubuntu con KDE Plasma en Wayland y Debian con Xfce, y con el paquete instalado en Ubuntu 24.04. No se ha probado en cada escritorio real.
+- **System tools.** The diagnosis buttons open whichever tool is installed: on Linux Mint, Update Manager, Driver Manager and Software Manager; on Ubuntu, Software Updater, "Additional Drivers" and App Center; on GNOME, the Software app; on KDE Plasma, Discover; if there is none of these, Synaptic. The same goes for each desktop's system monitor, power settings, Disks or disk usage analyzer. If there is no graphical tool of that kind, the advice says it in words and no button is shown.
+- **Texts.** The advice names the tool you have. Advice that only applies to one distribution (multimedia codecs, Linux Mint's kernel menu) changes with the distribution.
+- **Packages.** The tests suggest the package that exists in your repositories (`7zip` or `p7zip-full`; `glmark2-x11`, `glmark2` or `glmark2-wayland`).
+- **Displays on Wayland.** The current mode is requested from GNOME, Cinnamon, KDE Plasma or wlroots compositors, as explained below.
 
-## Pensado para cualquiera
+It has been checked with the test bench posing as LMDE with Cinnamon, Ubuntu with KDE Plasma on Wayland and Debian with Xfce, and with the package installed on Ubuntu 24.04. It has not been tested on every real desktop.
 
-- **La primera pantalla enseña lo importante:** si el equipo está bien o hay algo que revisar, indicadores de uso en vivo, la ficha del equipo (con placa base y BIOS) y el estado del sistema.
-- **El detalle va en la barra lateral**, agrupado en Hardware y Sistema y software. Lo que solo interesa a expertos está plegado en **Detalles técnicos** dentro de cada sección.
-- **Explicaciones en lenguaje llano** bajo los apartados técnicos.
-- **Buscador** (Ctrl+F): escribe «temperatura», «NVIDIA» o «batería» y la lista se queda con las secciones que lo mencionan.
+## Made for everyone
 
-## Idioma y aspecto
+- **The first screen shows what matters:** whether the computer is fine or something needs checking, live usage gauges, the computer's summary (with motherboard and BIOS) and the system status.
+- **Details live in the sidebar**, grouped into Hardware and System and software. What only interests experts is folded under **Technical details** inside each section.
+- **Plain-language explanations** under the technical items.
+- **Search** (Ctrl+F): type "temperature", "NVIDIA" or "battery" and the list keeps only the sections that mention it.
 
-![Menú con idioma y aspecto](docs/captura-menu.png)
+## Language and appearance
 
-![Aspecto claro](docs/captura-claro.png)
+![Menu with language and appearance](docs/captura-menu.png)
 
-El programa detecta el idioma del sistema y se abre en él. Se fija solo en el idioma, no en el país: `es_ES`, `es_MX` o `es_AR` → español; `en_US` o `en_GB` → inglés; `fr_FR` o `fr_CA` → francés; `ja_JP` → japonés; `zh_CN` o `zh_TW` → chino (simplificado). Si el sistema está en un idioma que SysCheckup aún no tiene, sale en inglés.
+![Light appearance](docs/captura-claro.png)
 
-En el menú (☰) se puede elegir otro idioma y el aspecto, oscuro (el de serie) o claro. La elección se guarda en `~/.config/syscheckup/config.json`, el único archivo que el programa crea en tu carpeta personal. Desde la terminal: `syscheckup --idioma en`.
+The program detects the system language and opens in it. It only looks at the language, not the country: `es_ES`, `es_MX` or `es_AR` → Spanish; `en_US` or `en_GB` → English; `fr_FR` or `fr_CA` → French; `ja_JP` → Japanese; `zh_CN` or `zh_TW` → Chinese (Simplified). If the system uses a language SysCheckup doesn't have yet, it opens in English.
 
-Las traducciones son archivos `.po` normales en la carpeta `po/`; se pueden revisar con Poedit o Weblate. Las ha hecho una IA: conviene que las revise alguien nativo, sobre todo las de japonés y chino. Para ver bien el japonés y el chino hacen falta fuentes con esos caracteres (paquete `fonts-noto-cjk`, que Linux Mint instala al añadir esos idiomas).
+In the menu (☰) you can pick another language and the appearance, dark (the default) or light. The choice is saved in `~/.config/syscheckup/config.json`, the only file the program creates in your home folder. From a terminal: `syscheckup --idioma en`.
 
-## Recomendaciones seguras
+The translations are ordinary `.po` files in the `po/` folder; they can be reviewed with Poedit or Weblate. They were made by an AI: they should be reviewed by native speakers, especially Japanese and Chinese. To display Japanese and Chinese properly you need fonts with those characters (package `fonts-noto-cjk`, which Linux Mint installs when you add those languages).
 
-SysCheckup solo lee información: no cambia nada en el equipo. El diagnóstico explica qué pasa y qué hacer, y solo propone acciones seguras desde el propio sistema: instalar actualizaciones, abrir el Gestor de controladores, hacer una copia de seguridad, liberar espacio… Cuando un aviso tiene una herramienta del sistema asociada, aparece un botón para abrirla.
+## Safe recommendations
 
-Nunca pide abrir el equipo ni tocar componentes. Si algo requiere una revisión física (limpieza interna, cambiar un disco, la memoria o la batería), la recomendación es acudir a un servicio técnico o al fabricante. Este aviso aparece también en el Diagnóstico, en «Acerca de» y en los informes exportados.
+SysCheckup only reads information: it changes nothing on the computer. The diagnosis explains what is going on and what to do, and only suggests safe actions from the system itself: install updates, open Driver Manager, make a backup, free up space… When a warning has a related system tool, a button to open it appears.
 
-![Diagnóstico](docs/captura-diagnostico.png)
+It never asks you to open the computer or touch components. If something needs a physical check (internal cleaning, replacing a disk, the memory or the battery), the recommendation is to go to a repair service or the manufacturer. This notice also appears in the Diagnosis, in "About" and in exported reports.
 
-## Qué muestra
+![Diagnosis](docs/captura-diagnostico.png)
 
-Veintiuna secciones en la barra lateral:
+## What it shows
 
-| Sección | Contenido |
+Twenty-one sections in the sidebar:
+
+| Section | Contents |
 |---|---|
-| Inicio | Estado general, indicadores en vivo (procesador, memoria, disco, temperatura, batería), lo más importante del diagnóstico, ficha del equipo con placa base y BIOS, y sistema |
-| Diagnóstico | Revisión automática: qué conviene revisar, sugerencias opcionales, qué hacer en cada caso y errores más repetidos del registro del sistema |
-| Monitor en vivo | Gráficas de los últimos dos minutos de procesador, RAM y swap, red, disco, temperatura y gráfica; uso de cada hilo; programas que usan la gráfica; máximos alcanzados desde que abriste el programa; procesos que más consumen |
-| Procesador | Indicadores en vivo de uso total, frecuencia media y temperatura, con una barra por hilo que se actualiza cada segundo; modelo, familia y stepping, microcódigo, núcleos e hilos, núcleos P y E, cachés, juegos de instrucciones, frecuencia y uso de cada hilo, frenazos por temperatura, vulnerabilidades y mitigaciones. Con tu contraseña, si lo pides: frecuencia base y multiplicadores, estados de rendimiento y consumo en vatios. Pruebas voluntarias de estabilidad y de rendimiento |
-| Placa base y BIOS | Fabricante y modelo del equipo y de la placa, versión y fecha de la BIOS, UEFI o legacy, Secure Boot, TPM |
-| Memoria | Uso de RAM y swap, módulos instalados ranura a ranura con su fabricante (si la placa no lo da, se deduce del código JEDEC o de la referencia del módulo), ranuras libres, máximo que admite la placa, errores de memoria corregidos, protección ante falta de memoria. Con tu contraseña, si lo pides: tiempos, perfiles XMP, fabricante de los chips y fecha de fabricación, leídos de los propios módulos. Prueba voluntaria de la memoria |
-| Gráfica y pantallas | Tarjetas, driver en uso, frecuencia, temperatura, consumo y su límite, qué la está limitando (consumo, temperatura…), BIOS de la tarjeta, memoria de vídeo y su fabricante, Resizable BAR, enlace PCIe, OpenGL y Vulkan, formatos de vídeo que decodifica por hardware, monitores y modo en uso. Pruebas voluntarias de rendimiento y de carga sostenida |
-| Almacenamiento | Espacio ocupado; salud SMART, desgaste de los SSD, temperatura y horas de uso; evolución de la salud de cada disco día a día; unidades con modelo, tipo, interfaz, enlace PCIe y firmware; particiones y cifrado; TRIM. Prueba voluntaria de velocidad |
-| Red | Interfaces con driver, MAC, IP y velocidad; Wi-Fi con calidad de la señal y banda; puerta de enlace, DNS, Bluetooth |
-| Sonido | Tarjetas de sonido y servidor de audio |
-| Dispositivos USB | Lo que hay conectado, con velocidad, consumo y driver |
-| Dispositivos PCI | Todos los dispositivos y el driver que usa cada uno |
-| Periféricos | Monitores (marca, modelo, tamaño, resolución y refresco nativos, modo en uso, año de fabricación y número de serie, leídos del EDID del propio monitor), teclados, ratones, paneles táctiles, mandos, cámaras, impresoras y dispositivos Bluetooth emparejados |
-| Sensores y ventiladores | Temperaturas, ventiladores en RPM y en porcentaje, quién los controla, curvas programadas, umbrales térmicos del firmware, voltajes y potencia |
-| Batería y energía | Carga, salud frente a la capacidad de fábrica, ciclos, consumo, límite de carga, tipo de suspensión, hibernación; batería de ratones y teclados inalámbricos; fuentes de alimentación con USB (Corsair HXi, RMi, AXi) |
-| Sistema operativo | Distribución y base, fecha de instalación, kernel, escritorio, duración del arranque y qué lo retrasa |
-| Drivers y módulos | Módulos del kernel cargados, cuáles son privativos o externos, DKMS, marcas del kernel |
-| Actualizaciones de drivers | Versión instalada y disponible de kernel, driver NVIDIA, Mesa, firmware, microcódigo y DKMS; firmware de BIOS, SSD y periféricos; dispositivos sin driver; firmware que falta |
-| Software | Paquetes instalados, versiones de los componentes clave, actualizaciones pendientes, últimos cambios, Flatpak, programas de inicio, repositorios |
-| Seguridad | Secure Boot, TPM, nivel de seguridad del firmware (HSI), cifrado de disco, cortafuegos, AppArmor, puertos abiertos, SSH |
-| Puesta a punto | Lista de comprobación de lo que conviene dejar hecho tras instalar el sistema: actualizaciones, drivers y firmware, cortafuegos, instantáneas de Timeshift, TRIM de los SSD y códecs multimedia. Cada punto lleva a la herramienta del sistema que lo hace |
+| Home | Overall status, live gauges (processor, memory, disk, temperature, battery), the most important diagnosis items, computer summary with motherboard and BIOS, and system |
+| Diagnosis | Automatic check: what should be looked at, optional suggestions, what to do in each case, and the most repeated errors in the system log |
+| Live monitor | Graphs of the last two minutes of processor, RAM and swap, network, disk, temperature and graphics; usage of each thread; programs using the graphics card; peaks reached since you opened the program; processes using the most |
+| Processor | Live gauges for total usage, average frequency and temperature, with one bar per thread updated every second; model, family and stepping, microcode, cores and threads, P- and E-cores, caches, instruction sets, frequency and usage of each thread, thermal throttling, vulnerabilities and mitigations. With your password, if you ask: base frequency and multipliers, performance states and power draw in watts. Optional stability and performance tests |
+| Motherboard and BIOS | Computer and board manufacturer and model, BIOS version and date, UEFI or legacy, Secure Boot, TPM |
+| Memory | RAM and swap usage, installed modules slot by slot with their manufacturer (if the board doesn't report it, it is worked out from the JEDEC code or the module part number), free slots, maximum the board supports, corrected memory errors, out-of-memory protection. With your password, if you ask: timings, XMP profiles, chip manufacturer and manufacturing date, read from the modules themselves. Optional memory test |
+| Graphics and displays | Cards, driver in use, clock, temperature, power draw and its limit, what is limiting it (power, temperature…), card BIOS, video memory and its manufacturer, Resizable BAR, PCIe link, OpenGL and Vulkan, video formats decoded in hardware, monitors and current mode. Optional performance and sustained load tests |
+| Storage | Space used; SMART health, SSD wear, temperature and power-on hours; day-by-day health history of each disk; drives with model, type, interface, PCIe link and firmware; partitions and encryption; TRIM. Optional speed test |
+| Network | Interfaces with driver, MAC, IP and speed; Wi-Fi with signal quality and band; gateway, DNS, Bluetooth |
+| Sound | Sound cards and audio server |
+| USB devices | What is connected, with speed, power draw and driver |
+| PCI devices | All devices and the driver each one uses |
+| Peripherals | Monitors (brand, model, size, native resolution and refresh rate, current mode, year of manufacture and serial number, read from the monitor's own EDID), keyboards, mice, touchpads, gamepads, cameras, printers and paired Bluetooth devices |
+| Sensors and fans | Temperatures, fans in RPM and percent, who controls them, programmed curves, firmware thermal thresholds, voltages and power |
+| Battery and power | Charge, health compared with factory capacity, cycles, power draw, charge limit, suspend type, hibernation; battery of wireless mice and keyboards; USB power supplies (Corsair HXi, RMi, AXi) |
+| Operating system | Distribution and base, installation date, kernel, desktop, boot time and what slows it down |
+| Drivers and modules | Loaded kernel modules, which are proprietary or out-of-tree, DKMS, kernel taint flags |
+| Driver updates | Installed and available version of the kernel, NVIDIA driver, Mesa, firmware, microcode and DKMS; BIOS, SSD and peripheral firmware; devices without a driver; missing firmware |
+| Software | Installed packages, versions of key components, pending updates, latest changes, Flatpak, startup programs, repositories |
+| Security | Secure Boot, TPM, firmware security level (HSI), disk encryption, firewall, AppArmor, open ports, SSH |
+| Setup checklist | What is worth having done after installing the system: updates, drivers and firmware, firewall, Timeshift snapshots, SSD TRIM and multimedia codecs. Each item leads to the system tool that does it |
 
-![Puesta a punto](docs/captura-puesta.png)
+![Setup checklist](docs/captura-puesta.png)
 
-## Pruebas voluntarias
+## Voluntary tests
 
-Las pestañas Procesador, Memoria, Gráfica y pantallas y Almacenamiento tienen al final un apartado **Pruebas voluntarias**. Ninguna prueba se hace sola: hay que pulsar el botón, leer el aviso, marcar la casilla «He leído el aviso y quiero hacer la prueba» y pulsar **Empezar**.
+The Processor, Memory, Graphics and displays and Storage tabs have an **Voluntary tests** area at the end. No test runs on its own: you have to press the button, read the warning, tick "I have read the warning and want to run the test" and press **Start**.
 
-| Prueba | Qué hace | Utilidad que usa |
+| Test | What it does | Tool used |
 |---|---|---|
-| Estabilidad del procesador (1, 10 o 60 min) | Todos los núcleos al máximo con cálculos variados, comprobando que los resultados son correctos | `stress-ng` (sin él, una prueba ligera en Python que detecta menos) |
-| Rendimiento del procesador (2–3 min) | Puntuación comprimiendo y descomprimiendo, con un núcleo y con todos | `7z b` (paquete `7zip`) |
-| Memoria (1, 10 o 30 min) | Escribe y comprueba patrones en la mitad de la memoria libre | `stress-ng` |
-| Rendimiento de la gráfica (unos 5 min) | Escenas 3D en una ventana y una puntuación | `glmark2` |
-| Carga sostenida de la gráfica (1, 10 o 30 min) | Mantiene la gráfica trabajando para ver si es estable | `glmark2` |
-| Velocidad del disco | Escribe 1 GiB en tu carpeta personal, lo lee y lo borra | `dd` |
+| Processor stability (1, 10 or 60 min) | All cores at full load with varied calculations, checking that the results are correct | `stress-ng` (without it, a light Python test that detects less) |
+| Processor performance (2–3 min) | Score compressing and decompressing, with one core and with all | `7z b` (package `7zip`) |
+| Memory (1, 10 or 30 min) | Writes and checks patterns in half of the free memory | `stress-ng` |
+| Graphics performance (about 5 min) | 3D scenes in a window and a score | `glmark2` |
+| Graphics sustained load (1, 10 or 30 min) | Keeps the graphics card working to see whether it is stable | `glmark2` |
+| Disk speed | Writes 1 GiB to your home folder, reads it and deletes it | `dd` |
 
-Mientras dura, una ventana muestra el tiempo que queda, la temperatura y su gráfica, la frecuencia y el uso, con un botón **Detener**. La prueba se para sola si:
+While it runs, a window shows the time left, the temperature and its graph, the frequency and the usage, with a **Stop** button. The test stops on its own if:
 
-- la temperatura del procesador llega a 5 °C del máximo que declara (90 °C en AMD y 95 °C en Intel si no lo declara), o la de la gráfica a 10 °C de su máximo (87 °C si no lo declara);
-- el portátil se desconecta de la corriente (con batería no deja empezar, ni con menos del 30 % de carga);
-- se cierra SysCheckup.
+- the processor temperature comes within 5 °C of the maximum it declares (90 °C on AMD and 95 °C on Intel if it doesn't declare one), or the graphics card within 10 °C of its maximum (87 °C if it doesn't declare one);
+- the laptop is unplugged (on battery it won't start, nor with less than 30 % charge);
+- SysCheckup is closed.
 
-Cada prueba va en su propio grupo de procesos y lleva además su propio límite de tiempo, para que nunca se quede funcionando sola. Al terminar se ve el resultado: superada, con errores (fallos de cálculo o errores de hardware nuevos en el registro del kernel), detenida por temperatura… con la temperatura máxima, la frecuencia sostenida y las veces que el procesador se frenó por calor. Las puntuaciones se comparan con tus mediciones anteriores; SysCheckup no envía nada a internet, así que no hay comparación con otros equipos.
+Each test runs in its own process group and also has its own time limit, so it can never be left running on its own. At the end you see the result: passed, with errors (calculation failures or new hardware errors in the kernel log), stopped because of temperature… with the maximum temperature, the sustained frequency and how many times the processor throttled because of heat. Scores are compared with your previous measurements; SysCheckup sends nothing to the internet, so there is no comparison with other computers.
 
-Los resultados se guardan en `~/.config/syscheckup/historial.json` y aparecen en la tabla «Pruebas que has hecho» de cada pestaña y en los informes exportados.
+Results are saved in `~/.config/syscheckup/historial.json` and appear in the "Tests you have run" table of each tab and in exported reports.
 
-## Datos internos de la memoria y del procesador
+## Internal memory and processor data
 
-Todo lo que el sistema deja leer a tu usuario se lee sin contraseña, y solo hay que darla para lo que de verdad la necesita:
+Everything the system lets your user read is read without a password, and the password is only needed for what truly requires it:
 
-- **Sin contraseña:** la frecuencia base, la máxima y la mínima del procesador con sus multiplicadores (de `cpufreq`); los datos de los módulos de memoria cuando el kernel ya los publica (los drivers `ee1004` y `spd5118` se cargan solos en muchas placas, y entonces sus datos los puede leer cualquier usuario); y el consumo del procesador en vatios, en vivo, si tu sistema deja leer sus contadores.
-- **Con contraseña:** solo lo que falta. En la pestaña Memoria el botón aparece únicamente si tu sistema no publica los datos de los módulos. En la pestaña Procesador, únicamente si queda algo que solo el administrador puede leer: el consumo en vatios (desde Linux 5.10, por seguridad, sus contadores son solo del administrador) y, en AMD, los estados de rendimiento.
+- **Without a password:** the processor's base, maximum and minimum frequency with their multipliers (from `cpufreq`); the memory module data when the kernel already publishes it (the `ee1004` and `spd5118` drivers load automatically on many boards, and then any user can read their data); and the processor's power draw in watts, live, if your system lets its counters be read.
+- **With a password:** only what's missing. In the Memory tab the button only appears if your system doesn't publish the module data. In the Processor tab, only if there is something left that only the administrator can read: the power draw in watts (since Linux 5.10, for security reasons, its counters are root-only) and, on AMD, the performance states.
 
-Junto a cada botón de prueba y de datos internos hay una «i»: al pulsarla explica qué hace, cuánto dura, qué utilidad usa, si pide contraseña y cuándo se detiene sola.
+Next to each test and internal-data button there is an "i": pressing it explains what it does, how long it takes, which tool it uses, whether it asks for a password and when it stops on its own.
 
-El botón **Leer datos internos…** (al pulsarlo, el sistema te pide la contraseña) lee lo que guardan los propios componentes y que el sistema solo enseña al administrador:
+The **Read internal data…** button (when pressed, the system asks for your password) reads what the components themselves store and the system only shows to the administrator:
 
-- **Memoria (SPD):** fabricante del módulo y de sus chips, referencia, fecha de fabricación, velocidad y tiempos de serie (CL-tRCD-tRP-tRAS) y los perfiles del fabricante (XMP). Si la memoria funciona a la velocidad estándar y sus perfiles permiten más, lo indica. Funciona con DDR4 y DDR5 cuando la placa publica estos datos al sistema (drivers `ee1004` y `spd5118` del kernel; en Ubuntu 24.04 la DDR5 necesita el kernel HWE).
-- **Procesador:** frecuencia base y multiplicadores, estados de rendimiento (AMD) y turbo máximo (Intel), y el consumo del procesador en vatios medido durante un segundo.
+- **Memory (SPD):** module and chip manufacturer, part number, manufacturing date, default speed and timings (CL-tRCD-tRP-tRAS) and the manufacturer profiles (XMP). If the memory runs at the standard speed and its profiles allow more, it says so. Works with DDR4 and DDR5 when the board exposes this data to the system (kernel drivers `ee1004` and `spd5118`; on Ubuntu 24.04 DDR5 needs the HWE kernel).
+- **Processor:** base frequency and multipliers, performance states (AMD) and maximum turbo (Intel), and the processor's power draw measured over one second.
 
-Lo hace un ayudante aparte, `/usr/libexec/syscheckup/syscheckup-probe`, que se lanza con `pkexec` solo cuando pulsas el botón. Solo lee: copia los datos que publican los drivers del kernel, sin usar `/dev/i2c-*` ni escribir en el bus de la memoria, lee una lista cerrada de registros del procesador y no admite otros argumentos. Si tiene que cargar un módulo del kernel (`ee1004`, `spd5118` o `msr`), lo descarga al terminar. Los datos de la memoria solo se muestran si superan su suma de control.
+This is done by a separate helper, `/usr/libexec/syscheckup/syscheckup-probe`, launched with `pkexec` only when you press the button. It only reads: it copies the data published by the kernel drivers, without using `/dev/i2c-*` or writing to the memory bus, reads a closed list of processor registers and accepts no other arguments. If it has to load a kernel module (`ee1004`, `spd5118` or `msr`), it unloads it when done. Memory data is only shown if it passes its checksum.
 
-Las posiciones de cada dato en el chip SPD siguen las normas JEDEC y se han contrastado con `decode-dimms` (DDR4) y con memtest86+ (DDR4 y DDR5, perfiles XMP). La DDR5 y los perfiles XMP no se han podido probar todavía con módulos reales.
+The position of each field in the SPD chip follows the JEDEC standards and has been checked against `decode-dimms` (DDR4) and memtest86+ (DDR4 and DDR5, XMP profiles). DDR5 and XMP profiles have not yet been tested with real modules.
 
-## Exportar
+## Export
 
-Un solo botón, **Exportar**, con todas las opciones:
+A single button, **Export**, with every option:
 
-![Exportar](docs/captura-exportar.png)
+![Export](docs/captura-exportar.png)
 
-- **Qué incluir:** todo el informe o solo la sección que estás viendo.
-- **Formato:**
-  - **Texto**, para leerlo o adjuntarlo a un correo.
-  - **Página web**, que se abre en el navegador y es cómoda para enviar a un técnico.
-  - **Para un foro**, un resumen entre `[code]` y `[/code]` listo para pegar en el foro de Linux Mint. En «Pedir ayuda con» puedes elegir el problema (Wi-Fi y red, sonido, gráfica y pantallas, batería y temperatura, lentitud y arranque): el resumen lleva entonces la ficha del equipo y solo las secciones que hacen falta para ese problema, con sus detalles técnicos.
-  - **JSON**, para procesar los datos con otro programa.
-  - **Histórico del monitor (CSV)**, las gráficas de los últimos dos minutos para abrirlas en una hoja de cálculo.
-- **Ocultar datos personales**, marcado por defecto: tapa números de serie, MAC, IP, UUID de los discos, nombre del equipo, red Wi-Fi, usuario y nombres de dispositivos Bluetooth, también cuando aparecen dentro de otros textos, como el registro del sistema.
-- **Copiar** al portapapeles o **Guardar** en un archivo. Después de guardar sale un botón para abrirlo.
+- **What to include:** the whole report or only the section you are viewing.
+- **Format:**
+  - **Text**, to read it or attach it to an email.
+  - **Web page**, which opens in the browser and is handy to send to a technician.
+  - **For a forum**, a summary between `[code]` and `[/code]` ready to paste into the Linux Mint forum. Under "Ask for help with" you can choose the problem (Wi-Fi and network, sound, graphics and displays, battery and temperature, slowness and boot): the summary then carries the computer summary and only the sections needed for that problem, with their technical details.
+  - **JSON**, to process the data with another program.
+  - **Monitor history (CSV)**, the graphs of the last two minutes to open in a spreadsheet.
+- **Hide personal data**, ticked by default: masks serial numbers, MAC, IP, disk UUIDs, computer name, Wi-Fi network, user name and Bluetooth device names, also when they appear inside other texts, such as the system log.
+- **Copy** to the clipboard or **Save** to a file. After saving, a button to open it appears.
 
-Los informes incluyen siempre todo, también lo que en la ventana está plegado en «Detalles técnicos».
+Reports always include everything, including what is folded under "Technical details" in the window.
 
-## Botones y atajos
+## Buttons and shortcuts
 
 | | |
 |---|---|
-| Flecha circular, F5 o Ctrl+R | Volver a leer todo el equipo |
-| Ctrl+F | Buscar en todo el informe |
-| Ctrl+E | Exportar |
-| Alt+1 … Alt+9 | Ir a una de las primeras nueve secciones de la lista |
-| Menú (☰) | Idioma, aspecto (oscuro o claro), ocultar datos personales en pantalla (para hacer capturas), atajos de teclado, Acerca de y Desinstalar |
-| F1 | Acerca de |
-| Ctrl+Q | Salir |
+| Circular arrow, F5 or Ctrl+R | Read the whole computer again |
+| Ctrl+F | Search the whole report |
+| Ctrl+E | Export |
+| Alt+1 … Alt+9 | Go to one of the first nine sections in the list |
+| Menu (☰) | Language, appearance (dark or light), hide personal data on screen (for screenshots), keyboard shortcuts, About and Uninstall |
+| F1 | About |
+| Ctrl+Q | Quit |
 
-## Monitor en vivo
+## Live monitor
 
-![Monitor en vivo](docs/captura-monitor.png)
+![Live monitor](docs/captura-monitor.png)
 
-SysCheckup toma una muestra por segundo desde que arranca y guarda los últimos dos minutos. Las gráficas se dibujan con datos reales del kernel:
+SysCheckup takes one sample per second from start-up and keeps the last two minutes. The graphs are drawn with real kernel data:
 
-- **Procesador:** uso total y una barra por hilo, calculados con `/proc/stat`.
-- **Memoria:** RAM ocupada de verdad (total menos disponible) y swap.
-- **Red:** bajada y subida sumando las interfaces físicas.
-- **Disco:** lectura y escritura de todas las unidades, con `/proc/diskstats`.
-- **Temperatura del procesador:** el sensor más caliente de la CPU.
-- **Gráfica:** uso de la GPU en tarjetas AMD, NVIDIA e Intel. Intel no publica un porcentaje, así que se calcula con el tiempo que la gráfica pasa dormida (RC6); en los portátiles con dos gráficas salen las dos líneas.
-- **Programas que usan la gráfica:** el kernel publica en `/proc/<pid>/fdinfo` el tiempo de gráfica de cada programa (AMD, Intel y el driver libre de NVIDIA); con el driver privativo de NVIDIA lo da `nvidia-smi pmon`. Solo salen tus propios programas.
-- **Máximos de la sesión:** lo más alto que han llegado el uso y la temperatura del procesador, la memoria y la gráfica desde que abriste SysCheckup, con la hora.
+- **Processor:** total usage and one bar per thread, computed from `/proc/stat`.
+- **Memory:** RAM actually in use (total minus available) and swap.
+- **Network:** download and upload, adding up the physical interfaces.
+- **Disk:** read and write across all drives, from `/proc/diskstats`.
+- **Processor temperature:** the hottest CPU sensor.
+- **Graphics:** GPU usage on AMD, NVIDIA and Intel cards. Intel doesn't publish a percentage, so it is computed from the time the GPU spends idle (RC6); on laptops with two GPUs both lines are shown.
+- **Programs using the graphics card:** the kernel publishes each program's GPU time in `/proc/<pid>/fdinfo` (AMD, Intel and the open NVIDIA driver); with NVIDIA's proprietary driver it comes from `nvidia-smi pmon`. Only your own programs are shown.
+- **Session peaks:** the highest processor usage and temperature, memory and graphics values reached since you opened SysCheckup, with the time.
 
-Cada gráfica muestra el valor actual y el máximo de los dos últimos minutos. Debajo van dos tablas con los procesos que más procesador y más memoria gastan, y la presión del sistema (PSI): el porcentaje de tiempo que los programas pasan esperando CPU, memoria o disco.
+Each graph shows the current value and the maximum of the last two minutes. Below are two tables with the processes using the most processor and memory, and the system pressure (PSI): the percentage of time programs spend waiting for CPU, memory or disk.
 
-## Monitores y fuente de alimentación
+## Monitors and power supply
 
-![Periféricos con los monitores](docs/captura-perifericos.png)
+![Peripherals with the monitors](docs/captura-perifericos.png)
 
-Los datos del monitor salen de su EDID, la ficha que el propio monitor envía por el cable. El kernel la publica en `/sys/class/drm`; con el driver privativo de NVIDIA no siempre lo hace, y entonces SysCheckup la lee de `xrandr --verbose`.
+Monitor data comes from its EDID, the data sheet the monitor itself sends over the cable. The kernel publishes it in `/sys/class/drm`; with NVIDIA's proprietary driver it doesn't always do so, and then SysCheckup reads it from `xrandr --verbose`.
 
-La fuente de alimentación de un sobremesa no comunica al equipo su marca, modelo ni potencia, así que ningún programa puede leerlos. Las únicas que lo hacen son las fuentes «inteligentes» con cable USB interno; de ellas, Linux tiene driver para las Corsair HXi, RMi y AXi (`corsair-psu`), y SysCheckup muestra su modelo, la potencia que entregan, la temperatura y el ventilador. Para saber cuál es la tuya, mira la factura o la caja; no abras el equipo para leer la etiqueta.
+A desktop power supply doesn't tell the computer its brand, model or wattage, so no program can read them. The only ones that do are "smart" power supplies with an internal USB cable; of these, Linux has a driver for the Corsair HXi, RMi and AXi (`corsair-psu`), and SysCheckup shows their model, the power they deliver, the temperature and the fan. To find out which one you have, check the invoice or the box; don't open the computer to read the label.
 
-## Ventiladores y curvas
+## Fans and curves
 
-Esto es lo que Linux permite saber de un ventilador, y SysCheckup lo enseña todo:
+This is what Linux lets you know about a fan, and SysCheckup shows all of it:
 
-| Dato | De dónde sale | Disponibilidad |
+| Data | Where it comes from | Availability |
 |---|---|---|
-| Velocidad en RPM | `fanN_input` | Casi siempre, si el kernel tiene driver para el chip |
-| Potencia en % | `pwmN`, de 0 a 255 | Placas de sobremesa y bastantes portátiles |
-| Quién lo controla | `pwmN_enable`: 0 al máximo, 1 manual, 2 o más automático | Donde haya `pwmN` |
-| Curva temperatura → potencia | `pwmN_auto_pointM_temp` y `_pwm` | Solo si el chip la publica |
-| Umbrales del firmware | Zonas térmicas ACPI | Casi todos los portátiles |
+| Speed in RPM | `fanN_input` | Almost always, if the kernel has a driver for the chip |
+| Power in % | `pwmN`, from 0 to 255 | Desktop boards and quite a few laptops |
+| Who controls it | `pwmN_enable`: 0 full speed, 1 manual, 2 or more automatic | Wherever `pwmN` exists |
+| Temperature → power curve | `pwmN_auto_pointM_temp` and `_pwm` | Only if the chip publishes it |
+| Firmware thresholds | ACPI thermal zones | Almost all laptops |
 
-La curva que configuras en la BIOS se guarda en el chip controlador de la placa y la mayoría de drivers no deja leerla. SysCheckup la muestra cuando existe: algunas placas con chips Nuvoton o ITE, los portátiles ASUS ROG con curvas personalizadas y las gráficas AMD. En el resto de equipos verás los umbrales ACPI, que dicen a qué temperatura el firmware acelera el ventilador, frena el procesador o apaga el equipo.
+The curve you set in the BIOS is stored in the board's controller chip, and most drivers don't let you read it. SysCheckup shows it when it exists: some boards with Nuvoton or ITE chips, ASUS ROG laptops with custom curves, and AMD graphics cards. On other computers you'll see the ACPI thresholds, which tell at what temperature the firmware speeds up the fan, throttles the processor or shuts the computer down.
 
-SysCheckup solo lee. Para cambiar curvas desde Linux están CoolerControl, con interfaz gráfica, y `fancontrol`, del paquete `lm-sensors`.
+SysCheckup only reads. To change curves from Linux there is CoolerControl, with a graphical interface, and `fancontrol`, from the `lm-sensors` package.
 
-## Cómo se comprueba si los drivers están al día
+## How it checks whether drivers are up to date
 
-En Windows cada driver se instala y se actualiza por separado. En Linux casi todos viajan dentro del kernel, así que la pregunta útil es otra: si tienes el kernel más reciente que ofrece tu distribución. SysCheckup revisa cuatro cosas.
+On Windows each driver is installed and updated separately. On Linux almost all of them ship inside the kernel, so the useful question is a different one: whether you have the latest kernel your distribution offers. SysCheckup checks four things.
 
-1. **Paquetes.** Compara la versión instalada con la que ofrecen tus repositorios para el kernel, el driver de NVIDIA, Mesa, los paquetes de firmware, el microcódigo del procesador y los módulos DKMS.
-2. **Firmware de dispositivos.** Si está `fwupd`, lista BIOS, SSD, docks y periféricos con su versión y avisa cuando el fabricante ha publicado una nueva.
-3. **Dispositivos sin driver.** Señala el hardware PCI que no tiene ningún módulo cargado.
-4. **Firmware que falta.** Busca en el registro del kernel los archivos que un driver pidió y no encontró, y dice de qué dispositivo son y qué paquete los trae. No avisa por los que ninguna distribución incluye porque son opcionales, como `iwl-debug-yoyo.bin` del Wi-Fi Intel.
+1. **Packages.** It compares the installed version with the one your repositories offer for the kernel, the NVIDIA driver, Mesa, firmware packages, processor microcode and DKMS modules.
+2. **Device firmware.** If `fwupd` is present, it lists BIOS, SSD, docks and peripherals with their version and warns when the manufacturer has published a new one.
+3. **Devices without a driver.** It points out PCI hardware that has no module loaded.
+4. **Missing firmware.** It searches the kernel log for files a driver asked for and didn't find, and says which device they belong to and which package provides them. It doesn't warn about those no distribution includes because they are optional, such as `iwl-debug-yoyo.bin` for Intel Wi-Fi.
 
-También avisa si ya tienes un kernel más nuevo instalado y falta reiniciar, y si la lista de paquetes lleva más de diez días sin refrescarse.
+It also warns if you already have a newer kernel installed and a reboot is pending, and if the package list hasn't been refreshed for more than ten days.
 
-La comparación se hace con los repositorios de tu sistema y sin conectar a internet. Si NVIDIA publica hoy un driver que Debian aún no ha empaquetado, SysCheckup no lo sabrá.
+The comparison is made against your system's repositories and without connecting to the internet. If NVIDIA publishes a driver today that Debian hasn't packaged yet, SysCheckup won't know.
 
-## Diagnóstico
+## Diagnosis
 
-Además de leer, interpreta. Avisa de:
+Besides reading, it interprets. It warns about:
 
-- Discos por encima del 90 % de ocupación, con sectores dañados, con fallo SMART inminente o con la vida útil estimada casi agotada.
-- Errores de disco, errores de hardware del procesador y cierres por falta de memoria en el registro del kernel.
-- Temperaturas altas y frenazos del procesador por calor.
-- Batería desgastada.
-- Servicios de systemd que no arrancaron bien.
-- Un solo módulo de RAM en una placa con dos ranuras, y errores de memoria.
-- Gráfica sin driver o 3D dibujado por software.
-- Vulnerabilidades de CPU sin mitigar.
-- Señal Wi-Fi débil.
-- Versiones nuevas de drivers y firmware, actualizaciones pendientes y reinicios sin hacer.
+- Disks over 90 % full, with bad sectors, with imminent SMART failure or with almost no estimated life left.
+- Disk errors, processor hardware errors and out-of-memory kills in the kernel log.
+- High temperatures and thermal throttling of the processor.
+- A worn battery.
+- systemd services that failed to start.
+- A single RAM module on a board with two slots, and memory errors.
+- Graphics without a driver or 3D rendered in software.
+- Unmitigated CPU vulnerabilities.
+- Weak Wi-Fi signal.
+- New driver and firmware versions, pending updates and pending reboots.
 
-Cada aviso dice qué hacer y, si existe, ofrece un botón para abrir la herramienta del sistema: Gestor de actualizaciones, Gestor de controladores, Copias de seguridad, Timeshift, Analizador de uso de disco, Discos, Cortafuegos, Firmware, Monitor del sistema o Informes del sistema. El botón solo aparece si la herramienta está instalada. SysCheckup nunca ejecuta nada como administrador: si la herramienta necesita permisos, es ella la que pide la contraseña.
+Each warning says what to do and, if one exists, offers a button to open the system tool: Update Manager, Driver Manager, Backups, Timeshift, Disk Usage Analyzer, Disks, Firewall, Firmware, System Monitor or System Reports. The button only appears if the tool is installed. SysCheckup never runs anything as administrator: if the tool needs privileges, the tool itself asks for the password.
 
-## Desinstalar
+## Uninstall
 
-Menú (☰) → **Desinstalar SysCheckup…**. Quita el programa, su icono del menú, su configuración y su historial, sin dejar rastro. El sistema pide tu contraseña, como en cualquier desinstalación. Los informes que hayas guardado son tuyos y no se tocan.
+Menu (☰) → **Uninstall SysCheckup…**. It removes the program, its menu icon, its settings and its history, leaving no trace. The system asks for your password, as with any uninstall. Reports you have saved are yours and are not touched.
 
-Desde la terminal hace lo mismo: `sudo apt purge syscheckup` y después `rm -rf ~/.config/syscheckup ~/.cache/syscheckup`.
+From a terminal it does the same: `sudo apt purge syscheckup` and then `rm -rf ~/.config/syscheckup ~/.cache/syscheckup`.
 
-## Instalación
+## Installation
 
-Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
+Download the `.deb` and, from the folder where you saved it:
 
 ```
 sudo apt install ./syscheckup_0.7.0_all.deb
 ```
 
-`apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre SysCheckup. Si tenías una versión anterior, este paquete la actualiza; si tenías una de las versiones de prueba que se llamaban MintMachine, o la primera, que se llamaba Radiografía, la sustituye. La configuración y el historial de MintMachine se trasladan solos a la carpeta nueva.
+`apt` installs any missing dependencies. You'll then find it in the menu as SysCheckup. If you had an earlier version, this package updates it; if you had one of the test versions called MintMachine, or the first one, called Radiografía, it replaces it. MintMachine's settings and history move to the new folder automatically.
 
-Para quitarlo, mira la sección «Desinstalar».
+To remove it, see the "Uninstall" section.
 
-### Sin instalar
+### Without installing
 
-El programa es un único archivo de Python:
+The program is a single Python file:
 
 ```
 python3 syscheckup.py
 ```
 
-Necesita `python3-gi`, `python3-gi-cairo` y `gir1.2-gtk-3.0`, que Mint y LMDE traen de serie.
+It needs `python3-gi`, `python3-gi-cairo` and `gir1.2-gtk-3.0`, which Mint and LMDE ship by default.
 
-## Uso desde la terminal
+## Command line
 
 ```
-syscheckup                       abre la ventana
-syscheckup --texto               informe completo por terminal
-syscheckup --foro                resumen para pegar en un foro, con los datos personales ocultos
-syscheckup --foro --problema red resumen centrado en un problema: red, sonido, grafica, energia o lentitud
-syscheckup --txt informe.txt     guarda el informe completo en texto
-syscheckup --html informe.html   guarda el informe en HTML
-syscheckup --json                vuelca los datos en JSON
-syscheckup --csv monitor.csv     mide dos minutos y guarda el histórico del monitor
-syscheckup --texto --anon        cualquiera de las anteriores con --anon oculta los datos personales
-syscheckup --idioma en           cualquiera de las anteriores en otro idioma (es, en, fr, ja, zh)
-syscheckup --texto --debug       muestra además qué utilidades se ejecutan y cuánto tarda cada una
+syscheckup                       opens the window
+syscheckup --texto               full report in the terminal
+syscheckup --foro                summary to paste into a forum, with personal data hidden
+syscheckup --foro --problema red summary focused on one problem: red, sonido, grafica, energia or lentitud
+syscheckup --txt informe.txt     saves the full report as text
+syscheckup --html informe.html   saves the report as HTML
+syscheckup --json                dumps the data as JSON
+syscheckup --csv monitor.csv     measures for two minutes and saves the monitor history
+syscheckup --texto --anon        any of the above with --anon hides personal data
+syscheckup --idioma en           any of the above in another language (es, en, fr, ja, zh)
+syscheckup --texto --debug       also shows which tools are run and how long each takes
 ```
 
-Sin entorno gráfico, por ejemplo por SSH, el programa pasa solo al modo texto.
+The option names are in Spanish (`--texto` = text, `--foro` = forum, `--problema` = problem; `red` = network, `sonido` = sound, `grafica` = graphics, `energia` = power, `lentitud` = slowness).
 
-## Privacidad
+Without a graphical session, for example over SSH, the program switches to text mode by itself.
 
-SysCheckup no abre ninguna conexión a internet. Lee archivos de `/proc` y `/sys` y ejecuta utilidades que ya están en tu sistema. Solo pide la contraseña de administrador si eliges «Leer datos internos» o «Desinstalar». Los informes se quedan donde tú los guardes.
+## Privacy
 
-Al exportar, «Ocultar datos personales» viene marcado. Revisa igualmente el informe antes de publicarlo: la ocultación busca los datos que el programa conoce y los formatos habituales (MAC, IP, UUID), pero no puede adivinar cualquier dato personal que aparezca en un nombre de archivo o de dispositivo.
+SysCheckup opens no internet connection. It reads files from `/proc` and `/sys` and runs tools already on your system. It only asks for the administrator password if you choose "Read internal data" or "Uninstall". Reports stay wherever you save them.
 
-Lo que garantiza el código, y comprueban las pruebas automáticas en cada cambio:
+When exporting, "Hide personal data" is ticked. Still, review the report before publishing it: masking looks for the data the program knows and the usual formats (MAC, IP, UUID), but it can't guess every piece of personal data that may appear in a file or device name.
 
-- No importa ningún módulo de red. La única función de red que usa es la que devuelve el nombre del equipo.
-- En tu carpeta personal solo escribe dentro de `~/.config/syscheckup/`: `config.json` (idioma y tema) e `historial.json` (una medición diaria de la salud de cada disco, los resultados de las pruebas que hagas y los datos internos que leas). Los discos se identifican con una huella, no con su número de serie. La prueba de velocidad del disco crea un archivo temporal en `~/.cache/syscheckup/` y lo borra al terminar.
-- Solo pide la contraseña si tú eliges «Leer datos internos» o «Desinstalar». El ayudante que usa para los datos internos solo lee.
-- `--debug` escribe en la terminal el nombre de cada utilidad y sus opciones, nunca sus argumentos ni su salida, y no crea ningún archivo.
-- De la configuración de Timeshift solo mira si hay instantáneas programadas; del escritorio en Wayland, solo el conector y el modo de cada pantalla.
-- Con «Ocultar datos personales» se tapan también los nombres de las impresoras y los de los teclados y ratones Bluetooth, que pueden llevar el nombre de una persona.
+What the code guarantees, and the automated tests check on every change:
 
-## De dónde sale cada dato
+- It imports no network module. The only network function it uses is the one that returns the computer's name.
+- In your home folder it only writes inside `~/.config/syscheckup/`: `config.json` (language and theme) and `historial.json` (one daily measurement of each disk's health, the results of the tests you run and the internal data you read). Disks are identified by a fingerprint, not by their serial number. The disk speed test creates a temporary file in `~/.cache/syscheckup/` and deletes it when done.
+- It only asks for the password if you choose "Read internal data" or "Uninstall". The helper it uses for internal data only reads.
+- `--debug` writes the name of each tool and its options to the terminal, never its arguments or its output, and creates no file.
+- From the Timeshift settings it only checks whether there are scheduled snapshots; from the Wayland desktop, only the connector and mode of each display.
+- With "Hide personal data" the names of printers and of Bluetooth keyboards and mice, which may carry a person's name, are masked too.
 
-| Dato | Fuente |
+## Where each piece of data comes from
+
+| Data | Source |
 |---|---|
-| Procesador | `/proc/cpuinfo`, `/proc/stat`, `/sys/devices/system/cpu` |
-| Placa y BIOS | `/sys/class/dmi/id` |
+| Processor | `/proc/cpuinfo`, `/proc/stat`, `/sys/devices/system/cpu` |
+| Board and BIOS | `/sys/class/dmi/id` |
 | Secure Boot, TPM | `/sys/firmware/efi/efivars`, `/sys/class/tpm` |
-| Módulos de RAM | `udevadm info` sobre el nodo DMI, sin root |
-| Datos internos de la memoria | `/sys/bus/i2c/drivers/ee1004/*/eeprom` y `…/spd5118/*/eeprom`, con el ayudante y tu contraseña |
-| Multiplicadores y consumo del procesador | Registros MSR (`/dev/cpu/0/msr`) y `/sys/class/powercap/intel-rapl:*/energy_uj`, con el ayudante y tu contraseña |
-| Límites, temperatura y consumo de la gráfica | AMD: `/sys/class/drm/card*/device/gpu_metrics` y `hwmon`; NVIDIA: `nvidia-smi` |
-| Resizable BAR | Tamaño de las ventanas de memoria PCI de la tarjeta (`resource`) frente a su memoria de vídeo |
-| Protección ante falta de memoria | `systemctl is-active` de systemd-oomd, earlyoom y nohang |
-| Gráfica y vídeo | `lspci`, `glxinfo`, `vainfo`, `vulkaninfo`, `nvidia-smi` |
-| Monitores | EDID en `/sys/class/drm` o, con NVIDIA, `xrandr --verbose` |
-| Modo de pantalla en uso | X11: `xrandr`. Wayland: D-Bus del escritorio (GNOME, Cinnamon), `kscreen-doctor -j` (KDE), `wlr-randr --json` (wlroots) |
-| Uso de la gráfica Intel | `/sys/class/drm/card*/gt/gt0/rc6_residency_ms` (i915) o `…/gtidle/idle_residency_ms` (xe) |
-| Aplicación de cada proceso | `/proc/<pid>/cgroup` y el nombre del ejecutable |
-| Perfil y gobernador de energía | `powerprofilesctl`, `/sys/firmware/acpi/platform_profile`, `/sys/devices/system/cpu/*/cpufreq` |
-| Memoria comprimida | `/sys/block/zram*`, `/sys/module/zswap` |
-| Seguridad del firmware (HSI) | Propiedad `HostSecurityId` del servicio fwupd, con `gdbus` |
-| Puesta a punto | Datos de las demás secciones y `/etc/timeshift/timeshift.json` |
-| Fuente de alimentación | `/sys/class/hwmon` (driver `corsair-psu`) |
-| Discos | `lsblk`, `statvfs`, `/proc/diskstats` |
-| SMART | `udisksctl dump`: el servicio UDisks ya tiene los datos leídos y los ofrece sin root |
-| Desgaste de los SSD | `gdbus call` a `SmartGetAttributes` de UDisks (NVMe y SATA) |
-| Enlace PCIe, frecuencia de la gráfica | `/sys/bus/pci/devices/*/current_link_*`, `/sys/class/drm/card*` |
-| Red | `/sys/class/net`, `ip`, `iw` |
-| Sensores y ventiladores | `/sys/class/hwmon`, `/sys/class/thermal`, `/proc/acpi/ibm/fan` |
-| Batería y suspensión | `/sys/class/power_supply`, `/sys/power` |
-| Procesos | `/proc/<pid>/stat` |
-| Módulos del kernel | `/proc/modules`, `/sys/module`, `dkms` |
-| Versiones de drivers | `dpkg-query`, `apt-cache policy` |
-| Firmware | `fwupdmgr get-devices` y `get-updates` |
+| RAM modules | `udevadm info` on the DMI node, without root |
+| Internal memory data | `/sys/bus/i2c/drivers/ee1004/*/eeprom` and `…/spd5118/*/eeprom`, with the helper and your password |
+| Processor multipliers and power draw | MSR registers (`/dev/cpu/0/msr`) and `/sys/class/powercap/intel-rapl:*/energy_uj`, with the helper and your password |
+| Graphics limits, temperature and power | AMD: `/sys/class/drm/card*/device/gpu_metrics` and `hwmon`; NVIDIA: `nvidia-smi` |
+| Resizable BAR | Size of the card's PCI memory windows (`resource`) compared with its video memory |
+| Out-of-memory protection | `systemctl is-active` for systemd-oomd, earlyoom and nohang |
+| Graphics and video | `lspci`, `glxinfo`, `vainfo`, `vulkaninfo`, `nvidia-smi` |
+| Monitors | EDID in `/sys/class/drm` or, with NVIDIA, `xrandr --verbose` |
+| Current display mode | X11: `xrandr`. Wayland: desktop D-Bus (GNOME, Cinnamon), `kscreen-doctor -j` (KDE), `wlr-randr --json` (wlroots) |
+| Intel GPU usage | `/sys/class/drm/card*/gt/gt0/rc6_residency_ms` (i915) or `…/gtidle/idle_residency_ms` (xe) |
+| Application of each process | `/proc/<pid>/cgroup` and the executable name |
+| Power profile and governor | `powerprofilesctl`, `/sys/firmware/acpi/platform_profile`, `/sys/devices/system/cpu/*/cpufreq` |
+| Compressed memory | `/sys/block/zram*`, `/sys/module/zswap` |
+| Firmware security (HSI) | `HostSecurityId` property of the fwupd service, with `gdbus` |
+| Setup checklist | Data from the other sections and `/etc/timeshift/timeshift.json` |
+| Power supply | `/sys/class/hwmon` (`corsair-psu` driver) |
+| Disks | `lsblk`, `statvfs`, `/proc/diskstats` |
+| SMART | `udisksctl dump`: the UDisks service has already read the data and offers it without root |
+| SSD wear | `gdbus call` to UDisks `SmartGetAttributes` (NVMe and SATA) |
+| PCIe link, graphics clock | `/sys/bus/pci/devices/*/current_link_*`, `/sys/class/drm/card*` |
+| Network | `/sys/class/net`, `ip`, `iw` |
+| Sensors and fans | `/sys/class/hwmon`, `/sys/class/thermal`, `/proc/acpi/ibm/fan` |
+| Battery and suspend | `/sys/class/power_supply`, `/sys/power` |
+| Processes | `/proc/<pid>/stat` |
+| Kernel modules | `/proc/modules`, `/sys/module`, `dkms` |
+| Driver versions | `dpkg-query`, `apt-cache policy` |
+| Firmware | `fwupdmgr get-devices` and `get-updates` |
 | Software | `apt`, `flatpak`, `/var/log/dpkg.log` |
-| Servicios y registro | `systemctl`, `systemd-analyze`, `journalctl` |
+| Services and log | `systemctl`, `systemd-analyze`, `journalctl` |
 
-Si falta alguna utilidad, la sección correspondiente sale más corta y el resto sigue funcionando. Un fallo al leer una sección tampoco tumba las demás.
+If a tool is missing, the corresponding section comes out shorter and everything else keeps working. A failure reading one section doesn't bring down the others either.
 
-## Estado del proyecto
+## Project status
 
-Versión 0.7.0. Conviene saber cómo se ha probado.
+Version 0.7.0. It's worth knowing how it has been tested.
 
-El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
+The code has been run in a virtual machine with Ubuntu 24.04, in a container with the LMDE 7 packages and against a simulated laptop: a fake `/sys` with board, battery, sensors, fans with PWM and a curve, monitor, Wi-Fi and USB, plus fake versions of `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` and friends. With that, all the parsers, the graphs under real CPU and disk load, the live refresh, search, buttons, personal-data masking and the five export formats have been checked.
 
-Lo que falta es rodaje en hardware real. Los formatos del banco de pruebas están escritos a mano a partir de la documentación de cada herramienta, y un equipo de verdad siempre trae alguna rareza. Si una sección sale vacía o con datos raros en tu máquina, abre una incidencia y pega el resultado de `syscheckup --texto --anon`.
+What's missing is mileage on real hardware. The test bench formats are written by hand from each tool's documentation, and a real computer always brings some quirk. If a section comes out empty or with odd data on your machine, open an issue and paste the output of `syscheckup --texto --anon`.
 
-### Límites conocidos
+### Known limitations
 
-- **Curvas de la BIOS.** Solo se ven cuando el driver del chip las publica. Está explicado más arriba.
-- **Drivers más nuevos que los del repositorio.** La comparación no sale de tu sistema.
-- **SMART y desgaste de los NVMe.** Necesita UDisks 2.10 o posterior. Linux Mint 22 y LMDE 7 lo traen; LMDE 6 trae la 2.9 y solo dará SMART de discos SATA.
-- **Traducciones hechas por IA.** Inglés y francés deberían ser correctos; japonés y chino conviene que los revise alguien nativo.
-- **Desgaste de los SSD sin probar en hardware real.** La respuesta de UDisks está escrita a partir de su documentación. Si en tu SSD la columna «Vida útil» sale vacía, abre una incidencia.
-- **Detalle de SMART.** Se muestra estado, temperatura, horas y sectores dañados. La tabla completa de atributos sigue pidiendo `sudo smartctl -a`.
-- **Registro del kernel.** Para leerlo, tu usuario debe pertenecer al grupo `adm`. El primer usuario de Mint suele estar.
-- **Uso de la GPU en Intel.** Es una estimación a partir del tiempo de reposo de la gráfica, sin probar todavía en hardware real.
-- **Datos internos de la memoria.** Dependen de que la placa publique el SPD al sistema; muchas sí, algunas no. La lectura de DDR4 está contrastada con `decode-dimms`; la de DDR5 y los perfiles XMP siguen las posiciones de memtest86+ y aún no se han probado con módulos reales. Los perfiles EXPO se detectan, pero sus tiempos no se leen.
-- **Multiplicadores del procesador.** Se leen en AMD Ryzen (Zen 1 a Zen 5) e Intel. No se muestra el voltaje que pide el procesador: su codificación cambia según la generación y no está verificada.
-- **Motivos de límite de la gráfica.** En AMD solo para las versiones de `gpu_metrics` que SysCheckup conoce (las de las gráficas Radeon de consumo y las integradas recientes); en las demás no sale la fila.
-- **Pruebas.** Las de estrés y rendimiento se han probado en una máquina virtual sin sensores de temperatura y con la gráfica por software; el corte por temperatura y el de batería se han probado con datos simulados.
-- **Wayland.** El modo de pantalla en uso se pide al escritorio: GNOME y Cinnamon por D-Bus, KDE Plasma con `kscreen-doctor` y Sway, Hyprland y similares con `wlr-randr`. Está comprobado con respuestas de ejemplo, no en cada escritorio real; en otros compositores sale la ficha del monitor sin el modo en uso.
-- **Aplicaciones del Monitor.** GNOME, KDE, Flatpak y Snap dan el nombre exacto de cada aplicación; en Cinnamon se agrupa por ejecutable, así que varios programas hechos en Python salen juntos como `python3`.
-- **Distribuciones sin `.deb`.** El programa funciona, pero el inventario de paquetes y la revisión de drivers salen vacíos.
+- **BIOS curves.** Only visible when the chip's driver publishes them. Explained above.
+- **Drivers newer than those in the repository.** The comparison doesn't leave your system.
+- **SMART and NVMe wear.** Needs UDisks 2.10 or later. Linux Mint 22 and LMDE 7 ship it; LMDE 6 ships 2.9 and will only give SMART for SATA disks.
+- **AI-made translations.** English and French should be correct; Japanese and Chinese should be reviewed by a native speaker.
+- **SSD wear not tested on real hardware.** The UDisks response is written from its documentation. If the "Lifespan" column is empty for your SSD, open an issue.
+- **SMART detail.** Status, temperature, hours and bad sectors are shown. The full attribute table still needs `sudo smartctl -a`.
+- **Kernel log.** To read it, your user must belong to the `adm` group. The first user on Mint usually does.
+- **Intel GPU usage.** An estimate based on the GPU's idle time, not yet tested on real hardware.
+- **Internal memory data.** Depends on the board publishing the SPD to the system; many do, some don't. DDR4 reading has been checked against `decode-dimms`; DDR5 and XMP profiles follow memtest86+'s offsets and have not yet been tested with real modules. EXPO profiles are detected, but their timings are not read.
+- **Processor multipliers.** Read on AMD Ryzen (Zen 1 to Zen 5) and Intel. The voltage the processor requests is not shown: its encoding changes with the generation and is not verified.
+- **Graphics limit reasons.** On AMD only for the `gpu_metrics` versions SysCheckup knows (those of consumer Radeon cards and recent integrated GPUs); for others the row is not shown.
+- **Tests.** Stress and performance tests have been run in a virtual machine without temperature sensors and with software rendering; the temperature and battery cut-offs have been tested with simulated data.
+- **Wayland.** The current display mode is requested from the desktop: GNOME and Cinnamon via D-Bus, KDE Plasma with `kscreen-doctor` and Sway, Hyprland and similar with `wlr-randr`. Checked with sample responses, not on every real desktop; on other compositors the monitor's data sheet is shown without the current mode.
+- **Monitor applications.** GNOME, KDE, Flatpak and Snap give the exact name of each application; on Cinnamon they are grouped by executable, so several Python programs appear together as `python3`.
+- **Distributions without `.deb`.** The program works, but the package inventory and the driver check come out empty.
 
-## Cómo está hecho
+## How it's built
 
-Un archivo, `syscheckup.py`, con cinco partes:
+One file, `syscheckup.py`, in five parts:
 
-1. **Utilidades.** `read()` lee un archivo y devuelve cadena vacía si falla. `run()` ejecuta una orden con tiempo límite e idioma fijo, y también devuelve cadena vacía si la orden no existe.
-2. **Muestreador.** La clase `Sampler` toma una muestra por segundo y guarda el histórico que pintan las gráficas.
-3. **Recopiladores.** Una función `sec_*` por sección. Cada una devuelve bloques de ocho tipos: `kv` (pares clave y valor), `table`, `bars`, `chart`, `cores`, `note`, `status` y `findings`. Con `adv=True`, un bloque es detalle técnico y la ventana lo pliega; con `help="..."`, lleva una explicación en lenguaje llano.
-4. **Exportadores.** `to_text`, `to_html`, `to_json`, `to_forum` y `to_csv`, registrados en `EXPORTERS`.
-5. **Interfaz GTK 3.** Pinta los mismos bloques; las gráficas se dibujan con cairo. La lectura inicial va en un hilo aparte para que la ventana no se congele.
+1. **Utilities.** `read()` reads a file and returns an empty string if it fails. `run()` runs a command with a time limit and a fixed locale, and also returns an empty string if the command doesn't exist.
+2. **Sampler.** The `Sampler` class takes one sample per second and keeps the history the graphs draw.
+3. **Collectors.** One `sec_*` function per section. Each returns blocks of eight kinds: `kv` (key-value pairs), `table`, `bars`, `chart`, `cores`, `note`, `status` and `findings`. With `adv=True` a block is a technical detail and the window folds it; with `help="..."` it carries a plain-language explanation.
+4. **Exporters.** `to_text`, `to_html`, `to_json`, `to_forum` and `to_csv`, registered in `EXPORTERS`.
+5. **GTK 3 interface.** Draws the same blocks; the graphs are drawn with cairo. The initial read runs in a separate thread so the window doesn't freeze.
 
-Los textos se escriben en español dentro de `_()`; los que llevan datos, como plantilla: `_("Quedan {n} libres").format(n=...)`. Los títulos, claves, cabeceras, notas y valores fijos que se pasan a `kv`, `table`, `bars`, `note` y `section` se traducen solos. Para añadir o cambiar textos: se edita el código, se regenera `po/syscheckup.pot` y se completan los `.po` (`msgmerge` sirve para eso).
+Texts are written in Spanish inside `_()`; those carrying data, as a template: `_("Quedan {n} libres").format(n=...)`. Titles, keys, headers, notes and fixed values passed to `kv`, `table`, `bars`, `note` and `section` are translated automatically. To add or change texts: edit the code, regenerate `po/syscheckup.pot` and complete the `.po` files (`msgmerge` is the tool for that). Comments and internal names in the code are in Spanish.
 
-Los recopiladores comparten un objeto `Ctx`. Con `ctx.flag(nivel, área, texto, qué_hacer, acción)` cualquiera de ellos deja un aviso que después recoge el Diagnóstico. `acción` es una clave de `ACTIONS`, la lista de herramientas del sistema que se pueden abrir. **Norma para los avisos:** «qué hacer» solo puede proponer acciones seguras desde el sistema; cualquier revisión física se deriva a un servicio técnico o al fabricante.
+The collectors share a `Ctx` object. With `ctx.flag(level, area, text, what_to_do, action)` any of them leaves a warning that the Diagnosis then collects. `action` is a key of `ACTIONS`, the list of system tools that can be opened. **Rule for warnings:** "what to do" may only suggest safe actions from the system; any physical check is referred to a repair service or the manufacturer.
 
-Los valores envueltos en `Sens(...)` se tapan al ocultar los datos personales, y también se buscan dentro del resto de textos del informe.
+Values wrapped in `Sens(...)` are masked when personal data is hidden, and they are also searched for inside the rest of the report's texts.
 
-### Añadir una sección
+### Adding a section
 
 ```python
 def sec_ejemplo(ctx):
@@ -374,79 +378,79 @@ def sec_ejemplo(ctx):
     ])
 ```
 
-Después se registra en `COLLECTORS`, `ORDER` y `TITLES`. Con eso aparece en la ventana, en el modo texto y en todos los formatos de exportación. Si quieres que se refresque sola, añade su identificador a `LIVE`.
+Then register it in `COLLECTORS`, `ORDER` and `TITLES`. With that it appears in the window, in text mode and in every export format. If you want it to refresh by itself, add its identifier to `LIVE`.
 
-## Construir el paquete .deb
+## Building the .deb package
 
 ```
 packaging/build-deb.sh
 ```
 
-El paquete queda en `dist/`. Solo hace falta `dpkg-deb`. La versión se toma de la variable `VERSION` de `syscheckup.py`. El campo «Maintainer» del paquete lleva solo «SysCheckup», sin datos personales: dpkg lo exige y, si falta, apt muestra un aviso cada vez que se usa.
+The package ends up in `dist/`. Only `dpkg-deb` is needed. The version is taken from the `VERSION` variable in `syscheckup.py`. The package's "Maintainer" field only says "SysCheckup", with no personal data: dpkg requires it and, if it's missing, apt shows a warning every time it's used.
 
-En GitHub, la acción `.github/workflows/ci.yml` prueba el programa y construye el `.deb` en cada cambio. Al publicar una etiqueta `v0.7.0`, adjunta el `.deb` a esa versión.
+On GitHub, the `.github/workflows/ci.yml` action tests the program and builds the `.deb` on every change. When a `v0.7.0` tag is pushed, it attaches the `.deb` to that release.
 
-## Pruebas
+## Tests
 
-El banco de pruebas monta un `/sys` simulado dentro de un espacio de montajes privado, así que el `/sys` real de tu equipo no se toca. Necesita root por el montaje:
+The test bench mounts a simulated `/sys` inside a private mount namespace, so your computer's real `/sys` is not touched. It needs root for the mount:
 
 ```
 sudo tests/run.sh texto
 sudo tests/run.sh texto --anon
 sudo tests/run.sh html /tmp/informe.html
-sudo tests/run.sh foro /tmp/foro.txt --anon        (también json y csv)
-sudo -E tests/run.sh gui /tmp/captura.png resumen   (captura de la ventana y sale)
+sudo tests/run.sh foro /tmp/foro.txt --anon        (also json and csv)
+sudo -E tests/run.sh gui /tmp/captura.png resumen   (screenshot of the window, then exits)
 ```
 
-Además hay pruebas unitarias, que no necesitan root: comprueban los analizadores (EDID, pantallas en Wayland, aplicaciones, gráfica Intel), la ocultación de datos personales, que el código no use la red y que las traducciones estén completas.
+There are also unit tests, which don't need root: they check the parsers (EDID, Wayland displays, applications, Intel GPU), personal-data masking, that the code doesn't use the network and that the translations are complete.
 
 ```
-python3 -m pytest tests/test_unidad.py      (sin pytest: python3 tests/test_unidad.py)
+python3 -m pytest tests/test_unidad.py      (without pytest: python3 tests/test_unidad.py)
 ```
 
-Para probar un caso nuevo, por ejemplo un ventilador parado o un disco con fallo SMART, cambia los valores en `tests/simular_portatil.py` y mira qué dice el Diagnóstico. Con `MM_IDIOMA=en` (o `fr`, `ja`, `zh`) delante, el banco de pruebas sale en ese idioma; con `MM_FUENTE=1`, simula una fuente Corsair con USB.
+To try a new case, for example a stopped fan or a disk with a SMART failure, change the values in `tests/simular_portatil.py` and see what the Diagnosis says. With `MM_IDIOMA=en` (or `fr`, `ja`, `zh`) in front, the test bench runs in that language; with `MM_FUENTE=1`, it simulates a Corsair power supply with USB.
 
-## Publicarlo en GitHub
+## Publishing it on GitHub
 
-1. Crea un repositorio vacío en GitHub, sin README ni licencia: ya van incluidos.
-2. Desde la carpeta del proyecto:
+1. Create an empty repository on GitHub, without a README or license: they are already included.
+2. From the project folder:
 
 ```
 git init
 git add .
 git commit -m "SysCheckup 0.7.0"
 git branch -M main
-git remote add origin https://github.com/TU-USUARIO/syscheckup.git
+git remote add origin https://github.com/YOUR-USER/syscheckup.git
 git push -u origin main
 git tag v0.7.0
 git push origin v0.7.0
 ```
 
-3. La acción de GitHub construye el `.deb` y lo adjunta a la versión `v0.7.0`. Si prefieres hacerlo a mano, en Releases crea la versión `v0.7.0` y adjunta `syscheckup_0.7.0_all.deb`.
-4. Cuando tengas la dirección del repositorio, añádela a `data/syscheckup.metainfo.xml` con `<url type="homepage">…</url>`.
+3. The GitHub action builds the `.deb` and attaches it to release `v0.7.0`. If you prefer to do it by hand, create release `v0.7.0` under Releases and attach `syscheckup_0.7.0_all.deb`.
+4. Once you have the repository address, add it to `data/syscheckup.metainfo.xml` with `<url type="homepage">…</url>`.
 
-Las incidencias usan las plantillas de `.github/ISSUE_TEMPLATE`, que piden el informe para foros con los datos personales ocultos.
+Issues use the templates in `.github/ISSUE_TEMPLATE`, which ask for the forum report with personal data hidden.
 
-Las carpetas `build/` y `dist/` están en `.gitignore`. El `.deb` se sube como archivo de la versión publicada y se queda fuera del historial.
+The `build/` and `dist/` folders are in `.gitignore`. The `.deb` is uploaded as a release asset and stays out of the history.
 
-Un aviso sobre el nombre: «Linux Mint» es una marca de su proyecto. Deja claro en la descripción del repositorio que SysCheckup es un programa independiente.
+A note about the name: "Linux Mint" is a trademark of its project. Make it clear in the repository description that SysCheckup is an independent program.
 
-## Ideas para las siguientes versiones
+## Ideas for future versions
 
-- Uso de la gráfica por proceso (fdinfo de DRM, sin root para tus propios procesos).
-- Dibujar la curva del ventilador como gráfica, con un punto que marque dónde está ahora.
-- Comprobación opcional contra internet: último kernel estable y último driver de NVIDIA publicados.
-- Alertas de escritorio cuando una temperatura o un disco cruzan un umbral.
-- Guardar el histórico de las gráficas entre sesiones.
-- Comparar dos informes JSON para ver qué ha cambiado en el equipo.
-- Uso de GPU por proceso y consumo eléctrico del procesador (RAPL), que hoy piden root.
-- Icono en la bandeja con temperatura y uso.
-- Repartir el código en módulos y cargar cada sección al abrirla, para que arranque más rápido.
-- Asistente «¿por qué va lento mi equipo?», puntuación de salud por áreas e informe para vender o comprar un equipo de segunda mano.
-- Paquete Flatpak.
+- GPU usage per process (DRM fdinfo, without root for your own processes).
+- Draw the fan curve as a graph, with a dot marking where it is now.
+- Optional check against the internet: latest stable kernel and latest NVIDIA driver published.
+- Desktop alerts when a temperature or a disk crosses a threshold.
+- Keep the graph history between sessions.
+- Compare two JSON reports to see what has changed on the computer.
+- GPU usage per process and processor power draw (RAPL), which currently need root.
+- Tray icon with temperature and usage.
+- Split the code into modules and load each section when it's opened, so it starts faster.
+- "Why is my computer slow?" assistant, health score by area and a report for selling or buying a second-hand computer.
+- Flatpak package.
 
-## Licencia
+## License
 
-MIT, © 2026 José Antonio Ramos Miralles «Sombra». Puedes usarlo, modificarlo y redistribuirlo, también en proyectos comerciales, manteniendo el aviso de copyright. El texto completo está en `LICENSE`.
+MIT, © 2026 José Antonio Ramos Miralles «Sombra». You may use, modify and redistribute it, including in commercial projects, as long as you keep the copyright notice. The full text is in `LICENSE`.
 
-Como dice la licencia, el programa se ofrece tal cual, sin garantías. Sus recomendaciones son orientativas: ante cualquier duda sobre el hardware, consulta con un servicio técnico o con el fabricante.
+As the license says, the program is provided as is, without warranty. Its recommendations are guidance only: if in doubt about the hardware, consult a repair service or the manufacturer.

@@ -32,6 +32,7 @@ for po in po/*.po; do                    # traducciones: el programa lee los .po
   install -Dm644 "$po" "$PKG/usr/share/syscheckup/po/$(basename "$po")"
 done
 install -Dm644 README.md                "$PKG/usr/share/doc/syscheckup/README.md"
+install -Dm644 README.es.md             "$PKG/usr/share/doc/syscheckup/README.es.md"
 install -Dm644 LICENSE                  "$PKG/usr/share/doc/syscheckup/copyright"
 gzip -9n -c CHANGELOG.md > "$PKG/usr/share/doc/syscheckup/changelog.gz"
 chmod 644 "$PKG/usr/share/doc/syscheckup/changelog.gz"

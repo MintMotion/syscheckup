@@ -1,151 +1,153 @@
-# Cambios
+# Changelog
 
-## 0.7.0 (14/11/2026)
+[Versión en español](CHANGELOG.es.md)
 
-- **Nuevo nombre: SysCheckup** (antes MintMachine), porque funciona en cualquier distribución basada en Debian y no solo en Linux Mint. Paquete y comando `syscheckup`. El paquete sustituye a `mintmachine` si estaba instalado, y la configuración y el historial de `~/.config/mintmachine` se trasladan solos a `~/.config/syscheckup`.
+## 0.7.0 (2026-11-14)
 
-Hasta la 0.6.2 el programa se llamaba MintMachine; en las entradas de abajo ya aparece con el nombre nuevo.
+- **New name: SysCheckup** (formerly MintMachine), because it works on any Debian-based distribution, not just Linux Mint. Package and command `syscheckup`. The package replaces `mintmachine` if it was installed, and the settings and history in `~/.config/mintmachine` move to `~/.config/syscheckup` automatically.
 
-## 0.6.2 (14/11/2026)
+Up to 0.6.2 the program was called MintMachine; the entries below already use the new name.
 
-- El botón de datos internos ya no dice «pide tu contraseña»: si hace falta, el sistema la pide al pulsarlo.
+## 0.6.2 (2026-11-14)
 
-## 0.6.1 (14/11/2026)
+- The internal-data button no longer says "asks for your password": if needed, the system asks for it when you press it.
 
-- **Menos contraseñas:** la frecuencia base, máxima y mínima del procesador con sus multiplicadores, los datos de los módulos de memoria (si el kernel ya los publica) y el consumo del procesador (si el sistema deja leerlo) se leen sin contraseña. El botón que la pide solo aparece cuando queda algo que solo puede leer el administrador, y solo pide lo de su pestaña.
-- **Botón «i» junto a cada prueba** y junto al de datos internos: qué hace, cuánto dura, qué utilidad usa, si pide contraseña y cuándo se para sola.
-- **Cualquier distribución basada en Debian y cualquier escritorio:** los botones abren la herramienta que haya instalada (Linux Mint, Ubuntu, GNOME, KDE Plasma, Xfce, MATE, LXQt…) y los consejos la nombran; los consejos propios de Linux Mint solo salen en Linux Mint; las pruebas proponen el paquete que exista en tus repositorios.
-- Consumo del procesador en vivo en la pestaña Procesador y en los máximos del Monitor, cuando el sistema deja leerlo.
-- Si el escritorio no tiene agente de polkit, lo explica en vez de decir que no se ha dado la contraseña.
+## 0.6.1 (2026-11-14)
 
-## 0.6.0 (14/11/2026)
+- **Fewer passwords:** the processor's base, maximum and minimum frequency with their multipliers, the memory module data (if the kernel already publishes it) and the processor's power draw (if the system lets it be read) are read without a password. The button that asks for it only appears when there is something left that only the administrator can read, and it only asks for what belongs to its tab.
+- **"i" button next to each test** and next to the internal-data one: what it does, how long it takes, which tool it uses, whether it asks for a password and when it stops on its own.
+- **Any Debian-based distribution and any desktop:** buttons open whichever tool is installed (Linux Mint, Ubuntu, GNOME, KDE Plasma, Xfce, MATE, LXQt…) and the advice names it; Linux Mint-specific advice only appears on Linux Mint; the tests suggest the package that exists in your repositories.
+- Live processor power draw in the Processor tab and in the Monitor's peaks, when the system lets it be read.
+- If the desktop has no polkit agent, it explains so instead of saying the password wasn't given.
 
-- **Pruebas voluntarias**, con botón en su pestaña y siempre con aviso y confirmación: estabilidad y rendimiento del procesador, memoria, rendimiento y carga sostenida de la gráfica, y velocidad del disco. Ventana en vivo con temperatura, frecuencia y botón Detener; corte automático por temperatura o si el portátil se desconecta de la corriente; resultados guardados y comparados con tus mediciones anteriores.
-- **Datos internos con tu contraseña**, solo si los pides: tiempos, perfiles XMP, fabricante de los chips y fecha de fabricación de cada módulo de memoria (DDR4 y DDR5), y frecuencia base, multiplicadores y consumo en vatios del procesador. Los lee un ayudante aparte que solo lee.
-- **Historial de salud de los discos:** una medición al día; avisa si aparecen sectores dañados o errores nuevos y estima cuánto le queda a un SSD a su ritmo de desgaste.
-- **Gráfica:** temperatura, consumo y su límite, qué la está limitando, BIOS de la tarjeta, fabricante de la memoria de vídeo y Resizable BAR (AMD y NVIDIA).
-- **Monitor en vivo:** programas que usan la gráfica y máximos alcanzados desde que abriste el programa.
-- **Memoria:** si hay un servicio que proteja el equipo cuando se acaba la memoria; si no lo hay y se han cerrado programas por falta de memoria, sugiere earlyoom.
-- Corregido: la presión del sistema del Monitor salía con «memoria» y «disco» en español en los demás idiomas.
+## 0.6.0 (2026-11-14)
 
-## 0.5.4 (14/11/2026)
+- **Voluntary tests**, with a button in their tab and always with a warning and confirmation: processor stability and performance, memory, graphics performance and sustained load, and disk speed. Live window with temperature, frequency and a Stop button; automatic cut-off on temperature or if the laptop is unplugged; results saved and compared with your previous measurements.
+- **Internal data with your password**, only if you ask for it: timings, XMP profiles, chip manufacturer and manufacturing date of each memory module (DDR4 and DDR5), and the processor's base frequency, multipliers and power draw in watts. Read by a separate read-only helper.
+- **Disk health history:** one measurement a day; warns if new bad sectors or errors appear and estimates how long an SSD has left at its wear rate.
+- **Graphics:** temperature, power draw and its limit, what is limiting it, card BIOS, video memory manufacturer and Resizable BAR (AMD and NVIDIA).
+- **Live monitor:** programs using the graphics card and peaks reached since you opened the program.
+- **Memory:** whether there is a service protecting the computer when memory runs out; if there isn't and programs have been killed for lack of memory, it suggests earlyoom.
+- Fixed: the Monitor's system pressure showed "memoria" and "disco" in Spanish in the other languages.
 
-- **Firmware que falta:** el aviso del diagnóstico dice ahora qué archivo falta, de qué dispositivo es y qué paquete lo trae (en LMDE y Debian, el paquete `firmware-*` que corresponde; en Linux Mint y Ubuntu, `linux-firmware`). En «Actualizaciones de drivers», la tabla de detalles añade el driver, el dispositivo, el paquete y una nota.
-- Ya no se avisa por `iwl-debug-yoyo.bin`: el driver del Wi-Fi Intel lo pide en cada arranque, pero es una configuración de depuración opcional que no viene en ningún paquete. Sigue apareciendo en la tabla de detalles, marcado como opcional.
-- Ese aviso ya no remite al Gestor de controladores, que no existe en LMDE: lleva al Gestor de actualizaciones.
+## 0.5.4 (2026-11-14)
 
-## 0.5.3 (13/11/2026)
+- **Missing firmware:** the diagnosis warning now says which file is missing, which device it belongs to and which package provides it (on LMDE and Debian, the matching `firmware-*` package; on Linux Mint and Ubuntu, `linux-firmware`). In "Driver updates", the details table adds the driver, the device, the package and a note.
+- No more warning about `iwl-debug-yoyo.bin`: the Intel Wi-Fi driver asks for it at every boot, but it's an optional debugging configuration that no package ships. It still appears in the details table, marked as optional.
+- That warning no longer points to Driver Manager, which doesn't exist on LMDE: it leads to Update Manager.
 
-- El menú de Linux Mint mostraba el icono genérico de programa en lugar del de SysCheckup. El paquete instala ahora el icono también en mapa de bits (de 16 a 256 píxeles) y en `/usr/share/pixmaps`, y al instalar y al quitar actualiza la caché de iconos y la base de datos de aplicaciones.
+## 0.5.3 (2026-11-13)
 
-## 0.5.2 (13/11/2026)
+- The Linux Mint menu showed the generic program icon instead of SysCheckup's. The package now also installs the icon as bitmaps (16 to 256 pixels) and in `/usr/share/pixmaps`, and updates the icon cache and the application database on install and removal.
 
-- Corregida la raya de colores entre la barra superior y el contenido. Con el compositor del escritorio activo (Cinnamon), la fila de píxeles del borde de la barra quedaba transparente y dejaba ver lo que había detrás de la ventana. Ahora el borde es opaco.
+## 0.5.2 (2026-11-13)
 
-## 0.5.1 (13/11/2026)
+- Fixed the coloured line between the top bar and the content. With the desktop compositor active (Cinnamon), the row of pixels at the bar's border was transparent and showed what was behind the window. The border is now opaque.
 
-- **Procesador:** indicadores en vivo de uso total, frecuencia media y temperatura, y una barra por hilo; se actualizan cada segundo.
-- **Memoria:** el fabricante de cada módulo ya no sale como «Unknown». Si la placa no lo da por su nombre, se lee su código JEDEC o se deduce de la referencia del módulo (G.Skill, Corsair, Kingston, Crucial, Samsung, SK hynix, Micron, ADATA, TeamGroup, Patriot), y se indica que es una deducción.
-- **Barra superior:** bajo el nombre del programa se lee «SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet». Esa nota sale del final del Inicio.
-- Fuera la línea discontinua que el tema Mint-Y dibuja en el borde del contenido al desplazarse.
-- Fuera los botones «i» de los campos.
-- **Tema claro** más apagado, para que no deslumbre.
+## 0.5.1 (2026-11-13)
 
-## 0.5.0 (13/11/2026)
+- **Processor:** live gauges for total usage, average frequency and temperature, and one bar per thread; updated every second.
+- **Memory:** each module's manufacturer no longer shows as "Unknown". If the board doesn't report it by name, its JEDEC code is read or it is worked out from the module part number (G.Skill, Corsair, Kingston, Crucial, Samsung, SK hynix, Micron, ADATA, TeamGroup, Patriot), and it is marked as inferred.
+- **Top bar:** under the program's name it reads "SysCheckup only reads information. It changes nothing on your computer and sends no data to the internet". That note is removed from the bottom of Home.
+- Removed the dashed line the Mint-Y theme draws at the content's edge when scrolling.
+- Removed the "i" buttons from the fields.
+- **Light theme** toned down so it doesn't dazzle.
 
-**Datos nuevos**
-- **Pantallas en Wayland:** el modo en uso (resolución, refresco y escala) se pide al escritorio: GNOME y Cinnamon por D-Bus, KDE Plasma con `kscreen-doctor`, y Sway, Hyprland y similares con `wlr-randr`. En X11 se sigue usando `xrandr`.
-- **Uso de la gráfica Intel** en el Monitor en vivo y en el CSV, calculado con el tiempo de reposo (RC6) que publica el kernel, sin permisos de administrador.
-- **Aplicaciones que más consumen:** el Monitor suma los procesos de cada aplicación (un navegador abre decenas).
-- **Energía:** perfil del fabricante, gobernador del procesador y preferencia entre ahorro y rendimiento; sugerencia si el equipo está enchufado con el perfil de ahorro.
-- **Memoria comprimida:** zram y zswap.
-- **Seguridad del firmware (HSI)**, leída del servicio fwupd del propio equipo.
+## 0.5.0 (2026-11-13)
 
-**Más fácil de usar**
-- Nueva sección **Puesta a punto:** lista de comprobación tras instalar el sistema (actualizaciones, drivers y firmware, cortafuegos, instantáneas de Timeshift, TRIM y códecs), con botón a la herramienta de cada punto.
-- **Pedir ayuda con un problema:** el formato «Para un foro» puede centrarse en Wi-Fi y red, sonido, gráfica, batería y temperatura o lentitud. En la terminal, `--foro --problema red`.
-- El Diagnóstico lista las **utilidades opcionales que faltan**, con el paquete que las trae y qué se deja de ver sin ellas.
-- `--debug`: muestra en la terminal qué utilidades se ejecutan y cuánto tardan.
+**New data**
+- **Displays on Wayland:** the current mode (resolution, refresh rate and scale) is requested from the desktop: GNOME and Cinnamon via D-Bus, KDE Plasma with `kscreen-doctor`, and Sway, Hyprland and similar with `wlr-randr`. X11 still uses `xrandr`.
+- **Intel GPU usage** in the Live monitor and the CSV, computed from the idle time (RC6) the kernel publishes, without administrator privileges.
+- **Applications using the most:** the Monitor adds up the processes of each application (a browser opens dozens).
+- **Power:** manufacturer profile, processor governor and power/performance preference; a suggestion if the computer is plugged in with the power-saving profile.
+- **Compressed memory:** zram and zswap.
+- **Firmware security (HSI)**, read from the computer's own fwupd service.
 
-**Privacidad**
-- Al ocultar datos personales se tapan también los nombres de las impresoras y los de los periféricos Bluetooth allí donde antes se veían: en la lista de teclados y ratones y en el título de su batería.
-- Ninguna de las funciones nuevas usa internet, pide contraseña ni guarda nada en disco. `--debug` no muestra argumentos ni salidas de las utilidades.
-- Pruebas automáticas que vigilan que el código no importe módulos de red y que los datos marcados como sensibles no salgan en los informes anónimos.
+**Easier to use**
+- New **Setup checklist** section: what to check after installing the system (updates, drivers and firmware, firewall, Timeshift snapshots, TRIM and codecs), with a button to the tool for each item.
+- **Ask for help with a problem:** the "For a forum" format can focus on Wi-Fi and network, sound, graphics, battery and temperature, or slowness. In the terminal, `--foro --problema red`.
+- The Diagnosis lists the **missing optional tools**, with the package that provides them and what you can't see without them.
+- `--debug`: shows in the terminal which tools are run and how long they take.
 
-**Proyecto**
-- Pruebas unitarias en `tests/test_unidad.py` (20 pruebas), añadidas a la acción de GitHub.
-- Traducciones de todo lo nuevo en inglés, francés, japonés y chino.
+**Privacy**
+- Hiding personal data now also masks printer names and Bluetooth peripheral names where they used to show: in the keyboard and mouse list and in their battery title.
+- None of the new features uses the internet, asks for a password or saves anything to disk. `--debug` doesn't show the tools' arguments or output.
+- Automated tests that make sure the code doesn't import network modules and that data marked as sensitive doesn't appear in anonymous reports.
 
-## 0.4.0 (13/11/2026)
+**Project**
+- Unit tests in `tests/test_unidad.py` (20 tests), added to the GitHub action.
+- Translations of everything new into English, French, Japanese and Chinese.
 
-- **Idiomas:** español, inglés, francés, japonés y chino. Se elige solo según el idioma del sistema (cualquier variante de país) y se puede cambiar en el menú; si el idioma del sistema no está disponible, sale en inglés. Traducciones en `po/*.po`.
-- **Diseño nuevo:** tema oscuro por defecto y tema claro, tarjetas, degradados, iconos propios en la barra lateral, indicadores circulares en el Inicio, gráficas suaves con degradado y avisos flotantes.
-- **Inicio:** «Equipo» en lugar de «Tu equipo», con la placa base y la BIOS incluidas.
-- **Monitores:** nueva tabla en Periféricos (y en Gráfica y pantallas) con marca, modelo, tamaño, resolución y refresco nativos, modo en uso, año y número de serie. Con el driver de NVIDIA el EDID se lee de `xrandr`.
-- **Fuente de alimentación:** modelo, potencia, temperatura y ventilador de las fuentes Corsair con USB. En el resto de sobremesas, una nota explica por qué no se puede leer.
-- **Batería de periféricos:** el nivel («Full», «Low»…) sale traducido.
-- **Información (i):** ahora es un botón que muestra la explicación al pulsarlo, además de al pasar el ratón.
-- **«by Sombra»** junto al nombre del programa, arriba en la barra lateral.
-- **Desinstalar** desde el menú: quita el programa, su icono y su configuración, sin dejar rastro. Pide la contraseña del sistema.
-- **Paquete:** la descripción ya no menciona otros programas y el campo «Maintainer» no lleva datos personales.
+## 0.4.0 (2026-11-13)
 
-## 0.3.0 (13/11/2026)
+- **Languages:** Spanish, English, French, Japanese and Chinese. Chosen automatically from the system language (any country variant) and changeable in the menu; if the system language isn't available, it opens in English. Translations in `po/*.po`.
+- **New design:** dark theme by default and a light theme, cards, gradients, custom sidebar icons, circular gauges on Home, smooth gradient graphs and floating notifications.
+- **Home:** "Computer" instead of "Your computer", with the motherboard and BIOS included.
+- **Monitors:** new table in Peripherals (and in Graphics and displays) with brand, model, size, native resolution and refresh rate, current mode, year and serial number. With the NVIDIA driver the EDID is read from `xrandr`.
+- **Power supply:** model, power, temperature and fan of Corsair power supplies with USB. On other desktops, a note explains why it can't be read.
+- **Peripheral battery:** the level ("Full", "Low"…) is translated.
+- **Information (i):** now a button that shows the explanation when pressed, as well as on hover.
+- **"by Sombra"** next to the program's name, at the top of the sidebar.
+- **Uninstall** from the menu: removes the program, its icon and its settings, leaving no trace. Asks for the system password.
+- **Package:** the description no longer mentions other programs and the "Maintainer" field carries no personal data.
 
-Autor: José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es>.
+## 0.3.0 (2026-11-13)
 
-**Más fácil de usar**
-- Nueva pantalla de **Inicio**: estado general del equipo, lo más importante del diagnóstico, ficha del equipo, uso en vivo (procesador, memoria, disco, temperatura y batería) y sistema.
-- Barra lateral agrupada en Hardware y Sistema y software.
-- Los datos para expertos van plegados en **Detalles técnicos** en cada sección. Las exportaciones los incluyen siempre.
-- Explicaciones en lenguaje llano bajo los apartados técnicos y al pasar el ratón por los campos marcados con ⓘ.
-- **Búsqueda** en todo el informe (Ctrl+F), atajos de teclado (F5, Ctrl+E, Ctrl+Q, Alt+1…9, F1) y ventana Acerca de.
-- Un solo botón **Exportar** con todas las opciones: todo el informe o solo la sección visible; texto, página web, resumen para foros, JSON o histórico del monitor en CSV; ocultar datos personales (marcado por defecto); copiar o guardar. Tras guardar, botón para abrir el archivo.
+Author: José Antonio Ramos Miralles «Sombra» <hola@joseantonioramos.es>.
 
-**Diagnóstico**
-- Cada aviso explica qué pasa y qué hacer, y separa lo que conviene revisar de las sugerencias opcionales.
-- Las recomendaciones se limitan a acciones seguras desde el sistema. Nunca se pide abrir el equipo: las revisiones físicas se derivan a un servicio técnico o al fabricante. Aviso legal en el Diagnóstico, en Acerca de y en los informes.
-- Botones que abren la herramienta adecuada del sistema: Gestor de actualizaciones, Gestor de controladores, Copias de seguridad, Analizador de uso de disco, Cortafuegos, Monitor del sistema…
-- Ya no se recomienda `sudo sensors-detect`, revisar cables o pasta térmica, ni cambiar piezas.
+**Easier to use**
+- New **Home** screen: overall status of the computer, the most important diagnosis items, computer summary, live usage (processor, memory, disk, temperature and battery) and system.
+- Sidebar grouped into Hardware and System and software.
+- Expert data is folded under **Technical details** in each section. Exports always include it.
+- Plain-language explanations under technical items and on hover over fields marked with ⓘ.
+- **Search** across the whole report (Ctrl+F), keyboard shortcuts (F5, Ctrl+E, Ctrl+Q, Alt+1…9, F1) and an About window.
+- A single **Export** button with every option: the whole report or only the visible section; text, web page, forum summary, JSON or monitor history as CSV; hide personal data (ticked by default); copy or save. After saving, a button to open the file.
 
-**Datos nuevos**
-- Desgaste de los SSD NVMe (vida útil usada, bloques de reserva, errores de datos) y vida restante de los SSD SATA que la publican, pedidos a UDisks sin permisos de administrador.
-- Enlace PCIe actual y máximo de la gráfica y de los SSD NVMe.
-- Frecuencia actual y máxima de la gráfica en Intel y AMD.
-- Calidad de la señal Wi-Fi y aviso si es débil.
-- Memoria: módulos y tipo en la ficha del equipo; tamaño de la swap.
+**Diagnosis**
+- Each warning explains what is going on and what to do, and separates what should be checked from optional suggestions.
+- Recommendations are limited to safe actions from the system. It never asks you to open the computer: physical checks are referred to a repair service or the manufacturer. Legal notice in the Diagnosis, in About and in reports.
+- Buttons that open the right system tool: Update Manager, Driver Manager, Backups, Disk Usage Analyzer, Firewall, System Monitor…
+- No longer recommends `sudo sensors-detect`, checking cables or thermal paste, or replacing parts.
 
-**Correcciones**
-- Ocultar datos personales tapaba solo los campos marcados: ahora también los busca dentro de cualquier texto (registro del sistema, parámetros de arranque, rutas con el nombre de usuario) y tapa MAC, IP, UUID, nombre del equipo, usuario y nombres de dispositivos Bluetooth.
-- El porcentaje de disco ocupado se calcula como `df` (antes no contaba el espacio reservado de ext4 y salía más bajo).
-- Los números llevan coma decimal.
-- Los nombres de procesos ya no salen recortados a 15 letras.
-- La comparación de versiones de kernel ya no puede fallar al mezclar números y texto.
-- El aviso de llvmpipe ya no salta en máquinas virtuales; un servicio caído es una sugerencia, no un aviso.
-- Si no se puede guardar un informe desde la terminal, el mensaje es claro y no un error de Python.
+**New data**
+- NVMe SSD wear (life used, spare blocks, data errors) and remaining life of SATA SSDs that publish it, requested from UDisks without administrator privileges.
+- Current and maximum PCIe link of the graphics card and NVMe SSDs.
+- Current and maximum graphics clock on Intel and AMD.
+- Wi-Fi signal quality and a warning if it is weak.
+- Memory: modules and type in the computer summary; swap size.
 
-**Proyecto**
-- Licencia y paquete a nombre de José Antonio Ramos Miralles «Sombra».
-- Metadatos AppStream, plantillas de incidencias de GitHub y una acción de GitHub que prueba el programa y construye el `.deb`.
-- Nuevas opciones de terminal: `--foro` y `--csv`. El JSON lleva un número de esquema (`"esquema": 2`).
+**Fixes**
+- Hiding personal data only masked the marked fields: it now also searches for them inside any text (system log, boot parameters, paths with the user name) and masks MAC, IP, UUID, computer name, user name and Bluetooth device names.
+- The used-disk percentage is computed like `df` (it used to ignore ext4's reserved space and came out lower).
+- Numbers use a decimal comma (in Spanish).
+- Process names are no longer cut at 15 letters.
+- Kernel version comparison can no longer fail when mixing numbers and text.
+- The llvmpipe warning no longer fires in virtual machines; a failed service is a suggestion, not a warning.
+- If a report can't be saved from the terminal, the message is clear rather than a Python error.
 
-## 0.2.0 (13/11/2026)
+**Project**
+- License and package in the name of José Antonio Ramos Miralles «Sombra».
+- AppStream metadata, GitHub issue templates and a GitHub action that tests the program and builds the `.deb`.
+- New terminal options: `--foro` and `--csv`. The JSON carries a schema number (`"esquema": 2`).
 
-El programa pasa a llamarse SysCheckup. Autor: Sombra.
+## 0.2.0 (2026-11-13)
 
-- Monitor en vivo: gráficas de procesador, RAM y swap, red, disco, temperatura y gráfica, uso por hilo y procesos que más consumen.
-- Ventiladores: porcentaje de potencia, modo de control, curvas programadas cuando el chip las publica, umbrales térmicos ACPI y mecanismos de refrigeración.
-- Actualizaciones de drivers: versión instalada y disponible de kernel, NVIDIA, Mesa, firmware, microcódigo y DKMS; firmware de dispositivos con fwupd; dispositivos sin driver; firmware que falta.
-- Salud SMART de los discos sin root, a través de UDisks.
-- Botón Exportar: toda la información del panel a un archivo de texto, HTML o JSON. Opción `--txt` en la terminal.
-- Nueva sección Periféricos: teclados, ratones, cámaras, impresoras y Bluetooth.
-- Decodificación de vídeo por hardware y Vulkan; suspensión, hibernación y límite de carga; servicios que retrasan el arranque; errores de memoria; frenazos del procesador por calor.
-- El diagnóstico lee el registro del kernel: errores de disco, errores de hardware y cierres por falta de memoria.
-- El informe de texto ya no recorta columnas largas.
+The program is renamed SysCheckup. Author: Sombra.
 
-## 0.1.0 (13/11/2026)
+- Live monitor: graphs of processor, RAM and swap, network, disk, temperature and graphics, per-thread usage and processes using the most.
+- Fans: power percentage, control mode, programmed curves when the chip publishes them, ACPI thermal thresholds and cooling devices.
+- Driver updates: installed and available version of kernel, NVIDIA, Mesa, firmware, microcode and DKMS; device firmware with fwupd; devices without a driver; missing firmware.
+- SMART disk health without root, through UDisks.
+- Export button: all the panel's information to a text, HTML or JSON file. `--txt` option in the terminal.
+- New Peripherals section: keyboards, mice, cameras, printers and Bluetooth.
+- Hardware video decoding and Vulkan; suspend, hibernation and charge limit; services delaying boot; memory errors; thermal throttling of the processor.
+- The diagnosis reads the kernel log: disk errors, hardware errors and out-of-memory kills.
+- The text report no longer cuts long columns.
 
-Primera versión, con el nombre Radiografía.
+## 0.1.0 (2026-11-13)
 
-- Interfaz GTK 3 con 17 secciones y refresco en vivo de procesador, memoria y sensores.
-- Diagnóstico automático, informes en HTML, texto y JSON, opción de ocultar datos sensibles.
-- Modo terminal y paquete .deb.
+First version, under the name Radiografía.
+
+- GTK 3 interface with 17 sections and live refresh of processor, memory and sensors.
+- Automatic diagnosis, HTML, text and JSON reports, option to hide sensitive data.
+- Terminal mode and .deb package.

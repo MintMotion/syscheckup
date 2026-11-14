@@ -1,45 +1,50 @@
-name: Un dato sale mal o no aparece
-description: Un componente no se detecta o muestra un valor incorrecto
+name: Un dato sale mal o no aparece / Wrong or missing data
+description: Un componente no se detecta o muestra un valor incorrecto / A component isn't detected or shows a wrong value
 labels: [hardware]
 body:
   - type: markdown
     attributes:
       value: |
         SysCheckup se ha probado en pocos equipos reales. Cada informe ayuda a que funcione en más hardware.
+
+        SysCheckup has been tested on few real computers. Every report helps it work on more hardware.
+
+        Puedes escribir en español o en inglés. / You can write in Spanish or English.
   - type: input
     id: seccion
     attributes:
-      label: Sección
-      placeholder: "Por ejemplo: Sensores y ventiladores"
+      label: Sección / Section
+      placeholder: "Por ejemplo / For example: Sensores y ventiladores / Sensors and fans"
     validations:
       required: true
   - type: textarea
     id: dato
     attributes:
-      label: Qué sale y qué debería salir
-      description: Si otro programa (inxi, sensors, Discos...) muestra el dato bien, pega lo que muestra.
+      label: Qué sale y qué debería salir / What is shown and what should be shown
+      description: Si otro programa (inxi, sensors, Discos...) muestra el dato bien, pega lo que muestra. / If another program (inxi, sensors, Disks...) shows the data correctly, paste what it shows.
     validations:
       required: true
   - type: textarea
     id: informe
     attributes:
-      label: Informe de SysCheckup (con los datos personales ocultos)
-      description: "Exportar → Para un foro → Ocultar datos personales → Copiar. O `syscheckup --foro`."
+      label: Informe de SysCheckup (con los datos personales ocultos) / SysCheckup report (with personal data hidden)
+      description: "Exportar → Para un foro → Ocultar datos personales → Copiar. O `syscheckup --foro`. / Export → For a forum → Hide personal data → Copy. Or `syscheckup --foro`."
       render: text
     validations:
       required: true
   - type: textarea
     id: extra
     attributes:
-      label: Datos en bruto (opcional)
+      label: Datos en bruto (opcional) / Raw data (optional)
       description: |
-        Según la sección, ayuda mucho la salida de: `ls /sys/class/hwmon/*/`, `cat /sys/class/hwmon/*/name`,
-        `udisksctl status`, `lspci -nnk` o `lsusb`. Revisa que no incluya datos personales.
+        Según la sección, ayuda mucho la salida de / Depending on the section, the output of these helps a lot:
+        `ls /sys/class/hwmon/*/`, `cat /sys/class/hwmon/*/name`, `udisksctl status`, `lspci -nnk` o/or `lsusb`.
+        Revisa que no incluya datos personales. / Check that it contains no personal data.
       render: text
   - type: checkboxes
     id: privacidad
     attributes:
-      label: Privacidad
+      label: Privacidad / Privacy
       options:
-        - label: He revisado lo que pego y no contiene datos personales que no quiera publicar.
+        - label: He revisado lo que pego y no contiene datos personales que no quiera publicar. / I have reviewed what I paste and it contains no personal data I don't want to publish.
           required: true
