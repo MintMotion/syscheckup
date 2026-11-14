@@ -1257,6 +1257,18 @@ def ram_vendor(manufacturer, part):
     return _("La placa no lo indica")
 
 
+OOM_GUARDS = [("systemd-oomd", "systemd-oomd"), ("earlyoom", "earlyoom"), ("nohang", "nohang"),
+              ("nohang-desktop", "nohang")]
+
+
+@once
+def oom_guard():
+    """Servicio que cierra a tiempo el programa que más memoria usa, antes de que el equipo se congele."""
+    units = [u for u, _n in OOM_GUARDS]
+    out = run(["systemctl", "is-active"] + units, timeout=4).splitlines()
+    return next((name for (u, name), st in zip(OOM_GUARDS, out) if st.strip() == "active"), "")
+
+
 def sec_memory(ctx):
     m = meminfo()
     total, avail = m.get("MemTotal", 0), m.get("MemAvailable", 0)
@@ -1342,6 +1354,13 @@ def sec_memory(ctx):
     if total and avail / total < 0.10:
         ctx.flag("warn", "Memoria", _("Queda poca memoria libre ({n}).").format(n=human(avail)),
                  "Cierra programas o pestañas del navegador que no estés usando.", "sysmon")
+    guard = oom_guard() if have("systemctl") else None
+    blocks.append(kv("Protección ante falta de memoria", [
+        ("Servicio activo", (_("Sí: {n}").format(n=guard) if guard else
+                             "Ninguno: si se acaba la memoria, el equipo puede quedarse congelado un rato antes "
+                             "de que el kernel cierre un programa") if guard is not None else ""),
+    ], help="Cuando la memoria se agota, un servicio de este tipo cierra a tiempo el programa que más ocupa, "
+            "antes de que el equipo deje de responder."))
     if not st and total and total < 8 * 1024 ** 3:
         ctx.flag("info", "Memoria", "No hay memoria de intercambio (swap) y el equipo tiene menos de 8 GiB de RAM.",
                  "Si algún programa se cierra solo por falta de memoria, pide en el foro de tu distribución "
@@ -3400,8 +3419,10 @@ def sec_diagnosis(ctx):
     if log["oom"]:
         ctx.flag("warn", "Memoria", _("El sistema se quedó sin memoria y tuvo que cerrar a la fuerza: "
                                       "{programas}.").format(programas=", ".join(sorted(set(log["oom"])))),
-                 "Cierra los programas y pestañas que no uses. Si te pasa a menudo, un servicio técnico puede "
-                 "decirte si tu equipo admite más memoria.", "sysmon")
+                 _("Cierra los programas y pestañas que no uses. Si te pasa a menudo, un servicio técnico puede "
+                   "decirte si tu equipo admite más memoria.") + ("" if oom_guard() or not have("systemctl") else
+                  " " + _("También puedes instalar el paquete earlyoom con el Gestor de software: cierra a tiempo el "
+                          "programa que más memoria usa y evita que el equipo se quede congelado.")), "sysmon")
     state, headline = health(ctx)
     ctx.data["health"] = (state, headline)
     blocks = [
