@@ -3293,3 +3293,51 @@ msgstr "如果该设备工作正常，则无需任何操作：许多驱动程序
 
 msgid "Leer datos internos…"
 msgstr "读取内部数据…"
+
+msgid "Funcionando con su batería"
+msgstr "正在使用自身电池供电"
+
+msgid "Esperando para cargar"
+msgstr "等待充电"
+
+msgid "Esperando"
+msgstr "等待中"
+
+msgid "Autonomía estimada"
+msgstr "预计续航时间"
+
+msgid "Sistema de alimentación ininterrumpida (SAI)"
+msgstr "不间断电源（UPS）"
+
+msgid "Lo lee el servicio de energía del sistema (UPower) a través del cable USB del SAI."
+msgstr "由系统的电源服务（UPower）通过 UPS 的 USB 线读取。"
+
+msgid "El equipo está funcionando con la batería del SAI: no le llega corriente de la red."
+msgstr "电脑正在使用 UPS 的电池供电：市电没有供电。"
+
+msgid "Guarda tu trabajo. Si el corte dura más que la autonomía del SAI, apaga el equipo de forma ordenada antes de que se agote."
+msgstr "请保存你的工作。如果停电时间超过 UPS 的续航时间，请在电量耗尽前正常关闭电脑。"
+
+msgid "Llegará por fases"
+msgstr "将分阶段推送"
+
+msgid "Actualizaciones que llegarán por fases"
+msgstr "将分阶段推送的更新"
+
+msgid "Ubuntu reparte algunas actualizaciones poco a poco entre los equipos. A este todavía no le toca: el gestor de actualizaciones te las ofrecerá en los próximos días. No tienes que hacer nada."
+msgstr "Ubuntu 会把部分更新逐步推送到各台电脑。还没轮到这台电脑：更新管理器会在接下来几天内提供给你。你无需做任何操作。"
+
+msgid "Has ocultado 1 aviso."
+msgstr "你已隐藏 1 条提示。"
+
+msgid "Has ocultado {n} avisos."
+msgstr "你已隐藏 {n} 条提示。"
+
+msgid "Volver a mostrarlos"
+msgstr "重新显示"
+
+msgid "Ocultar este aviso"
+msgstr "隐藏此提示"
+
+msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
+msgstr "不再在此处和首页显示。如果问题有变化，会再次出现。导出的报告仍会包含它。"

@@ -3293,3 +3293,51 @@ msgstr "そのデバイスが正常に動作していれば、何もする必要
 
 msgid "Leer datos internos…"
 msgstr "内部データを読み取る…"
+
+msgid "Funcionando con su batería"
+msgstr "内蔵バッテリーで動作中"
+
+msgid "Esperando para cargar"
+msgstr "充電待ち"
+
+msgid "Esperando"
+msgstr "待機中"
+
+msgid "Autonomía estimada"
+msgstr "推定稼働時間"
+
+msgid "Sistema de alimentación ininterrumpida (SAI)"
+msgstr "無停電電源装置（UPS）"
+
+msgid "Lo lee el servicio de energía del sistema (UPower) a través del cable USB del SAI."
+msgstr "システムの電源サービス（UPower）が UPS の USB ケーブル経由で読み取ります。"
+
+msgid "El equipo está funcionando con la batería del SAI: no le llega corriente de la red."
+msgstr "コンピューターは UPS のバッテリーで動作しています。商用電源が来ていません。"
+
+msgid "Guarda tu trabajo. Si el corte dura más que la autonomía del SAI, apaga el equipo de forma ordenada antes de que se agote."
+msgstr "作業を保存してください。停電が UPS の稼働時間より長く続く場合は、バッテリーが切れる前にコンピューターを正しくシャットダウンしてください。"
+
+msgid "Llegará por fases"
+msgstr "段階的に配信予定"
+
+msgid "Actualizaciones que llegarán por fases"
+msgstr "段階的に配信される更新"
+
+msgid "Ubuntu reparte algunas actualizaciones poco a poco entre los equipos. A este todavía no le toca: el gestor de actualizaciones te las ofrecerá en los próximos días. No tienes que hacer nada."
+msgstr "Ubuntu は一部の更新をコンピューターごとに少しずつ配信します。このコンピューターの番はまだです。数日以内に更新マネージャーが提示します。何もする必要はありません。"
+
+msgid "Has ocultado 1 aviso."
+msgstr "1 件の警告を非表示にしています。"
+
+msgid "Has ocultado {n} avisos."
+msgstr "{n} 件の警告を非表示にしています。"
+
+msgid "Volver a mostrarlos"
+msgstr "再表示する"
+
+msgid "Ocultar este aviso"
+msgstr "この警告を非表示"
+
+msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
+msgstr "こことホームに表示しなくなります。問題が変わると再び表示されます。エクスポートするレポートには引き続き含まれます。"

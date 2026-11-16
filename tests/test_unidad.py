@@ -319,7 +319,9 @@ def test_textos_nuevos_traducidos():
               "Utilidades opcionales que no están instaladas", "{n} de {m} puntos en orden",
               mm.READONLY, "Frecuencia media", "{marca} (según la referencia)", "Código JEDEC {codigo}",
               "La placa no lo indica", "Falta firmware que pidió un driver: {lista}.", "Paquete que lo trae",
-              "Wi-Fi Intel", "Red por cable Realtek", mm.FW_OPTIONAL["iwl-debug-yoyo.bin"]]
+              "Wi-Fi Intel", "Red por cable Realtek", mm.FW_OPTIONAL["iwl-debug-yoyo.bin"],
+              "Ocultar este aviso", "Has ocultado {n} avisos.", "Volver a mostrarlos",
+              "Sistema de alimentación ininterrumpida (SAI)", "Actualizaciones que llegarán por fases"]
     for lang in mm.LANGS:
         if lang != "es":
             cat = _po(lang)
@@ -356,6 +358,53 @@ def test_aspecto_sistema():
     # si el tema no tiene la variante que pide el usuario, se usa la paleta propia con su acento
     p = mm.system_palette(temas["HighContrast con preferencia oscura"][0], True)
     assert p["bg"] == mm.PALETTES["oscuro"]["bg"]
+
+
+def test_sai_de_upower():
+    salida = """Device: /org/freedesktop/UPower/devices/line_power_AC
+  native-path:          AC
+  line-power
+    online:              yes
+
+Device: /org/freedesktop/UPower/devices/ups_hiddev0
+  native-path:          /dev/usb/hiddev0
+  vendor:               American Power Conversion
+  model:                Back-UPS ES 700G
+  updated:              lun 16 nov 2026 10:00:01 (4 seconds ago)
+  ups
+    present:             yes
+    state:               discharging
+    time to empty:       18.3 minutes
+    percentage:          87%
+
+Daemon:
+  daemon-version:  1.90.2
+  on-battery:      yes
+"""
+    sai = mm.parse_upower(salida)
+    assert len(sai) == 1
+    assert sai[0]["state"] == "discharging" and sai[0]["percentage"] == "87%"
+    assert sai[0]["model"] == "Back-UPS ES 700G" and "daemon-version" not in sai[0]
+
+
+def test_actualizaciones_por_fases():
+    salida = """NOTE: This is only a simulation!
+Calculating upgrade...
+The following upgrades have been deferred due to phasing:
+  libgl1-mesa-dri mesa-vulkan-drivers:amd64
+The following packages will be upgraded:
+  firefox
+1 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+"""
+    assert mm.parse_phased(salida) == {"libgl1-mesa-dri", "mesa-vulkan-drivers"}
+    assert mm.parse_phased("Calculating upgrade...\n0 upgraded") == set()
+
+
+def test_huella_de_avisos():
+    a = {"area": "Almacenamiento", "text": "El disco / está al 91 % de su capacidad."}
+    b = dict(a, text="El disco / está al 95 % de su capacidad.")
+    assert mm.finding_key(a) == mm.finding_key(dict(a))
+    assert mm.finding_key(a) != mm.finding_key(b)        # si el problema cambia, el aviso vuelve a salir
 
 
 if __name__ == "__main__":

@@ -42,6 +42,8 @@ In the menu (☰) you can pick another language and the appearance: dark (the de
 
 With **System**, SysCheckup takes its colors from your desktop: the background and text of your theme (Mint-Y, Adwaita, Yaru, Breeze, Greybird…), your light or dark preference and your accent color (the one you choose in Linux Mint with the Aqua, Blue, Orange… variants, or in the GNOME and KDE Plasma settings). If you change the theme or switch between light and dark while the program is open, it updates right away. The design and the status colors (fine, warning, problem) stay the same, and colors are adjusted where needed so text is always readable. If your theme has no dark variant and you ask for dark mode, SysCheckup's own dark look is used with your accent color.
 
+The window uses the menu launcher's icon: if you change it with the menu editor, the window follows. Besides the color icon, a monochrome one, `syscheckup-symbolic`, is installed in case you prefer it.
+
 The translations are ordinary `.po` files in the `po/` folder; they can be reviewed with Poedit or Weblate. They were made by an AI: they should be reviewed by native speakers, especially Japanese and Chinese. To display Japanese and Chinese properly you need fonts with those characters (package `fonts-noto-cjk`, which Linux Mint installs when you add those languages).
 
 ## Safe recommendations
@@ -72,10 +74,10 @@ Twenty-one sections in the sidebar:
 | PCI devices | All devices and the driver each one uses |
 | Peripherals | Monitors (brand, model, size, native resolution and refresh rate, current mode, year of manufacture and serial number, read from the monitor's own EDID), keyboards, mice, touchpads, gamepads, cameras, printers and paired Bluetooth devices |
 | Sensors and fans | Temperatures, fans in RPM and percent, who controls them, programmed curves, firmware thermal thresholds, voltages and power |
-| Battery and power | Charge, health compared with factory capacity, cycles, power draw, charge limit, suspend type, hibernation; battery of wireless mice and keyboards; USB power supplies (Corsair HXi, RMi, AXi) |
+| Battery and power | Charge, health compared with factory capacity, cycles, power draw, charge limit, suspend type, hibernation; battery of wireless mice and keyboards; UPS units connected over USB; USB power supplies (Corsair HXi, RMi, AXi) |
 | Operating system | Distribution and base, installation date, kernel, desktop, boot time and what slows it down |
 | Drivers and modules | Loaded kernel modules, which are proprietary or out-of-tree, DKMS, kernel taint flags |
-| Driver updates | Installed and available version of the kernel, NVIDIA driver, Mesa, firmware, microcode and DKMS; BIOS, SSD and peripheral firmware; devices without a driver; missing firmware |
+| Driver updates | Installed and available version of the kernel, NVIDIA driver, Mesa, firmware, microcode and DKMS; BIOS, SSD and peripheral firmware; devices without a driver; missing firmware. On Ubuntu and Linux Mint 22, updates that arrive in phases are shown separately and don't count as pending |
 | Software | Installed packages, versions of key components, pending updates, latest changes, Flatpak, startup programs, repositories |
 | Security | Secure Boot, TPM, firmware security level (HSI), disk encryption, firewall, AppArmor, open ports, SSH |
 | Setup checklist | What is worth having done after installing the system: updates, drivers and firmware, firewall, Timeshift snapshots, SSD TRIM and multimedia codecs. Each item leads to the system tool that does it |
@@ -140,6 +142,8 @@ A single button, **Export**, with every option:
 - **Copy** to the clipboard or **Save** to a file. After saving, a button to open it appears.
 
 Reports always include everything, including what is folded under "Technical details" in the window.
+
+If you only need one value, you can select any text in the window with the mouse (or a double click) and copy it with Ctrl+C. In tables you select whole rows (several with Shift or Ctrl) and Ctrl+C copies them tab-separated, ready to paste into a spreadsheet.
 
 ## Buttons and shortcuts
 
@@ -224,6 +228,8 @@ Besides reading, it interprets. It warns about:
 
 Each warning says what to do and, if one exists, offers a button to open the system tool: Update Manager, Driver Manager, Backups, Timeshift, Disk Usage Analyzer, Disks, Firewall, Firmware, System Monitor or System Reports. The button only appears if the tool is installed. SysCheckup never runs anything as administrator: if the tool needs privileges, the tool itself asks for the password.
 
+If a warning doesn't interest you, press **Hide this warning**: it stops showing in Diagnosis and on Home, and no longer counts in the sidebar badge. If the problem changes (for example, the disk goes from 91 % to 95 % full), it comes back. The top of Diagnosis shows how many you have hidden, with a button to show them again. Reports you export still include all of them.
+
 ## Uninstall
 
 Menu (☰) → **Uninstall SysCheckup…**. It removes the program, its menu icon, its settings and its history, leaving no trace. The system asks for your password, as with any uninstall. Reports you have saved are yours and are not touched.
@@ -235,7 +241,7 @@ From a terminal it does the same: `sudo apt purge syscheckup` and then `rm -rf ~
 Download the `.deb` and, from the folder where you saved it:
 
 ```
-sudo apt install ./syscheckup_0.7.2_all.deb
+sudo apt install ./syscheckup_0.8.0_all.deb
 ```
 
 `apt` installs any missing dependencies. You'll then find it in the menu as SysCheckup. If you had an earlier version, this package updates it; if you had one of the test versions called MintMachine, or the first one, called Radiografía, it replaces it. MintMachine's settings and history move to the new folder automatically.
@@ -328,7 +334,7 @@ If a tool is missing, the corresponding section comes out shorter and everything
 
 ## Project status
 
-Version 0.7.2. It's worth knowing how it has been tested.
+Version 0.8.0. It's worth knowing how it has been tested.
 
 The code has been run in a virtual machine with Ubuntu 24.04, in a container with the LMDE 7 packages and against a simulated laptop: a fake `/sys` with board, battery, sensors, fans with PWM and a curve, monitor, Wi-Fi and USB, plus fake versions of `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` and friends. With that, all the parsers, the graphs under real CPU and disk load, the live refresh, search, buttons, personal-data masking and the five export formats have been checked.
 
@@ -341,6 +347,7 @@ What's missing is mileage on real hardware. The test bench formats are written b
 - **SMART and NVMe wear.** Needs UDisks 2.10 or later. Linux Mint 22 and LMDE 7 ship it; LMDE 6 ships 2.9 and will only give SMART for SATA disks.
 - **AI-made translations.** English and French should be correct; Japanese and Chinese should be reviewed by a native speaker.
 - **SSD wear not tested on real hardware.** The UDisks response is written from its documentation. If the "Lifespan" column is empty for your SSD, open an issue.
+- **UPS and phased updates.** Tested with simulated UPower and apt responses, not with a real UPS or on a real Ubuntu.
 - **SMART detail.** Status, temperature, hours and bad sectors are shown. The full attribute table still needs `sudo smartctl -a`.
 - **Kernel log.** To read it, your user must belong to the `adm` group. The first user on Mint usually does.
 - **Intel GPU usage.** An estimate based on the GPU's idle time, not yet tested on real hardware.
@@ -450,6 +457,7 @@ A note about the name: "Linux Mint" is a trademark of its project. Make it clear
 - Split the code into modules and load each section when it's opened, so it starts faster.
 - "Why is my computer slow?" assistant, health score by area and a report for selling or buying a second-hand computer.
 - Flatpak package.
+- Own APT repository (hosted on GitHub), so new versions arrive through the Update Manager like any other program.
 
 ## License
 

@@ -42,6 +42,8 @@ En el menú (☰) se puede elegir otro idioma y el aspecto: oscuro (el de serie)
 
 Con **Sistema**, SysCheckup toma los colores de tu escritorio: el fondo y el texto de tu tema (Mint-Y, Adwaita, Yaru, Breeze, Greybird…), tu preferencia de modo claro u oscuro y tu color de acento (el que eliges en Linux Mint con las variantes Aqua, Azul, Naranja… o en GNOME y KDE Plasma en su configuración). Si cambias el tema o pasas de claro a oscuro con el programa abierto, se actualiza al momento. El diseño y los colores que indican estado (bien, aviso, problema) no cambian, y los colores se ajustan si hace falta para que el texto se lea bien. Si tu tema no tiene variante oscura y pides modo oscuro, se usa el oscuro de SysCheckup con tu color de acento.
 
+La ventana usa el icono del lanzador del menú: si lo cambias con el editor del menú, la ventana también cambia. Además del icono de color se instala uno monocromo, `syscheckup-symbolic`, por si prefieres ese.
+
 Las traducciones son archivos `.po` normales en la carpeta `po/`; se pueden revisar con Poedit o Weblate. Las ha hecho una IA: conviene que las revise alguien nativo, sobre todo las de japonés y chino. Para ver bien el japonés y el chino hacen falta fuentes con esos caracteres (paquete `fonts-noto-cjk`, que Linux Mint instala al añadir esos idiomas).
 
 ## Recomendaciones seguras
@@ -72,10 +74,10 @@ Veintiuna secciones en la barra lateral:
 | Dispositivos PCI | Todos los dispositivos y el driver que usa cada uno |
 | Periféricos | Monitores (marca, modelo, tamaño, resolución y refresco nativos, modo en uso, año de fabricación y número de serie, leídos del EDID del propio monitor), teclados, ratones, paneles táctiles, mandos, cámaras, impresoras y dispositivos Bluetooth emparejados |
 | Sensores y ventiladores | Temperaturas, ventiladores en RPM y en porcentaje, quién los controla, curvas programadas, umbrales térmicos del firmware, voltajes y potencia |
-| Batería y energía | Carga, salud frente a la capacidad de fábrica, ciclos, consumo, límite de carga, tipo de suspensión, hibernación; batería de ratones y teclados inalámbricos; fuentes de alimentación con USB (Corsair HXi, RMi, AXi) |
+| Batería y energía | Carga, salud frente a la capacidad de fábrica, ciclos, consumo, límite de carga, tipo de suspensión, hibernación; batería de ratones y teclados inalámbricos; SAI (UPS) conectados por USB; fuentes de alimentación con USB (Corsair HXi, RMi, AXi) |
 | Sistema operativo | Distribución y base, fecha de instalación, kernel, escritorio, duración del arranque y qué lo retrasa |
 | Drivers y módulos | Módulos del kernel cargados, cuáles son privativos o externos, DKMS, marcas del kernel |
-| Actualizaciones de drivers | Versión instalada y disponible de kernel, driver NVIDIA, Mesa, firmware, microcódigo y DKMS; firmware de BIOS, SSD y periféricos; dispositivos sin driver; firmware que falta |
+| Actualizaciones de drivers | Versión instalada y disponible de kernel, driver NVIDIA, Mesa, firmware, microcódigo y DKMS; firmware de BIOS, SSD y periféricos; dispositivos sin driver; firmware que falta. En Ubuntu y Linux Mint 22, las actualizaciones que llegan por fases se muestran aparte y no cuentan como pendientes |
 | Software | Paquetes instalados, versiones de los componentes clave, actualizaciones pendientes, últimos cambios, Flatpak, programas de inicio, repositorios |
 | Seguridad | Secure Boot, TPM, nivel de seguridad del firmware (HSI), cifrado de disco, cortafuegos, AppArmor, puertos abiertos, SSH |
 | Puesta a punto | Lista de comprobación de lo que conviene dejar hecho tras instalar el sistema: actualizaciones, drivers y firmware, cortafuegos, instantáneas de Timeshift, TRIM de los SSD y códecs multimedia. Cada punto lleva a la herramienta del sistema que lo hace |
@@ -140,6 +142,8 @@ Un solo botón, **Exportar**, con todas las opciones:
 - **Copiar** al portapapeles o **Guardar** en un archivo. Después de guardar sale un botón para abrirlo.
 
 Los informes incluyen siempre todo, también lo que en la ventana está plegado en «Detalles técnicos».
+
+Si solo quieres un dato, puedes marcar cualquier texto de la ventana con el ratón (o con doble clic) y copiarlo con Ctrl+C. En las tablas se marcan filas enteras (con Mayús o Ctrl, varias) y Ctrl+C las copia separadas por tabuladores, listas para pegar en una hoja de cálculo.
 
 ## Botones y atajos
 
@@ -224,6 +228,8 @@ Además de leer, interpreta. Avisa de:
 
 Cada aviso dice qué hacer y, si existe, ofrece un botón para abrir la herramienta del sistema: Gestor de actualizaciones, Gestor de controladores, Copias de seguridad, Timeshift, Analizador de uso de disco, Discos, Cortafuegos, Firmware, Monitor del sistema o Informes del sistema. El botón solo aparece si la herramienta está instalada. SysCheckup nunca ejecuta nada como administrador: si la herramienta necesita permisos, es ella la que pide la contraseña.
 
+Si un aviso no te interesa, pulsa **Ocultar este aviso**: deja de salir en el Diagnóstico y en el Inicio, y no cuenta en el número de la barra lateral. Si el problema cambia (por ejemplo, el disco pasa del 91 % al 95 %), vuelve a salir. Arriba del Diagnóstico se indica cuántos has ocultado, con un botón para volver a mostrarlos. Los informes que exportas siguen incluyéndolos todos.
+
 ## Desinstalar
 
 Menú (☰) → **Desinstalar SysCheckup…**. Quita el programa, su icono del menú, su configuración y su historial, sin dejar rastro. El sistema pide tu contraseña, como en cualquier desinstalación. Los informes que hayas guardado son tuyos y no se tocan.
@@ -235,7 +241,7 @@ Desde la terminal hace lo mismo: `sudo apt purge syscheckup` y después `rm -rf 
 Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
 
 ```
-sudo apt install ./syscheckup_0.7.2_all.deb
+sudo apt install ./syscheckup_0.8.0_all.deb
 ```
 
 `apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre SysCheckup. Si tenías una versión anterior, este paquete la actualiza; si tenías una de las versiones de prueba que se llamaban MintMachine, o la primera, que se llamaba Radiografía, la sustituye. La configuración y el historial de MintMachine se trasladan solos a la carpeta nueva.
@@ -326,7 +332,7 @@ Si falta alguna utilidad, la sección correspondiente sale más corta y el resto
 
 ## Estado del proyecto
 
-Versión 0.7.2. Conviene saber cómo se ha probado.
+Versión 0.8.0. Conviene saber cómo se ha probado.
 
 El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
 
@@ -339,6 +345,7 @@ Lo que falta es rodaje en hardware real. Los formatos del banco de pruebas está
 - **SMART y desgaste de los NVMe.** Necesita UDisks 2.10 o posterior. Linux Mint 22 y LMDE 7 lo traen; LMDE 6 trae la 2.9 y solo dará SMART de discos SATA.
 - **Traducciones hechas por IA.** Inglés y francés deberían ser correctos; japonés y chino conviene que los revise alguien nativo.
 - **Desgaste de los SSD sin probar en hardware real.** La respuesta de UDisks está escrita a partir de su documentación. Si en tu SSD la columna «Vida útil» sale vacía, abre una incidencia.
+- **SAI y actualizaciones por fases.** Se han probado con respuestas simuladas de UPower y de apt, no con un SAI real ni en un Ubuntu real.
 - **Detalle de SMART.** Se muestra estado, temperatura, horas y sectores dañados. La tabla completa de atributos sigue pidiendo `sudo smartctl -a`.
 - **Registro del kernel.** Para leerlo, tu usuario debe pertenecer al grupo `adm`. El primer usuario de Mint suele estar.
 - **Uso de la GPU en Intel.** Es una estimación a partir del tiempo de reposo de la gráfica, sin probar todavía en hardware real.
@@ -448,6 +455,7 @@ Un aviso sobre el nombre: «Linux Mint» es una marca de su proyecto. Deja claro
 - Repartir el código en módulos y cargar cada sección al abrirla, para que arranque más rápido.
 - Asistente «¿por qué va lento mi equipo?», puntuación de salud por áreas e informe para vender o comprar un equipo de segunda mano.
 - Paquete Flatpak.
+- Repositorio APT propio (alojado en GitHub), para que las versiones nuevas lleguen por el Gestor de actualizaciones como cualquier otro programa.
 
 ## Licencia
 

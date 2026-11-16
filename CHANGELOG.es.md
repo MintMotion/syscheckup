@@ -2,6 +2,17 @@
 
 [English version](CHANGELOG.md)
 
+## 0.8.0 (16/11/2026)
+
+Cambios a partir de lo que han comentado los usuarios en el foro de Linux Mint:
+
+- **Copiar datos de la ventana:** cualquier texto se puede marcar con el ratón (o con doble clic) y copiar con Ctrl+C, y ahora la marca se ve bien con cualquier aspecto. En las tablas se marcan filas enteras (varias con Mayús o Ctrl) y Ctrl+C las copia separadas por tabuladores. Exportar sigue ocultando los datos personales por defecto.
+- **Ocultar avisos del Diagnóstico:** cada aviso tiene «Ocultar este aviso». Deja de salir en el Diagnóstico, en el Inicio y en el número de la barra lateral; vuelve si el problema cambia; un botón los muestra de nuevo. Los informes exportados los siguen incluyendo.
+- **SAI (UPS):** «Batería y energía» muestra los SAI conectados por USB (estado, carga, autonomía y modelo), que se leen del servicio de energía del sistema (UPower) sin contraseña. Ya no dice que el equipo no tiene batería cuando hay un SAI, y avisa si el equipo está funcionando con la batería del SAI.
+- **Actualizaciones por fases (Ubuntu y Linux Mint 22):** las que el sistema todavía no ofrece a este equipo se muestran aparte y no cuentan como pendientes, ni en Software ni en Actualizaciones de drivers.
+- **Botones de la ventana con el tema Breeze (KDE):** minimizar, maximizar y cerrar no se veían; ahora se ven con cualquier tema.
+- **Icono de la ventana:** es el del lanzador del menú, así que si lo cambias, la ventana lo sigue. Se instala también un icono monocromo (`syscheckup-symbolic`). La ventana se identifica siempre como «syscheckup», también al abrirla con `python3 syscheckup.py`.
+
 ## 0.7.2 (14/11/2026)
 
 - **Nuevo aspecto «Sistema»** (menú ☰ → Aspecto), además de Oscuro (el de serie) y Claro. Toma del escritorio el fondo y el texto del tema, la preferencia de modo claro u oscuro y el color de acento, y se actualiza al momento si cambias el tema o pasas de claro a oscuro. Solo cambian esos colores: el diseño y los colores de estado son los de siempre, y se ajustan si hace falta para que el texto se lea bien. Probado con Mint-Y (claro, oscuro y sus variantes de color), Adwaita, Yaru, Breeze, Greybird y HighContrast, simulando Linux Mint, Ubuntu y Debian con GNOME, KDE Plasma y Xfce.

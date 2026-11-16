@@ -3293,3 +3293,51 @@ msgstr "If that device works fine, there is nothing to do: many drivers try seve
 
 msgid "Leer datos internos…"
 msgstr "Read internal data…"
+
+msgid "Funcionando con su batería"
+msgstr "Running on its battery"
+
+msgid "Esperando para cargar"
+msgstr "Waiting to charge"
+
+msgid "Esperando"
+msgstr "Waiting"
+
+msgid "Autonomía estimada"
+msgstr "Estimated runtime"
+
+msgid "Sistema de alimentación ininterrumpida (SAI)"
+msgstr "Uninterruptible power supply (UPS)"
+
+msgid "Lo lee el servicio de energía del sistema (UPower) a través del cable USB del SAI."
+msgstr "Read by the system's power service (UPower) through the UPS's USB cable."
+
+msgid "El equipo está funcionando con la batería del SAI: no le llega corriente de la red."
+msgstr "The computer is running on the UPS battery: it is not getting mains power."
+
+msgid "Guarda tu trabajo. Si el corte dura más que la autonomía del SAI, apaga el equipo de forma ordenada antes de que se agote."
+msgstr "Save your work. If the outage lasts longer than the UPS runtime, shut the computer down properly before the battery runs out."
+
+msgid "Llegará por fases"
+msgstr "Coming in phases"
+
+msgid "Actualizaciones que llegarán por fases"
+msgstr "Updates coming in phases"
+
+msgid "Ubuntu reparte algunas actualizaciones poco a poco entre los equipos. A este todavía no le toca: el gestor de actualizaciones te las ofrecerá en los próximos días. No tienes que hacer nada."
+msgstr "Ubuntu rolls out some updates gradually across computers. It's not this one's turn yet: the update manager will offer them to you in the next few days. You don't need to do anything."
+
+msgid "Has ocultado 1 aviso."
+msgstr "You have hidden 1 warning."
+
+msgid "Has ocultado {n} avisos."
+msgstr "You have hidden {n} warnings."
+
+msgid "Volver a mostrarlos"
+msgstr "Show them again"
+
+msgid "Ocultar este aviso"
+msgstr "Hide this warning"
+
+msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
+msgstr "Stops showing it here and on Home. If the problem changes, it comes back. Reports you export still include it."

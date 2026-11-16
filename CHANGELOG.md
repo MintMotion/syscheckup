@@ -2,6 +2,17 @@
 
 [Versión en español](CHANGELOG.es.md)
 
+## 0.8.0 (2026-11-16)
+
+Changes based on user feedback on the Linux Mint forum:
+
+- **Copy data from the window:** any text can be selected with the mouse (or a double click) and copied with Ctrl+C, and the selection is now clearly visible with any appearance. In tables you select whole rows (several with Shift or Ctrl) and Ctrl+C copies them tab-separated. Export still hides personal data by default.
+- **Hide Diagnosis warnings:** each warning has "Hide this warning". It stops showing in Diagnosis, on Home and in the sidebar badge; it comes back if the problem changes; a button shows them again. Exported reports still include them.
+- **UPS:** "Battery and power" shows UPS units connected over USB (status, charge, runtime and model), read from the system's power service (UPower) without a password. It no longer says the computer has no battery when there is a UPS, and it warns if the computer is running on the UPS battery.
+- **Phased updates (Ubuntu and Linux Mint 22):** the ones the system doesn't offer this computer yet are shown separately and don't count as pending, in Software or in Driver updates.
+- **Window buttons with the Breeze theme (KDE):** minimize, maximize and close were invisible; they now show with any theme.
+- **Window icon:** it is the menu launcher's icon, so if you change it, the window follows. A monochrome icon (`syscheckup-symbolic`) is installed too. The window always identifies itself as "syscheckup", also when opened with `python3 syscheckup.py`.
+
 ## 0.7.2 (2026-11-14)
 
 - **New "System" appearance** (menu ☰ → Appearance), besides Dark (the default) and Light. It takes the theme's background and text, the light or dark preference and the accent color from the desktop, and updates right away if you change the theme or switch between light and dark. Only those colors change: the design and the status colors stay the same, and they are adjusted where needed so text is readable. Tested with Mint-Y (light, dark and its color variants), Adwaita, Yaru, Breeze, Greybird and HighContrast, simulating Linux Mint, Ubuntu and Debian with GNOME, KDE Plasma and Xfce.

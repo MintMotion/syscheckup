@@ -22,6 +22,7 @@ for n in 16 22 24 32 48 64 128 256; do
   install -Dm644 "data/icons/syscheckup-$n.png" "$PKG/usr/share/icons/hicolor/${n}x${n}/apps/syscheckup.png"
 done
 install -Dm644 data/syscheckup.svg     "$PKG/usr/share/pixmaps/syscheckup.svg"
+install -Dm644 data/syscheckup-symbolic.svg "$PKG/usr/share/icons/hicolor/symbolic/apps/syscheckup-symbolic.svg"
 # Ayudante de solo lectura para los datos internos (SPD de la memoria, registros del procesador) y su
 # regla de polkit: solo se ejecuta si el usuario lo pide y escribe su contraseña.
 install -Dm755 data/syscheckup-probe   "$PKG/usr/libexec/syscheckup/syscheckup-probe"

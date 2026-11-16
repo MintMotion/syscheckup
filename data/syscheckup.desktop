@@ -9,6 +9,7 @@ Exec=syscheckup
 Icon=syscheckup
 Terminal=false
 StartupNotify=true
+StartupWMClass=syscheckup
 Categories=System;Monitor;
 Keywords=hardware;cpu;procesador;memoria;ram;disco;ssd;smart;drivers;controladores;sensores;temperatura;ventilador;batería;bios;sistema;diagnóstico;informe;
 Keywords[en]=hardware;cpu;memory;ram;disk;ssd;smart;drivers;sensors;temperature;fan;battery;bios;system;diagnosis;report;

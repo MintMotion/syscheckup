@@ -37,6 +37,11 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.8.0" date="2026-11-16">
+      <description>
+        <p>Textos y tablas que se pueden marcar y copiar, avisos del Diagnóstico que se pueden ocultar, SAI (UPS) en Batería y energía, actualizaciones por fases aparte, botones de la ventana visibles con el tema Breeze e icono de la ventana personalizable.</p>
+      </description>
+    </release>
     <release version="0.7.2" date="2026-11-14">
       <description>
         <p>Nuevo aspecto «Sistema»: toma el fondo, el texto, el modo claro u oscuro y el color de acento del escritorio.</p>

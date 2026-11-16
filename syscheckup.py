@@ -49,7 +49,7 @@ APP = "SysCheckup"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.7.2"
+VERSION = "0.8.0"
 JSON_SCHEMA = 2
 
 READONLY = "SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet"
@@ -2686,6 +2686,61 @@ def psu_block():
     return None
 
 
+UPS_STATES = {"fully-charged": "Cargada", "charging": "Cargando", "discharging": "Funcionando con su batería",
+              "pending-charge": "Esperando para cargar", "pending-discharge": "Esperando", "empty": "Vacía"}
+
+
+def parse_upower(text):
+    """Dispositivos de `upower -d` del tipo SAI (UPS). UPower los lee del USB sin root; el kernel no los publica."""
+    devs, cur, sub = [], None, None
+    for line in text.splitlines():
+        if line.startswith("Device:"):
+            cur, sub = {"path": line.split(":", 1)[1].strip()}, None
+            devs.append(cur)
+            continue
+        if not line.strip():
+            continue
+        indent = len(line) - len(line.lstrip())
+        if indent == 0:                        # «Daemon:» u otra cabecera: ya no es un dispositivo
+            cur = None
+            continue
+        if cur is None:
+            continue
+        st = line.strip()
+        if ":" not in st:
+            if indent == 2:
+                sub = st                       # tipo de dispositivo: ups, battery, mouse, line-power…
+                cur.setdefault("type", st)
+            continue
+        k, v = (x.strip() for x in st.split(":", 1))
+        cur[k] = v.strip("'")
+    return [d for d in devs if d.get("type") == "ups" and d.get("present", "yes") == "yes"]
+
+
+def ups_blocks(ctx):
+    blocks = []
+    for d in parse_upower(run(["upower", "-d"], timeout=5)):
+        ctx.data["has_ups"] = True
+        state = d.get("state", "")
+        m = re.match(r"([\d.,]+)", d.get("percentage", ""))
+        pct_ = f"{num(float(m.group(1).replace(',', '.')), 0)} %" if m else ""
+        auton = ""
+        m = re.match(r"([\d.,]+)\s*(second|minute|hour|day)", d.get("time to empty", ""))
+        if m:
+            mins = float(m.group(1).replace(",", ".")) * {"second": 1 / 60, "minute": 1, "hour": 60, "day": 1440}[m.group(2)]
+            auton = f"{round(mins)} min" if mins < 90 else f"{num(mins / 60)} h"
+        rows = [("Estado", UPS_STATES.get(state, state)), ("Carga", pct_),
+                ("Autonomía estimada", auton),
+                ("Fabricante / modelo", " ".join(x for x in (d.get("vendor", ""), d.get("model", "")) if x))]
+        blocks.append(kv("Sistema de alimentación ininterrumpida (SAI)", rows,
+                         help="Lo lee el servicio de energía del sistema (UPower) a través del cable USB del SAI."))
+        if state == "discharging":
+            ctx.flag("warn", "Energía", "El equipo está funcionando con la batería del SAI: no le llega corriente "
+                     "de la red.", "Guarda tu trabajo. Si el corte dura más que la autonomía del SAI, apaga el "
+                     "equipo de forma ordenada antes de que se agote.")
+    return blocks
+
+
 def sec_power(ctx):
     blocks = []
     for p in sorted(glob.glob("/sys/class/power_supply/*")):
@@ -2768,7 +2823,9 @@ def sec_power(ctx):
     psu = psu_block()
     if psu:
         blocks.insert(0, psu)
-    if not ctx.data.get("has_battery"):
+    ups = ups_blocks(ctx)
+    blocks[0:0] = ups
+    if not ctx.data.get("has_battery") and not ups:
         blocks.append(note("Este equipo no tiene batería (o el sistema no la expone)."))
     if not psu and ctx.data.get("chassis") not in ("Portátil", "Subportátil", "Convertible", "Desmontable",
                                                    "Tableta", "Dispositivo de mano"):
@@ -3047,10 +3104,11 @@ def sec_updates(ctx):
     for name, cat in wanted:
         inst, cand = pk[name], policy.get(name, {}).get("cand", "")
         newer = bool(cand) and cand not in (inst, "(none)") and run_ok(["dpkg", "--compare-versions", cand, "gt", inst])
-        if newer:
+        later = newer and name in phased_packages()
+        if newer and not later:
             pending.append(name)
-        rows.append((name, "Hay versión nueva" if newer else ("Al día" if cand else "Sin datos del repositorio"),
-                     inst, cand if newer else "", cat))
+        rows.append((name, "Llegará por fases" if later else "Hay versión nueva" if newer else
+                     ("Al día" if cand else "Sin datos del repositorio"), inst, cand if newer else "", cat))
     rows.sort(key=lambda r: (r[1] != "Hay versión nueva", [c for _r, c in DRIVER_RULES].index(r[4]), r[0]))
     if pending:
         ctx.flag("info", "Drivers", _("Hay versión nueva de: {paquetes}.").format(
@@ -3243,6 +3301,29 @@ def apt_repos():
     return repos
 
 
+_PHASED = {}
+
+
+def phased_packages():
+    """Paquetes cuya actualización Ubuntu (y Linux Mint 22, que se basa en él) reparte por fases: aún no le toca a
+    este equipo y el Gestor de actualizaciones no la ofrece. apt solo lo dice al simular la actualización, sin root."""
+    key = tuple(os.path.getmtime(f) if os.path.exists(f) else 0 for f in ("/var/lib/apt/lists", "/var/lib/dpkg/status"))
+    if _PHASED.get("key") != key:
+        _PHASED.update(key=key, names=parse_phased(
+            run(["apt-get", "-s", "-o", "Debug::NoLocking=1", "dist-upgrade"], timeout=30)))
+    return _PHASED["names"]
+
+
+def parse_phased(out):
+    names, inside = set(), False
+    for line in out.splitlines():
+        if not line.startswith(" "):
+            inside = "deferred due to phasing" in line
+        elif inside:
+            names.update(n.split(":")[0] for n in line.split())
+    return names
+
+
 def sec_software(ctx):
     pk = dpkg_packages()
     versions = [("Kernel en ejecución", platform.release())]
@@ -3260,6 +3341,9 @@ def sec_software(ctx):
         m = re.match(r"^([^/\s]+)/\S+\s+(\S+)\s+\S+\s+\[upgradable from: (\S+)\]", line)
         if m:
             upg.append((m.group(1), m.group(3), m.group(2)))
+    phased = phased_packages() if upg else set()
+    later = [u for u in upg if u[0] in phased]
+    upg = [u for u in upg if u[0] not in phased]
     ctx.data["updates"] = len(upg)
     if upg:
         ctx.flag("info", "Software", _("Hay {n} paquetes con actualización pendiente.").format(n=len(upg)),
@@ -3298,12 +3382,17 @@ def sec_software(ctx):
             ("Paquetes instalados (.deb)", len(pk) or ""),
             ("Aplicaciones Flatpak", len(fl) if have("flatpak") else ""),
             ("Actualizaciones pendientes", len(upg) if have("apt") else ""),
+            ("Actualizaciones que llegarán por fases", len(later) if later else ""),
             ("Kernels instalados", ", ".join(kernels)),
             ("Servicios en ejecución", len(running) or ""),
             ("Servicios con fallo", ", ".join(failed) if failed else ("Ninguno" if running else "")),
         ]),
         table("Versiones de los componentes clave", ["Componente", "Versión"], versions),
         table("Actualizaciones pendientes", ["Paquete", "Instalada", "Disponible"], upg[:60], adv=True),
+        table("Actualizaciones que llegarán por fases", ["Paquete", "Instalada", "Disponible"], later[:60], adv=True,
+              help="Ubuntu reparte algunas actualizaciones poco a poco entre los equipos. A este todavía no le "
+                   "toca: el gestor de actualizaciones te las ofrecerá en los próximos días. No tienes que hacer "
+                   "nada.") if later else None,
         table("Últimos cambios de paquetes", ["Fecha", "Acción", "Paquete", "Versión"], recent, adv=True),
         table("Aplicaciones Flatpak", ["Nombre", "Identificador", "Versión", "Origen"], fl),
         table("Programas que arrancan con tu sesión", ["Nombre", "Orden"], auto),
@@ -3481,10 +3570,21 @@ def findings_block(title, items, help="", compact=False):
     return {"type": "findings", "title": _(title), "rows": rows, "adv": False, "help": _(help), "compact": compact}
 
 
+def finding_key(f):
+    """Huella de un aviso para poder ocultarlo. Lleva el texto con sus cifras: si el problema cambia
+    (por ejemplo, el disco pasa del 91 % al 95 %), es otro aviso y vuelve a salir."""
+    import hashlib
+    return hashlib.sha1(f"{f.get('area', '')}|{f.get('text', '')}".encode()).hexdigest()[:12]
+
+
 def health(ctx):
-    nb = sum(1 for f in ctx.findings if f["level"] == "bad")
-    nw = sum(1 for f in ctx.findings if f["level"] == "warn")
-    ni = sum(1 for f in ctx.findings if f["level"] == "info")
+    return health_of(ctx.findings)
+
+
+def health_of(findings):
+    nb = sum(1 for f in findings if f["level"] == "bad")
+    nw = sum(1 for f in findings if f["level"] == "warn")
+    ni = sum(1 for f in findings if f["level"] == "info")
     if nb:
         return "bad", (_("Hay algo que necesita tu atención") if nb == 1 else
                        _("Hay {nb} cosas que necesitan tu atención").format(nb=nb))
@@ -4958,7 +5058,8 @@ CSS = """
     border: 1px solid @mm_line; border-radius: 10px; color: @mm_fg; box-shadow: none; text-shadow: none;
     -gtk-icon-shadow: none; padding: 5px 12px; }}
 .mm-win headerbar button:hover, .mm-win button.mm-ghost:hover {{ background-color: alpha(@mm_fg, 0.12); }}
-.mm-win headerbar button.titlebutton {{ background: none; border: none; padding: 4px; }}
+.mm-win headerbar button.titlebutton {{ background: none; border: none; padding: 4px; box-shadow: none; }}
+.mm-win headerbar button.titlebutton image {{ color: @mm_fg; opacity: 1; -gtk-icon-shadow: none; }}
 .mm-win headerbar button.titlebutton:hover {{ background-color: alpha(@mm_fg, 0.10); border-radius: 99px; }}
 .mm-win button.mm-accent, .mm-win headerbar button.mm-accent {{
     background-image: linear-gradient(110deg, @mm_a1, @mm_a2); background-color: @mm_a2; color: #ffffff;
@@ -4972,6 +5073,12 @@ CSS = """
 .mm-nav, .mm-nav row {{ background-color: transparent; }}
 .mm-nav row {{ border-radius: 10px; margin: 1px 10px; padding: 6px 10px; color: @mm_dim; }}
 .mm-nav row:hover {{ background-color: alpha(@mm_fg, 0.05); color: @mm_fg; }}
+.mm-win button.mm-link {{ background: none; border: none; box-shadow: none; color: @mm_dim; padding: 5px 8px;
+    text-shadow: none; }}
+.mm-win button.mm-link:hover {{ color: @mm_fg; background-color: alpha(@mm_fg, 0.06); border-radius: 8px; }}
+.mm-win label selection {{ background-color: alpha(@mm_a1, 0.40); color: @mm_fg; }}
+.mm-win treeview.view:selected, .mm-win treeview.view:selected:focus {{ background-color: alpha(@mm_a1, 0.28);
+    color: @mm_fg; }}
 .mm-nav row:selected {{ background-image: linear-gradient(90deg, alpha(@mm_a1, 0.22), alpha(@mm_a2, 0.16));
     color: @mm_fg; }}
 .mm-nav row:selected image {{ color: @mm_a1; }}
@@ -5259,6 +5366,11 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
     import gi
     gi.require_version("Gtk", "3.0")
     from gi.repository import Gtk, Gdk, GLib, Pango
+    # Mismo nombre de aplicación (WM_CLASS en X11, app_id en Wayland) que el lanzador del menú, también al
+    # abrirlo con «python3 syscheckup.py»: así el escritorio asocia la ventana con su lanzador y su icono.
+    GLib.set_prgname("syscheckup")
+    GLib.set_application_name(APP)
+    Gdk.set_program_class("syscheckup")
     try:                       # dibujar con cairo necesita el paquete python3-gi-cairo
         gi.require_foreign("cairo")
         import cairo
@@ -5416,7 +5528,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             super().__init__(title=APP)
             styled(self, "mm-win")
             self.set_default_size(1180, 760)
-            self.set_icon_name("syscheckup" if theme.has_icon("syscheckup") else "computer")
+            self.set_window_icon(theme)
             self.anon, self.sections, self.refs, self.busy = anon, [], {}, False
             self.index, self.first, self._building = {}, True, None
 
@@ -5766,7 +5878,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 hbox.pack_start(self.nav_icon(row), False, False, 0)
                 hbox.pack_start(Gtk.Label(label=s["title"], xalign=0), True, True, 0)
                 if s["id"] == "diagnostico":
-                    rows = [f for b in s["blocks"] if b["type"] == "findings" for f in b["rows"]]
+                    rows = [f for b in self.view(s)["blocks"] if b["type"] == "findings" for f in b["rows"]]
                     n = sum(1 for f in rows if f["level"] in ("bad", "warn"))
                     if n:
                         badge = styled(Gtk.Label(label=str(n)), "mm-badge")
@@ -5831,7 +5943,74 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 self.nav.select_row(visible[0])
 
         # ── construcción de una página ──
+        def set_window_icon(self, theme):
+            """El icono de la ventana es el del lanzador del menú. Si el usuario lo cambia (con el editor del
+            menú, o eligiendo por ejemplo el monocromo «syscheckup-symbolic»), la ventana lo sigue."""
+            name = "syscheckup"
+            dirs = [os.environ.get("XDG_DATA_HOME") or os.path.expanduser("~/.local/share")] + \
+                (os.environ.get("XDG_DATA_DIRS") or "/usr/local/share:/usr/share").split(":")
+            for d in dirs:
+                f = os.path.join(d, "applications", "syscheckup.desktop")
+                if os.path.isfile(f):
+                    entry = read(f).split("[Desktop Entry]", 1)[-1].split("\n[", 1)[0]
+                    name = keyvals(entry).get("Icon", name) or name
+                    break
+            if os.path.isabs(name) and os.path.isfile(name):
+                try:
+                    self.set_icon_from_file(name)
+                    return
+                except GLib.Error:
+                    name = "syscheckup"
+            self.set_icon_name(name if theme.has_icon(name) else
+                               "syscheckup" if theme.has_icon("syscheckup") else "computer")
+
+        def view(self, s):
+            """La sección tal como se ve en la ventana: sin los avisos que el usuario ha ocultado.
+            Los informes exportados llevan siempre todos."""
+            hidden = set(load_config().get("avisos_ocultos", []))
+            if s["id"] not in ("diagnostico", "resumen") or not hidden or s.get("vista"):
+                return s
+            diag = next((x for x in self.sections if x["id"] == "diagnostico"), s)
+            every = [f for b in diag["blocks"] if b["type"] == "findings" for f in b["rows"]]
+            keep = [f for f in every if finding_key(f) not in hidden]
+            level, text = health_of(keep)
+            blocks = []
+            for b in s["blocks"]:
+                if b["type"] == "findings":
+                    rows = ([f for f in keep if f["level"] in ("bad", "warn")][:3] if b.get("compact")
+                            else [f for f in b["rows"] if finding_key(f) not in hidden])
+                    if not rows:
+                        continue
+                    b = dict(b, rows=rows)
+                elif b["type"] == "status":
+                    b = dict(b, level=level, text=text)
+                blocks.append(b)
+            n = len(every) - len(keep)
+            if s["id"] == "diagnostico" and n:
+                pos = next((i for i, b in enumerate(blocks) if b["type"] == "status"), -1) + 1
+                blocks.insert(pos, {"type": "hidden", "title": "", "rows": [n], "adv": False})
+            return dict(s, blocks=blocks, vista=True)
+
+        def w_hidden(self, b):
+            box = Gtk.Box(spacing=12, margin_top=6)
+            n = b["rows"][0]
+            box.pack_start(label(_("Has ocultado 1 aviso.") if n == 1 else
+                                 _("Has ocultado {n} avisos.").format(n=n), "mm-dim"), False, False, 0)
+            btn = styled(Gtk.Button(label=_("Volver a mostrarlos")), "mm-ghost")
+            btn.connect("clicked", lambda *_a: self.set_hidden(None))
+            box.pack_start(btn, False, False, 0)
+            return box, None
+
+        def set_hidden(self, key):
+            """Oculta un aviso (key) o, con None, vuelve a mostrarlos todos."""
+            keys = load_config().get("avisos_ocultos", [])
+            keys = [] if key is None else [k for k in keys if k != key] + [key]
+            save_config(avisos_ocultos=keys[-200:])
+            if self.sections and not self.busy:
+                GLib.idle_add(lambda: self.populate(self.sections) and False)
+
         def build_page(self, s):
+            s = self.view(s)
             self._building = s["id"]
             page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
             page.set_border_width(32)
@@ -5862,7 +6041,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                     t.set_margin_top(18)
                     target.pack_start(t, False, False, 0)
                 if b.get("help"):
-                    target.pack_start(label(b["help"], "mm-dim", wrap=True), False, False, 0)
+                    target.pack_start(label(b["help"], "mm-dim", wrap=True, selectable=True), False, False, 0)
                 kind = "gauges" if b["type"] == "bars" and b.get("gauge") else b["type"]
                 widget, ref = getattr(self, "w_" + kind)(b)
                 target.pack_start(widget, False, False, 0)
@@ -5904,7 +6083,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             inner = Gtk.Box(spacing=20, margin_start=22, margin_end=22, margin_top=20, margin_bottom=20)
             inner.pack_start(self.level_ring(b["level"]), False, False, 0)
             texts = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4, valign=Gtk.Align.CENTER)
-            texts.pack_start(label(b["text"], "mm-hero-title", wrap=True), False, False, 0)
+            texts.pack_start(label(b["text"], "mm-hero-title", wrap=True, selectable=True), False, False, 0)
             sub = _("No se ha detectado ningún problema en la revisión automática.") if b["level"] == "ok" \
                 else _("Abajo tienes qué pasa y qué puedes hacer.")
             texts.pack_start(label(sub, "mm-dim", wrap=True), False, False, 0)
@@ -5941,13 +6120,21 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 col.pack_start(head, False, False, 0)
                 if f.get("todo") and not b.get("compact"):
                     col.pack_start(label(f'<b>{esc(_("Qué hacer:"))}</b> {esc(show(f["todo"], self.anon))}', "mm-dim",
-                                         wrap=True, markup=True), False, False, 0)
+                                         wrap=True, markup=True, selectable=True), False, False, 0)
                 cmd = action_cmd(f.get("action")) if f.get("action") and not b.get("compact") else None
+                acts = Gtk.Box(spacing=8, margin_top=6)
                 if cmd:
-                    btn = styled(Gtk.Button(label=action_label(f["action"]), halign=Gtk.Align.START, margin_top=6),
-                                 "mm-ghost")
+                    btn = styled(Gtk.Button(label=action_label(f["action"])), "mm-ghost")
                     btn.connect("clicked", lambda _b, c=cmd: self.launch(c))
-                    col.pack_start(btn, False, False, 0)
+                    acts.pack_start(btn, False, False, 0)
+                if not b.get("compact"):
+                    hide = styled(Gtk.Button(label=_("Ocultar este aviso")), "mm-link")
+                    hide.set_tooltip_text(_("Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve "
+                                            "a salir. Los informes que exportes lo siguen incluyendo."))
+                    hide.connect("clicked", lambda _b, k=finding_key(f): self.set_hidden(k))
+                    acts.pack_start(hide, False, False, 0)
+                if acts.get_children():
+                    col.pack_start(acts, False, False, 0)
                 row.pack_start(col, True, True, 0)
                 box.pack_start(row, False, False, 0)
             return self.card(box), len(b["rows"])
@@ -5958,7 +6145,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             labels = []
             for i, (k, v) in enumerate(b["rows"]):
                 kbox = Gtk.Box(spacing=6, valign=Gtk.Align.START)
-                kl = label(k, "mm-key")
+                kl = label(k, "mm-key", selectable=True)
                 kl.set_line_wrap(True)
                 kl.set_max_width_chars(30)
                 kbox.pack_start(kl, False, False, 0)
@@ -5981,7 +6168,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 kl.set_size_request(160, -1)
                 bar = Gtk.ProgressBar(fraction=frac, valign=Gtk.Align.CENTER)
                 bar.set_size_request(260, -1)
-                tl = label(show(text, self.anon), "mm-dim")
+                tl = label(show(text, self.anon), "mm-dim", selectable=True)
                 tl.set_hexpand(True)
                 tl.set_ellipsize(Pango.EllipsizeMode.END)
                 for col, w in enumerate((kl, bar, tl)):
@@ -6064,7 +6251,9 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             tv = Gtk.TreeView(model=store)
             tv.set_enable_search(False)
             tv.set_grid_lines(Gtk.TreeViewGridLines.NONE)
-            tv.get_selection().set_mode(Gtk.SelectionMode.NONE)
+            tv.get_selection().set_mode(Gtk.SelectionMode.MULTIPLE)
+            tv.set_rubber_banding(True)
+            tv.connect("key-press-event", self.on_table_key)
             for i, h in enumerate(b["headers"]):
                 longest = max([len(r[i]) for r in b["rows"]] or [0])
                 cell = Gtk.CellRendererText(xpad=10, ypad=7)
@@ -6085,6 +6274,22 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             sw.set_margin_top(4)
             sw.set_margin_bottom(6)
             return self.card(sw), store
+
+        @staticmethod
+        def on_table_key(tv, ev):
+            """Ctrl+C en una tabla copia las filas marcadas, con las columnas separadas por tabuladores."""
+            ctrl = ev.state & Gdk.ModifierType.CONTROL_MASK
+            if ctrl and ev.keyval in (Gdk.KEY_c, Gdk.KEY_C, Gdk.KEY_Insert):
+                model, paths = tv.get_selection().get_selected_rows()
+                if paths:
+                    n = model.get_n_columns()
+                    lines = ["\t".join(model[p][i] or "" for i in range(n)) for p in paths]
+                    Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD).set_text("\n".join(lines), -1)
+                    return True
+            if ctrl and ev.keyval in (Gdk.KEY_a, Gdk.KEY_A):
+                tv.get_selection().select_all()
+                return True
+            return False
 
         def legend(self, b):
             esc = GLib.markup_escape_text
@@ -6222,7 +6427,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             return False
 
         def w_note(self, b):
-            lab = label(b["text"], "mm-dim", wrap=True)
+            lab = label(b["text"], "mm-dim", wrap=True, selectable=True)
             lab.set_margin_top(8)
             return lab, None
 
@@ -6555,6 +6760,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             else:
                 new = safe(sid, COLLECTORS[sid], Ctx())
             self.sections[idx] = new
+            new = self.view(new)          # lo que se ve: sin los avisos ocultos
             refs = self.refs.get(sid, [])
 
             def fits(t, r, b):
@@ -6587,12 +6793,13 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 if t == "kv":
                     for lab, (_k, v) in zip(r, b["rows"]):
                         txt = show(v, self.anon)
-                        if lab.get_text() != txt:
+                        if lab.get_text() != txt and not lab.get_selection_bounds():
                             lab.set_text(txt)
                 elif t == "bars":
                     for (bar, tl), (_l, frac, text) in zip(r, b["rows"]):
                         bar.set_fraction(frac)
-                        tl.set_text(show(text, self.anon))
+                        if not tl.get_selection_bounds():
+                            tl.set_text(show(text, self.anon))
                 elif t == "gauges":
                     for (area, st, sub), (_l, frac, text) in zip(r, b["rows"]):
                         st["frac"], st["center"] = frac, self.gauge_center(frac, text)
@@ -6778,6 +6985,11 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 Gtk.Settings.get_default().set_property("gtk-theme-name", m.group(1))
             if start and "+menu" in start:
                 win.menu_btn.set_active(True)
+            if start and "+ocultar" in start:      # pruebas: oculta el primer aviso del Diagnóstico
+                diag = next((x for x in win.sections if x["id"] == "diagnostico"), None)
+                rows = [f for b in diag["blocks"] if b["type"] == "findings" for f in b["rows"]] if diag else []
+                if rows:
+                    win.set_hidden(finding_key(rows[0]))
             m = re.search(r"\+buscar=([^+]+)", start or "")
             if m:
                 win.search.set_text(m.group(1))

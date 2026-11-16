@@ -274,6 +274,71 @@ X
 *) exit 1;;
 esac
 """)
+    if os.environ.get("MM_SAI"):             # MM_SAI=1: SAI por USB que lee UPower (MM_SAI=bateria: sin corriente)
+        estado, auton = ("discharging", "18.3 minutes") if os.environ["MM_SAI"] == "bateria" else ("fully-charged", "52.4 minutes")
+        cmd("upower", f"""cat <<'X'
+Device: /org/freedesktop/UPower/devices/line_power_AC
+  native-path:          AC
+  power supply:         yes
+  updated:              lun 16 nov 2026 10:00:00 (5 seconds ago)
+  has history:          no
+  has statistics:       no
+  line-power
+    warning-level:       none
+    online:              yes
+    icon-name:          'ac-adapter-symbolic'
+
+Device: /org/freedesktop/UPower/devices/ups_hiddev0
+  native-path:          /dev/usb/hiddev0
+  vendor:               American Power Conversion
+  model:                Back-UPS ES 700G
+  serial:               5B1234X56789
+  power supply:         yes
+  updated:              lun 16 nov 2026 10:00:01 (4 seconds ago)
+  has history:          yes
+  has statistics:       yes
+  ups
+    present:             yes
+    state:               {estado}
+    warning-level:       none
+    time to empty:       {auton}
+    percentage:          100%
+    icon-name:          'battery-full-charged-symbolic'
+
+Daemon:
+  daemon-version:  1.90.2
+  on-battery:      no
+  lid-is-closed:   no
+  lid-is-present:  no
+  critical-action: HybridSleep
+X
+""")
+    if os.environ.get("MM_FASES"):           # MM_FASES=1: Ubuntu/Mint 22 con actualizaciones repartidas por fases
+        cmd("apt", """cat <<'X'
+Listing...
+firefox/noble-updates 145.0+linuxmint1+wilma amd64 [upgradable from: 144.0+linuxmint1+wilma]
+libgl1-mesa-dri/noble-updates 25.0.7-0ubuntu0.24.04.2 amd64 [upgradable from: 25.0.7-0ubuntu0.24.04.1]
+mesa-vulkan-drivers/noble-updates 25.0.7-0ubuntu0.24.04.2 amd64 [upgradable from: 25.0.7-0ubuntu0.24.04.1]
+X
+""")
+        cmd("apt-get", """cat <<'X'
+NOTE: This is only a simulation!
+      apt-get needs root privileges for real execution.
+      Keep also in mind that locking is deactivated,
+      so don't depend on the relevance to the real current situation!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following upgrades have been deferred due to phasing:
+  libgl1-mesa-dri mesa-vulkan-drivers
+The following packages will be upgraded:
+  firefox
+1 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Inst firefox [144.0+linuxmint1+wilma] (145.0+linuxmint1+wilma Ubuntu:24.04/noble-updates [amd64])
+Conf firefox (145.0+linuxmint1+wilma Ubuntu:24.04/noble-updates [amd64])
+X
+""")
     cmd("fwupdmgr", """case "$*" in
 *get-updates*) echo '{"Devices":[{"Name":"System Firmware","DeviceId":"a45df35ac0e948ee180fe216a5f703f32dda163f","Version":"1.36","Releases":[{"Version":"1.40","Summary":"Lenovo ThinkPad L14 Gen 3 BIOS"}]}]}';;
 *) echo '{"Devices":[{"Name":"System Firmware","DeviceId":"a45df35ac0e948ee180fe216a5f703f32dda163f","Vendor":"LENOVO","Version":"1.36","Flags":["internal","updatable","require-ac"]},{"Name":"SAMSUNG MZVL2512HCJQ-00BL7","DeviceId":"71b677ca0f1bc2c5b804fa1d59e52064ce589293","Vendor":"Samsung","Version":"GXA7801Q","Flags":["internal","updatable"]},{"Name":"UEFI dbx","DeviceId":"362301da643102b9f38477387e2193e57abaa590","Vendor":"UEFI:Linux Foundation","Version":"20241101","Flags":["internal","updatable"]},{"Name":"Integrated Camera","DeviceId":"2292ae5236790b47884e37cf162dcf23bfcd1c60","Vendor":"Chicony","Version":"0.27","Flags":[]}]}';;

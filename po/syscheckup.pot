@@ -4586,3 +4586,51 @@ msgstr ""
 #: syscheckup.py
 msgid "Leer datos internos…"
 msgstr ""
+
+msgid "Funcionando con su batería"
+msgstr ""
+
+msgid "Esperando para cargar"
+msgstr ""
+
+msgid "Esperando"
+msgstr ""
+
+msgid "Autonomía estimada"
+msgstr ""
+
+msgid "Sistema de alimentación ininterrumpida (SAI)"
+msgstr ""
+
+msgid "Lo lee el servicio de energía del sistema (UPower) a través del cable USB del SAI."
+msgstr ""
+
+msgid "El equipo está funcionando con la batería del SAI: no le llega corriente de la red."
+msgstr ""
+
+msgid "Guarda tu trabajo. Si el corte dura más que la autonomía del SAI, apaga el equipo de forma ordenada antes de que se agote."
+msgstr ""
+
+msgid "Llegará por fases"
+msgstr ""
+
+msgid "Actualizaciones que llegarán por fases"
+msgstr ""
+
+msgid "Ubuntu reparte algunas actualizaciones poco a poco entre los equipos. A este todavía no le toca: el gestor de actualizaciones te las ofrecerá en los próximos días. No tienes que hacer nada."
+msgstr ""
+
+msgid "Has ocultado 1 aviso."
+msgstr ""
+
+msgid "Has ocultado {n} avisos."
+msgstr ""
+
+msgid "Volver a mostrarlos"
+msgstr ""
+
+msgid "Ocultar este aviso"
+msgstr ""
+
+msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
+msgstr ""

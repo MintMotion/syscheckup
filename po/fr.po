@@ -3293,3 +3293,51 @@ msgstr "Si ce périphérique fonctionne bien, il n'y a rien à faire : beaucoup 
 
 msgid "Leer datos internos…"
 msgstr "Lire les données internes…"
+
+msgid "Funcionando con su batería"
+msgstr "Fonctionne sur sa batterie"
+
+msgid "Esperando para cargar"
+msgstr "En attente de charge"
+
+msgid "Esperando"
+msgstr "En attente"
+
+msgid "Autonomía estimada"
+msgstr "Autonomie estimée"
+
+msgid "Sistema de alimentación ininterrumpida (SAI)"
+msgstr "Onduleur (alimentation sans interruption)"
+
+msgid "Lo lee el servicio de energía del sistema (UPower) a través del cable USB del SAI."
+msgstr "Lu par le service d'énergie du système (UPower) via le câble USB de l'onduleur."
+
+msgid "El equipo está funcionando con la batería del SAI: no le llega corriente de la red."
+msgstr "L'ordinateur fonctionne sur la batterie de l'onduleur : il ne reçoit plus le courant du secteur."
+
+msgid "Guarda tu trabajo. Si el corte dura más que la autonomía del SAI, apaga el equipo de forma ordenada antes de que se agote."
+msgstr "Enregistrez votre travail. Si la coupure dure plus longtemps que l'autonomie de l'onduleur, éteignez l'ordinateur proprement avant qu'elle ne soit épuisée."
+
+msgid "Llegará por fases"
+msgstr "Arrivera par étapes"
+
+msgid "Actualizaciones que llegarán por fases"
+msgstr "Mises à jour qui arriveront par étapes"
+
+msgid "Ubuntu reparte algunas actualizaciones poco a poco entre los equipos. A este todavía no le toca: el gestor de actualizaciones te las ofrecerá en los próximos días. No tienes que hacer nada."
+msgstr "Ubuntu distribue certaines mises à jour progressivement entre les ordinateurs. Ce n'est pas encore le tour de celui-ci : le gestionnaire de mises à jour vous les proposera dans les prochains jours. Vous n'avez rien à faire."
+
+msgid "Has ocultado 1 aviso."
+msgstr "Vous avez masqué 1 avertissement."
+
+msgid "Has ocultado {n} avisos."
+msgstr "Vous avez masqué {n} avertissements."
+
+msgid "Volver a mostrarlos"
+msgstr "Les afficher à nouveau"
+
+msgid "Ocultar este aviso"
+msgstr "Masquer cet avertissement"
+
+msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
+msgstr "Ne l'affiche plus ici ni dans l'Accueil. Si le problème change, il réapparaît. Les rapports que vous exportez l'incluent toujours."
