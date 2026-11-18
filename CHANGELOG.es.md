@@ -5,6 +5,7 @@
 ## 0.8.1 (18/11/2026)
 
 - **Copiar varias filas o la sección entera** (lo pidió un usuario en GitHub, incidencia #1): cada tarjeta de datos es ahora un único texto, así que se pueden marcar con el ratón varias filas seguidas, o la tarjeta completa, y copiarlas con Ctrl+C. Con **Ctrl+A** se marca toda la sección y **Ctrl+C** la copia como texto, con los datos personales ocultos.
+- **Más datos personales ocultos:** al ocultar los datos personales se tapan también los números de serie que van dentro de los nombres de dispositivos (por ejemplo, el de una webcam USB en el nombre de la entrada de sonido) y las MAC de Bluetooth escritas con guiones bajos.
 
 ## 0.8.0 (16/11/2026)
 

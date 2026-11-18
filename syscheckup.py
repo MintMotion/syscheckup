@@ -388,7 +388,11 @@ def secret(v):
 
 _MAC = re.compile(r"(?<![\w:])(?:[0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}(?![\w:])")
 _IPV4 = re.compile(r"(?<![\w.:~+-])(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)(?![\w.~+-])")
+_MAC_UNDERSCORE = re.compile(r"(?<![0-9A-Fa-f_])(?:[0-9A-Fa-f]{2}_){5}[0-9A-Fa-f]{2}(?![0-9A-Fa-f_])")
 _UUID = re.compile(r"\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\b")
+# Nombres de dispositivo que llevan el número de serie USB/ATA/NVMe al final, como los del sistema de sonido
+# (alsa_input.usb-046d_Brio_300_2244CFA4D658-02…) o /dev/disk/by-id: se tapa el último tramo si parece un serie.
+_DEV_SERIAL = re.compile(r"(\b(?:usb|ata|nvme|scsi-\d)-[\w.:-]*?_)(?=[0-9A-Za-z]*\d)([0-9A-Za-z]{6,})(?=-\d{1,2}\b|-part\d|\.|\s|$)")
 _IPV6 = re.compile(r"(?<![\w:])(?:[0-9a-fA-F]{0,4}:){2,7}[0-9a-fA-F]{1,4}(?![\w:])")
 
 
@@ -404,6 +408,8 @@ def scrub(s):
     if _SECRETS_RX[0] is not None:
         s = _SECRETS_RX[0].sub(_("(oculto)"), s)
     s = _MAC.sub("xx:xx:xx:xx:xx:xx", s)
+    s = _DEV_SERIAL.sub(lambda m: m.group(1) + _("(oculto)"), s)
+    s = _MAC_UNDERSCORE.sub("xx_xx_xx_xx_xx_xx", s)     # MAC Bluetooth en nombres de sonido: bluez_output.D4_57_…
     s = _UUID.sub(_("(UUID oculto)"), s)
     s = _IPV4.sub(lambda m: m.group(0) if m.group(0).startswith("127.") else "x.x.x.x", s)
     return _IPV6.sub(lambda m: _("(IPv6 oculta)") if m.group(0) != "::1" and

@@ -5,6 +5,7 @@
 ## 0.8.1 (2026-11-18)
 
 - **Copy several rows or the whole section** (requested by a user on GitHub, issue #1): each data card is now a single text, so you can select several rows in a row with the mouse, or the whole card, and copy them with Ctrl+C. **Ctrl+A** selects the whole section and **Ctrl+C** copies it as text, with personal data hidden.
+- **More personal data hidden:** hiding personal data now also masks serial numbers inside device names (for example, a USB webcam's serial in the name of the sound input) and Bluetooth MAC addresses written with underscores.
 
 ## 0.8.0 (2026-11-16)
 

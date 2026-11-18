@@ -39,7 +39,7 @@
   <releases>
     <release version="0.8.1" date="2026-11-18">
       <description>
-        <p>Se pueden marcar varias filas seguidas de una tarjeta, o toda la sección con Ctrl+A, y copiarlas con Ctrl+C.</p>
+        <p>Se pueden marcar varias filas seguidas de una tarjeta, o toda la sección con Ctrl+A, y copiarlas con Ctrl+C. Al ocultar los datos personales se tapan también los números de serie dentro de los nombres de dispositivos.</p>
       </description>
     </release>
     <release version="0.8.0" date="2026-11-16">

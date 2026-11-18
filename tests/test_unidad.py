@@ -407,6 +407,20 @@ def test_huella_de_avisos():
     assert mm.finding_key(a) != mm.finding_key(b)        # si el problema cambia, el aviso vuelve a salir
 
 
+def test_series_y_mac_en_nombres_de_dispositivo():
+    # Caso real enviado por un usuario: el servidor de sonido mete el número de serie de la webcam en el nombre
+    assert "2244CFA4D658" not in mm.scrub("alsa_input.usb-046d_Brio_300_2244CFA4D658-02.mono-fallback")
+    assert mm.scrub("alsa_input.usb-046d_Brio_300_2244CFA4D658-02.mono-fallback").startswith(
+        "alsa_input.usb-046d_Brio_300_")
+    assert "Y8RP6H1150E2C5" not in mm.scrub("alsa_output.usb-Focusrite_Scarlett_2i2_USB_Y8RP6H1150E2C5-00.HiFi")
+    assert "2312E6C1A2B3" not in mm.scrub("/dev/disk/by-id/ata-CT1000BX500SSD1_2312E6C1A2B3-part1")
+    assert "D4_57_63_AA_BB_CC" not in mm.scrub("bluez_output.D4_57_63_AA_BB_CC.1")
+    # sin número de serie no se toca nada
+    for t in ("alsa_output.usb-Generic_USB_Audio-00.analog-stereo", "alsa_output.pci-0000_00_1f.3.analog-stereo",
+              "usb-046d_Brio_300-02"):
+        assert mm.scrub(t) == t
+
+
 if __name__ == "__main__":
     fallos = 0
     for nombre, fn in sorted(globals().items()):
