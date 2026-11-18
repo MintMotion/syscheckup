@@ -5533,12 +5533,57 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             widget.get_style_context().add_class(c)
         return widget
 
+    class KvTextView(Gtk.TextView):
+        """Texto de una tarjeta que pide justo el alto que ocupan sus filas con el ancho que le dan.
+        Gtk.TextView calcula su alto con el ancho que tenía al crearse (en una página oculta, casi nada), y
+        la tarjeta quedaba con mucho hueco vacío. Aquí el alto se mide igual que lo pinta Pango."""
+
+        def __init__(self, **kw):
+            Gtk.TextView.__init__(self, **kw)
+            self.rows, self.col, self.gap = [], 0, 0
+
+        def measure(self, width):
+            inner = max(50, width - self.get_left_margin() - self.get_right_margin())
+            h = self.get_top_margin() + self.get_bottom_margin()
+            lay = self.create_pango_layout("")
+            lay.set_wrap(Pango.WrapMode.WORD_CHAR)
+            lay.set_width(inner * Pango.SCALE)
+            tabs = Pango.TabArray(1, True)
+            tabs.set_tab(0, Pango.TabAlign.LEFT, self.col)
+            lay.set_tabs(tabs)
+            for k, v, long_key in self.rows:
+                if long_key:
+                    lay.set_indent(0)
+                    lay.set_text(k, -1)
+                    h += lay.get_pixel_size()[1] + self.gap
+                    lay.set_width(max(50, inner - self.col) * Pango.SCALE)
+                    lay.set_text(v, -1)
+                    h += lay.get_pixel_size()[1] + self.gap
+                    lay.set_width(inner * Pango.SCALE)
+                else:
+                    lay.set_indent(-self.col * Pango.SCALE)
+                    lay.set_text(f"{k}\t{v}", -1)
+                    h += lay.get_pixel_size()[1] + self.gap
+            return h
+
+        def do_get_request_mode(self):
+            return Gtk.SizeRequestMode.HEIGHT_FOR_WIDTH
+
+        def do_get_preferred_height_for_width(self, width):
+            h = self.measure(width)
+            return h, h
+
+        def do_get_preferred_height(self):
+            w = self.get_allocated_width()
+            h = self.measure(w if w > 1 else 900)
+            return h, h
+
     class KvView:
         """Una tarjeta de pares «dato – valor» pintada como un único texto de solo lectura: se pueden marcar
         con el ratón varias filas seguidas, o la tarjeta entera, y copiarlas con Ctrl+C."""
 
         def __init__(self, rows, anon):
-            self.tv = Gtk.TextView(editable=False, cursor_visible=False, wrap_mode=Gtk.WrapMode.WORD_CHAR)
+            self.tv = KvTextView(editable=False, cursor_visible=False, wrap_mode=Gtk.WrapMode.WORD_CHAR)
             self.tv.get_style_context().add_class("mm-kv")
             for side in ("left", "right", "top", "bottom"):
                 getattr(self.tv, f"set_{side}_margin")(18)
@@ -5572,9 +5617,11 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 self.long_tag = buf.create_tag("long", left_margin=self.col, indent=0)
                 self.gap_tag = buf.create_tag("gap", pixels_below_lines=10)
             buf.set_text("")
+            self.tv.col, self.tv.gap, self.tv.rows = self.col, 10, []
             for i, (k, v) in enumerate(texts):
                 end = buf.get_end_iter
                 kw = self.tv.create_pango_layout(k).get_pixel_size()[0]
+                self.tv.rows.append((k, v, kw > self.col - 12))
                 buf.insert_with_tags(end(), k, self.key_tag, self.row_tag)
                 if kw > self.col - 12:          # dato muy largo: el valor va en la línea siguiente
                     buf.insert_with_tags(end(), "\n", self.row_tag)
@@ -5584,6 +5631,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 if i < len(texts) - 1:
                     buf.insert(end(), "\n")
             buf.apply_tag(self.gap_tag, buf.get_start_iter(), buf.get_end_iter())
+            self.tv.queue_resize()
 
         def select_all(self):
             buf = self.tv.get_buffer()
