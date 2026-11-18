@@ -2692,10 +2692,10 @@ UPS_STATES = {"fully-charged": "Cargada", "charging": "Cargando", "discharging":
 
 def parse_upower(text):
     """Dispositivos de `upower -d` del tipo SAI (UPS). UPower los lee del USB sin root; el kernel no los publica."""
-    devs, cur, sub = [], None, None
+    devs, cur = [], None
     for line in text.splitlines():
         if line.startswith("Device:"):
-            cur, sub = {"path": line.split(":", 1)[1].strip()}, None
+            cur = {"path": line.split(":", 1)[1].strip()}
             devs.append(cur)
             continue
         if not line.strip():
@@ -2708,8 +2708,7 @@ def parse_upower(text):
             continue
         st = line.strip()
         if ":" not in st:
-            if indent == 2:
-                sub = st                       # tipo de dispositivo: ups, battery, mouse, line-power…
+            if indent == 2:                    # tipo de dispositivo: ups, battery, mouse, line-power…
                 cur.setdefault("type", st)
             continue
         k, v = (x.strip() for x in st.split(":", 1))
