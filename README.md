@@ -143,7 +143,7 @@ A single button, **Export**, with every option:
 
 Reports always include everything, including what is folded under "Technical details" in the window.
 
-If you only need one value, you can select any text in the window with the mouse (or a double click) and copy it with Ctrl+C. In tables you select whole rows (several with Shift or Ctrl) and Ctrl+C copies them tab-separated, ready to paste into a spreadsheet.
+If you only need some data, select it with the mouse and copy it with Ctrl+C: inside each card you can select several rows in a row, or the whole card. **Ctrl+A** selects the whole section and **Ctrl+C** then copies it as text, with personal data hidden (the same as Export → only that section). In tables you select whole rows (several with Shift or Ctrl) and Ctrl+C copies them tab-separated, ready to paste into a spreadsheet.
 
 ## Buttons and shortcuts
 
@@ -241,7 +241,7 @@ From a terminal it does the same: `sudo apt purge syscheckup` and then `rm -rf ~
 Download the `.deb` and, from the folder where you saved it:
 
 ```
-sudo apt install ./syscheckup_0.8.0_all.deb
+sudo apt install ./syscheckup_0.8.1_all.deb
 ```
 
 `apt` installs any missing dependencies. You'll then find it in the menu as SysCheckup. If you had an earlier version, this package updates it; if you had one of the test versions called MintMachine, or the first one, called Radiografía, it replaces it. MintMachine's settings and history move to the new folder automatically.
@@ -334,7 +334,7 @@ If a tool is missing, the corresponding section comes out shorter and everything
 
 ## Project status
 
-Version 0.8.0. It's worth knowing how it has been tested.
+Version 0.8.1. It's worth knowing how it has been tested.
 
 The code has been run in a virtual machine with Ubuntu 24.04, in a container with the LMDE 7 packages and against a simulated laptop: a fake `/sys` with board, battery, sensors, fans with PWM and a curve, monitor, Wi-Fi and USB, plus fake versions of `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` and friends. With that, all the parsers, the graphs under real CPU and disk load, the live refresh, search, buttons, personal-data masking and the five export formats have been checked.
 

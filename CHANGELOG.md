@@ -2,6 +2,10 @@
 
 [Versión en español](CHANGELOG.es.md)
 
+## 0.8.1 (2026-11-18)
+
+- **Copy several rows or the whole section** (requested by a user on GitHub, issue #1): each data card is now a single text, so you can select several rows in a row with the mouse, or the whole card, and copy them with Ctrl+C. **Ctrl+A** selects the whole section and **Ctrl+C** copies it as text, with personal data hidden.
+
 ## 0.8.0 (2026-11-16)
 
 Changes based on user feedback on the Linux Mint forum:

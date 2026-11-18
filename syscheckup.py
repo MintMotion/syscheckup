@@ -44,12 +44,13 @@ import sys
 import threading
 import time
 import unicodedata
+import weakref
 
 APP = "SysCheckup"
 AUTHOR = "Sombra"
 AUTHOR_FULL = "José Antonio Ramos Miralles «Sombra»"
 EMAIL = "hola@joseantonioramos.es"
-VERSION = "0.8.0"
+VERSION = "0.8.1"
 JSON_SCHEMA = 2
 
 READONLY = "SysCheckup solo lee información. No cambia nada en tu equipo y no envía datos a internet"
@@ -5075,6 +5076,8 @@ CSS = """
 .mm-win button.mm-link {{ background: none; border: none; box-shadow: none; color: @mm_dim; padding: 5px 8px;
     text-shadow: none; }}
 .mm-win button.mm-link:hover {{ color: @mm_fg; background-color: alpha(@mm_fg, 0.06); border-radius: 8px; }}
+.mm-win textview.mm-kv, .mm-win textview.mm-kv text {{ background-color: transparent; color: @mm_fg; }}
+.mm-win textview.mm-kv text selection {{ background-color: alpha(@mm_a1, 0.40); color: @mm_fg; }}
 .mm-win label selection {{ background-color: alpha(@mm_a1, 0.40); color: @mm_fg; }}
 .mm-win treeview.view:selected, .mm-win treeview.view:selected:focus {{ background-color: alpha(@mm_a1, 0.28);
     color: @mm_fg; }}
@@ -5385,7 +5388,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
     state = {"tema": load_config().get("tema", "oscuro"), "pal": PALETTES["oscuro"],
              # lo que el usuario tiene puesto antes de que SysCheckup lo toque
              "prefer_dark": bool(gsettings.get_property("gtk-application-prefer-dark-theme")),
-             "esquema": None, "acento": None, "aplicando": False}
+             "esquema": None, "acento": None, "aplicando": False, "key_tags": weakref.WeakSet()}
     if state["tema"] not in ("oscuro", "claro", "sistema"):
         state["tema"] = "oscuro"
     probe = Gtk.Label()          # solo para preguntar al tema por sus colores; nunca se muestra
@@ -5475,6 +5478,8 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 gsettings.set_property("gtk-application-prefer-dark-theme", state["tema"] == "oscuro")
             state["pal"] = pal
             css_provider.load_from_data(CSS.format(**pal).encode())
+            for tag in list(state["key_tags"]):
+                tag.set_property("foreground", pal["dim"])
         finally:
             state["aplicando"] = False
         if redraw:
@@ -5521,6 +5526,66 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
         for c in classes:
             widget.get_style_context().add_class(c)
         return widget
+
+    class KvView:
+        """Una tarjeta de pares «dato – valor» pintada como un único texto de solo lectura: se pueden marcar
+        con el ratón varias filas seguidas, o la tarjeta entera, y copiarlas con Ctrl+C."""
+
+        def __init__(self, rows, anon):
+            self.tv = Gtk.TextView(editable=False, cursor_visible=False, wrap_mode=Gtk.WrapMode.WORD_CHAR)
+            self.tv.get_style_context().add_class("mm-kv")
+            for side in ("left", "right", "top", "bottom"):
+                getattr(self.tv, f"set_{side}_margin")(18)
+            self.tv.set_hexpand(True)
+            buf = self.tv.get_buffer()
+            # Sin esto, al marcar texto en una tarjeta se desmarca el de las demás (todas compiten por la
+            # selección «primaria» de X11) y Ctrl+A no podría marcar la sección entera.
+            self.tv.connect_after("realize", lambda tv: tv.get_buffer().remove_selection_clipboard(
+                tv.get_clipboard(Gdk.SELECTION_PRIMARY)))
+            self.key_tag = buf.create_tag("k", foreground=state["pal"]["dim"])
+            state["key_tags"].add(self.key_tag)
+            self.rows, self.texts, self.col = [], None, None
+            self.update(rows, anon)
+
+        def __len__(self):
+            return len(self.rows)
+
+        def update(self, rows, anon):
+            buf = self.tv.get_buffer()
+            texts = [(str(k), show(v, anon)) for k, v in rows]
+            if texts == self.texts or (self.texts is not None and buf.get_has_selection()):
+                return              # sin cambios, o el usuario tiene algo marcado: no se le quita la marca
+            self.rows, self.texts = list(rows), texts
+            if self.col is None:
+                widths = [self.tv.create_pango_layout(k).get_pixel_size()[0] for k, _v in texts] or [0]
+                self.col = max(240, min(max(widths), 300)) + 28
+                tabs = Pango.TabArray(1, True)
+                tabs.set_tab(0, Pango.TabAlign.LEFT, self.col)
+                self.tv.set_tabs(tabs)
+                self.row_tag = buf.create_tag("row", indent=-self.col)   # Pango: las líneas partidas van a la columna del valor
+                self.long_tag = buf.create_tag("long", left_margin=self.col, indent=0)
+                self.gap_tag = buf.create_tag("gap", pixels_below_lines=10)
+            buf.set_text("")
+            for i, (k, v) in enumerate(texts):
+                end = buf.get_end_iter
+                kw = self.tv.create_pango_layout(k).get_pixel_size()[0]
+                buf.insert_with_tags(end(), k, self.key_tag, self.row_tag)
+                if kw > self.col - 12:          # dato muy largo: el valor va en la línea siguiente
+                    buf.insert_with_tags(end(), "\n", self.row_tag)
+                    buf.insert_with_tags(end(), v, self.long_tag)
+                else:
+                    buf.insert_with_tags(end(), "\t" + v, self.row_tag)
+                if i < len(texts) - 1:
+                    buf.insert(end(), "\n")
+            buf.apply_tag(self.gap_tag, buf.get_start_iter(), buf.get_end_iter())
+
+        def select_all(self):
+            buf = self.tv.get_buffer()
+            buf.select_range(buf.get_start_iter(), buf.get_end_iter())
+
+        def all_selected(self):
+            b = self.tv.get_buffer().get_selection_bounds()
+            return bool(b) and b[0].is_start() and b[1].is_end()
 
     class Window(Gtk.Window):
         def __init__(self):
@@ -5705,6 +5770,11 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             bind("<Control>r", self.reload)
             bind("<Control>e", lambda: self.export_btn.get_sensitive() and self.export_btn.set_active(True))
             bind("<Control>q", self.destroy)
+            self.kv_views, self.page_all = {}, None
+            self.connect("key-press-event", self.on_page_key)
+            # Un texto con ajuste de línea calcula su alto con el ancho que tenía al crearse; si la página
+            # estaba oculta, se queda con hueco de sobra. Al mostrarla se recalcula.
+            self.stack.connect("notify::visible-child", lambda *_a: GLib.idle_add(self.resize_kv))
             bind("F1", self.on_about)
             for i in range(1, 10):
                 bind(f"<Alt>{i}", lambda i=i: self.goto_index(i - 1))
@@ -5963,6 +6033,37 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             self.set_icon_name(name if theme.has_icon(name) else
                                "syscheckup" if theme.has_icon("syscheckup") else "computer")
 
+        def resize_kv(self):
+            for v in self.kv_views.get(self.stack.get_visible_child_name(), []):
+                v.tv.queue_resize()
+            return False
+
+        def on_page_key(self, _w, ev):
+            """Ctrl+A marca todos los datos de la sección; después, Ctrl+C la copia entera como texto,
+            con los datos personales ocultos (igual que Exportar → solo esta sección)."""
+            if not ev.state & Gdk.ModifierType.CONTROL_MASK:
+                return False
+            if isinstance(self.get_focus(), (Gtk.Entry, Gtk.TreeView)):
+                return False
+            sid = self.stack.get_visible_child_name()
+            views = self.kv_views.get(sid, [])
+            if ev.keyval in (Gdk.KEY_a, Gdk.KEY_A):
+                for v in views:
+                    v.select_all()
+                self.page_all = sid
+                return True
+            if ev.keyval in (Gdk.KEY_c, Gdk.KEY_C, Gdk.KEY_Insert) and self.page_all == sid \
+                    and all(v.all_selected() for v in views):
+                sec = next((x for x in self.sections if x["id"] == sid), None)
+                if sec:
+                    Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD).set_text(to_text([sec], True, header=False), -1)
+                    self.notify(_("Sección «{s}» copiada al portapapeles.").format(s=_(sec["title"])) + " " +
+                                _("Los datos personales están ocultos.") + " " + _("Pégalo con Ctrl+V."))
+                return True
+            if ev.keyval in (Gdk.KEY_c, Gdk.KEY_C):
+                self.page_all = None
+            return False
+
         def view(self, s):
             """La sección tal como se ve en la ventana: sin los avisos que el usuario ha ocultado.
             Los informes exportados llevan siempre todos."""
@@ -6011,6 +6112,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
         def build_page(self, s):
             s = self.view(s)
             self._building = s["id"]
+            self.kv_views[s["id"]] = []
             page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
             page.set_border_width(32)
             page.set_margin_top(22)
@@ -6139,24 +6241,9 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
             return self.card(box), len(b["rows"])
 
         def w_kv(self, b):
-            grid = Gtk.Grid(column_spacing=28, row_spacing=10)
-            grid.set_border_width(18)
-            labels = []
-            for i, (k, v) in enumerate(b["rows"]):
-                kbox = Gtk.Box(spacing=6, valign=Gtk.Align.START)
-                kl = label(k, "mm-key", selectable=True)
-                kl.set_line_wrap(True)
-                kl.set_max_width_chars(30)
-                kbox.pack_start(kl, False, False, 0)
-                kbox.set_size_request(240, -1)
-                vl = label(show(v, self.anon), "mm-val", wrap=True, selectable=True)
-                vl.set_max_width_chars(80)
-                vl.set_hexpand(True)
-                vl.set_yalign(0)
-                grid.attach(kbox, 0, i, 1, 1)
-                grid.attach(vl, 1, i, 1, 1)
-                labels.append(vl)
-            return self.card(grid), labels
+            view = KvView(b["rows"], self.anon)
+            self.kv_views.setdefault(self._building, []).append(view)
+            return self.card(view.tv), view
 
         def w_bars(self, b):
             grid = Gtk.Grid(column_spacing=18, row_spacing=12)
@@ -6790,10 +6877,7 @@ def run_gui(anon=False, screenshot=None, start=None, delay=3500):
                 return True
             for (t, r), b in zip(refs, new["blocks"]):
                 if t == "kv":
-                    for lab, (_k, v) in zip(r, b["rows"]):
-                        txt = show(v, self.anon)
-                        if lab.get_text() != txt and not lab.get_selection_bounds():
-                            lab.set_text(txt)
+                    r.update(b["rows"], self.anon)
                 elif t == "bars":
                     for (bar, tl), (_l, frac, text) in zip(r, b["rows"]):
                         bar.set_fraction(frac)

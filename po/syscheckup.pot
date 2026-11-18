@@ -4634,3 +4634,6 @@ msgstr ""
 
 msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
 msgstr ""
+
+msgid "Sección «{s}» copiada al portapapeles."
+msgstr ""

@@ -37,6 +37,11 @@
   </categories>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.8.1" date="2026-11-18">
+      <description>
+        <p>Se pueden marcar varias filas seguidas de una tarjeta, o toda la sección con Ctrl+A, y copiarlas con Ctrl+C.</p>
+      </description>
+    </release>
     <release version="0.8.0" date="2026-11-16">
       <description>
         <p>Textos y tablas que se pueden marcar y copiar, avisos del Diagnóstico que se pueden ocultar, SAI (UPS) en Batería y energía, actualizaciones por fases aparte, botones de la ventana visibles con el tema Breeze e icono de la ventana personalizable.</p>

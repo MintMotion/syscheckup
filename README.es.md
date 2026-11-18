@@ -143,7 +143,7 @@ Un solo botón, **Exportar**, con todas las opciones:
 
 Los informes incluyen siempre todo, también lo que en la ventana está plegado en «Detalles técnicos».
 
-Si solo quieres un dato, puedes marcar cualquier texto de la ventana con el ratón (o con doble clic) y copiarlo con Ctrl+C. En las tablas se marcan filas enteras (con Mayús o Ctrl, varias) y Ctrl+C las copia separadas por tabuladores, listas para pegar en una hoja de cálculo.
+Si solo quieres unos datos, márcalos con el ratón y cópialos con Ctrl+C: dentro de cada tarjeta se pueden marcar varias filas seguidas, o la tarjeta entera. Con **Ctrl+A** se marca la sección completa y **Ctrl+C** la copia como texto, con los datos personales ocultos (igual que Exportar → solo esa sección). En las tablas se marcan filas enteras (con Mayús o Ctrl, varias) y Ctrl+C las copia separadas por tabuladores, listas para pegar en una hoja de cálculo.
 
 ## Botones y atajos
 
@@ -241,7 +241,7 @@ Desde la terminal hace lo mismo: `sudo apt purge syscheckup` y después `rm -rf 
 Descarga el `.deb` y, desde la carpeta donde lo hayas guardado:
 
 ```
-sudo apt install ./syscheckup_0.8.0_all.deb
+sudo apt install ./syscheckup_0.8.1_all.deb
 ```
 
 `apt` instala las dependencias que falten. Después lo tienes en el menú con el nombre SysCheckup. Si tenías una versión anterior, este paquete la actualiza; si tenías una de las versiones de prueba que se llamaban MintMachine, o la primera, que se llamaba Radiografía, la sustituye. La configuración y el historial de MintMachine se trasladan solos a la carpeta nueva.
@@ -332,7 +332,7 @@ Si falta alguna utilidad, la sección correspondiente sale más corta y el resto
 
 ## Estado del proyecto
 
-Versión 0.8.0. Conviene saber cómo se ha probado.
+Versión 0.8.1. Conviene saber cómo se ha probado.
 
 El código se ha ejecutado en una máquina virtual con Ubuntu 24.04, en un contenedor con los paquetes de LMDE 7 y contra un portátil simulado: un `/sys` falso con placa, batería, sensores, ventiladores con PWM y curva, monitor, Wi-Fi y USB, más versiones de pega de `lspci`, `lsblk`, `udisksctl`, `gdbus`, `fwupdmgr`, `apt-cache` y compañía. Con eso se han comprobado todos los analizadores, las gráficas con carga real de CPU y disco, el refresco en vivo, la búsqueda, los botones, la ocultación de datos personales y los cinco formatos de exportación.
 

@@ -3341,3 +3341,6 @@ msgstr "隐藏此提示"
 
 msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
 msgstr "不再在此处和首页显示。如果问题有变化，会再次出现。导出的报告仍会包含它。"
+
+msgid "Sección «{s}» copiada al portapapeles."
+msgstr "已将「{s}」部分复制到剪贴板。"

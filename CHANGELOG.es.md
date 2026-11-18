@@ -2,6 +2,10 @@
 
 [English version](CHANGELOG.md)
 
+## 0.8.1 (18/11/2026)
+
+- **Copiar varias filas o la sección entera** (lo pidió un usuario en GitHub, incidencia #1): cada tarjeta de datos es ahora un único texto, así que se pueden marcar con el ratón varias filas seguidas, o la tarjeta completa, y copiarlas con Ctrl+C. Con **Ctrl+A** se marca toda la sección y **Ctrl+C** la copia como texto, con los datos personales ocultos.
+
 ## 0.8.0 (16/11/2026)
 
 Cambios a partir de lo que han comentado los usuarios en el foro de Linux Mint:

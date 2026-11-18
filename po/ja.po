@@ -3341,3 +3341,6 @@ msgstr "この警告を非表示"
 
 msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
 msgstr "こことホームに表示しなくなります。問題が変わると再び表示されます。エクスポートするレポートには引き続き含まれます。"
+
+msgid "Sección «{s}» copiada al portapapeles."
+msgstr "セクション「{s}」をクリップボードにコピーしました。"

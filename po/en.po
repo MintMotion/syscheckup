@@ -3341,3 +3341,6 @@ msgstr "Hide this warning"
 
 msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
 msgstr "Stops showing it here and on Home. If the problem changes, it comes back. Reports you export still include it."
+
+msgid "Sección «{s}» copiada al portapapeles."
+msgstr "Section «{s}» copied to the clipboard."

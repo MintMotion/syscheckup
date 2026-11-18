@@ -3341,3 +3341,6 @@ msgstr "Masquer cet avertissement"
 
 msgid "Deja de mostrarlo aquí y en el Inicio. Si el problema cambia, vuelve a salir. Los informes que exportes lo siguen incluyendo."
 msgstr "Ne l'affiche plus ici ni dans l'Accueil. Si le problème change, il réapparaît. Les rapports que vous exportez l'incluent toujours."
+
+msgid "Sección «{s}» copiada al portapapeles."
+msgstr "Section «{s}» copiée dans le presse-papiers."
